@@ -1,4 +1,4 @@
-## Sprint Planning 1 11/5/19
+## Sprint Planning 1    11/5/19
 
 Project summary: Find the perfect play-date for your pet. Swipe left or right, enter your ideal pet date preferences, share pictures, share personality traits, find suggested locations to set up the play date. Bob and Milo can find a third wheel.
 
@@ -10,7 +10,7 @@ What I plan to do:
 
 ### Tammy Lee
 
-What I plan to do:
+What I plan to do: Research most appropriate API to abstract away in-app messaging.
 
 ### Hajra Mobashar
 
