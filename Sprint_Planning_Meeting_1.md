@@ -7,6 +7,9 @@ Link to trello board: https://trello.com/invite/b/rubewu9h/19e96c4ef1baaef9118aa
 ### Elias Heffan
 
 What I plan to do:
+ - Research a Dog api to prefill form from taking pictures
+ - Research how to do Push notifications for when a match occurs
+
 
 ### Tammy Lee
 
