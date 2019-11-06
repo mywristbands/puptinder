@@ -17,7 +17,7 @@ What I plan to do: Research most appropriate API to abstract away in-app messagi
 
 ### Hajra Mobashar
 
-What I plan to do:
+What I plan to do: Research on user login, figure out whether we should use login through facebook/google or use our own
 
 ### Alannah Woodward
 
