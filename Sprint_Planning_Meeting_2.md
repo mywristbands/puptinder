@@ -15,11 +15,11 @@ What I plan to do: Get the google login working.
 
 ### Tammy Lee
 
-What I have done:
+What I have done: Discuss app flow and wireframe with group. Read up on in-app messaging APIs such as Twilio, Socket.IO, Firebase Cloud Messaging. Firebase seems like the best option since we are also using it for storage.
 
-Any roadblocks:
+Any roadblocks: None at the moment.
 
-What I plan to do: Put firebase into our app and maybe work on in-app messaging. 
+What I plan to do: Put firebase into our app and get stand alone in-app messaging to work. 
 
 ### Hajra Mobashar
 
