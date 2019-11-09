@@ -1,0 +1,40 @@
+PODS:
+  - LocationManager (1.0.1):
+    - PromiseKit (~> 3.0)
+  - OMGHTTPURLRQ (3.2.4):
+    - OMGHTTPURLRQ/RQ (= 3.2.4)
+  - OMGHTTPURLRQ/FormURLEncode (3.2.4)
+  - OMGHTTPURLRQ/RQ (3.2.4):
+    - OMGHTTPURLRQ/FormURLEncode
+    - OMGHTTPURLRQ/UserAgent
+  - OMGHTTPURLRQ/UserAgent (3.2.4)
+  - PromiseKit (3.5.3):
+    - PromiseKit/Foundation (= 3.5.3)
+    - PromiseKit/QuartzCore (= 3.5.3)
+    - PromiseKit/UIKit (= 3.5.3)
+  - PromiseKit/CorePromise (3.5.3)
+  - PromiseKit/Foundation (3.5.3):
+    - OMGHTTPURLRQ (~> 3.2.0)
+    - PromiseKit/CorePromise
+  - PromiseKit/QuartzCore (3.5.3):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (3.5.3):
+    - PromiseKit/CorePromise
+
+DEPENDENCIES:
+  - LocationManager
+
+SPEC REPOS:
+  trunk:
+    - LocationManager
+    - OMGHTTPURLRQ
+    - PromiseKit
+
+SPEC CHECKSUMS:
+  LocationManager: 4ce4ab2de5b5bbc74e1647ffb8856f36fe7e0fb4
+  OMGHTTPURLRQ: 9ac96bdf5c90a33f75836630729ea1adc312a9ed
+  PromiseKit: d3393df0dfd7ed208cec0267dce13c66d9c09d0a
+
+PODFILE CHECKSUM: 326494029935571229db1955077bfe1b788c1b94
+
+COCOAPODS: 1.8.3

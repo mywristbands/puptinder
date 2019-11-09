@@ -1,0 +1,4 @@
+${PODS_ROOT}/Target Support Files/Pods-PupTinder/Pods-PupTinder-frameworks.sh
+${BUILT_PRODUCTS_DIR}/LocationManager/LocationManager.framework
+${BUILT_PRODUCTS_DIR}/OMGHTTPURLRQ/OMGHTTPURLRQ.framework
+${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework

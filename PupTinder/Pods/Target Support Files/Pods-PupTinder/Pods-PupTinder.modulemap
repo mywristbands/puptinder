@@ -1,0 +1,6 @@
+framework module Pods_PupTinder {
+  umbrella header "Pods-PupTinder-umbrella.h"
+
+  export *
+  module * { export * }
+}
