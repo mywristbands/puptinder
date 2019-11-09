@@ -23,11 +23,11 @@ What I plan to do: Put firebase into our app and get stand alone in-app messagin
 
 ### Hajra Mobashar
 
-What I have done:
+What I have done: Researched google login options, helped modeling the app flow and UI Design of the app.
 
-Any roadblocks:
+Any roadblocks: None at the moment.
 
-What I plan to do: 
+What I plan to do: Create UI stubs on storyboard for everyone to have a view to work with. These stubs are based off the diagram and flow we drew up on our last meeting. I will be implementing our brand/theme on storyboard now.
 
 ### Alannah Woodward
 
