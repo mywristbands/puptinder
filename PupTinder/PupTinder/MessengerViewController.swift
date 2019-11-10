@@ -8,9 +8,10 @@
 
 import UIKit
 import Firebase
+import FirebaseDatabase
 
 class MessengerViewController: UIViewController {
-
+    var ref: DatabaseReference!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     override func viewDidLoad() {
@@ -24,10 +25,10 @@ class MessengerViewController: UIViewController {
             return
         }
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-          if error != nil {
-              print("Failed to sign up")
-              return
-          }
+            if error != nil {
+                print("Failed to sign up")
+                return
+            }
         }
     }
     
@@ -42,6 +43,10 @@ class MessengerViewController: UIViewController {
                 return
             }
           // If user successfully signs in, get account data from results object that's passed to the callback method
+        }
+        self.ref = Database.database().reference()
+        if let userID = Auth.auth().currentUser?.uid {
+            self.ref.child("users").child(userID).setValue(["username": "username1"])
         }
     }
 }

@@ -26,16 +26,6 @@
 #import "FUIPrivacyAndTermsOfServiceView.h"
 #import "FUIAuthTableViewCell.h"
 #import "FUIAuthTableHeaderView.h"
-#import "FirebaseEmailAuthUI.h"
-#import "FUIConfirmEmailViewController.h"
-#import "FUIEmailAuth.h"
-#import "FUIEmailEntryViewController.h"
-#import "FUIPasswordRecoveryViewController.h"
-#import "FUIPasswordSignInViewController.h"
-#import "FUIPasswordSignUpViewController.h"
-#import "FUIPasswordVerificationViewController.h"
-#import "FirebaseGoogleAuthUI.h"
-#import "FUIGoogleAuth.h"
 
 FOUNDATION_EXPORT double FirebaseUIVersionNumber;
 FOUNDATION_EXPORT const unsigned char FirebaseUIVersionString[];

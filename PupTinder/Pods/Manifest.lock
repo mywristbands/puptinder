@@ -20,6 +20,9 @@ PODS:
     - FirebaseAnalytics (= 6.1.5)
   - Firebase/CoreOnly (6.12.0):
     - FirebaseCore (= 6.3.3)
+  - Firebase/Database (6.12.0):
+    - Firebase/CoreOnly
+    - FirebaseDatabase (~> 6.1.2)
   - Firebase/Firestore (6.12.0):
     - Firebase/CoreOnly
     - FirebaseFirestore (~> 1.7.0)
@@ -51,6 +54,10 @@ PODS:
     - GoogleUtilities/Logger (~> 6.2)
     - nanopb (~> 0.3.901)
   - FirebaseCoreDiagnosticsInterop (1.1.0)
+  - FirebaseDatabase (6.1.2):
+    - FirebaseAuthInterop (~> 1.0)
+    - FirebaseCore (~> 6.0)
+    - leveldb-library (~> 1.22)
   - FirebaseFirestore (1.7.0):
     - FirebaseAuthInterop (~> 1.0)
     - FirebaseCore (~> 6.2)
@@ -73,11 +80,6 @@ PODS:
   - FirebaseUI/Auth (8.3.1):
     - Firebase/Auth (~> 6.0)
     - GoogleUtilities/UserDefaults
-  - FirebaseUI/Email (8.3.1):
-    - FirebaseUI/Auth
-  - FirebaseUI/Google (8.3.1):
-    - FirebaseUI/Auth
-    - GoogleSignIn (~> 5.0)
   - GoogleAppMeasurement (6.1.5):
     - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
     - GoogleUtilities/MethodSwizzler (~> 6.0)
@@ -144,10 +146,9 @@ PODS:
 
 DEPENDENCIES:
   - Firebase/Analytics
+  - Firebase/Database
   - Firebase/Firestore
   - FirebaseUI/Auth
-  - FirebaseUI/Email
-  - FirebaseUI/Google
   - GoogleSignIn
 
 SPEC REPOS:
@@ -161,6 +162,7 @@ SPEC REPOS:
     - FirebaseCore
     - FirebaseCoreDiagnostics
     - FirebaseCoreDiagnosticsInterop
+    - FirebaseDatabase
     - FirebaseFirestore
     - FirebaseInstanceID
     - FirebaseUI
@@ -187,6 +189,7 @@ SPEC CHECKSUMS:
   FirebaseCore: bcd6c112429249d7921e907d661e8955a3549e26
   FirebaseCoreDiagnostics: af29e43048607588c050889d19204f4d7b758c9f
   FirebaseCoreDiagnosticsInterop: e9b1b023157e3a2fc6418b5cb601e79b9af7b3a0
+  FirebaseDatabase: 963515d232ded06f36f6ce830507c94551866170
   FirebaseFirestore: 1c7ed32c09d6b0148034e035d0c07783ca45bac3
   FirebaseInstanceID: ebd2ea79ee38db0cb5f5167b17a0d387e1cc7b6e
   FirebaseUI: 826359d83af7cd76bfe0d43a8aab11eabac65558
@@ -203,6 +206,6 @@ SPEC CHECKSUMS:
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   Protobuf: a4dc852ad69c027ca2166ed287b856697814375b
 
-PODFILE CHECKSUM: 1f94440ff2f1fac61908423f439616152e6b5eab
+PODFILE CHECKSUM: 234bd771d61116036930721fc4bda8ef4c0f062c
 
 COCOAPODS: 1.8.4

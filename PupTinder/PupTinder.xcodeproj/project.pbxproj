@@ -86,8 +86,8 @@
 				77D80D91237784A00043254B /* LaunchScreen.storyboard */,
 				77D80D94237784A00043254B /* Info.plist */,
 				934AAA722377D9600007EBAA /* MessengerViewController.swift */,
-				934AAA742377DE9A0007EBAA /* GoogleService-Info.plist */,
 				934AAA762377F9BA0007EBAA /* Messenger2ViewController.swift */,
+				934AAA742377DE9A0007EBAA /* GoogleService-Info.plist */,
 			);
 			path = PupTinder;
 			sourceTree = "<group>";
