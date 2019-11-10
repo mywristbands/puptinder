@@ -13,6 +13,9 @@
 		77D80D8E2377849B0043254B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77D80D8C2377849B0043254B /* Main.storyboard */; };
 		77D80D90237784A00043254B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77D80D8F237784A00043254B /* Assets.xcassets */; };
 		77D80D93237784A00043254B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77D80D91237784A00043254B /* LaunchScreen.storyboard */; };
+		934AAA732377D9600007EBAA /* MessengerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934AAA722377D9600007EBAA /* MessengerViewController.swift */; };
+		934AAA752377DE9A0007EBAA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 934AAA742377DE9A0007EBAA /* GoogleService-Info.plist */; };
+		934AAA772377F9BA0007EBAA /* Messenger2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934AAA762377F9BA0007EBAA /* Messenger2ViewController.swift */; };
 		B2684C87D843150B5AC9CA80 /* Pods_PupTinder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDC01A5D67AE29030B3ABDF6 /* Pods_PupTinder.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +29,9 @@
 		77D80D92237784A00043254B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		77D80D94237784A00043254B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		894271ABEA1ABECDC1F67133 /* Pods-PupTinder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PupTinder.debug.xcconfig"; path = "Target Support Files/Pods-PupTinder/Pods-PupTinder.debug.xcconfig"; sourceTree = "<group>"; };
+		934AAA722377D9600007EBAA /* MessengerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengerViewController.swift; sourceTree = "<group>"; };
+		934AAA742377DE9A0007EBAA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		934AAA762377F9BA0007EBAA /* Messenger2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messenger2ViewController.swift; sourceTree = "<group>"; };
 		DBB05B25ABBA01051E8925EC /* Pods-PupTinder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PupTinder.release.xcconfig"; path = "Target Support Files/Pods-PupTinder/Pods-PupTinder.release.xcconfig"; sourceTree = "<group>"; };
 		DDC01A5D67AE29030B3ABDF6 /* Pods_PupTinder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PupTinder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -79,6 +85,9 @@
 				77D80D8F237784A00043254B /* Assets.xcassets */,
 				77D80D91237784A00043254B /* LaunchScreen.storyboard */,
 				77D80D94237784A00043254B /* Info.plist */,
+				934AAA722377D9600007EBAA /* MessengerViewController.swift */,
+				934AAA742377DE9A0007EBAA /* GoogleService-Info.plist */,
+				934AAA762377F9BA0007EBAA /* Messenger2ViewController.swift */,
 			);
 			path = PupTinder;
 			sourceTree = "<group>";
@@ -153,6 +162,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				77D80D93237784A00043254B /* LaunchScreen.storyboard in Resources */,
+				934AAA752377DE9A0007EBAA /* GoogleService-Info.plist in Resources */,
 				77D80D90237784A00043254B /* Assets.xcassets in Resources */,
 				77D80D8E2377849B0043254B /* Main.storyboard in Resources */,
 			);
@@ -224,8 +234,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				934AAA732377D9600007EBAA /* MessengerViewController.swift in Sources */,
 				77D80D8B2377849B0043254B /* ViewController.swift in Sources */,
 				77D80D872377849B0043254B /* AppDelegate.swift in Sources */,
+				934AAA772377F9BA0007EBAA /* Messenger2ViewController.swift in Sources */,
 				77D80D892377849B0043254B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -374,6 +386,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5598T8PDZM;
 				INFOPLIST_FILE = PupTinder/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -381,7 +394,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ecs189e.PupTinder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -393,6 +406,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5598T8PDZM;
 				INFOPLIST_FILE = PupTinder/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -400,7 +414,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ecs189e.PupTinder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
