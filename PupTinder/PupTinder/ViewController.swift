@@ -2,8 +2,8 @@
 //  ViewController.swift
 //  PupTinder
 //
-//  Created by Alannah Woodward on 11/8/19.
-//  Copyright © 2019 ECS 189E. All rights reserved.
+//  Created by Hajra Mobashar on 11/9/19.
+//  Copyright © 2019 ecs189e. All rights reserved.
 //
 
 import UIKit
