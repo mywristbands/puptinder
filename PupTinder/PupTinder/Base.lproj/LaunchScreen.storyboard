@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,37 +12,36 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PupTinder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EfD-DE-9jS">
-                                <rect key="frame" x="61.5" y="406" width="291" height="84"/>
+                                <rect key="frame" x="42" y="291.5" width="291" height="84"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="70"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo-tail" translatesAutoresizingMaskIntoConstraints="NO" id="jXb-oG-vex">
-                                <rect key="frame" x="99" y="595" width="216" height="301"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-tail" translatesAutoresizingMaskIntoConstraints="NO" id="CYZ-wK-mQa">
+                                <rect key="frame" x="64" y="517" width="248" height="150"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="216" id="C0k-Z4-IIG"/>
-                                    <constraint firstAttribute="height" constant="301" id="w7T-Kj-UhI"/>
+                                    <constraint firstAttribute="height" constant="150" id="UUJ-9E-cNe"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.52216702699999995" green="0.33815363050000002" blue="0.96868175270000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CYZ-wK-mQa" secondAttribute="trailing" constant="63" id="7Xk-Kd-v1s"/>
                             <constraint firstItem="EfD-DE-9jS" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="HIX-GW-IZA"/>
-                            <constraint firstItem="jXb-oG-vex" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="99" id="NuF-eO-quC"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jXb-oG-vex" secondAttribute="trailing" constant="99" id="V96-eV-vD8"/>
+                            <constraint firstItem="CYZ-wK-mQa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="64" id="Ybt-1N-rJh"/>
                             <constraint firstItem="EfD-DE-9jS" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="c3D-zd-hbZ"/>
-                            <constraint firstAttribute="bottom" secondItem="jXb-oG-vex" secondAttribute="bottom" id="yMA-aQ-DtR"/>
+                            <constraint firstItem="CYZ-wK-mQa" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="dp2-nd-FPI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52.173913043478265" y="375"/>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
     <resources>
