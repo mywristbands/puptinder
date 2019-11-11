@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:ProfileSetupViewController.swift">
+   </FileRef>
+   <FileRef
       location = "group:PupTinder.xcodeproj">
    </FileRef>
    <FileRef
