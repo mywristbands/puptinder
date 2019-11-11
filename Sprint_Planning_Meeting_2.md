@@ -7,7 +7,9 @@ Link to trello board: https://trello.com/invite/b/rubewu9h/19e96c4ef1baaef9118aa
 
 ### Elias Heffan
 
-What I have done: Worked on App flow and Wireframe (linked above).
+What I have done: Worked on App flow and Wireframe (linked above). Researched
+and tested an API that could analyze dog photos to extract the breed. Researched
+how to send push notifications.
 
 Any roadblocks: None at the momemnt.
 
