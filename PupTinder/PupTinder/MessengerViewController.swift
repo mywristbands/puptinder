@@ -32,7 +32,8 @@ class MessengerViewController: UIViewController {
         }
     }
     
-    @IBAction func signinPressed() {
+    @IBAction
+    func signinPressed() {
         guard let email = emailField.text, let password = passwordField.text else {
             return
         }
