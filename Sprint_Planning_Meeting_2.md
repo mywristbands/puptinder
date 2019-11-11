@@ -3,15 +3,17 @@
 Project summary: Find the perfect play-date for your pet. Swipe left or right, enter your ideal pet date preferences, share pictures, share personality traits, find suggested locations to set up the play date. Bob and Milo can find a third wheel.
 
 Link to trello board: https://trello.com/invite/b/rubewu9h/19e96c4ef1baaef9118aab923b503bee/ecs-189e-final-project
+[App flow and Wireframe Link](https://drive.google.com/open?id=14Jl4QUFf4HCzplrTsMw0kmbq-UGNcwXa)
 
 ### Elias Heffan
 
-What I have done:
+What I have done: Worked on App flow and Wireframe (linked above). Researched
+and tested an API that could analyze dog photos to extract the breed. Researched
+how to send push notifications.
 
-Any roadblocks:
+Any roadblocks: None at the momemnt.
 
-What I plan to do: Get the google login working. 
-
+What I plan to do: Implement google login in client and server. 
 
 ### Tammy Lee
 
