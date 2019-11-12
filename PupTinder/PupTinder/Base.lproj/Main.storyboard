@@ -211,28 +211,40 @@
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZKL-Mh-nxk">
                                                 <rect key="frame" x="83" y="495" width="48" height="48"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="48" id="1Vr-T3-Klu"/>
                                                     <constraint firstAttribute="height" constant="48" id="mbr-KM-K0Q"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <state key="normal" backgroundImage="dog-icon"/>
+                                                <connections>
+                                                    <action selector="smallSizePressed:" destination="aum-kk-1xg" eventType="touchUpInside" id="FRv-wX-aNL"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jhr-r5-uxs">
                                                 <rect key="frame" x="152" y="471" width="75" height="75"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="75" id="HzW-C5-krZ"/>
                                                     <constraint firstAttribute="width" constant="75" id="cMK-X0-JsA"/>
                                                 </constraints>
                                                 <state key="normal" backgroundImage="dog-icon"/>
+                                                <connections>
+                                                    <action selector="medSizePressed:" destination="aum-kk-1xg" eventType="touchUpInside" id="Rki-Sa-FBV"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Xm-kq-Gei">
                                                 <rect key="frame" x="236" y="452" width="101" height="96"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="101" id="2dv-jF-v5U"/>
                                                     <constraint firstAttribute="height" constant="96" id="fAp-Ew-C8f"/>
                                                 </constraints>
                                                 <state key="normal" backgroundImage="dog-icon"/>
+                                                <connections>
+                                                    <action selector="largeSizePressed:" destination="aum-kk-1xg" eventType="touchUpInside" id="P7Y-qd-FcM"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -293,6 +305,11 @@
                         <viewLayoutGuide key="safeArea" id="sPk-ck-hB4"/>
                     </view>
                     <size key="freeformSize" width="375" height="1000"/>
+                    <connections>
+                        <outlet property="largeDogIcon" destination="2Xm-kq-Gei" id="7OD-gv-EWf"/>
+                        <outlet property="medDogIcon" destination="jhr-r5-uxs" id="N3a-P9-hSV"/>
+                        <outlet property="smallDogIcon" destination="ZKL-Mh-nxk" id="YOD-hF-Lej"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vfg-Qz-35I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
