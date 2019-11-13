@@ -1,9 +1,9 @@
 # ECS189E-Final-Project
 
-## Trello Board
+### Trello Board
 https://trello.com/invite/b/rubewu9h/19e96c4ef1baaef9118aab923b503bee/ecs-189e-final-project
 
-#### Picture Links
+### Picture Links
 Alannah Woodward: https://www.linkedin.com/in/alannah-woodward-56547a151/  
 @AlannahW98
 
@@ -15,15 +15,15 @@ Hajra Mobashar: https://www.linkedin.com/in/hajra-mobashar-4a4998138/
 
 Elias Heffan: https://www.linkedin.com/in/eliasheffan/  
 @mywristbands  
-#### Github Classroom
+### Github Classroom
 https://github.com/ECS189E/project-f19-puptinder
-#### App Flow Mockup
+### App Flow Mockup
 - (New User) Login -> Sign Up User -> Create profile -> Add profile photo -> Create Profile -> User profile -> Home -> Messages
 - (Old User) Login -> Home -> Messages -> Profile
 
 Note: Indicated in blue are flows whose orders can be switched. 
-#### (PLACEHOLDER FOR APP FLOW PDF)
-#### View Controllers
+### (PLACEHOLDER FOR APP FLOW PDF)
+### View Controllers
 For errors: just have error labels hidden on the screen
 - HomeSignup/LoginView
 - LoginView
@@ -37,11 +37,11 @@ For errors: just have error labels hidden on the screen
 - OtherUserProfileView
 
 Note: Will consider protocols and delegates later
-#### Third Party Libraries
+### Third Party Libraries
 - Firebase, MessageKit (used for messaging UI)
-#### Server Support
+### Server Support
 - Firebase
-#### Our API
+### Our API
 ```
 Class Api {
     login()
@@ -55,7 +55,7 @@ Class Api {
     rejectPotentialMatch()
 }
 ```
-#### Models
+### Models
 ```
 class Profile {
     picture: UIImage
@@ -67,10 +67,10 @@ class Profile {
     characteristics: [String]
 }
 ```
-#### Itinerary
+### Itinerary
 Note: The  number of people assigned to each task is a rough estimate; we’ll change the number of people as we see how fast each task takes.
 
-##### Week 1 (Ends November 20)
+#### Week 1 (Ends November 20)
 - Elias will finish planning prototypes for API functions, including DogAPI stubs.
 - Alannah and Hajra will work on building the views, both the aesthetic part and the ViewController logic. Priority on Login, Signup, ProfileSetup View, and HomeView.
   - As they need information from the database or need to store information in the database, they can call the API function prototypes, even though they won’t do anything yet.
@@ -80,7 +80,7 @@ Note: The  number of people assigned to each task is a rough estimate; we’ll c
   - Have a meeting to figure out how we’ll structure the database, and the high-level rules.
   - Implement the rules and structure of the database.
   - Divide up who will work on each of the API functions, and begin implementing some of them, prioritizing the profile-related functions.
-##### Week 2 (Ends Wednesday, November 27)
+#### Week 2 (Ends Wednesday, November 27)
 - 2 people will finish working on aesthetics and View Controller logic.
 Specifically Messages View set up, and any finishing touches we need.
 - 2 people will work on implementing API functions related to matches and messages.
@@ -89,10 +89,10 @@ Specifically Messages View set up, and any finishing touches we need.
   - 1 person can write survey for testing our app (in addition to another responsibility above) 
   - 1 person can figure out how to use TestFlight
   - 1 person can discuss space storage with mentor/Sam/Gary since it might become a problem.
-##### Week 3 (ends Wednesday, November 4) 
+#### Week 3 (ends Wednesday, November 4) 
 - Finishing touches and fine-tuning flows in the app.
 - Get user feedback on app through survey and testing
-#### Testing Plan
+### Testing Plan
 - Google form survey. Some possible questions we could ask:
   - How easy was it to sign up?
   - How responsive was the app? Was it fast enough?
