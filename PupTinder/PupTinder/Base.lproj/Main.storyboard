@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aum-kk-1xg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
@@ -494,14 +494,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to PupTinder!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KwZ-kS-lxg">
-                                <rect key="frame" x="18" y="36" width="284" height="36"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Welcome to PupTinder!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KwZ-kS-lxg">
+                                <rect key="frame" x="18" y="46" width="284" height="36"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="paw_white" translatesAutoresizingMaskIntoConstraints="NO" id="COs-mg-KJW">
-                                <rect key="frame" x="123" y="90.5" width="75" height="56"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="paw_white" translatesAutoresizingMaskIntoConstraints="NO" id="COs-mg-KJW">
+                                <rect key="frame" x="123" y="93.5" width="75" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="djA-N7-oa9"/>
                                 </constraints>
@@ -514,7 +514,7 @@
                                 </state>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-tail" translatesAutoresizingMaskIntoConstraints="NO" id="ODs-Ba-dIy">
-                                <rect key="frame" x="108.49999999999999" y="468" width="103.00000000000004" height="100"/>
+                                <rect key="frame" x="57" y="468" width="206" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="P3r-Hq-e49"/>
                                 </constraints>
@@ -531,9 +531,22 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qw3-Zg-Oql">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <items>
+                                    <navigationItem title="Sign Up" id="oU7-eO-1ji">
+                                        <barButtonItem key="leftBarButtonItem" title="&lt;" id="nmp-Gd-gaG">
+                                            <connections>
+                                                <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="SY8-1J-e89"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="0.49776917700000001" green="0.43509161470000002" blue="0.98790532350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="qw3-Zg-Oql" firstAttribute="leading" secondItem="Z9o-Jn-8oD" secondAttribute="leading" id="7up-Id-SEW"/>
                             <constraint firstItem="Z9o-Jn-8oD" firstAttribute="trailing" secondItem="seu-Te-i9f" secondAttribute="trailing" constant="50" id="916-mD-mps"/>
                             <constraint firstItem="c0N-bP-aE3" firstAttribute="centerX" secondItem="6PR-M8-VQb" secondAttribute="centerX" id="DjL-PZ-Rpz"/>
                             <constraint firstItem="c0N-bP-aE3" firstAttribute="top" secondItem="gKw-HD-01H" secondAttribute="bottom" constant="24" id="Gdx-ZR-URe"/>
@@ -558,6 +571,8 @@
                             <constraint firstItem="seu-Te-i9f" firstAttribute="leading" secondItem="Z9o-Jn-8oD" secondAttribute="leading" constant="50" id="l8W-eD-H7w"/>
                             <constraint firstItem="Bgi-OZ-IBm" firstAttribute="centerX" secondItem="6PR-M8-VQb" secondAttribute="centerX" id="lUT-xi-fW2"/>
                             <constraint firstItem="gKw-HD-01H" firstAttribute="top" secondItem="COs-mg-KJW" secondAttribute="bottom" constant="14.5" id="pln-kR-NiG"/>
+                            <constraint firstItem="qw3-Zg-Oql" firstAttribute="top" secondItem="Z9o-Jn-8oD" secondAttribute="top" id="prL-tX-Oqt"/>
+                            <constraint firstItem="qw3-Zg-Oql" firstAttribute="trailing" secondItem="Z9o-Jn-8oD" secondAttribute="trailing" id="sGv-aC-fFI"/>
                             <constraint firstItem="Z9o-Jn-8oD" firstAttribute="trailing" secondItem="COs-mg-KJW" secondAttribute="trailing" constant="122" id="tOn-g9-5a1"/>
                             <constraint firstItem="ODs-Ba-dIy" firstAttribute="bottom" secondItem="Z9o-Jn-8oD" secondAttribute="bottom" id="zuj-uD-2uR"/>
                         </constraints>
