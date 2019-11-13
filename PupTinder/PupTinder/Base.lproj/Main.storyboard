@@ -164,7 +164,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.875" y="114.08450704225352"/>
+            <point key="canvasLocation" x="-366" y="310"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="OQe-Fw-zdb">
@@ -389,7 +389,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vfg-Qz-35I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2123.4375" y="341.19718309859155"/>
+            <point key="canvasLocation" x="1452" y="538"/>
         </scene>
         <!--Messenger View Controller-->
         <scene sceneID="yKk-uU-OS0">
@@ -454,7 +454,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kBi-xA-DvJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-364" y="1231"/>
+            <point key="canvasLocation" x="-368" y="1079"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="eGJ-4g-AMl">
@@ -469,7 +469,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TOG-XL-ko7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="544" y="1231"/>
+            <point key="canvasLocation" x="544" y="1079"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="fq8-GV-3kn">
@@ -519,7 +519,7 @@
                                     <constraint firstAttribute="height" constant="100" id="P3r-Hq-e49"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ruh roh! Something went wrong!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zZg-SN-IQt">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ruh roh! Something went wrong!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zZg-SN-IQt">
                                 <rect key="frame" x="35" y="436" width="251" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -585,7 +585,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OFL-Hz-tFd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1087.5" y="111.97183098591549"/>
+            <point key="canvasLocation" x="544" y="310"/>
         </scene>
     </scenes>
     <resources>
