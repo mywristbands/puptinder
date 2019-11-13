@@ -114,11 +114,10 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6oH-Ob-nUZ">
                                 <rect key="frame" x="47" y="351" width="225" height="36"/>
-                                <color key="backgroundColor" red="0.490886867" green="0.37596613169999998" blue="0.93338412049999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.99527865650000003" green="0.84270948170000004" blue="0.3096210063" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Sign Up">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
                                     <segue destination="mxx-6L-8xM" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="Fcg-Bb-AZy"/>
@@ -187,7 +186,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="379" height="951"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KO1-lg-YUf" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="379" height="951"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="379" height="1000"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PupTinder" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZC-eR-yHw">
                                                 <rect key="frame" x="0.0" y="0.0" width="379" height="50"/>
@@ -378,8 +377,8 @@
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="KO1-lg-YUf" secondAttribute="bottom" id="FZf-IV-YnI"/>
-                                    <constraint firstItem="KO1-lg-YUf" firstAttribute="height" secondItem="tBB-z5-r26" secondAttribute="height" priority="250" id="I5U-GH-WdJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="KO1-lg-YUf" secondAttribute="bottom" constant="-49" id="FZf-IV-YnI"/>
+                                    <constraint firstItem="KO1-lg-YUf" firstAttribute="height" secondItem="tBB-z5-r26" secondAttribute="height" priority="250" constant="49" id="I5U-GH-WdJ"/>
                                     <constraint firstItem="KO1-lg-YUf" firstAttribute="width" secondItem="tBB-z5-r26" secondAttribute="width" id="KTr-QC-kia"/>
                                     <constraint firstItem="KO1-lg-YUf" firstAttribute="leading" secondItem="tBB-z5-r26" secondAttribute="leading" id="QIv-bT-7du"/>
                                     <constraint firstItem="KO1-lg-YUf" firstAttribute="top" secondItem="tBB-z5-r26" secondAttribute="top" id="acv-ed-lDt"/>
@@ -398,7 +397,7 @@
                             <constraint firstItem="tBB-z5-r26" firstAttribute="top" secondItem="sPk-ck-hB4" secondAttribute="top" id="hxd-M2-LzP"/>
                             <constraint firstItem="tBB-z5-r26" firstAttribute="leading" secondItem="sPk-ck-hB4" secondAttribute="leading" id="hyl-l3-zJn"/>
                             <constraint firstItem="KO1-lg-YUf" firstAttribute="trailing" secondItem="sPk-ck-hB4" secondAttribute="trailing" constant="4" id="itJ-kf-E4O"/>
-                            <constraint firstItem="sPk-ck-hB4" firstAttribute="bottom" secondItem="KO1-lg-YUf" secondAttribute="bottom" id="oQD-8z-0eq"/>
+                            <constraint firstItem="sPk-ck-hB4" firstAttribute="bottom" secondItem="KO1-lg-YUf" secondAttribute="bottom" constant="-49" id="oQD-8z-0eq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sPk-ck-hB4"/>
                     </view>
@@ -417,6 +416,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vfg-Qz-35I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1467.1875" y="537.67605633802816"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="1at-EP-Kxm">
+            <objects>
+                <viewController storyboardIdentifier="userProfileView" id="SB7-Cq-bex" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fa9-An-KDH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="2ht-bt-qHY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FhU-AW-kBt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2364" y="310"/>
         </scene>
         <!--Messenger View Controller-->
         <scene sceneID="yKk-uU-OS0">
