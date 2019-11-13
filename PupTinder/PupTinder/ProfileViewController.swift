@@ -14,6 +14,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var largeDogIcon: UIButton!
     
     var dogSize : String = ""
+    let swiftColor = UIColor(red: 130, green: 94, blue: 246, alpha: 1)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,13 +23,13 @@ class ProfileViewController: UIViewController {
     
     @IBAction func smallSizePressed(_ sender: Any) {
         if smallDogIcon.backgroundColor == UIColor.white {
-            if medDogIcon.backgroundColor == UIColor.black {
+            if medDogIcon.backgroundColor == swiftColor {
                 medDogIcon.backgroundColor = UIColor.white
-            } else if largeDogIcon.backgroundColor == UIColor.black {
+            } else if largeDogIcon.backgroundColor == swiftColor {
                 largeDogIcon.backgroundColor = UIColor.white
             }
             
-            smallDogIcon.backgroundColor = UIColor.black
+            smallDogIcon.backgroundColor = swiftColor
             self.dogSize = "small"
         } else { //unselect the dog
             smallDogIcon.backgroundColor = UIColor.white
@@ -38,13 +39,13 @@ class ProfileViewController: UIViewController {
     
     @IBAction func medSizePressed(_ sender: Any) {
         if medDogIcon.backgroundColor == UIColor.white {
-            if smallDogIcon.backgroundColor == UIColor.black {
+            if smallDogIcon.backgroundColor == swiftColor {
                 smallDogIcon.backgroundColor = UIColor.white
-            } else if largeDogIcon.backgroundColor == UIColor.black {
+            } else if largeDogIcon.backgroundColor == swiftColor {
                 largeDogIcon.backgroundColor = UIColor.white
             }
             
-            medDogIcon.backgroundColor = UIColor.black
+            medDogIcon.backgroundColor = swiftColor
             self.dogSize = "medium"
         } else { //unselect the dog
             medDogIcon.backgroundColor = UIColor.white
@@ -54,13 +55,13 @@ class ProfileViewController: UIViewController {
     
     @IBAction func largeSizePressed(_ sender: Any) {
         if largeDogIcon.backgroundColor == UIColor.white {
-            if smallDogIcon.backgroundColor == UIColor.black {
+            if smallDogIcon.backgroundColor == swiftColor {
                 smallDogIcon.backgroundColor = UIColor.white
-            } else if medDogIcon.backgroundColor == UIColor.black {
+            } else if medDogIcon.backgroundColor == swiftColor {
                 medDogIcon.backgroundColor = UIColor.white
             }
             
-            largeDogIcon.backgroundColor = UIColor.black
+            largeDogIcon.backgroundColor = swiftColor
             self.dogSize = "large"
         } else { //unselect the dog
             largeDogIcon.backgroundColor = UIColor.white
@@ -68,14 +69,4 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
