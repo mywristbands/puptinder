@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aum-kk-1xg">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
@@ -292,13 +292,31 @@
                                                 <color key="textColor" red="0.49776917700000001" green="0.43509161470000002" blue="0.98790532350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rsO-s8-zyF">
+                                                <rect key="frame" x="43" y="673" width="293" height="161"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MaV-Fe-Xwj">
+                                                <rect key="frame" x="165" y="942" width="42" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="WwX-lK-e2b" firstAttribute="leading" secondItem="KO1-lg-YUf" secondAttribute="leading" constant="43" id="0JZ-Iz-RKb"/>
+                                            <constraint firstItem="MaV-Fe-Xwj" firstAttribute="leading" secondItem="KO1-lg-YUf" secondAttribute="leading" constant="165" id="0uG-ze-QYn"/>
                                             <constraint firstItem="WwX-lK-e2b" firstAttribute="top" secondItem="Fim-5y-KMJ" secondAttribute="bottom" constant="9" id="1Q0-3T-53K"/>
                                             <constraint firstItem="Rs1-KN-177" firstAttribute="top" secondItem="aMj-pN-YbQ" secondAttribute="bottom" constant="111.5" id="25e-3r-sVB"/>
+                                            <constraint firstItem="rsO-s8-zyF" firstAttribute="centerX" secondItem="KO1-lg-YUf" secondAttribute="centerX" id="33V-Eq-f5h"/>
                                             <constraint firstItem="2Xm-kq-Gei" firstAttribute="leading" secondItem="jhr-r5-uxs" secondAttribute="trailing" constant="9" id="6YY-yU-i7L"/>
+                                            <constraint firstAttribute="trailing" secondItem="MaV-Fe-Xwj" secondAttribute="trailing" constant="172" id="DCY-e2-yyC"/>
+                                            <constraint firstItem="rsO-s8-zyF" firstAttribute="top" secondItem="Rs1-KN-177" secondAttribute="bottom" constant="13.5" id="GKi-pH-yJ3"/>
                                             <constraint firstItem="Fim-5y-KMJ" firstAttribute="top" secondItem="eHO-qD-re8" secondAttribute="bottom" constant="8" id="Gtu-Uo-IVV"/>
                                             <constraint firstItem="eHO-qD-re8" firstAttribute="top" secondItem="PZC-eR-yHw" secondAttribute="bottom" constant="33" id="HDv-pq-Mmf"/>
                                             <constraint firstItem="aMj-pN-YbQ" firstAttribute="top" secondItem="2Xm-kq-Gei" secondAttribute="bottom" constant="3" id="HPd-WZ-wpE"/>
@@ -312,21 +330,26 @@
                                             <constraint firstItem="eHO-qD-re8" firstAttribute="leading" secondItem="KO1-lg-YUf" secondAttribute="leading" constant="103" id="TNo-zc-rjS"/>
                                             <constraint firstItem="jhr-r5-uxs" firstAttribute="leading" secondItem="ZKL-Mh-nxk" secondAttribute="trailing" constant="21" id="X9m-t2-Bzd"/>
                                             <constraint firstItem="aMj-pN-YbQ" firstAttribute="centerX" secondItem="KO1-lg-YUf" secondAttribute="centerX" id="Z2x-2Q-hdC"/>
+                                            <constraint firstAttribute="bottom" secondItem="rsO-s8-zyF" secondAttribute="bottom" constant="166" id="ZBG-Ka-uuG"/>
+                                            <constraint firstAttribute="bottom" secondItem="MaV-Fe-Xwj" secondAttribute="bottom" constant="37" id="ZXz-2b-ZYR"/>
                                             <constraint firstItem="PZC-eR-yHw" firstAttribute="leading" secondItem="KO1-lg-YUf" secondAttribute="leading" id="cHw-o1-fLE"/>
                                             <constraint firstItem="PZC-eR-yHw" firstAttribute="leading" secondItem="KO1-lg-YUf" secondAttribute="leading" id="ck6-yd-Osh"/>
                                             <constraint firstItem="2Xm-kq-Gei" firstAttribute="top" secondItem="DYB-8u-A7g" secondAttribute="bottom" constant="8" id="dI1-kz-hfI"/>
+                                            <constraint firstItem="MaV-Fe-Xwj" firstAttribute="top" secondItem="rsO-s8-zyF" secondAttribute="bottom" constant="108" id="ftK-Nk-1xC"/>
                                             <constraint firstItem="jhr-r5-uxs" firstAttribute="top" secondItem="DYB-8u-A7g" secondAttribute="bottom" constant="27" id="gsf-KI-pDq"/>
                                             <constraint firstAttribute="trailing" secondItem="PZC-eR-yHw" secondAttribute="trailing" id="icu-8v-tiX"/>
                                             <constraint firstItem="DYB-8u-A7g" firstAttribute="top" secondItem="WwX-lK-e2b" secondAttribute="bottom" constant="11" id="ipz-S3-f3h"/>
                                             <constraint firstItem="aMj-pN-YbQ" firstAttribute="top" secondItem="jhr-r5-uxs" secondAttribute="bottom" constant="5" id="jlz-Bf-bR5"/>
                                             <constraint firstItem="OFx-hj-yHl" firstAttribute="centerX" secondItem="KO1-lg-YUf" secondAttribute="centerX" id="kX7-oU-MEE"/>
                                             <constraint firstItem="ZKL-Mh-nxk" firstAttribute="top" secondItem="DYB-8u-A7g" secondAttribute="bottom" constant="51" id="n4o-uk-Itg"/>
+                                            <constraint firstItem="rsO-s8-zyF" firstAttribute="leading" secondItem="KO1-lg-YUf" secondAttribute="leading" constant="43" id="nMH-Du-ibr"/>
                                             <constraint firstItem="Rs1-KN-177" firstAttribute="centerX" secondItem="KO1-lg-YUf" secondAttribute="centerX" id="nvJ-CV-b6A"/>
                                             <constraint firstItem="jhr-r5-uxs" firstAttribute="centerX" secondItem="KO1-lg-YUf" secondAttribute="centerX" constant="-20" id="od4-gv-DDz"/>
                                             <constraint firstItem="PZC-eR-yHw" firstAttribute="top" secondItem="KO1-lg-YUf" secondAttribute="top" id="qTL-b1-liY"/>
                                             <constraint firstItem="OFx-hj-yHl" firstAttribute="top" secondItem="aMj-pN-YbQ" secondAttribute="bottom" constant="7.5" id="sFD-jj-4En"/>
                                             <constraint firstAttribute="trailing" secondItem="WwX-lK-e2b" secondAttribute="trailing" constant="43" id="vkc-ar-WqG"/>
                                             <constraint firstAttribute="trailing" secondItem="PZC-eR-yHw" secondAttribute="trailing" id="vxC-pV-2FO"/>
+                                            <constraint firstAttribute="trailing" secondItem="rsO-s8-zyF" secondAttribute="trailing" constant="43" id="xP1-dq-Kt7"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -347,6 +370,7 @@
                             <constraint firstItem="KO1-lg-YUf" firstAttribute="top" secondItem="sPk-ck-hB4" secondAttribute="top" id="EYR-YR-Z4D"/>
                             <constraint firstItem="KO1-lg-YUf" firstAttribute="leading" secondItem="sPk-ck-hB4" secondAttribute="leading" id="MWH-cp-a8w"/>
                             <constraint firstItem="sPk-ck-hB4" firstAttribute="bottom" secondItem="tBB-z5-r26" secondAttribute="bottom" id="PYW-Pd-Fb3"/>
+                            <constraint firstItem="tBB-z5-r26" firstAttribute="trailing" secondItem="sPk-ck-hB4" secondAttribute="trailing" constant="4" id="Too-Ar-mah"/>
                             <constraint firstItem="tBB-z5-r26" firstAttribute="top" secondItem="sPk-ck-hB4" secondAttribute="top" id="hxd-M2-LzP"/>
                             <constraint firstItem="tBB-z5-r26" firstAttribute="leading" secondItem="sPk-ck-hB4" secondAttribute="leading" id="hyl-l3-zJn"/>
                             <constraint firstItem="KO1-lg-YUf" firstAttribute="trailing" secondItem="sPk-ck-hB4" secondAttribute="trailing" constant="4" id="itJ-kf-E4O"/>
@@ -365,7 +389,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vfg-Qz-35I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2125" y="342"/>
+            <point key="canvasLocation" x="2123.4375" y="341.19718309859155"/>
         </scene>
         <!--Messenger View Controller-->
         <scene sceneID="yKk-uU-OS0">
