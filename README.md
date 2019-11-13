@@ -36,7 +36,9 @@ For errors: just have error labels hidden on the screen
 - ConversationView (Likely to be taken care of by MessageKit)
 - OtherUserProfileView
 
-Note: Will consider protocols and delegates later
+### Protocols and Delegates
+- MessageKit provides the `MessagesDisplayDelegate`, `MessagesLayoutDelegate`, and `MessagesDataSource` protocols which we will override the default implementations of 
+Note: Will consider more protocols and delegates later
 ### Third Party Libraries
 - Firebase, MessageKit (used for messaging UI)
 ### Server Support
