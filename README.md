@@ -19,13 +19,13 @@ Elias Heffan: https://www.linkedin.com/in/eliasheffan/
 https://github.com/ECS189E/project-f19-puptinder
 ### App Flow Mockup
 - (New User) Login -> Sign Up User -> Create profile -> Add profile photo -> Create Profile -> User profile -> Home -> Messages
-- (Old User) Login -> Home -> Messages -> Profile
+- (Old User) Login -> Home -> Messages
 
-Note: Indicated in blue are flows whose orders can be switched. 
-### (PLACEHOLDER FOR APP FLOW PDF)
+### View Controller Wireframes Flow
+https://drive.google.com/open?id=14Jl4QUFf4HCzplrTsMw0kmbq-UGNcwXa
+
 ### View Controllers
 For errors: just have error labels hidden on the screen
-- HomeSignup/LoginView
 - LoginView
 - SignupView
 - ProfileSetupView
@@ -33,7 +33,7 @@ For errors: just have error labels hidden on the screen
 - ProfileView
 - ProfileEditView
 - MatchesView 
-- MessageConversationView (Likely to be taken care of by MessageKit)
+- ConversationView (Likely to be taken care of by MessageKit)
 - OtherUserProfileView
 
 Note: Will consider protocols and delegates later
@@ -41,7 +41,7 @@ Note: Will consider protocols and delegates later
 - Firebase, MessageKit (used for messaging UI)
 ### Server Support
 - Firebase
-### Our API
+### Our API (in progress)
 ```
 Class Api {
     login()
@@ -70,7 +70,7 @@ class Profile {
 ### Itinerary
 Note: The  number of people assigned to each task is a rough estimate; we’ll change the number of people as we see how fast each task takes.
 
-#### Week 1 (Ends November 20)
+#### Week 1 (Ends Wednesday, November 20)
 - Elias will finish planning prototypes for API functions, including DogAPI stubs.
 - Alannah and Hajra will work on building the views, both the aesthetic part and the ViewController logic. Priority on Login, Signup, ProfileSetup View, and HomeView.
   - As they need information from the database or need to store information in the database, they can call the API function prototypes, even though they won’t do anything yet.
@@ -89,7 +89,7 @@ Specifically Messages View set up, and any finishing touches we need.
   - 1 person can write survey for testing our app (in addition to another responsibility above) 
   - 1 person can figure out how to use TestFlight
   - 1 person can discuss space storage with mentor/Sam/Gary since it might become a problem.
-#### Week 3 (ends Wednesday, November 4) 
+#### Week 3 (Ends Wednesday, November 4) 
 - Finishing touches and fine-tuning flows in the app.
 - Get user feedback on app through survey and testing
 ### Testing Plan
