@@ -89,10 +89,25 @@ class ProfileViewController: UIViewController {
     
     @IBAction func femaleButtonPressed(_ sender: Any) {
         if femaleButton.backgroundColor == UIColor.white {
+            if maleButton.backgroundColor == swiftColor {
+                maleButton.backgroundColor = UIColor.white
+            }
+            
             femaleButton.backgroundColor = swiftColor
+        } else {
+            femaleButton.backgroundColor = UIColor.white
         }
     }
     
     @IBAction func maleButtonPressed(_ sender: Any) {
+        if maleButton.backgroundColor == UIColor.white {
+            if femaleButton.backgroundColor == swiftColor {
+                femaleButton.backgroundColor = UIColor.white
+            }
+            
+            maleButton.backgroundColor = swiftColor
+        } else {
+            maleButton.backgroundColor = UIColor.white
+        }
     }
 }
