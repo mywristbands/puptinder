@@ -30,8 +30,15 @@ class ProfileViewController: UIViewController {
         
         userProfilePhoto.layer.masksToBounds = true;
         userProfilePhoto.layer.cornerRadius = userProfilePhoto.frame.width/2;
-        userProfilePhoto.layer.borderWidth = 0;
     }
+    
+    @IBAction func logoutButton(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let loginVC = storyboard.instantiateViewController(identifier: "loginViewController") as! ViewController
+        loginVC.modalPresentationStyle = .fullScreen
+        self.present(loginVC, animated: true, completion: nil)
+    }
+    
     
     @IBAction func smallSizePressed(_ sender: Any) {
         if smallDogIcon.backgroundColor == UIColor.white {
