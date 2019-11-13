@@ -190,7 +190,7 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-user-default-1" translatesAutoresizingMaskIntoConstraints="NO" id="eHO-qD-re8">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-user-default-1" translatesAutoresizingMaskIntoConstraints="NO" id="eHO-qD-re8">
                                                 <rect key="frame" x="103" y="83" width="180" height="180"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="180" id="0y6-ap-MFc"/>
@@ -292,13 +292,35 @@
                                                 <color key="textColor" red="0.490886867" green="0.37596613169999998" blue="0.93338412049999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hC4-74-Ang">
+                                                <rect key="frame" x="43" y="707" width="293" height="100"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="293" id="8rA-Rm-zgY"/>
+                                                    <constraint firstAttribute="height" constant="100" id="qcz-BE-KXr"/>
+                                                </constraints>
+                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter a profile description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W54-0u-8uR">
+                                                <rect key="frame" x="43" y="822" width="293" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.490886867" green="0.37596613169999998" blue="0.93338412049999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="WwX-lK-e2b" firstAttribute="leading" secondItem="KO1-lg-YUf" secondAttribute="leading" constant="43" id="0JZ-Iz-RKb"/>
                                             <constraint firstItem="WwX-lK-e2b" firstAttribute="top" secondItem="Fim-5y-KMJ" secondAttribute="bottom" constant="17" id="1Q0-3T-53K"/>
                                             <constraint firstItem="Fim-5y-KMJ" firstAttribute="top" secondItem="eHO-qD-re8" secondAttribute="bottom" constant="16" id="2hx-GA-e05"/>
+                                            <constraint firstItem="W54-0u-8uR" firstAttribute="leading" secondItem="KO1-lg-YUf" secondAttribute="leading" constant="43" id="3Rj-tR-aF2"/>
                                             <constraint firstItem="2Xm-kq-Gei" firstAttribute="leading" secondItem="jhr-r5-uxs" secondAttribute="trailing" constant="9" id="6YY-yU-i7L"/>
+                                            <constraint firstItem="hC4-74-Ang" firstAttribute="top" secondItem="Rs1-KN-177" secondAttribute="bottom" constant="9" id="9NQ-3E-THq"/>
+                                            <constraint firstItem="hC4-74-Ang" firstAttribute="leading" secondItem="KO1-lg-YUf" secondAttribute="leading" constant="43" id="EcE-r6-Vfb"/>
+                                            <constraint firstAttribute="trailing" secondItem="W54-0u-8uR" secondAttribute="trailing" constant="43" id="Guo-40-IFh"/>
                                             <constraint firstItem="eHO-qD-re8" firstAttribute="top" secondItem="PZC-eR-yHw" secondAttribute="bottom" constant="33" id="HDv-pq-Mmf"/>
                                             <constraint firstItem="aMj-pN-YbQ" firstAttribute="top" secondItem="2Xm-kq-Gei" secondAttribute="bottom" constant="12" id="HPd-WZ-wpE"/>
                                             <constraint firstAttribute="trailing" secondItem="Rs1-KN-177" secondAttribute="trailing" constant="43" id="JEy-dv-Q8e"/>
@@ -331,6 +353,8 @@
                                             <constraint firstItem="Rs1-KN-177" firstAttribute="top" secondItem="OFx-hj-yHl" secondAttribute="bottom" constant="9" id="spy-o3-U9n"/>
                                             <constraint firstAttribute="trailing" secondItem="WwX-lK-e2b" secondAttribute="trailing" constant="43" id="vkc-ar-WqG"/>
                                             <constraint firstAttribute="trailing" secondItem="PZC-eR-yHw" secondAttribute="trailing" id="vxC-pV-2FO"/>
+                                            <constraint firstAttribute="trailing" secondItem="hC4-74-Ang" secondAttribute="trailing" constant="43" id="wmh-ZI-5tw"/>
+                                            <constraint firstItem="W54-0u-8uR" firstAttribute="top" secondItem="hC4-74-Ang" secondAttribute="bottom" constant="15" id="yEl-oq-XZi"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -366,6 +390,7 @@
                         <outlet property="maleButton" destination="oWV-vy-4fK" id="rmb-9L-CZC"/>
                         <outlet property="medDogIcon" destination="jhr-r5-uxs" id="N3a-P9-hSV"/>
                         <outlet property="smallDogIcon" destination="ZKL-Mh-nxk" id="YOD-hF-Lej"/>
+                        <outlet property="userProfilePhoto" destination="eHO-qD-re8" id="Sid-Kh-98S"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vfg-Qz-35I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -578,6 +603,6 @@
         <image name="paw_white" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="SY8-1J-e89"/>
+        <segue reference="Fcg-Bb-AZy"/>
     </inferredMetricsTieBreakers>
 </document>

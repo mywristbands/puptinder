@@ -14,6 +14,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var largeDogIcon: UIButton!
     @IBOutlet weak var femaleButton: UIButton!
     @IBOutlet weak var maleButton: UIButton!
+    @IBOutlet weak var userProfilePhoto: UIImageView!
     
     var dogSize : String = ""
     let swiftColor = UIColor(red: 130/256, green: 94/256, blue: 246/256, alpha: 1)
@@ -21,22 +22,15 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        /*smallDogIcon.layer.masksToBounds = true
-        smallDogIcon.layer.cornerRadius = smallDogIcon.frame.width/1.5
-        
-        medDogIcon.layer.masksToBounds = true
-        medDogIcon.layer.cornerRadius = medDogIcon.frame.width/1.5
-        
-        largeDogIcon.layer.masksToBounds = true
-        largeDogIcon.layer.cornerRadius = largeDogIcon.frame.width/1.5*/
-        
-        
         femaleButton.layer.masksToBounds = true
         femaleButton.layer.cornerRadius = femaleButton.frame.width/2
         
         maleButton.layer.masksToBounds = true
         maleButton.layer.cornerRadius = maleButton.frame.width/2
-
+        
+        userProfilePhoto.layer.masksToBounds = true;
+        userProfilePhoto.layer.cornerRadius = userProfilePhoto.frame.width/2;
+        userProfilePhoto.layer.borderWidth = 0;
     }
     
     @IBAction func smallSizePressed(_ sender: Any) {
