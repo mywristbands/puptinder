@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aum-kk-1xg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aum-kk-1xg">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -159,18 +159,18 @@
         <scene sceneID="OQe-Fw-zdb">
             <objects>
                 <viewController id="aum-kk-1xg" customClass="ProfileViewController" customModule="PupTinder" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="Yeq-qN-SY6">
+                    <view key="view" contentMode="scaleToFill" id="Yeq-qN-SY6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tBB-z5-r26">
-                                <rect key="frame" x="0.0" y="0.0" width="386" height="1000"/>
+                                <rect key="frame" x="0.0" y="0.0" width="379" height="1000"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KO1-lg-YUf" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="386" height="1000"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="379" height="1000"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PupTinder" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZC-eR-yHw">
-                                                <rect key="frame" x="0.0" y="0.0" width="386" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="379" height="50"/>
                                                 <color key="backgroundColor" red="0.52216702699999995" green="0.33815363050000002" blue="0.96868175270000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="PbZ-2t-Jfb"/>
@@ -187,30 +187,30 @@
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fim-5y-KMJ">
-                                                <rect key="frame" x="142" y="271" width="102" height="40"/>
+                                                <rect key="frame" x="138.5" y="271" width="102" height="40"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                                 <state key="normal" title="Edit Photo">
                                                     <color key="titleColor" red="0.52216702699999995" green="0.33815363050000002" blue="0.96868175270000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Dog's Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WwX-lK-e2b">
-                                                <rect key="frame" x="43" y="320" width="300" height="34"/>
+                                                <rect key="frame" x="43" y="320" width="293" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Dog Breed" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DYB-8u-A7g">
-                                                <rect key="frame" x="43" y="365" width="300" height="34"/>
+                                                <rect key="frame" x="43" y="365" width="293" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select the size of your dog" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aMj-pN-YbQ">
-                                                <rect key="frame" x="85.5" y="506" width="215.5" height="21.5"/>
+                                                <rect key="frame" x="82" y="506" width="215.5" height="21.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="textColor" red="0.52216702699999995" green="0.33815363050000002" blue="0.96868175270000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZKL-Mh-nxk">
-                                                <rect key="frame" x="66.5" y="450" width="48" height="48"/>
+                                                <rect key="frame" x="63" y="450" width="48" height="48"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="48" id="1Vr-T3-Klu"/>
@@ -223,7 +223,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jhr-r5-uxs">
-                                                <rect key="frame" x="135.5" y="426" width="75" height="75"/>
+                                                <rect key="frame" x="132" y="426" width="75" height="75"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="75" id="HzW-C5-krZ"/>
@@ -235,7 +235,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Xm-kq-Gei">
-                                                <rect key="frame" x="219.5" y="407" width="101" height="96"/>
+                                                <rect key="frame" x="216" y="407" width="101" height="96"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="101" id="2dv-jF-v5U"/>
@@ -246,34 +246,48 @@
                                                     <action selector="largeSizePressed:" destination="aum-kk-1xg" eventType="touchUpInside" id="P7Y-qd-FcM"/>
                                                 </connections>
                                             </button>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="OFx-hj-yHl">
-                                                <rect key="frame" x="93" y="535" width="200" height="100"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="OFx-hj-yHl">
+                                                <rect key="frame" x="79.5" y="535" width="220" height="100"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X6r-ew-Szl">
                                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="100" id="DCc-s5-M9L"/>
                                                             <constraint firstAttribute="height" constant="100" id="VOg-dk-PcH"/>
                                                         </constraints>
                                                         <state key="normal" image="icons8-female-100"/>
+                                                        <connections>
+                                                            <action selector="femaleButtonPressed:" destination="aum-kk-1xg" eventType="touchUpInside" id="dp5-eX-1xk"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oWV-vy-4fK">
-                                                        <rect key="frame" x="100" y="0.0" width="100" height="100"/>
+                                                        <rect key="frame" x="120" y="0.0" width="100" height="100"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="100" id="AjB-Cs-xmp"/>
                                                             <constraint firstAttribute="width" constant="100" id="aLp-h6-YEK"/>
                                                         </constraints>
                                                         <state key="normal" image="icons8-male-100"/>
+                                                        <connections>
+                                                            <action selector="maleButtonPressed:" destination="aum-kk-1xg" eventType="touchUpInside" id="uSN-cg-HAh"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select the gender of your dog" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rs1-KN-177">
+                                                <rect key="frame" x="75.5" y="639" width="228.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.49776917700000001" green="0.43509161470000002" blue="0.98790532350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="WwX-lK-e2b" firstAttribute="leading" secondItem="KO1-lg-YUf" secondAttribute="leading" constant="43" id="0JZ-Iz-RKb"/>
                                             <constraint firstItem="WwX-lK-e2b" firstAttribute="top" secondItem="Fim-5y-KMJ" secondAttribute="bottom" constant="9" id="1Q0-3T-53K"/>
+                                            <constraint firstItem="Rs1-KN-177" firstAttribute="top" secondItem="aMj-pN-YbQ" secondAttribute="bottom" constant="111.5" id="25e-3r-sVB"/>
                                             <constraint firstItem="2Xm-kq-Gei" firstAttribute="leading" secondItem="jhr-r5-uxs" secondAttribute="trailing" constant="9" id="6YY-yU-i7L"/>
-                                            <constraint firstAttribute="trailing" secondItem="eHO-qD-re8" secondAttribute="trailing" constant="103" id="Bmz-Dr-bCc"/>
                                             <constraint firstItem="Fim-5y-KMJ" firstAttribute="top" secondItem="eHO-qD-re8" secondAttribute="bottom" constant="8" id="Gtu-Uo-IVV"/>
                                             <constraint firstItem="eHO-qD-re8" firstAttribute="top" secondItem="PZC-eR-yHw" secondAttribute="bottom" constant="33" id="HDv-pq-Mmf"/>
                                             <constraint firstItem="aMj-pN-YbQ" firstAttribute="top" secondItem="2Xm-kq-Gei" secondAttribute="bottom" constant="3" id="HPd-WZ-wpE"/>
@@ -296,6 +310,7 @@
                                             <constraint firstItem="aMj-pN-YbQ" firstAttribute="top" secondItem="jhr-r5-uxs" secondAttribute="bottom" constant="5" id="jlz-Bf-bR5"/>
                                             <constraint firstItem="OFx-hj-yHl" firstAttribute="centerX" secondItem="KO1-lg-YUf" secondAttribute="centerX" id="kX7-oU-MEE"/>
                                             <constraint firstItem="ZKL-Mh-nxk" firstAttribute="top" secondItem="DYB-8u-A7g" secondAttribute="bottom" constant="51" id="n4o-uk-Itg"/>
+                                            <constraint firstItem="Rs1-KN-177" firstAttribute="centerX" secondItem="KO1-lg-YUf" secondAttribute="centerX" id="nvJ-CV-b6A"/>
                                             <constraint firstItem="jhr-r5-uxs" firstAttribute="centerX" secondItem="KO1-lg-YUf" secondAttribute="centerX" constant="-20" id="od4-gv-DDz"/>
                                             <constraint firstItem="PZC-eR-yHw" firstAttribute="top" secondItem="KO1-lg-YUf" secondAttribute="top" id="qTL-b1-liY"/>
                                             <constraint firstItem="OFx-hj-yHl" firstAttribute="top" secondItem="aMj-pN-YbQ" secondAttribute="bottom" constant="7.5" id="sFD-jj-4En"/>
@@ -330,7 +345,9 @@
                     </view>
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
+                        <outlet property="femaleButton" destination="X6r-ew-Szl" id="8Rm-kP-y9m"/>
                         <outlet property="largeDogIcon" destination="2Xm-kq-Gei" id="7OD-gv-EWf"/>
+                        <outlet property="maleButton" destination="oWV-vy-4fK" id="rmb-9L-CZC"/>
                         <outlet property="medDogIcon" destination="jhr-r5-uxs" id="N3a-P9-hSV"/>
                         <outlet property="smallDogIcon" destination="ZKL-Mh-nxk" id="YOD-hF-Lej"/>
                     </connections>
