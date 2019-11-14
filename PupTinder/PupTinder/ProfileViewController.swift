@@ -176,4 +176,17 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             cell?.imageView?.image = UIImage(named:"unchecked") ?? UIImage()
         }
     }
+    
+    
+    
+    func tableView(_ tableView: UITableView, willDeselectRowAt indexPath: IndexPath) -> IndexPath? {
+        let cell = tableView.cellForRow(at: indexPath)
+        if(cell?.imageView?.image ?? UIImage() == UIImage(named:"unchecked")) {
+            cell?.imageView?.image = UIImage(named:"checked") ?? UIImage()
+        } else {
+            cell?.imageView?.image = UIImage(named:"unchecked") ?? UIImage()
+        }
+        
+        return indexPath
+    }
 }
