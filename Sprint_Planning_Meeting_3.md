@@ -25,11 +25,11 @@ What I plan to do: Decide best way to structure documents and collections on Fir
 
 ### Hajra Mobashar
 
-What I have done: Researched google login options, helped modeling the app flow and UI Design of the app.
+What I have done: Worked on the UI Design of the app. Worked on the profile view controllers and implementations.
 
 Any roadblocks: None at the moment.
 
-What I plan to do: Create UI stubs on storyboard for everyone to have a view to work with. These stubs are based off the diagram and flow we drew up on our last meeting. I will be implementing our brand/theme on storyboard now.
+What I plan to do: Create home view and user profile view. Add new screens for users to enter profile info. Work on the dog api.
 
 ### Alannah Woodward
 
