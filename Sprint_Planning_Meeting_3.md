@@ -7,13 +7,17 @@ Link to trello board: https://trello.com/invite/b/rubewu9h/19e96c4ef1baaef9118aa
 
 ### Elias Heffan
 
-What I have done: Worked on App flow and Wireframe (linked above). Researched
-and tested an API that could analyze dog photos to extract the breed. Researched
-how to send push notifications.
+What I have done: Researched how to use Firestore, started planning the layout
+and rules of our database, worked on setting up API function prototypes for
+interacting with database from View Controllers, fixed a couple visuals of View 
+Controllers.
 
-Any roadblocks: None at the momemnt.
+Any roadblocks: Need another meeting with Tammy to discuss Firebase rules and data storage design in detail.
 
-What I plan to do: Implement google login in client and server. 
+What I plan to do: Finish plannning out how we'll set up our database and rules,
+finish setting up API function prototypes for interacting with database from
+View Controllers, divide up with Tammy who will implement the API functions and
+start working on implementing some of them.
 
 ### Tammy Lee
 
