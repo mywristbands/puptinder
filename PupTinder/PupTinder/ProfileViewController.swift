@@ -16,6 +16,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var maleButton: UIButton!
     @IBOutlet weak var userProfilePhoto: UIImageView!
     @IBOutlet weak var editPhotoButton: UIButton!
+    @IBOutlet weak var bioTextView: UITextView!
     
     @IBOutlet weak var characteristicsTV: UITableView!
     @IBOutlet weak var personalityTV: UITableView!
@@ -40,13 +41,25 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         maleButton.layer.masksToBounds = true
         maleButton.layer.cornerRadius = maleButton.frame.width/2
         
-        userProfilePhoto.layer.masksToBounds = true;
-        userProfilePhoto.layer.cornerRadius = userProfilePhoto.frame.width/2;
+        //let image = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        let image = UIImage(named: "icon-user-default-1")
+        userProfilePhoto.layer.borderWidth = 1.0
+        userProfilePhoto.layer.masksToBounds = false
+        userProfilePhoto.layer.borderColor = UIColor.white.cgColor
+        userProfilePhoto.layer.cornerRadius = (image?.size.width ?? 0) / 2
+        userProfilePhoto.clipsToBounds = true
+        
+        
+        //userProfilePhoto = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        //userProfilePhoto.layer.masksToBounds = true;
+        //userProfilePhoto.layer.cornerRadius = userProfilePhoto.frame.width/2;
         
         self.characteristicsTV.allowsMultipleSelection = true
         self.personalityTV.allowsMultipleSelection = true
         self.characteristicsTV.reloadData()
         self.personalityTV.reloadData()
+        bioTextView.layer.borderColor = swiftColor.cgColor
+        bioTextView.layer.borderWidth = 1.0
     }
     
     @IBAction func logoutButton(_ sender: UIButton) {
@@ -148,6 +161,9 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             let characteristic = String(format: "%@", self.characteristics[indexPath.row])
             cell.textLabel?.text = "\(characteristic)"
             
+            //UIFont newFont = UIFont(descriptor: cell.textLabel?.font, size: 16)
+            //cell.textLabel?.font.withSize(8)
+            //cell.textLabel?.font = UIFont(name: "system", size: 8);
             
             cell.imageView?.image = UIImage(named: "unchecked")
             
@@ -157,6 +173,8 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             let cell = tableView.dequeueReusableCell(withIdentifier: "Personality cell") ?? UITableViewCell(style: .default, reuseIdentifier: "Personality cell")
             let pt = String(format: "%@", self.personalityTraits[indexPath.row])
             cell.textLabel?.text = "\(pt)"
+            
+            //cell.textLabel?.font = UIFont(name: "system", size: 8);
             
             cell.imageView?.image = UIImage(named: "unchecked")
             
