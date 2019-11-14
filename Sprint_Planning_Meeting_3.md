@@ -17,19 +17,19 @@ What I plan to do: Implement google login in client and server.
 
 ### Tammy Lee
 
-What I have done: Discuss app flow and wireframe with group. Read up on in-app messaging APIs such as Twilio, Socket.IO, Firebase Cloud Messaging. Firebase seems like the best option since we are also using it for storage.
+What I have done: Connect Firebase onto our app. Design API endpoints that the front will call.
 
-Any roadblocks: None at the moment.
+Any roadblocks: Need another meeting with Elias to discuss Firebase rules and data storage design in detail. 
 
-What I plan to do: Put firebase into our app and get stand alone in-app messaging to work. 
+What I plan to do: Decide best way to structure documents and collections on Firestore. Finish coding API functions. Continue working on messaging and seeing how I can incorporate calendar.
 
 ### Hajra Mobashar
 
-What I have done: Researched google login options, helped modeling the app flow and UI Design of the app.
+What I have done: Worked on the UI Design of the app. Worked on the profile view controllers and implementations.
 
 Any roadblocks: None at the moment.
 
-What I plan to do: Create UI stubs on storyboard for everyone to have a view to work with. These stubs are based off the diagram and flow we drew up on our last meeting. I will be implementing our brand/theme on storyboard now.
+What I plan to do: Create home view and user profile view. Add new screens for users to enter profile info. Work on the dog api.
 
 ### Alannah Woodward
 
