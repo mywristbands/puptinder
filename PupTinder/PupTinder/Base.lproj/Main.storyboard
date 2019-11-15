@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5fR-Ec-Roi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8f6-N4-xgo">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -540,6 +540,59 @@
             </objects>
             <point key="canvasLocation" x="544" y="1079"/>
         </scene>
+        <!--User Profile-->
+        <scene sceneID="ra4-XF-FyX">
+            <objects>
+                <viewController id="8f6-N4-xgo" customClass="UserProfile" customModule="PupTinder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="k5c-cn-1iP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="Tq5-Kp-yar">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="226"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="226" id="IqI-ej-5eq"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dyo-nV-iPE">
+                                <rect key="frame" x="333" y="10" width="32" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="2JR-XU-aPp"/>
+                                    <constraint firstAttribute="width" constant="32" id="3h5-9u-dwY"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="31" id="DTt-25-BEn"/>
+                                </constraints>
+                                <state key="normal" image="icons8-settings-100 (1)"/>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-dog" translatesAutoresizingMaskIntoConstraints="NO" id="9PP-eY-vAg">
+                                <rect key="frame" x="120" y="154" width="135" height="135"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="135" id="ZQr-Jy-rIR"/>
+                                    <constraint firstAttribute="height" constant="135" id="hLD-gf-MKU"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Tq5-Kp-yar" firstAttribute="leading" secondItem="15R-6I-lkm" secondAttribute="leading" id="2Oe-pg-TEV"/>
+                            <constraint firstItem="15R-6I-lkm" firstAttribute="trailing" secondItem="dyo-nV-iPE" secondAttribute="trailing" constant="10" id="5pc-ai-epV"/>
+                            <constraint firstItem="Tq5-Kp-yar" firstAttribute="trailing" secondItem="15R-6I-lkm" secondAttribute="trailing" id="7ME-xM-i1R"/>
+                            <constraint firstItem="Tq5-Kp-yar" firstAttribute="top" secondItem="15R-6I-lkm" secondAttribute="top" id="JPz-wq-QLZ"/>
+                            <constraint firstItem="9PP-eY-vAg" firstAttribute="centerX" secondItem="k5c-cn-1iP" secondAttribute="centerX" id="Oej-0Z-pCR"/>
+                            <constraint firstItem="dyo-nV-iPE" firstAttribute="top" secondItem="15R-6I-lkm" secondAttribute="top" constant="10" id="aPk-H8-zdz"/>
+                            <constraint firstItem="9PP-eY-vAg" firstAttribute="top" secondItem="15R-6I-lkm" secondAttribute="top" constant="154" id="tHo-AG-Niz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="15R-6I-lkm"/>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundImage" destination="Tq5-Kp-yar" id="gVf-FM-iEZ"/>
+                        <outlet property="editButton" destination="dyo-nV-iPE" id="4yI-RW-Tm3"/>
+                        <outlet property="profileImage" destination="9PP-eY-vAg" id="8m2-h8-pzD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oHI-Ts-ESy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1696.8" y="1085.3073463268368"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="fq8-GV-3kn">
             <objects>
@@ -869,11 +922,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="backgroundProfileImage" width="154.5" height="81.5"/>
         <image name="dog-icon" width="48" height="48"/>
         <image name="icons8-dog-bone-100" width="50" height="50"/>
         <image name="icons8-dog-heart-100" width="50" height="50"/>
         <image name="icons8-female-100" width="100" height="100"/>
         <image name="icons8-male-100" width="100" height="100"/>
+        <image name="icons8-settings-100 (1)" width="50" height="50"/>
         <image name="logo-tail" width="103" height="101"/>
         <image name="paw_white" width="256" height="256"/>
         <image name="profile-dog" width="640" height="640"/>
