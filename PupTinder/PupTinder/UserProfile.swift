@@ -20,6 +20,25 @@ class UserProfile: UIViewController {
         self.profileImage.clipsToBounds = true;
     }
     
+    override func viewWillAppear(_ animated: Bool)
+    {
+        setGradientBackGround()
+    }
+    
+    func setGradientBackGround()
+    {
+        let colorLeft =  UIColor(red: 255.0/255.0, green: 213.0/255.0, blue: 72.0/255.0, alpha: 0.70).cgColor
+        let colorRight = UIColor(red: 254.0/255.0, green: 186.0/255.0, blue: 41.0/255.0, alpha: 0.70).cgColor
+
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [colorLeft, colorRight]
+        gradientLayer.frame = self.view.bounds
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5);
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5);
+
+        self.backgroundImage.layer.insertSublayer(gradientLayer, at: 0)
+    }
+    
 
     /*
     // MARK: - Navigation
