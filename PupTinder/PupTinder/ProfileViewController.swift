@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ProfileViewController: UIViewController /*,UITableViewDataSource, UITableViewDelegate */{
     @IBOutlet weak var smallDogIcon: UIButton!
     @IBOutlet weak var medDogIcon: UIButton!
     @IBOutlet weak var largeDogIcon: UIButton!
@@ -16,10 +16,10 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var maleButton: UIButton!
     @IBOutlet weak var userProfilePhoto: UIImageView!
     @IBOutlet weak var editPhotoButton: UIButton!
-    @IBOutlet weak var bioTextView: UITextView!
+   // @IBOutlet weak var bioTextView: UITextView!
     
-    @IBOutlet weak var characteristicsTV: UITableView!
-    @IBOutlet weak var personalityTV: UITableView!
+   // @IBOutlet weak var characteristicsTV: UITableView!
+   // @IBOutlet weak var personalityTV: UITableView!
     
     
     var dogSize : String = ""
@@ -30,10 +30,10 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.characteristicsTV.dataSource = self
-        self.characteristicsTV.delegate = self
-        self.personalityTV.dataSource = self
-        self.personalityTV.delegate = self
+      //  self.characteristicsTV.dataSource = self
+      //  self.characteristicsTV.delegate = self
+      //  self.personalityTV.dataSource = self
+      //  self.personalityTV.delegate = self
         
         femaleButton.layer.masksToBounds = true
         femaleButton.layer.cornerRadius = femaleButton.frame.width/2
@@ -42,24 +42,25 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         maleButton.layer.cornerRadius = maleButton.frame.width/2
         
         //let image = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-        let image = UIImage(named: "icon-user-default-1")
-        userProfilePhoto.layer.borderWidth = 1.0
-        userProfilePhoto.layer.masksToBounds = false
-        userProfilePhoto.layer.borderColor = UIColor.white.cgColor
-        userProfilePhoto.layer.cornerRadius = (image?.size.width ?? 0) / 2
-        userProfilePhoto.clipsToBounds = true
+            // let image = UIImage(named: "icon-user-default-1")
+       // userProfilePhoto.layer.borderWidth = 1.0
+       // userProfilePhoto.layer.masksToBounds = false
+       // userProfilePhoto.layer.borderColor = UIColor.white.cgColor
+       // userProfilePhoto.layer.cornerRadius = (image?.size.width ?? 0) / 2
+       // userProfilePhoto.clipsToBounds = true
         
         
         //userProfilePhoto = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         //userProfilePhoto.layer.masksToBounds = true;
         //userProfilePhoto.layer.cornerRadius = userProfilePhoto.frame.width/2;
-        
+       /*
         self.characteristicsTV.allowsMultipleSelection = true
         self.personalityTV.allowsMultipleSelection = true
         self.characteristicsTV.reloadData()
         self.personalityTV.reloadData()
         bioTextView.layer.borderColor = swiftColor.cgColor
         bioTextView.layer.borderWidth = 1.0
+         */
     }
     
     @IBAction func logoutButton(_ sender: UIButton) {
@@ -143,6 +144,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     //MARK: Table View Implementation
+    /*
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if(tableView == self.characteristicsTV) {
             return characteristics.count
@@ -206,5 +208,5 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         }
         
         return indexPath
-    }
+    } */
 }
