@@ -602,7 +602,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-male-101" translatesAutoresizingMaskIntoConstraints="NO" id="QNu-a6-OLX">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-male-96" translatesAutoresizingMaskIntoConstraints="NO" id="QNu-a6-OLX">
                                 <rect key="frame" x="273" y="186" width="75" height="75"/>
                                 <color key="backgroundColor" red="0.98632866144180298" green="0.8230133056640625" blue="0.23641642928123474" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -649,7 +649,9 @@
                     <connections>
                         <outlet property="backgroundImage" destination="Tq5-Kp-yar" id="gVf-FM-iEZ"/>
                         <outlet property="editButton" destination="dyo-nV-iPE" id="4yI-RW-Tm3"/>
+                        <outlet property="genderImage" destination="QNu-a6-OLX" id="67x-9x-y2p"/>
                         <outlet property="profileImage" destination="9PP-eY-vAg" id="8m2-h8-pzD"/>
+                        <outlet property="sizeImage" destination="KiL-19-bLu" id="ucA-lN-CXt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oHI-Ts-ESy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -991,7 +993,7 @@
         <image name="icons8-dog-heart-100" width="50" height="50"/>
         <image name="icons8-female-100" width="100" height="100"/>
         <image name="icons8-male-100" width="100" height="100"/>
-        <image name="icons8-male-101" width="50" height="50"/>
+        <image name="icons8-male-96" width="48" height="48"/>
         <image name="icons8-settings-100 (1)" width="50" height="50"/>
         <image name="logo-tail" width="103" height="101"/>
         <image name="paw_white" width="256" height="256"/>

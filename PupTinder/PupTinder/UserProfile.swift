@@ -12,12 +12,17 @@ class UserProfile: UIViewController {
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var sizeImage: UIImageView!
+    @IBOutlet weak var genderImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.profileImage.layer.cornerRadius = self.profileImage.frame.height/2;
-        self.profileImage.clipsToBounds = true;
+        self.sizeImage.clipsToBounds = true;
+        self.sizeImage.layer.cornerRadius = self.sizeImage.frame.height/2;
+        self.genderImage.clipsToBounds = true;
+        self.genderImage.layer.cornerRadius = self.genderImage.frame.height/2;
     }
     
     override func viewWillAppear(_ animated: Bool)
