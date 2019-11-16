@@ -9,8 +9,8 @@ Link to trello board: https://trello.com/invite/b/rubewu9h/19e96c4ef1baaef9118aa
 
 What I have done: Researched how to use Firestore, started planning the layout
 and rules of our database, worked on setting up API function prototypes for
-interacting with database from View Controllers, fixed a couple visuals of View 
-Controllers.
+interacting with database from View Controllers, [fixed a couple visuals of View 
+Controllers](https://github.com/ECS189E/project-f19-puptinder/commit/ac34e9d23c003ad8a7f112f6367f6c34fed8eb93).
 
 Any roadblocks: Need another meeting with Tammy to discuss Firebase rules and data storage design in detail.
 

@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		518DDE8C237E61DD0060FDAA /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518DDE8B237E61DD0060FDAA /* UserProfile.swift */; };
 		51A009BD237D195F00719C27 /* CustomCheckedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A009BC237D195F00719C27 /* CustomCheckedTableViewCell.swift */; };
-		51CB36EF237A3E1A00D6ABF0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CB36EE237A3E1A00D6ABF0 /* ProfileViewController.swift */; };
+		51CB36EF237A3E1A00D6ABF0 /* CreateProfile1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CB36EE237A3E1A00D6ABF0 /* CreateProfile1.swift */; };
+		777EAFD4237E5B49007CFF96 /* CreateProfile2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777EAFD3237E5B49007CFF96 /* CreateProfile2.swift */; };
+		777EAFD6237E5C02007CFF96 /* CreateProfile3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777EAFD5237E5C02007CFF96 /* CreateProfile3.swift */; };
+		777EAFD8237E5C1A007CFF96 /* CreateProfile4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777EAFD7237E5C1A007CFF96 /* CreateProfile4.swift */; };
 		77D80D872377849B0043254B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D80D862377849B0043254B /* AppDelegate.swift */; };
 		77D80D892377849B0043254B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D80D882377849B0043254B /* SceneDelegate.swift */; };
 		77D80D8B2377849B0043254B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D80D8A2377849B0043254B /* ViewController.swift */; };
@@ -22,8 +26,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		518DDE8B237E61DD0060FDAA /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		51A009BC237D195F00719C27 /* CustomCheckedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCheckedTableViewCell.swift; sourceTree = "<group>"; };
-		51CB36EE237A3E1A00D6ABF0 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		51CB36EE237A3E1A00D6ABF0 /* CreateProfile1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateProfile1.swift; sourceTree = "<group>"; };
+		777EAFD3237E5B49007CFF96 /* CreateProfile2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfile2.swift; sourceTree = "<group>"; };
+		777EAFD5237E5C02007CFF96 /* CreateProfile3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfile3.swift; sourceTree = "<group>"; };
+		777EAFD7237E5C1A007CFF96 /* CreateProfile4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfile4.swift; sourceTree = "<group>"; };
 		77D80D832377849B0043254B /* PupTinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PupTinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77D80D862377849B0043254B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77D80D882377849B0043254B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,7 +90,7 @@
 		77D80D852377849B0043254B /* PupTinder */ = {
 			isa = PBXGroup;
 			children = (
-				51CB36EE237A3E1A00D6ABF0 /* ProfileViewController.swift */,
+				51CB36EE237A3E1A00D6ABF0 /* CreateProfile1.swift */,
 				77D80D862377849B0043254B /* AppDelegate.swift */,
 				77D80D882377849B0043254B /* SceneDelegate.swift */,
 				77D80D8A2377849B0043254B /* ViewController.swift */,
@@ -94,6 +102,10 @@
 				934AAA762377F9BA0007EBAA /* Messenger2ViewController.swift */,
 				934AAA742377DE9A0007EBAA /* GoogleService-Info.plist */,
 				51A009BC237D195F00719C27 /* CustomCheckedTableViewCell.swift */,
+				777EAFD3237E5B49007CFF96 /* CreateProfile2.swift */,
+				777EAFD5237E5C02007CFF96 /* CreateProfile3.swift */,
+				777EAFD7237E5C1A007CFF96 /* CreateProfile4.swift */,
+				518DDE8B237E61DD0060FDAA /* UserProfile.swift */,
 			);
 			path = PupTinder;
 			sourceTree = "<group>";
@@ -240,12 +252,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				777EAFD8237E5C1A007CFF96 /* CreateProfile4.swift in Sources */,
 				51A009BD237D195F00719C27 /* CustomCheckedTableViewCell.swift in Sources */,
-				51CB36EF237A3E1A00D6ABF0 /* ProfileViewController.swift in Sources */,
+				51CB36EF237A3E1A00D6ABF0 /* CreateProfile1.swift in Sources */,
 				934AAA732377D9600007EBAA /* MessengerViewController.swift in Sources */,
 				77D80D8B2377849B0043254B /* ViewController.swift in Sources */,
+				518DDE8C237E61DD0060FDAA /* UserProfile.swift in Sources */,
 				77D80D872377849B0043254B /* AppDelegate.swift in Sources */,
 				934AAA772377F9BA0007EBAA /* Messenger2ViewController.swift in Sources */,
+				777EAFD6237E5C02007CFF96 /* CreateProfile3.swift in Sources */,
+				777EAFD4237E5B49007CFF96 /* CreateProfile2.swift in Sources */,
 				77D80D892377849B0043254B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
