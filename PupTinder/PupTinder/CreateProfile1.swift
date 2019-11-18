@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreateProfile1: UIViewController /*,UITableViewDataSource, UITableViewDelegate */{
+class CreateProfile1: UIViewController, UIImagePickerControllerDelegate ,UINavigationControllerDelegate/*, UIImagePickerControllerDelegate*/ {
     @IBOutlet weak var smallDogIcon: UIButton!
     @IBOutlet weak var medDogIcon: UIButton!
     @IBOutlet weak var largeDogIcon: UIButton!
@@ -16,6 +16,8 @@ class CreateProfile1: UIViewController /*,UITableViewDataSource, UITableViewDele
     @IBOutlet weak var maleButton: UIButton!
     @IBOutlet weak var userProfilePhoto: UIImageView!
     @IBOutlet weak var editPhotoButton: UIButton!
+    var imagePicker = UIImagePickerController()
+    var profImage = UIImage(named: "profile-dog")
     
     
     var dogSize : String = ""
@@ -23,6 +25,8 @@ class CreateProfile1: UIViewController /*,UITableViewDataSource, UITableViewDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        userProfilePhoto.image = profImage
         
         femaleButton.layer.masksToBounds = true
         femaleButton.layer.cornerRadius = femaleButton.frame.width/2
@@ -32,6 +36,28 @@ class CreateProfile1: UIViewController /*,UITableViewDataSource, UITableViewDele
         
         userProfilePhoto.layer.masksToBounds = true;
         userProfilePhoto.layer.cornerRadius = userProfilePhoto.frame.width/2;
+        
+    }
+    
+    @IBAction func editPhotoPressed(_ sender: Any) {
+        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
+            print("Button capture")
+
+            imagePicker.delegate = self
+            imagePicker.sourceType = .savedPhotosAlbum
+            imagePicker.allowsEditing = false
+
+            present(imagePicker, animated: true, completion: nil)
+        }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true, completion: nil)
+
+        let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+
+        userProfilePhoto.image = image
     }
     
     @IBAction func logoutButton(_ sender: UIButton) {
