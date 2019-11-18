@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8f6-N4-xgo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8f6-N4-xgo">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="loginViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="PupTinder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginViewController" id="BYZ-38-t0r" customClass="Login" customModule="PupTinder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -106,10 +106,10 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cZL-VV-11f">
-                                <rect key="frame" x="203" y="617" width="156" height="30"/>
-                                <state key="normal" title="Shortcut to Messaging"/>
+                                <rect key="frame" x="218" y="617" width="141" height="30"/>
+                                <state key="normal" title="Shortcut to Matches"/>
                                 <connections>
-                                    <action selector="goToMessaging" destination="BYZ-38-t0r" eventType="touchUpInside" id="jx4-n5-gkf"/>
+                                    <action selector="goToMatchesAndConversations" destination="BYZ-38-t0r" eventType="touchUpInside" id="kOU-8C-3hl"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6oH-Ob-nUZ">
@@ -177,6 +177,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="emailField" destination="2kQ-tm-bGX" id="nFG-Gn-FHb"/>
+                        <outlet property="passwordField" destination="eNS-oK-1cZ" id="0fd-Am-LaU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -479,85 +483,20 @@
             </objects>
             <point key="canvasLocation" x="2770" y="310"/>
         </scene>
-        <!--Messenger View Controller-->
-        <scene sceneID="yKk-uU-OS0">
+        <!--Matches And Conversations-->
+        <scene sceneID="FEM-0g-QF5">
             <objects>
-                <viewController storyboardIdentifier="messenger" id="My9-KG-drA" customClass="MessengerViewController" customModule="PupTinder" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="U6f-VN-4Jx">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1zn-xF-aGR">
-                                <rect key="frame" x="16" y="181.5" width="343" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tgp-wZ-xtw">
-                                <rect key="frame" x="16" y="223" width="343" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rgX-Dd-myE">
-                                <rect key="frame" x="16" y="289" width="343" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Signup">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="signupPressed" destination="My9-KG-drA" eventType="touchUpInside" id="er6-US-s3N"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zM5-QQ-CYK">
-                                <rect key="frame" x="16" y="327" width="343" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Login">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="signinPressed" destination="My9-KG-drA" eventType="touchUpInside" id="y6Y-Zz-ChQ"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="1zn-xF-aGR" firstAttribute="centerY" secondItem="U6f-VN-4Jx" secondAttribute="centerY" constant="-135" id="4x4-qL-1OI"/>
-                            <constraint firstItem="zM5-QQ-CYK" firstAttribute="leading" secondItem="GHO-1t-Zlx" secondAttribute="leading" constant="16" id="PYF-M5-lLv"/>
-                            <constraint firstItem="GHO-1t-Zlx" firstAttribute="trailing" secondItem="rgX-Dd-myE" secondAttribute="trailing" constant="16" id="S4w-ap-V7W"/>
-                            <constraint firstItem="1zn-xF-aGR" firstAttribute="leading" secondItem="GHO-1t-Zlx" secondAttribute="leading" constant="16" id="a0J-m3-nwH"/>
-                            <constraint firstItem="rgX-Dd-myE" firstAttribute="leading" secondItem="GHO-1t-Zlx" secondAttribute="leading" constant="16" id="aGk-uP-H4q"/>
-                            <constraint firstItem="tgp-wZ-xtw" firstAttribute="leading" secondItem="GHO-1t-Zlx" secondAttribute="leading" constant="16" id="dZf-lG-zCE"/>
-                            <constraint firstItem="zM5-QQ-CYK" firstAttribute="top" secondItem="rgX-Dd-myE" secondAttribute="bottom" constant="8" id="ii5-Md-Bq0"/>
-                            <constraint firstItem="rgX-Dd-myE" firstAttribute="top" secondItem="tgp-wZ-xtw" secondAttribute="bottom" constant="32" id="k1a-gD-qc7"/>
-                            <constraint firstItem="tgp-wZ-xtw" firstAttribute="top" secondItem="1zn-xF-aGR" secondAttribute="bottom" constant="7.5" id="lWR-vA-rGl"/>
-                            <constraint firstItem="GHO-1t-Zlx" firstAttribute="trailing" secondItem="tgp-wZ-xtw" secondAttribute="trailing" constant="16" id="n3m-oZ-v30"/>
-                            <constraint firstItem="GHO-1t-Zlx" firstAttribute="trailing" secondItem="zM5-QQ-CYK" secondAttribute="trailing" constant="16" id="pMk-MZ-581"/>
-                            <constraint firstItem="GHO-1t-Zlx" firstAttribute="trailing" secondItem="1zn-xF-aGR" secondAttribute="trailing" constant="16" id="qo6-ae-Pzg"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="GHO-1t-Zlx"/>
-                    </view>
-                    <connections>
-                        <outlet property="emailField" destination="1zn-xF-aGR" id="tRX-oh-jw8"/>
-                        <outlet property="passwordField" destination="tgp-wZ-xtw" id="a2i-aO-ARp"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kBi-xA-DvJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-368" y="1079"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="eGJ-4g-AMl">
-            <objects>
-                <viewController storyboardIdentifier="messenger2" id="rsZ-8L-hf7" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="hee-ZS-qFX">
+                <viewController storyboardIdentifier="MatchesAndConversations" id="iBo-3F-3KH" customClass="MatchesAndConversations" customModule="PupTinder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="il9-1X-jt4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="NnA-B3-AwK"/>
+                        <viewLayoutGuide key="safeArea" id="Q05-lG-Tc9"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TOG-XL-ko7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KU9-lh-PWs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="433" y="1078"/>
+            <point key="canvasLocation" x="433" y="1077"/>
         </scene>
         <!--User Profile-->
         <scene sceneID="ra4-XF-FyX">
@@ -706,10 +645,10 @@
             </objects>
             <point key="canvasLocation" x="1192.8" y="1077.2113943028487"/>
         </scene>
-        <!--View Controller-->
+        <!--Sign Up-->
         <scene sceneID="fq8-GV-3kn">
             <objects>
-                <viewController id="mxx-6L-8xM" sceneMemberID="viewController">
+                <viewController id="mxx-6L-8xM" customClass="SignUp" customModule="PupTinder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6PR-M8-VQb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -820,6 +759,11 @@
                         <viewLayoutGuide key="safeArea" id="Z9o-Jn-8oD"/>
                     </view>
                     <navigationItem key="navigationItem" id="Z5s-iF-iGc"/>
+                    <connections>
+                        <outlet property="emailField" destination="c0N-bP-aE3" id="OLd-RS-gVJ"/>
+                        <outlet property="errorField" destination="zZg-SN-IQt" id="q1B-xr-dYu"/>
+                        <outlet property="passwordField" destination="seu-Te-i9f" id="FNK-77-bJA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OFL-Hz-tFd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1049,10 +993,10 @@
         <image name="sPurpleProfile" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="SY8-1J-e89"/>
-        <segue reference="Btk-GA-aCT"/>
-        <segue reference="IZX-wX-kBE"/>
+        <segue reference="Fcg-Bb-AZy"/>
+        <segue reference="bmP-Dd-DZX"/>
+        <segue reference="iGg-WX-fob"/>
         <segue reference="YLX-GS-Xx9"/>
-        <segue reference="49r-10-922"/>
+        <segue reference="s5c-px-00h"/>
     </inferredMetricsTieBreakers>
 </document>
