@@ -10,18 +10,19 @@
 		518DDE8C237E61DD0060FDAA /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518DDE8B237E61DD0060FDAA /* UserProfile.swift */; };
 		51A009BD237D195F00719C27 /* CustomCheckedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A009BC237D195F00719C27 /* CustomCheckedTableViewCell.swift */; };
 		51CB36EF237A3E1A00D6ABF0 /* CreateProfile1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CB36EE237A3E1A00D6ABF0 /* CreateProfile1.swift */; };
+		64AF582A23822BFA0060B13B /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64AF582923822BFA0060B13B /* Api.swift */; };
+		64AF582C238236A50060B13B /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64AF582B238236A50060B13B /* SignUp.swift */; };
+		64AF582E2382411D0060B13B /* MatchesAndConversations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64AF582D2382411D0060B13B /* MatchesAndConversations.swift */; };
 		777EAFD4237E5B49007CFF96 /* CreateProfile2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777EAFD3237E5B49007CFF96 /* CreateProfile2.swift */; };
 		777EAFD6237E5C02007CFF96 /* CreateProfile3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777EAFD5237E5C02007CFF96 /* CreateProfile3.swift */; };
 		777EAFD8237E5C1A007CFF96 /* CreateProfile4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777EAFD7237E5C1A007CFF96 /* CreateProfile4.swift */; };
 		77D80D872377849B0043254B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D80D862377849B0043254B /* AppDelegate.swift */; };
 		77D80D892377849B0043254B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D80D882377849B0043254B /* SceneDelegate.swift */; };
-		77D80D8B2377849B0043254B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D80D8A2377849B0043254B /* ViewController.swift */; };
+		77D80D8B2377849B0043254B /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D80D8A2377849B0043254B /* Login.swift */; };
 		77D80D8E2377849B0043254B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77D80D8C2377849B0043254B /* Main.storyboard */; };
 		77D80D90237784A00043254B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77D80D8F237784A00043254B /* Assets.xcassets */; };
 		77D80D93237784A00043254B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77D80D91237784A00043254B /* LaunchScreen.storyboard */; };
-		934AAA732377D9600007EBAA /* MessengerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934AAA722377D9600007EBAA /* MessengerViewController.swift */; };
 		934AAA752377DE9A0007EBAA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 934AAA742377DE9A0007EBAA /* GoogleService-Info.plist */; };
-		934AAA772377F9BA0007EBAA /* Messenger2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934AAA762377F9BA0007EBAA /* Messenger2ViewController.swift */; };
 		B2684C87D843150B5AC9CA80 /* Pods_PupTinder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDC01A5D67AE29030B3ABDF6 /* Pods_PupTinder.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,21 +30,22 @@
 		518DDE8B237E61DD0060FDAA /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		51A009BC237D195F00719C27 /* CustomCheckedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCheckedTableViewCell.swift; sourceTree = "<group>"; };
 		51CB36EE237A3E1A00D6ABF0 /* CreateProfile1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateProfile1.swift; sourceTree = "<group>"; };
+		64AF582923822BFA0060B13B /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		64AF582B238236A50060B13B /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
+		64AF582D2382411D0060B13B /* MatchesAndConversations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchesAndConversations.swift; sourceTree = "<group>"; };
 		777EAFD3237E5B49007CFF96 /* CreateProfile2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfile2.swift; sourceTree = "<group>"; };
 		777EAFD5237E5C02007CFF96 /* CreateProfile3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfile3.swift; sourceTree = "<group>"; };
 		777EAFD7237E5C1A007CFF96 /* CreateProfile4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfile4.swift; sourceTree = "<group>"; };
 		77D80D832377849B0043254B /* PupTinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PupTinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77D80D862377849B0043254B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77D80D882377849B0043254B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		77D80D8A2377849B0043254B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		77D80D8A2377849B0043254B /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		77D80D8D2377849B0043254B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		77D80D8F237784A00043254B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		77D80D92237784A00043254B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		77D80D94237784A00043254B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		894271ABEA1ABECDC1F67133 /* Pods-PupTinder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PupTinder.debug.xcconfig"; path = "Target Support Files/Pods-PupTinder/Pods-PupTinder.debug.xcconfig"; sourceTree = "<group>"; };
-		934AAA722377D9600007EBAA /* MessengerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengerViewController.swift; sourceTree = "<group>"; };
 		934AAA742377DE9A0007EBAA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		934AAA762377F9BA0007EBAA /* Messenger2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messenger2ViewController.swift; sourceTree = "<group>"; };
 		DBB05B25ABBA01051E8925EC /* Pods-PupTinder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PupTinder.release.xcconfig"; path = "Target Support Files/Pods-PupTinder/Pods-PupTinder.release.xcconfig"; sourceTree = "<group>"; };
 		DDC01A5D67AE29030B3ABDF6 /* Pods_PupTinder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PupTinder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -90,22 +92,23 @@
 		77D80D852377849B0043254B /* PupTinder */ = {
 			isa = PBXGroup;
 			children = (
+				64AF582923822BFA0060B13B /* Api.swift */,
 				51CB36EE237A3E1A00D6ABF0 /* CreateProfile1.swift */,
 				77D80D862377849B0043254B /* AppDelegate.swift */,
 				77D80D882377849B0043254B /* SceneDelegate.swift */,
-				77D80D8A2377849B0043254B /* ViewController.swift */,
+				77D80D8A2377849B0043254B /* Login.swift */,
+				64AF582B238236A50060B13B /* SignUp.swift */,
 				77D80D8C2377849B0043254B /* Main.storyboard */,
 				77D80D8F237784A00043254B /* Assets.xcassets */,
 				77D80D91237784A00043254B /* LaunchScreen.storyboard */,
 				77D80D94237784A00043254B /* Info.plist */,
-				934AAA722377D9600007EBAA /* MessengerViewController.swift */,
-				934AAA762377F9BA0007EBAA /* Messenger2ViewController.swift */,
 				934AAA742377DE9A0007EBAA /* GoogleService-Info.plist */,
 				51A009BC237D195F00719C27 /* CustomCheckedTableViewCell.swift */,
 				777EAFD3237E5B49007CFF96 /* CreateProfile2.swift */,
 				777EAFD5237E5C02007CFF96 /* CreateProfile3.swift */,
 				777EAFD7237E5C1A007CFF96 /* CreateProfile4.swift */,
 				518DDE8B237E61DD0060FDAA /* UserProfile.swift */,
+				64AF582D2382411D0060B13B /* MatchesAndConversations.swift */,
 			);
 			path = PupTinder;
 			sourceTree = "<group>";
@@ -253,13 +256,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				777EAFD8237E5C1A007CFF96 /* CreateProfile4.swift in Sources */,
+				64AF582C238236A50060B13B /* SignUp.swift in Sources */,
 				51A009BD237D195F00719C27 /* CustomCheckedTableViewCell.swift in Sources */,
 				51CB36EF237A3E1A00D6ABF0 /* CreateProfile1.swift in Sources */,
-				934AAA732377D9600007EBAA /* MessengerViewController.swift in Sources */,
-				77D80D8B2377849B0043254B /* ViewController.swift in Sources */,
+				77D80D8B2377849B0043254B /* Login.swift in Sources */,
 				518DDE8C237E61DD0060FDAA /* UserProfile.swift in Sources */,
+				64AF582E2382411D0060B13B /* MatchesAndConversations.swift in Sources */,
+				64AF582A23822BFA0060B13B /* Api.swift in Sources */,
 				77D80D872377849B0043254B /* AppDelegate.swift in Sources */,
-				934AAA772377F9BA0007EBAA /* Messenger2ViewController.swift in Sources */,
 				777EAFD6237E5C02007CFF96 /* CreateProfile3.swift in Sources */,
 				777EAFD4237E5B49007CFF96 /* CreateProfile2.swift in Sources */,
 				77D80D892377849B0043254B /* SceneDelegate.swift in Sources */,
