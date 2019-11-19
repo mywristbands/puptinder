@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		517024452383975C00C5CB00 /* DogAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517024442383975C00C5CB00 /* DogAPI.swift */; };
 		518DDE8C237E61DD0060FDAA /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518DDE8B237E61DD0060FDAA /* UserProfile.swift */; };
 		51A009BD237D195F00719C27 /* CustomCheckedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A009BC237D195F00719C27 /* CustomCheckedTableViewCell.swift */; };
 		51CB36EF237A3E1A00D6ABF0 /* CreateProfile1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CB36EE237A3E1A00D6ABF0 /* CreateProfile1.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		517024442383975C00C5CB00 /* DogAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogAPI.swift; sourceTree = "<group>"; };
 		518DDE8B237E61DD0060FDAA /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		51A009BC237D195F00719C27 /* CustomCheckedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCheckedTableViewCell.swift; sourceTree = "<group>"; };
 		51CB36EE237A3E1A00D6ABF0 /* CreateProfile1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateProfile1.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				777EAFD7237E5C1A007CFF96 /* CreateProfile4.swift */,
 				518DDE8B237E61DD0060FDAA /* UserProfile.swift */,
 				64AF582D2382411D0060B13B /* MatchesAndConversations.swift */,
+				517024442383975C00C5CB00 /* DogAPI.swift */,
 			);
 			path = PupTinder;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 				518DDE8C237E61DD0060FDAA /* UserProfile.swift in Sources */,
 				64AF582E2382411D0060B13B /* MatchesAndConversations.swift in Sources */,
 				64AF582A23822BFA0060B13B /* Api.swift in Sources */,
+				517024452383975C00C5CB00 /* DogAPI.swift in Sources */,
 				77D80D872377849B0043254B /* AppDelegate.swift in Sources */,
 				777EAFD6237E5C02007CFF96 /* CreateProfile3.swift in Sources */,
 				777EAFD4237E5B49007CFF96 /* CreateProfile2.swift in Sources */,
@@ -412,14 +416,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5598T8PDZM;
+				DEVELOPMENT_TEAM = 372S7LVDZ2;
 				INFOPLIST_FILE = PupTinder/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ecs189e.PupTinder;
+				PRODUCT_BUNDLE_IDENTIFIER = puptinder189e;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -432,14 +436,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5598T8PDZM;
+				DEVELOPMENT_TEAM = 372S7LVDZ2;
 				INFOPLIST_FILE = PupTinder/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ecs189e.PupTinder;
+				PRODUCT_BUNDLE_IDENTIFIER = puptinder189e;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

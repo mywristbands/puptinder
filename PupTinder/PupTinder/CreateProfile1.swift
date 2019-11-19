@@ -44,7 +44,7 @@ class CreateProfile1: UIViewController, UIImagePickerControllerDelegate ,UINavig
             print("Button capture")
 
             imagePicker.delegate = self
-            imagePicker.sourceType = .savedPhotosAlbum
+            imagePicker.sourceType = .photoLibrary
             imagePicker.allowsEditing = false
 
             present(imagePicker, animated: true, completion: nil)
@@ -58,6 +58,32 @@ class CreateProfile1: UIViewController, UIImagePickerControllerDelegate ,UINavig
         let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
 
         userProfilePhoto.image = image
+        
+        let imageURL = info[UIImagePickerController.InfoKey.imageURL] as! URL
+        let imageName = imageURL.lastPathComponent
+        let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
+        let localPath = documentDirectory.stringByAppendingPathComponent(path: imageName)
+
+        //let image1 = info[UIImagePickerControllerOriginalImage] as! UIImage
+        let data = image.pngData()
+        do {
+            try data?.write(to: URL(fileURLWithPath: localPath), options: .atomic)
+        } catch let error {
+            print(error)
+        }
+        //data?.write(to: URL(fileURLWithPath: localPath), options: .atomic)
+
+        let imageData = NSData(contentsOfFile: localPath)!
+        let photoURL = NSURL(fileURLWithPath: localPath)
+        _ = UIImage(data: imageData as Data)!
+        
+        _ = URL(string: "https://api.thedogapi.com/v1/images/upload")
+        let param = [
+            "file"  : photoURL
+        ]
+        //print(photoURL)
+        //callPost(url: myUrl ?? URL(string:"")!, params: param, finish: finishPost)
+        myImageUploadRequest(profImage: image, param: param)
     }
     
     @IBAction func logoutButton(_ sender: UIButton) {
@@ -140,4 +166,31 @@ class CreateProfile1: UIViewController, UIImagePickerControllerDelegate ,UINavig
         }
     }
 
+}
+
+extension String {
+
+    var lastPathComponent: String {
+        return (self as NSString).lastPathComponent
+    }
+    var pathExtension: String {
+        return (self as NSString).pathExtension
+    }
+    var stringByDeletingLastPathComponent: String {
+        return (self as NSString).deletingLastPathComponent
+    }
+    var stringByDeletingPathExtension: String {
+        return (self as NSString).deletingPathExtension
+    }
+    var pathComponents: [String] {
+        return (self as NSString).pathComponents
+    }
+    func stringByAppendingPathComponent(path: String) -> String {
+        let nsSt = self as NSString
+        return nsSt.appendingPathComponent(path)
+    }
+    func stringByAppendingPathExtension(ext: String) -> String? {
+        let nsSt = self as NSString
+        return nsSt.appendingPathExtension(ext)
+    }
 }
