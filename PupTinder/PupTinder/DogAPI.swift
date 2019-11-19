@@ -118,11 +118,6 @@ func myImageUploadRequest(profImage: UIImage, param: [String:Any])
 
             print(json as Any)
 
-            //dispatch_async(dispatch_get_main_queue(),{
-                //self.myActivityIndicator.stopAnimating()
-                //self.myImageView.image = nil;
-            //});
-
         }catch
         {
             print(error)
