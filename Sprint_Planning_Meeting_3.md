@@ -29,15 +29,15 @@ What I plan to do: Decide best way to structure documents and collections on Fir
 
 ### Hajra Mobashar
 
-What I have done: Worked on the UI Design of the app. Worked on the profile view controllers and implementations.
+What I have done: Worked on the UI Design of the app. Created the profile view. Split up create profile screen into multiple skipable steps. 
 
 Any roadblocks: None at the moment.
 
-What I plan to do: Create home view and user profile view. Add new screens for users to enter profile info. Work on the dog api.
+What I plan to do: Create home view. Work on the dog api. Work on the get response for the dog api and prefil info for the user.
 
 ### Alannah Woodward
 
-What I have done: [Worked on view controllers and implementation.](https://github.com/ECS189E/project-f19-puptinder/commit/1ceea23536c524b1c2b57522884b9fe7ee0a4b55) [Get request to dog api server is working to upload image from phone](https://github.com/ECS189E/project-f19-puptinder/commit/695177d7d0dc865cb6119bedcc8dd80d8947fa31).
+What I have done: [Worked on view controllers and implementation.](https://github.com/ECS189E/project-f19-puptinder/commit/1ceea23536c524b1c2b57522884b9fe7ee0a4b55) [Post request to dog api server is working to upload image from phone](https://github.com/ECS189E/project-f19-puptinder/commit/695177d7d0dc865cb6119bedcc8dd80d8947fa31).
 
 Any roadblocks: None so far. 
 
