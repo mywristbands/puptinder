@@ -18,7 +18,7 @@ class Login: UIViewController {
         super.viewDidLoad()
         /* At the moment, the following code serves for testing basic CRUD operations
            and is used for writing security rules. This code serves no purpose to the actual logic rn.
-         */
+         
         // Get reference to Firestore Database
         let db = Firestore.firestore()
         
@@ -40,6 +40,7 @@ class Login: UIViewController {
                 }
             }
         }
+        */
     }
     
     func loginPressed() {
