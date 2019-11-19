@@ -42,3 +42,4 @@ What I have done: Worked on view controllers and implementation.
 Any roadblocks: None so far. 
 
 What I plan to do: Get Dog API prefill working. Continue working on account storage on firebase. 
+(Able to upload image from local phone to dog api server commit ff403eebfe451a04b87a0212b9157de05fa0e806)
