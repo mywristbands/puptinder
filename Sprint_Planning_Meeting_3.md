@@ -37,9 +37,9 @@ What I plan to do: Create home view and user profile view. Add new screens for u
 
 ### Alannah Woodward
 
-What I have done: Worked on view controllers and implementation. 
+What I have done: [Worked on view controllers and implementation.](https://github.com/ECS189E/project-f19-puptinder/commit/1ceea23536c524b1c2b57522884b9fe7ee0a4b55) [Get request to dog api server is working to upload image from phone] (https://github.com/ECS189E/project-f19-puptinder/commit/695177d7d0dc865cb6119bedcc8dd80d8947fa31).
 
 Any roadblocks: None so far. 
 
 What I plan to do: Get Dog API prefill working. Continue working on account storage on firebase. 
-(Able to upload image from local phone to dog api server commit ff403eebfe451a04b87a0212b9157de05fa0e806)
+
