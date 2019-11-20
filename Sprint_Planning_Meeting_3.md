@@ -21,11 +21,11 @@ start working on implementing some of them.
 
 ### Tammy Lee
 
-What I have done: Connect Firebase onto our app. Design API endpoints that the front will call.
+What I have done: Connect Firebase onto our app. Discuss API endpoints that the front will call. Designed collection and document structure with Elias. Write security rules on Firestore, which are not pushed to Github, but have some [operations](https://github.com/ECS189E/project-f19-puptinder/commit/d2543bbe694f19862aaa524287e4ac55d3174ee0) on the Login that were used to test out rules.
 
-Any roadblocks: Need another meeting with Elias to discuss Firebase rules and data storage design in detail. 
+Any roadblocks: None. 
 
-What I plan to do: Decide best way to structure documents and collections on Firestore. Finish coding API functions. Continue working on messaging and seeing how I can incorporate calendar.
+What I plan to do: Continue implementing API functions since Elias just pushed updates to Api.swift. Continue working on messaging flow and seeing how I could possibly include calendar.
 
 ### Hajra Mobashar
 
