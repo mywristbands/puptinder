@@ -11,7 +11,7 @@ import UIKit
 import Firebase
 
 struct Profile {
-    var uid: String
+    var uid: String    // **** TODO: discuss that it's profile_uid in db
     var picture: UIImage
     var name: String
     var breed: String
@@ -26,7 +26,7 @@ struct Conversation {
     var messages: [Message]
 }
 
-struct Message {
+struct Message {   // TODO: might need to modify this to conform to MessageKit
     var sender: String // the sender's uid
     var text: String
     var timestamp: Timestamp
