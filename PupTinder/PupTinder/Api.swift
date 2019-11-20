@@ -37,11 +37,13 @@ protocol NewMessageChecker {
     func onReceivedNewMessage(_ message: Message)
 }
 
+// As we're implementing this Api, reference our database structure here:
+// https://drive.google.com/file/d/1wh2Bb0nTlIzK-a9Kbr89DsQotLfsNNRN/view?usp=sharing
 class Api {
     static var ref: DatabaseReference!
     static var delegate: NewMessageChecker?
     
-    /// Sign new user up.
+    /// Signs new user up.
     /// - Parameter completion: If successful, completion's `error` argument will be `nil`, else it will contain a `Optional(String)` describing the error for now it just always says "Failed to sign up").
     static func signup(email: String, password: String, completion: @escaping ((_ error: String?) -> Void)) {
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
@@ -193,7 +195,7 @@ class Api {
 
     /*
      ***************IMPORTANT NOTE*****************************
-        We’ll need to also create a firebase Admin SDK “function” (the implementer will need to look up the details on how to do this) which will be triggered whenever someone swipes right. This function will check if the person who they swiped right on also swiped right on them, in which case it would add a new document to the matches collection with the `members` list containing both of their UIDs, and the `timestamp` containing the time that the match was found (whatever the current time is).
+        We’ll need to also create a firebase Admin SDK “function” (whoever implements this will need to look up the details on how to do this) which will be triggered whenever someone swipes right. This function will check if the person who they swiped right on also swiped right on them, in which case it would add a new document to the matches collection with the `members` list containing both of their UIDs, and the `timestamp` containing the time that the match was found (whatever the current time is).
         The reason we have to do this is outside the client code is we don’t want to let just anyone add entries to the `matches` collection, or else a malicious person could wreak havoc by matching random people together.
         */
 }
