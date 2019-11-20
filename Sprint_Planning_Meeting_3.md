@@ -21,7 +21,7 @@ start working on implementing some of them.
 
 ### Tammy Lee
 
-What I have done: Connect Firebase onto our app. Discuss API endpoints that the front will call. Designed collection and document structure with Elias. Write security rules on Firestore, which are not pushed to Github, but have some [operations](https://github.com/ECS189E/project-f19-puptinder/commit/d2543bbe694f19862aaa524287e4ac55d3174ee0) on the Login that were used to test out rules.
+What I have done: Connect Firebase onto our app. Discuss API endpoints that the front will call. Designed collection and document structure with Elias. Write security [rules](https://github.com/ECS189E/project-f19-puptinder/commit/e195bad01ddca4b8032075c8dcc988bfee885e7b) on Firestore, which are not pushed to Github, but have some [operations](https://github.com/ECS189E/project-f19-puptinder/commit/d2543bbe694f19862aaa524287e4ac55d3174ee0) on the Login that were used to test out rules.
 
 Any roadblocks: None. 
 
