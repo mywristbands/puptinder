@@ -165,7 +165,14 @@ class CreateProfile1: UIViewController, UIImagePickerControllerDelegate ,UINavig
             maleButton.backgroundColor = UIColor.white
         }
     }
-
+    @IBAction func logoutPressed() {
+        if let errorMessage = Api.logout() {
+            // If logout fails, send and alert to user.
+            let alertController = UIAlertController(title: "Logout failed", message: errorMessage, preferredStyle: .alert)
+            self.present(alertController, animated: true, completion: nil)
+        }
+    }
+    
 }
 
 extension String {
