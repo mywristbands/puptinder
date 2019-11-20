@@ -7,17 +7,13 @@ Link to trello board: https://trello.com/invite/b/rubewu9h/19e96c4ef1baaef9118aa
 
 ### Elias Heffan
 
-What I have done: Researched how to use Firestore, started planning the layout
-and rules of our database, worked on setting up API function prototypes for
-interacting with database from View Controllers, [fixed a couple visuals of View 
+What I have done: Researched how to use Firestore, planned the [layout of our database](https://drive.google.com/file/d/1wh2Bb0nTlIzK-a9Kbr89DsQotLfsNNRN/view?usp=sharing), set up API function prototypes for
+interacting with database from View Controllers ([here](https://github.com/ECS189E/project-f19-puptinder/commit/56d3fe3be28966d55ecc2da71cd6bc1c22230aec) and [here](https://github.com/ECS189E/project-f19-puptinder/commit/1ca7b22f4748d3e3e07b7768815a9ce918fd790a)), and [fixed a couple visuals of View 
 Controllers](https://github.com/ECS189E/project-f19-puptinder/commit/ac34e9d23c003ad8a7f112f6367f6c34fed8eb93).
 
-Any roadblocks: Need another meeting with Tammy to discuss Firebase rules and data storage design in detail.
+Any roadblocks: None.
 
-What I plan to do: Finish plannning out how we'll set up our database and rules,
-finish setting up API function prototypes for interacting with database from
-View Controllers, divide up with Tammy who will implement the API functions and
-start working on implementing some of them.
+What I plan to do: Meet with group to figure out how we'll divide up implementing the API functions and incorporating them into our app. Tammy and I will likely implement most of the API functions, and stay one step ahead of Hajra and Alannah who will be calling them in our app's View Controllers.
 
 ### Tammy Lee
 
