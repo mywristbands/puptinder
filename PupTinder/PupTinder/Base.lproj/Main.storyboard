@@ -918,6 +918,30 @@
                                     <action selector="editPhotoPressed:" destination="5fR-Ec-Roi" eventType="touchUpInside" id="Fkf-LZ-znZ"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BCg-pH-10K">
+                                <rect key="frame" x="64" y="80" width="247" height="183"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="rxL-aR-xbK">
+                                        <rect key="frame" x="113" y="27" width="20" height="37"/>
+                                    </activityIndicatorView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please wait while we guess your dog's breed!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbw-Sf-7dn">
+                                        <rect key="frame" x="22" y="93" width="203" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.46741098165512085" green="0.45121735334396362" blue="0.95285743474960327" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="rxL-aR-xbK" secondAttribute="trailing" constant="114" id="DJ2-TI-QJv"/>
+                                    <constraint firstAttribute="trailing" secondItem="lbw-Sf-7dn" secondAttribute="trailing" constant="22" id="NdU-qb-bF2"/>
+                                    <constraint firstItem="rxL-aR-xbK" firstAttribute="leading" secondItem="BCg-pH-10K" secondAttribute="leading" constant="113" id="P7l-yp-4Ky"/>
+                                    <constraint firstItem="lbw-Sf-7dn" firstAttribute="top" secondItem="rxL-aR-xbK" secondAttribute="bottom" constant="29" id="QwS-QV-55J"/>
+                                    <constraint firstItem="lbw-Sf-7dn" firstAttribute="leading" secondItem="BCg-pH-10K" secondAttribute="leading" constant="22" id="Z8D-2c-9Q5"/>
+                                    <constraint firstItem="rxL-aR-xbK" firstAttribute="top" secondItem="BCg-pH-10K" secondAttribute="top" constant="27" id="uhI-Ps-3Zt"/>
+                                    <constraint firstAttribute="height" constant="183" id="w0d-pf-jWo"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -929,8 +953,10 @@
                             <constraint firstItem="2Xm-kq-Gei" firstAttribute="top" secondItem="DYB-8u-A7g" secondAttribute="bottom" constant="6" id="C6f-bg-O2e"/>
                             <constraint firstItem="Fim-5y-KMJ" firstAttribute="top" secondItem="eHO-qD-re8" secondAttribute="bottom" constant="3.5" id="CNL-IP-vI3"/>
                             <constraint firstItem="Bfg-eH-ZnA" firstAttribute="trailing" secondItem="Fim-5y-KMJ" secondAttribute="trailing" constant="128" id="Ek4-G7-pav"/>
+                            <constraint firstItem="BCg-pH-10K" firstAttribute="leading" secondItem="Bfg-eH-ZnA" secondAttribute="leading" constant="64" id="Ewr-iY-F23"/>
                             <constraint firstItem="Bfg-eH-ZnA" firstAttribute="trailing" secondItem="VuO-KT-ohZ" secondAttribute="trailing" constant="16" id="Ite-CG-TT7"/>
                             <constraint firstItem="OFx-hj-yHl" firstAttribute="centerX" secondItem="RlM-1o-vYP" secondAttribute="centerX" constant="-1" id="JE2-Np-YOp"/>
+                            <constraint firstItem="Bfg-eH-ZnA" firstAttribute="trailing" secondItem="BCg-pH-10K" secondAttribute="trailing" constant="64" id="Jfd-Nv-8H1"/>
                             <constraint firstItem="Fim-5y-KMJ" firstAttribute="leading" secondItem="Bfg-eH-ZnA" secondAttribute="leading" constant="129" id="LsZ-n5-HaK"/>
                             <constraint firstItem="WwX-lK-e2b" firstAttribute="top" secondItem="Fim-5y-KMJ" secondAttribute="bottom" constant="3" id="MBk-qk-iMw"/>
                             <constraint firstItem="WwX-lK-e2b" firstAttribute="top" secondItem="Fim-5y-KMJ" secondAttribute="bottom" constant="3" id="OI0-7z-n6b"/>
@@ -943,6 +969,7 @@
                             <constraint firstItem="Fim-5y-KMJ" firstAttribute="top" secondItem="eHO-qD-re8" secondAttribute="bottom" constant="3.5" id="TlK-s4-1NX"/>
                             <constraint firstItem="aMj-pN-YbQ" firstAttribute="top" secondItem="jhr-r5-uxs" secondAttribute="bottom" constant="4" id="VsH-jB-jve"/>
                             <constraint firstItem="Rs1-KN-177" firstAttribute="top" secondItem="OFx-hj-yHl" secondAttribute="bottom" constant="3" id="XKd-qf-x5W"/>
+                            <constraint firstItem="BCg-pH-10K" firstAttribute="top" secondItem="PZC-eR-yHw" secondAttribute="bottom" constant="30" id="ZnN-NG-yhW"/>
                             <constraint firstItem="Rs1-KN-177" firstAttribute="centerX" secondItem="RlM-1o-vYP" secondAttribute="centerX" id="atQ-FV-znH"/>
                             <constraint firstItem="jhr-r5-uxs" firstAttribute="centerX" secondItem="RlM-1o-vYP" secondAttribute="centerX" id="ate-ww-qmY"/>
                             <constraint firstItem="DYB-8u-A7g" firstAttribute="leading" secondItem="Bfg-eH-ZnA" secondAttribute="leading" constant="35" id="b9V-WF-DKt"/>
@@ -968,6 +995,9 @@
                         <viewLayoutGuide key="safeArea" id="Bfg-eH-ZnA"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="rxL-aR-xbK" id="yo2-8W-S5m"/>
+                        <outlet property="breedGuessView" destination="BCg-pH-10K" id="o10-yw-2vz"/>
+                        <outlet property="dogBreedTextField" destination="DYB-8u-A7g" id="fdW-Gb-ykf"/>
                         <outlet property="editPhotoButton" destination="Fim-5y-KMJ" id="zoP-x0-mHd"/>
                         <outlet property="femaleButton" destination="X6r-ew-Szl" id="W1Y-T7-JgZ"/>
                         <outlet property="largeDogIcon" destination="2Xm-kq-Gei" id="I03-Ur-g7J"/>
@@ -979,7 +1009,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Spn-pT-VFP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1193" y="310"/>
+            <point key="canvasLocation" x="1192.8" y="309.89505247376314"/>
         </scene>
     </scenes>
     <resources>

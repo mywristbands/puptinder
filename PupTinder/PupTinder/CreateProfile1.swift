@@ -16,8 +16,13 @@ class CreateProfile1: UIViewController, UIImagePickerControllerDelegate ,UINavig
     @IBOutlet weak var maleButton: UIButton!
     @IBOutlet weak var userProfilePhoto: UIImageView!
     @IBOutlet weak var editPhotoButton: UIButton!
+    @IBOutlet weak var dogBreedTextField: UITextField!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var breedGuessView: UIView!
     var imagePicker = UIImagePickerController()
     var profImage = UIImage(named: "profile-dog")
+    var dogID: String = ""
+    var dogBreed: String = ""
     
     
     var dogSize : String = ""
@@ -27,6 +32,7 @@ class CreateProfile1: UIViewController, UIImagePickerControllerDelegate ,UINavig
         super.viewDidLoad()
         
         userProfilePhoto.image = profImage
+        breedGuessView.isHidden = true
         
         femaleButton.layer.masksToBounds = true
         femaleButton.layer.cornerRadius = femaleButton.frame.width/2
@@ -64,14 +70,12 @@ class CreateProfile1: UIViewController, UIImagePickerControllerDelegate ,UINavig
         let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
         let localPath = documentDirectory.stringByAppendingPathComponent(path: imageName)
 
-        //let image1 = info[UIImagePickerControllerOriginalImage] as! UIImage
         let data = image.pngData()
         do {
             try data?.write(to: URL(fileURLWithPath: localPath), options: .atomic)
         } catch let error {
             print(error)
         }
-        //data?.write(to: URL(fileURLWithPath: localPath), options: .atomic)
 
         let imageData = NSData(contentsOfFile: localPath)!
         let photoURL = NSURL(fileURLWithPath: localPath)
@@ -81,9 +85,39 @@ class CreateProfile1: UIViewController, UIImagePickerControllerDelegate ,UINavig
         let param = [
             "file"  : photoURL
         ]
-        //print(photoURL)
-        //callPost(url: myUrl ?? URL(string:"")!, params: param, finish: finishPost)
+
+        breedGuessView.isHidden = false
+        activityIndicator.startAnimating()
+        self.view.isUserInteractionEnabled = false
         myImageUploadRequest(profImage: image, param: param)
+        { picID in
+            getDogBreed(pictureID: picID as? String ?? "")
+            { breed, size  in
+                DispatchQueue.main.async {
+                    self.dogBreedTextField.text = breed as? String ?? ""
+                    self.dogSize = size as? String ?? ""
+                    
+                    switch(self.dogSize)
+                    {
+                        case "small":
+                            self.smallSizePressed(nil)
+                            break
+                        case "medium":
+                            self.medSizePressed(nil)
+                            break
+                        case "large":
+                            self.largeSizePressed(nil)
+                            break
+                        default:
+                            break
+                    }
+                    
+                    self.breedGuessView.isHidden = true
+                    self.activityIndicator.stopAnimating()
+                    self.view.isUserInteractionEnabled = true
+                }
+            }
+        }
     }
     
     @IBAction func logoutButton(_ sender: UIButton) {
@@ -94,7 +128,7 @@ class CreateProfile1: UIViewController, UIImagePickerControllerDelegate ,UINavig
     }
     
     
-    @IBAction func smallSizePressed(_ sender: Any) {
+    func smallSizePressedGen() {
         if smallDogIcon.backgroundColor == UIColor.white {
             if medDogIcon.backgroundColor == swiftColor {
                 medDogIcon.backgroundColor = UIColor.white
@@ -110,7 +144,11 @@ class CreateProfile1: UIViewController, UIImagePickerControllerDelegate ,UINavig
         }
     }
     
-    @IBAction func medSizePressed(_ sender: Any) {
+    @IBAction func smallSizePressed(_ sender: Any?) {
+        smallSizePressedGen()
+    }
+    
+    func medSizePressedGen() {
         if medDogIcon.backgroundColor == UIColor.white {
             if smallDogIcon.backgroundColor == swiftColor {
                 smallDogIcon.backgroundColor = UIColor.white
@@ -126,7 +164,11 @@ class CreateProfile1: UIViewController, UIImagePickerControllerDelegate ,UINavig
         }
     }
     
-    @IBAction func largeSizePressed(_ sender: Any) {
+    @IBAction func medSizePressed(_ sender: Any?) {
+        medSizePressedGen()
+    }
+    
+    func largeSizePressedGen() {
         if largeDogIcon.backgroundColor == UIColor.white {
             if smallDogIcon.backgroundColor == swiftColor {
                 smallDogIcon.backgroundColor = UIColor.white
@@ -140,6 +182,10 @@ class CreateProfile1: UIViewController, UIImagePickerControllerDelegate ,UINavig
             largeDogIcon.backgroundColor = UIColor.white
             dogSize = "unselected"
         }
+    }
+    
+    @IBAction func largeSizePressed(_ sender: Any?) {
+        largeSizePressedGen()
     }
     
     @IBAction func femaleButtonPressed(_ sender: Any) {
