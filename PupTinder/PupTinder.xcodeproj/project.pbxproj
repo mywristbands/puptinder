@@ -94,24 +94,24 @@
 		77D80D852377849B0043254B /* PupTinder */ = {
 			isa = PBXGroup;
 			children = (
-				64AF582923822BFA0060B13B /* Api.swift */,
-				51CB36EE237A3E1A00D6ABF0 /* CreateProfile1.swift */,
-				77D80D862377849B0043254B /* AppDelegate.swift */,
-				77D80D882377849B0043254B /* SceneDelegate.swift */,
-				77D80D8A2377849B0043254B /* Login.swift */,
-				64AF582B238236A50060B13B /* SignUp.swift */,
-				77D80D8C2377849B0043254B /* Main.storyboard */,
-				77D80D8F237784A00043254B /* Assets.xcassets */,
-				77D80D91237784A00043254B /* LaunchScreen.storyboard */,
 				77D80D94237784A00043254B /* Info.plist */,
 				934AAA742377DE9A0007EBAA /* GoogleService-Info.plist */,
-				51A009BC237D195F00719C27 /* CustomCheckedTableViewCell.swift */,
+				77D80D8F237784A00043254B /* Assets.xcassets */,
+				77D80D862377849B0043254B /* AppDelegate.swift */,
+				77D80D882377849B0043254B /* SceneDelegate.swift */,
+				64AF582923822BFA0060B13B /* Api.swift */,
+				77D80D91237784A00043254B /* LaunchScreen.storyboard */,
+				77D80D8C2377849B0043254B /* Main.storyboard */,
+				77D80D8A2377849B0043254B /* Login.swift */,
+				64AF582B238236A50060B13B /* SignUp.swift */,
+				51CB36EE237A3E1A00D6ABF0 /* CreateProfile1.swift */,
+				517024442383975C00C5CB00 /* DogAPI.swift */,
 				777EAFD3237E5B49007CFF96 /* CreateProfile2.swift */,
 				777EAFD5237E5C02007CFF96 /* CreateProfile3.swift */,
 				777EAFD7237E5C1A007CFF96 /* CreateProfile4.swift */,
 				518DDE8B237E61DD0060FDAA /* UserProfile.swift */,
 				64AF582D2382411D0060B13B /* MatchesAndConversations.swift */,
-				517024442383975C00C5CB00 /* DogAPI.swift */,
+				51A009BC237D195F00719C27 /* CustomCheckedTableViewCell.swift */,
 			);
 			path = PupTinder;
 			sourceTree = "<group>";
