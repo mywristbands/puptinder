@@ -27,7 +27,7 @@ let messages: [MessageType] = []
 
 extension MatchesAndConversations: MessagesDataSource {
     func currentSender() -> SenderType {
-        return Sender(id: "any_unique_id", displayName: "Steven")
+        return Sender(id: "any_unique_id", displayName: "Bob")
     }
 
     func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
@@ -37,5 +37,39 @@ extension MatchesAndConversations: MessagesDataSource {
     func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageType {
         return messages[indexPath.section]
     }
+    
+    func cellTopLabelAttributedText(for message: MessageType,
+      at indexPath: IndexPath) -> NSAttributedString? {
+
+      let name = "Bob"
+      return NSAttributedString(
+        string: name,
+        attributes: [
+          .font: UIFont.preferredFont(forTextStyle: .caption1),
+          .foregroundColor: UIColor(white: 0.3, alpha: 1)
+        ]
+      )
+    }
 }
-extension MatchesAndConversations: MessagesDisplayDelegate, MessagesLayoutDelegate {}
+
+extension MatchesAndConversations: MessagesLayoutDelegate {
+
+  func avatarSize(for message: MessageType, at indexPath: IndexPath,
+    in messagesCollectionView: MessagesCollectionView) -> CGSize {
+    return .zero
+  }
+
+  func footerViewSize(for message: MessageType, at indexPath: IndexPath,
+    in messagesCollectionView: MessagesCollectionView) -> CGSize {
+    return CGSize(width: 0, height: 8)
+  }
+
+  func heightForLocation(message: MessageType, at indexPath: IndexPath,
+    with maxWidth: CGFloat, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
+    return 0
+  }
+}
+
+extension MatchesAndConversations: MessagesDisplayDelegate {
+    
+}
