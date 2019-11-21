@@ -32,7 +32,7 @@ struct Message {   // TODO: might need to modify this to conform to MessageKit
     var timestamp: Timestamp
 }
 
-/// To constantly be checking for new messages and define how to update the View with those new messages, implement this protocol.
+/// To define how you'd like to update the View when you receive new messages, implement this protocol. (also make sure to call Api.startListeningForNewMessages() to start listening for new messages).
 protocol NewMessageChecker {
     func onReceivedNewMessage(_ message: Message)
 }
@@ -41,6 +41,7 @@ protocol NewMessageChecker {
 // https://drive.google.com/file/d/1wh2Bb0nTlIzK-a9Kbr89DsQotLfsNNRN/view?usp=sharing
 class Api {
     static var ref: DatabaseReference!
+    static let db = Firestore.firestore()
     static var delegate: NewMessageChecker?
     
     /// Signs new user up.
@@ -87,6 +88,7 @@ class Api {
     /// Creates profile for a new user.
     /// - Parameter completion: If successful, completion's `error` argument will be `nil`, else it will contain a `Optional(String)` describing the error.
     static func createProfile(profile: Profile, completion: @escaping ((_ error: String?) -> Void)) {
+        //db.collection("profiles").addDocument(data:)
         // TODO: Implement this function!
     }
     
