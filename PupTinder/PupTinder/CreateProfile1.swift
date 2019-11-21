@@ -19,6 +19,8 @@ class CreateProfile1: UIViewController, UIImagePickerControllerDelegate ,UINavig
     @IBOutlet weak var dogBreedTextField: UITextField!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var breedGuessView: UIView!
+    @IBOutlet weak var ImageContainer: UIView!
+    
     var imagePicker = UIImagePickerController()
     var profImage = UIImage(named: "profile-dog")
     var dogID: String = ""
@@ -42,6 +44,17 @@ class CreateProfile1: UIViewController, UIImagePickerControllerDelegate ,UINavig
         
         userProfilePhoto.layer.masksToBounds = true;
         userProfilePhoto.layer.cornerRadius = userProfilePhoto.frame.width/2;
+        
+         self.ImageContainer.layer.cornerRadius = self.ImageContainer.frame.height/2
+         
+        self.ImageContainer.layer.shadowPath =
+               UIBezierPath(roundedRect: self.ImageContainer.bounds,
+               cornerRadius: self.ImageContainer.layer.cornerRadius).cgPath
+         self.ImageContainer.layer.shadowColor = UIColor.black.cgColor
+         self.ImageContainer.layer.shadowOpacity = 0.3
+         self.ImageContainer.layer.shadowOffset = CGSize(width: 2, height: 2)
+         self.ImageContainer.layer.shadowRadius = 5
+         self.ImageContainer.clipsToBounds = false
         
     }
     
@@ -101,13 +114,13 @@ class CreateProfile1: UIViewController, UIImagePickerControllerDelegate ,UINavig
                         switch(self.dogSize)
                         {
                             case "small":
-                                self.smallSizePressed(nil)
+                                self.smallSizePressedGen()
                                 break
                             case "medium":
-                                self.medSizePressed(nil)
+                                self.medSizePressedGen()
                                 break
                             case "large":
-                                self.largeSizePressed(nil)
+                                self.largeSizePressedGen()
                                 break
                             default:
                                 break
