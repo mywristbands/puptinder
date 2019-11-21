@@ -94,22 +94,24 @@ class CreateProfile1: UIViewController, UIImagePickerControllerDelegate ,UINavig
             getDogBreed(pictureID: picID as? String ?? "")
             { breed, size  in
                 DispatchQueue.main.async {
-                    self.dogBreedTextField.text = breed as? String ?? ""
-                    self.dogSize = size as? String ?? ""
-                    
-                    switch(self.dogSize)
-                    {
-                        case "small":
-                            self.smallSizePressed(nil)
-                            break
-                        case "medium":
-                            self.medSizePressed(nil)
-                            break
-                        case "large":
-                            self.largeSizePressed(nil)
-                            break
-                        default:
-                            break
+                    if((breed as? String ?? "") != "not found") {
+                        self.dogBreedTextField.text = breed as? String ?? ""
+                        self.dogSize = size as? String ?? ""
+                        
+                        switch(self.dogSize)
+                        {
+                            case "small":
+                                self.smallSizePressed(nil)
+                                break
+                            case "medium":
+                                self.medSizePressed(nil)
+                                break
+                            case "large":
+                                self.largeSizePressed(nil)
+                                break
+                            default:
+                                break
+                        }
                     }
                     
                     self.breedGuessView.isHidden = true
