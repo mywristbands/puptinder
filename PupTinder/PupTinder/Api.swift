@@ -40,8 +40,8 @@ protocol NewMessageChecker {
 // As we're implementing this Api, reference our database structure here:
 // https://drive.google.com/file/d/1wh2Bb0nTlIzK-a9Kbr89DsQotLfsNNRN/view?usp=sharing
 class Api {
-    static let dbRef = Firestore.firestore()
-    //static let storageRef = Storage.storage() ADD FIREBASE STORAGE POD: https://firebase.google.com/docs/storage/ios/start
+    static let db = Firestore.firestore()
+    static let storage = Storage.storage()
     static var delegate: NewMessageChecker?
     
     /// Signs new user up.
@@ -85,7 +85,7 @@ class Api {
     static func createProfile(profile: Profile, completion: @escaping ((_ error: String?) -> Void)) {
    
         
-    //db.collection("profiles").addDocument(data:["picture":"changethistofilepath","name":profile.name,"breed":profile.breed,"size":profile.size,"bio":profile.bio,"traits":profile.traits,"characteristics":profile.traits])
+    db.collection("profiles").addDocument(data:["picture":"changethistofilepath","name":profile.name,"breed":profile.breed,"size":profile.size,"bio":profile.bio,"traits":profile.traits,"characteristics":profile.traits])
     }
     
     /**
