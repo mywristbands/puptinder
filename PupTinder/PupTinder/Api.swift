@@ -11,7 +11,7 @@ import UIKit
 import Firebase
 
 struct Profile {
-    var uid: String    // **** TODO: discuss that it's profile_uid in db
+    var uid: String
     var picture: UIImage
     var name: String
     var breed: String
@@ -40,8 +40,8 @@ protocol NewMessageChecker {
 // As we're implementing this Api, reference our database structure here:
 // https://drive.google.com/file/d/1wh2Bb0nTlIzK-a9Kbr89DsQotLfsNNRN/view?usp=sharing
 class Api {
-    static var ref: DatabaseReference!
     static let db = Firestore.firestore()
+    static let storage = Storage.storage()
     static var delegate: NewMessageChecker?
     
     /// Signs new user up.
@@ -65,11 +65,6 @@ class Api {
                 completion("Failed to sign in")
             } else {
                 completion(nil)
-                // Note that this code below is just testing code; we wouldn't actually insert the user's username into our database after they log in
-                self.ref = Database.database().reference()
-                if let userID = Auth.auth().currentUser?.uid {
-                    self.ref.child("users").child(userID).setValue(["username": "username1"])
-                }
             }
         }
     }
@@ -88,8 +83,9 @@ class Api {
     /// Creates profile for a new user.
     /// - Parameter completion: If successful, completion's `error` argument will be `nil`, else it will contain a `Optional(String)` describing the error.
     static func createProfile(profile: Profile, completion: @escaping ((_ error: String?) -> Void)) {
-        //db.collection("profiles").addDocument(data:)
-        // TODO: Implement this function!
+   
+        
+    db.collection("profiles").addDocument(data:["picture":"changethistofilepath","name":profile.name,"breed":profile.breed,"size":profile.size,"bio":profile.bio,"traits":profile.traits,"characteristics":profile.traits])
     }
     
     /**
