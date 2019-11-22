@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5fR-Ec-Roi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
@@ -107,7 +107,9 @@
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cZL-VV-11f">
                                 <rect key="frame" x="218" y="617" width="141" height="30"/>
-                                <state key="normal" title="Shortcut to Matches"/>
+                                <state key="normal" title="Shortcut to Matches">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="goToMatchesAndConversations" destination="BYZ-38-t0r" eventType="touchUpInside" id="kOU-8C-3hl"/>
                                 </connections>
@@ -230,7 +232,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-tail" translatesAutoresizingMaskIntoConstraints="NO" id="Xgg-o6-1yJ">
-                                <rect key="frame" x="67.5" y="438" width="240" height="128"/>
+                                <rect key="frame" x="67.499999999999986" y="438" width="240.00000000000003" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="ar4-zH-l5m"/>
                                     <constraint firstAttribute="width" constant="240" id="u8X-bE-8MY"/>
@@ -256,6 +258,7 @@
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Type here to tell us more about your dog!" translatesAutoresizingMaskIntoConstraints="NO" id="hC4-74-Ang">
                                         <rect key="frame" x="0.0" y="0.0" width="291" height="224"/>
                                         <color key="backgroundColor" red="0.490886867" green="0.37596613169999998" blue="0.93338412049999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="291" id="Fy2-s3-fNT"/>
                                             <constraint firstAttribute="height" constant="224" id="v0D-eB-tFR"/>
@@ -357,6 +360,9 @@
                                 <state key="normal" title="Create Profile">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="8f6-N4-xgo" kind="presentation" modalPresentationStyle="fullScreen" id="0TQ-yB-x1C"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -691,7 +697,7 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-tail" translatesAutoresizingMaskIntoConstraints="NO" id="ODs-Ba-dIy">
-                                <rect key="frame" x="84.5" y="567" width="206" height="100"/>
+                                <rect key="frame" x="136" y="567" width="103.00000000000003" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="P3r-Hq-e49"/>
                                 </constraints>
@@ -1037,9 +1043,8 @@
         <image name="sPurpleProfile" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="SY8-1J-e89"/>
         <segue reference="Btk-GA-aCT"/>
-        <segue reference="Ryy-lF-lTa"/>
+        <segue reference="iGg-WX-fob"/>
         <segue reference="YLX-GS-Xx9"/>
         <segue reference="s5c-px-00h"/>
     </inferredMetricsTieBreakers>

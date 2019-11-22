@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreateProfile2: UIViewController {
+class CreateProfile2: UIViewController, UITextViewDelegate {
     
 
     @IBOutlet weak var bioTextView: UITextView!
@@ -18,17 +18,11 @@ class CreateProfile2: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       // bioTextView.layer.borderColor = swiftColor.cgColor
-      //  bioTextView.layer.borderWidth = 1.0
-        
-       /* bioContainerView.layer.shadowColor = UIColor.black.cgColor
-        bioContainerView.layer.shadowOpacity = 0.6
-        bioContainerView.layer.shadowOffset = CGSize(width: 25, height: 1)
-        bioContainerView.layer.shadowRadius = 5
-        bioContainerView.layer.shadowPath = UIBezierPath(rect: bioTextView.bounds).cgPath
-        bioContainerView.layer.shouldRasterize = true
-        */
-        
+        self.bioTextView.delegate = self
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        textView.text = ""
     }
 
 }
