@@ -17,6 +17,7 @@
 		777EAFD4237E5B49007CFF96 /* CreateProfile2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777EAFD3237E5B49007CFF96 /* CreateProfile2.swift */; };
 		777EAFD6237E5C02007CFF96 /* CreateProfile3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777EAFD5237E5C02007CFF96 /* CreateProfile3.swift */; };
 		777EAFD8237E5C1A007CFF96 /* CreateProfile4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777EAFD7237E5C1A007CFF96 /* CreateProfile4.swift */; };
+		77A2F2B0238782F000B5D963 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A2F2AF238782F000B5D963 /* Home.swift */; };
 		77D80D872377849B0043254B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D80D862377849B0043254B /* AppDelegate.swift */; };
 		77D80D892377849B0043254B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D80D882377849B0043254B /* SceneDelegate.swift */; };
 		77D80D8B2377849B0043254B /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D80D8A2377849B0043254B /* Login.swift */; };
@@ -38,6 +39,7 @@
 		777EAFD3237E5B49007CFF96 /* CreateProfile2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfile2.swift; sourceTree = "<group>"; };
 		777EAFD5237E5C02007CFF96 /* CreateProfile3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfile3.swift; sourceTree = "<group>"; };
 		777EAFD7237E5C1A007CFF96 /* CreateProfile4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfile4.swift; sourceTree = "<group>"; };
+		77A2F2AF238782F000B5D963 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		77D80D832377849B0043254B /* PupTinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PupTinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77D80D862377849B0043254B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77D80D882377849B0043254B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				518DDE8B237E61DD0060FDAA /* UserProfile.swift */,
 				64AF582D2382411D0060B13B /* MatchesAndConversations.swift */,
 				51A009BC237D195F00719C27 /* CustomCheckedTableViewCell.swift */,
+				77A2F2AF238782F000B5D963 /* Home.swift */,
 			);
 			path = PupTinder;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				51CB36EF237A3E1A00D6ABF0 /* CreateProfile1.swift in Sources */,
 				77D80D8B2377849B0043254B /* Login.swift in Sources */,
 				518DDE8C237E61DD0060FDAA /* UserProfile.swift in Sources */,
+				77A2F2B0238782F000B5D963 /* Home.swift in Sources */,
 				64AF582E2382411D0060B13B /* MatchesAndConversations.swift in Sources */,
 				64AF582A23822BFA0060B13B /* Api.swift in Sources */,
 				517024452383975C00C5CB00 /* DogAPI.swift in Sources */,
