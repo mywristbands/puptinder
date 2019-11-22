@@ -78,6 +78,9 @@ class CreateProfile1: UIViewController, UIImagePickerControllerDelegate ,UINavig
 
         userProfilePhoto.image = image
         
+        // This function is just temporary for testing. Remove for final version!
+        eliasTestingFunction(image)
+        
         let imageURL = info[UIImagePickerController.InfoKey.imageURL] as! URL
         let imageName = imageURL.lastPathComponent
         let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
@@ -133,6 +136,12 @@ class CreateProfile1: UIViewController, UIImagePickerControllerDelegate ,UINavig
                 }
             }
         }
+    }
+    
+    // This function is just temporary for testing. Remove for final version!
+    func eliasTestingFunction(_ image: UIImage) {
+        let profile: Profile = Profile(uid: Api.getUID(), picture: image, name: "Elias", breed: "Human", size: "Small", bio: "about me", traits: ["Cool"], characteristics: ["Not cool"])
+        Api.uploadProfile(profile: profile) { (string) in return }
     }
     
     @IBAction func logoutButton(_ sender: UIButton) {
