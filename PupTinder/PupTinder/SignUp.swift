@@ -18,16 +18,17 @@ class SignUp: UIViewController {
         super.viewDidLoad()
     }
 
-    // This is just a basic implementation for this function--will need to expand on it later
-    func signUpPressed(){
+    // This is just a basic implementation for this function--will need to expand on it later (to check passwords match, for instance)
+    @IBAction func signUpPressed() {
         guard let email = emailField.text, let password = passwordField.text else {
             return
         }
         Api.signup(email: email, password: password) { (error) in
             if error != nil {
+                print(error!)
                 self.errorField.text = error // display error
             } else {
-                // TODO: Signup was a success, so Segueway to the next screen!
+                self.performSegue(withIdentifier: "toProfileSetup", sender: nil)
             }
         }
     }

@@ -232,7 +232,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-tail" translatesAutoresizingMaskIntoConstraints="NO" id="Xgg-o6-1yJ">
-                                <rect key="frame" x="67.499999999999986" y="438" width="240.00000000000003" height="128"/>
+                                <rect key="frame" x="67.5" y="438" width="240" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="ar4-zH-l5m"/>
                                     <constraint firstAttribute="width" constant="240" id="u8X-bE-8MY"/>
@@ -693,11 +693,11 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="5fR-Ec-Roi" kind="presentation" modalPresentationStyle="fullScreen" id="bmP-Dd-DZX"/>
+                                    <action selector="signUpPressed" destination="mxx-6L-8xM" eventType="touchUpInside" id="dE5-nS-XRe"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-tail" translatesAutoresizingMaskIntoConstraints="NO" id="ODs-Ba-dIy">
-                                <rect key="frame" x="136" y="567" width="103.00000000000003" height="100"/>
+                                <rect key="frame" x="84.5" y="567" width="206" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="P3r-Hq-e49"/>
                                 </constraints>
@@ -769,6 +769,7 @@
                         <outlet property="emailField" destination="c0N-bP-aE3" id="OLd-RS-gVJ"/>
                         <outlet property="errorField" destination="zZg-SN-IQt" id="q1B-xr-dYu"/>
                         <outlet property="passwordField" destination="seu-Te-i9f" id="FNK-77-bJA"/>
+                        <segue destination="5fR-Ec-Roi" kind="presentation" identifier="toProfileSetup" modalPresentationStyle="fullScreen" id="QyH-0W-NrC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OFL-Hz-tFd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1043,7 +1044,7 @@
         <image name="sPurpleProfile" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Btk-GA-aCT"/>
+        <segue reference="QyH-0W-NrC"/>
         <segue reference="iGg-WX-fob"/>
         <segue reference="YLX-GS-Xx9"/>
         <segue reference="s5c-px-00h"/>

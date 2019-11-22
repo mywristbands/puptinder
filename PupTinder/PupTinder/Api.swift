@@ -41,17 +41,44 @@ protocol NewMessageChecker {
 // https://drive.google.com/file/d/1wh2Bb0nTlIzK-a9Kbr89DsQotLfsNNRN/view?usp=sharing
 class Api {
     static let db = Firestore.firestore()
-    static let storage = Storage.storage()
+    static let storage = Storage.storage().reference()
     static var delegate: NewMessageChecker?
+    
+    // TEMP FUNCTION FOR GETTING UID
+    static func getUID() -> String {
+        guard let uid =  Auth.auth().currentUser?.uid else {return ""}
+        return uid
+    }
+    
+    static private func getErrorCode(_ error: Error?) -> AuthErrorCode? {
+        let nsError = error as NSError?
+        guard let errorCode = nsError?.code else {return nil}
+        return AuthErrorCode(rawValue: errorCode)
+    }
     
     /// Signs new user up.
     /// - Parameter completion: If successful, completion's `error` argument will be `nil`, else it will contain a `Optional(String)` describing the error for now it just always says "Failed to sign up").
     static func signup(email: String, password: String, completion: @escaping ((_ error: String?) -> Void)) {
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-            if error != nil {
-                completion("Failed to sign up!")
-            } else {
-                completion(nil)
+            
+            guard let errorCode = getErrorCode(error) else {
+                completion(nil) // No error occurred
+                return
+            }
+            
+            switch (errorCode) {
+            case .invalidEmail:
+                completion("malformed email address")
+            case .emailAlreadyInUse:
+                completion("email already in use by another account")
+            case .weakPassword:
+                guard let specificReason = (error as NSError?)?.userInfo[NSLocalizedFailureReasonErrorKey] as? String else {
+                    completion("password is too weak")
+                    return
+                }
+                completion(specificReason)
+            default:
+                completion("Sign up failed for unknown reason")
             }
         }
     }
@@ -61,10 +88,21 @@ class Api {
     static func login(email: String, password: String, completion: @escaping ((_ error: String?) -> Void)) {
         
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
-            if error != nil {
-                completion("Failed to sign in")
-            } else {
-                completion(nil)
+            
+            guard let errorCode = getErrorCode(error) else {
+                completion(nil) // No error occurred
+                return
+            }
+                        
+            switch (errorCode) {
+            case .invalidEmail:
+                completion("malformed email address")
+            case .userDisabled:
+                completion("your account has been disabled")
+            case .wrongPassword:
+                completion("icorrect password, please try again")
+            default:
+                completion("login failed for unknown reason")
             }
         }
     }
@@ -80,12 +118,38 @@ class Api {
         return nil
     }
     
-    /// Creates profile for a new user.
+    /// Uploads profile for a new user.
     /// - Parameter completion: If successful, completion's `error` argument will be `nil`, else it will contain a `Optional(String)` describing the error.
-    static func createProfile(profile: Profile, completion: @escaping ((_ error: String?) -> Void)) {
-   
+    static func uploadProfile(profile: Profile, completion: @escaping ((_ error: String?) -> Void)) {
         
-    db.collection("profiles").addDocument(data:["picture":"changethistofilepath","name":profile.name,"breed":profile.breed,"size":profile.size,"bio":profile.bio,"traits":profile.traits,"characteristics":profile.traits])
+        guard let filepath = uploadProfilePicture(profile.picture) else {
+            print("Could not prepare profile picture for upload")
+            return
+        }
+       
+       // Upload profile
+        db.collection("profiles").addDocument(data:["picture":filepath,"name":profile.name,"breed":profile.breed,"size":profile.size,"bio":profile.bio,"traits":profile.traits,"characteristics":profile.traits])
+    }
+        
+    static private func uploadProfilePicture(_ picture: UIImage) -> String? {
+        
+         // We will name profile pictures based on the uid of the corresponding user
+         guard let uid = Auth.auth().currentUser?.uid else {return nil}
+         let filepath = "profilePictures/" + uid
+         
+         // Create a reference to the location to upload picture to
+         let profilePicRef = storage.child(filepath)
+        
+        // Convert profile picture to raw data
+        guard let rawPicData = picture.cgImage?.dataProvider?.data as Data? else {return nil}
+
+        // Upload profile picture data
+        profilePicRef.putData(rawPicData, metadata: nil) { (metadata, error) in
+            if error != nil {
+                print("Could not upload profile picture")
+            }
+        }
+        return filepath
     }
     
     /**
