@@ -11,7 +11,6 @@ import UIKit
 import Firebase
 
 struct Profile {
-    var uid: String
     var picture: UIImage
     var name: String
     var breed: String
@@ -44,8 +43,7 @@ class Api {
     static let storage = Storage.storage().reference()
     static var delegate: NewMessageChecker?
     
-    // TEMP FUNCTION FOR GETTING UID
-    static func getUID() -> String {
+    static private func getUID() -> String {
         guard let uid =  Auth.auth().currentUser?.uid else {return ""}
         return uid
     }
@@ -68,12 +66,12 @@ class Api {
             
             switch (errorCode) {
             case .invalidEmail:
-                completion("malformed email address")
+                completion("Don't think that's an email address!")
             case .emailAlreadyInUse:
-                completion("email already in use by another account")
+                completion("Email already in use by another account.")
             case .weakPassword:
                 guard let specificReason = (error as NSError?)?.userInfo[NSLocalizedFailureReasonErrorKey] as? String else {
-                    completion("password is too weak")
+                    completion("Password is too weak.")
                     return
                 }
                 completion(specificReason)
@@ -96,13 +94,13 @@ class Api {
                         
             switch (errorCode) {
             case .invalidEmail:
-                completion("malformed email address")
+                completion("Don't think that's an email address!")
             case .userDisabled:
-                completion("your account has been disabled")
+                completion("Your account has been disabled.")
             case .wrongPassword:
-                completion("icorrect password, please try again")
+                completion("Incorrect password, please try again.")
             default:
-                completion("login failed for unknown reason")
+                completion("Login failed for an unknown reason.")
             }
         }
     }
@@ -128,7 +126,7 @@ class Api {
         }
        
        // Upload profile
-        db.collection("profiles").addDocument(data:["picture":filepath,"name":profile.name,"breed":profile.breed,"size":profile.size,"bio":profile.bio,"traits":profile.traits,"characteristics":profile.traits])
+        db.collection("profiles").document(getUID()).setData(["picture":filepath,"name":profile.name,"breed":profile.breed,"size":profile.size,"bio":profile.bio,"traits":profile.traits,"characteristics":profile.traits])
     }
         
     static private func uploadProfilePicture(_ picture: UIImage) -> String? {
