@@ -33,7 +33,11 @@ class CreateProfile3: UIViewController, UITableViewDataSource, UITableViewDelega
         let characteristic = String(format: "%@", self.characteristics[indexPath.row])
         cell.textLabel?.text = "\(characteristic)"
         
-        cell.imageView?.image = UIImage(named: "unchecked")
+        if(cell.imageView?.image != UIImage(named: "checked"))
+        {
+            cell.imageView?.image = UIImage(named: "unchecked")
+        }
+        //cell.imageView?.image = UIImage(named: "unchecked")
         
         cell.isUserInteractionEnabled = true
         return cell

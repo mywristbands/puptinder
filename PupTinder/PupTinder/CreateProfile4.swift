@@ -31,7 +31,10 @@ class CreateProfile4: UIViewController,UITableViewDataSource, UITableViewDelegat
         let pt = String(format: "%@", self.personalityTraits[indexPath.row])
         cell.textLabel?.text = "\(pt)"
         
-        cell.imageView?.image = UIImage(named: "unchecked")
+        if(cell.imageView?.image != UIImage(named: "checked"))
+        {
+            cell.imageView?.image = UIImage(named: "unchecked")
+        }
         
         cell.isUserInteractionEnabled = true
         return cell
