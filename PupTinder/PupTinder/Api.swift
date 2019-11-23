@@ -170,15 +170,26 @@ class Api {
     /**
         Gets the profile of the current user.
         - Parameter completion: If successful, completion's `error` argument will be `nil`, else it will contain a `Optional(String)` describing the error.
-
-        Possible error strings so far include:
-        "You don't have a profile picture!"
-        "Your profile picture is too big to download."
-        "Couldn't get profile picture for an unknown reason."
-        "Profile was never created."
      */
     static func getProfile(completion: @escaping ((_ profile: Profile?, _ error: String?) -> Void)) {
-        getProfilePicture { (image, error) in
+        getProfileOf(uid: getUID(), completion: completion)
+    }
+    
+    /**
+        Gets the profile of any specified user.
+        - Parameter uid: the uid of the user whose profile we want to get.
+        - Parameter completion: If successful, completion's `error` argument will be `nil`, else it will contain a `Optional(String)` describing the error.
+     
+        You might want to use this function to get another user's name, like when messaging someone.
+     
+         Possible error strings include:
+         "Profile doesn't have a profile picture!"
+         "Profile picture is too big to download."
+         "Couldn't get profile picture for an unknown reason."
+         "Profile was never created."
+    */
+    static func getProfileOf(uid: String, completion: @escaping ((_ profile: Profile?, _ error: String?) -> Void)) {
+        getProfilePicture(uid) { (image, error) in
             // Now that we have attempted to get our profile picture...
             
             // Complete with error if error occurred in getting profile picture
@@ -187,7 +198,7 @@ class Api {
             }
             
             // Otherwise, get the rest of the Profile info
-            let profileLocation = db.collection("profiles").document(getUID())
+            let profileLocation = db.collection("profiles").document(uid)
 
             profileLocation.getDocument { (document, error) in
                 if let document = document, document.exists {
@@ -203,9 +214,9 @@ class Api {
         }
     }
     
-    static private func getProfilePicture(completion: @escaping ((_ image: UIImage?, _ error: String?) -> Void)) -> Void {
+    static private func getProfilePicture(_ uid: String, completion: @escaping ((_ image: UIImage?, _ error: String?) -> Void)) -> Void {
         
-        let profilePicLocation = storage.child("profilePictures/" + getUID())
+        let profilePicLocation = storage.child("profilePictures/" + uid)
 
         // Download pic to memory with a maximum allowed size of 1MB
         profilePicLocation.getData(maxSize: 1 * 1024 * 1024) { data, error in
@@ -218,9 +229,9 @@ class Api {
             
             switch (errorCode) {
             case .objectNotFound:
-                completion(nil, "You don't have a profile picture!")
+                completion(nil, "Profile doesn't have a profile picture!")
             case .downloadSizeExceeded:
-                completion(nil, "Your profile picture is too big to download.")
+                completion(nil, "Profile picture is too big to download.")
             default:
                 completion(nil, "Couldn't get profile picture for an unknown reason.")
             }
@@ -232,17 +243,6 @@ class Api {
         - Parameter completion: If successful, completion's `error` argument will be `nil`, else it will contain a `Optional(String)` describing the error.
      */
     static func updateProfile(profile: Profile, completion: ((_ error: String?) -> Void)) {
-        // TODO: Implement this function!
-    }
-    
-    /**
-        Gets the profile of a specific other user.
-        - Parameter uid: the uid of the user whose profile we want to get.
-        - Parameter completion: If successful, completion's `error` argument will be `nil`, else it will contain a `Optional(String)` describing the error.
-     
-        You might want to use this function to get another user's name, like when messaging someone.
-    */
-    static func getProfileOf(uid: String, completion: @escaping ((_ profile: Profile?, _ error: String?) -> Void)) {
         // TODO: Implement this function!
     }
     

@@ -140,7 +140,7 @@ class CreateProfile1: UIViewController, UIImagePickerControllerDelegate ,UINavig
     
     // This function is just for testing; remove after profile stuff is all working!
     func eliasTestingFunction(_ image: UIImage) {
-        let profile = Profile(picture: image, name: "Elias", breed: "Human", size: "Small", bio: "about me", traits: ["Cool", "weird"], characteristics: ["Not cool", "musical"])
+        let profile = Profile(picture: image, name: "Ethan", breed: "Human", size: "Small", bio: "about me", traits: ["Cool", "weird"], characteristics: ["Not cool", "musical"])
         Api.uploadProfile(profile: profile) { (string) in return }
     }
     

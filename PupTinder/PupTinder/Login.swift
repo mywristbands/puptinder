@@ -61,7 +61,7 @@ class Login: UIViewController {
     
     // This function is just for testing; remove after profile stuff is all working!
     func testingFunction() {
-        Api.getProfile { (profile, error) in
+        Api.getProfileOf(uid: "HfPac5bFtmODf4YSZuuPZ76BBgH2") { (profile, error) in
             if let error = error {
                 print(error)
             } else {
