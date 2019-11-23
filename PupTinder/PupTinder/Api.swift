@@ -19,6 +19,18 @@ struct Profile {
     var traits: [String]
     var characteristics: [String]
 }
+// For initializing a Profile with data from firestore
+extension Profile {
+    init(data: [String:Any?]) {
+        picture = data["picture"] as? UIImage ?? UIImage()
+        name = data["name"] as? String ?? ""
+        breed = data["breed"] as? String ?? ""
+        size = data["size"] as? String ?? ""
+        bio = data["bio"] as? String ?? ""
+        traits = data["traits"] as? [String] ?? []
+        characteristics = data["characteristics"] as? [String] ?? []
+    }
+}
 
 struct Conversation {
     var partner: String // the other user's uid
@@ -47,19 +59,25 @@ class Api {
         guard let uid =  Auth.auth().currentUser?.uid else {return ""}
         return uid
     }
-    
-    static private func getErrorCode(_ error: Error?) -> AuthErrorCode? {
+        
+    static private func getAuthErrorCode(_ error: Error?) -> AuthErrorCode? {
         let nsError = error as NSError?
         guard let errorCode = nsError?.code else {return nil}
         return AuthErrorCode(rawValue: errorCode)
     }
-    
+
+    static private func getStorageErrorCode(_ error: Error?) -> StorageErrorCode? {
+        let nsError = error as NSError?
+        guard let errorCode = nsError?.code else {return nil}
+        return StorageErrorCode(rawValue: errorCode)
+    }
+        
     /// Signs new user up.
     /// - Parameter completion: If successful, completion's `error` argument will be `nil`, else it will contain a `Optional(String)` describing the error for now it just always says "Failed to sign up").
     static func signup(email: String, password: String, completion: @escaping ((_ error: String?) -> Void)) {
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             
-            guard let errorCode = getErrorCode(error) else {
+            guard let errorCode = getAuthErrorCode(error) else {
                 completion(nil) // No error occurred
                 return
             }
@@ -87,7 +105,7 @@ class Api {
         
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
             
-            guard let errorCode = getErrorCode(error) else {
+            guard let errorCode = getAuthErrorCode(error) else {
                 completion(nil) // No error occurred
                 return
             }
@@ -131,15 +149,14 @@ class Api {
         
     static private func uploadProfilePicture(_ picture: UIImage) -> String? {
         
-         // We will name profile pictures based on the uid of the corresponding user
-         guard let uid = Auth.auth().currentUser?.uid else {return nil}
-         let filepath = "profilePictures/" + uid
+        // We will name profile pictures based on the uid of the corresponding user
+        let filepath = "profilePictures/" + getUID()
          
-         // Create a reference to the location to upload picture to
-         let profilePicRef = storage.child(filepath)
+        // Create a reference to the location to upload picture to
+        let profilePicRef = storage.child(filepath)
         
-        // Convert profile picture to raw data
-        guard let rawPicData = picture.cgImage?.dataProvider?.data as Data? else {return nil}
+        // Convert profile picture to raw data, compresssed
+        guard let rawPicData = picture.jpegData(compressionQuality: 0.7) else {return nil}
 
         // Upload profile picture data
         profilePicRef.putData(rawPicData, metadata: nil) { (metadata, error) in
@@ -155,10 +172,59 @@ class Api {
         - Parameter completion: If successful, completion's `error` argument will be `nil`, else it will contain a `Optional(String)` describing the error.
 
         Possible error strings so far include:
-        "user has not created a profile", if an account has been created but no profile has yet been created.
+        "You don't have a profile picture!"
+        "Your profile picture is too big to download."
+        "Couldn't get profile picture for an unknown reason."
+        "Profile was never created."
      */
     static func getProfile(completion: @escaping ((_ profile: Profile?, _ error: String?) -> Void)) {
-        // TODO: Implement this function!
+        getProfilePicture { (image, error) in
+            // Now that we have attempted to get our profile picture...
+            
+            // Complete with error if error occurred in getting profile picture
+            if let error = error {
+                completion(nil, error)
+            }
+            
+            // Otherwise, get the rest of the Profile info
+            let profileLocation = db.collection("profiles").document(getUID())
+
+            profileLocation.getDocument { (document, error) in
+                if let document = document, document.exists {
+                    guard var profileData = document.data() else {return}
+                    guard let image = image else {return}
+                    profileData["picture"] = image // Add profile picture to profile data
+                    let profile = Profile(data: profileData)
+                    completion(profile, nil) // Finally pass back the profile info!
+                } else {
+                    completion(nil, "Profile was never created")
+                }
+            }
+        }
+    }
+    
+    static private func getProfilePicture(completion: @escaping ((_ image: UIImage?, _ error: String?) -> Void)) -> Void {
+        
+        let profilePicLocation = storage.child("profilePictures/" + getUID())
+
+        // Download pic to memory with a maximum allowed size of 1MB
+        profilePicLocation.getData(maxSize: 1 * 1024 * 1024) { data, error in
+            guard let errorCode = getStorageErrorCode(error) else {
+                // No error occurred!
+                guard let data = data else {return}
+                completion(UIImage(data: data), nil)
+                return
+            }
+            
+            switch (errorCode) {
+            case .objectNotFound:
+                completion(nil, "You don't have a profile picture!")
+            case .downloadSizeExceeded:
+                completion(nil, "Your profile picture is too big to download.")
+            default:
+                completion(nil, "Couldn't get profile picture for an unknown reason.")
+            }
+        }
     }
     
     /**
@@ -242,7 +308,7 @@ class Api {
         // Will need to call `delegate?.onReceivedNewMessage()` here.
     }
     
-    /** Stops listening for new messages from a specific user.
+    /** Stops listening for new messages from a specific other user.
         - Parameter from: the uid of the user we want to stop listening for new messages from.
         - Parameter completion: If successful, completion's `error` argument will be `nil`, else it will contain a `Optional(String)` describing the error.
      */

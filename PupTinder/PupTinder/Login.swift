@@ -43,7 +43,7 @@ class Login: UIViewController {
         */
     }
     
-    func loginPressed() {
+    @IBAction func loginPressed() {
         guard let email = emailField.text, let password = passwordField.text else {
             return
         }
@@ -52,6 +52,24 @@ class Login: UIViewController {
                 // TODO: Deal with the error
             } else {
                 // TODO: Login was a success, so Segueway to the next screen!
+                
+                // This function is just for testing; remove after profile stuff is all working!
+                self.testingFunction()
+            }
+        }
+    }
+    
+    // This function is just for testing; remove after profile stuff is all working!
+    func testingFunction() {
+        Api.getProfile { (profile, error) in
+            if let error = error {
+                print(error)
+            } else {
+                guard let profile = profile else {return}
+                print(profile.name, profile.bio, profile.breed, profile.size, profile.characteristics, profile.traits)
+                let imageView = UIImageView(image: profile.picture)
+                imageView.frame = CGRect(x: 0, y: 0, width: 100, height: 200)
+                self.view.addSubview(imageView)
             }
         }
     }
