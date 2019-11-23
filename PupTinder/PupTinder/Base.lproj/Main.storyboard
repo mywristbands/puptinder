@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AlW-r6-dJ3">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -227,7 +228,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-tail" translatesAutoresizingMaskIntoConstraints="NO" id="Xgg-o6-1yJ">
-                                <rect key="frame" x="67.499999999999986" y="438" width="240.00000000000003" height="128"/>
+                                <rect key="frame" x="67.5" y="438" width="240" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="ar4-zH-l5m"/>
                                     <constraint firstAttribute="width" constant="240" id="u8X-bE-8MY"/>
@@ -845,7 +846,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="ZKI-xG-NK7" firstAttribute="top" secondItem="TPv-Bd-CcA" secondAttribute="bottom" constant="13" id="1wt-Mh-Hdl"/>
                                     <constraint firstItem="TPv-Bd-CcA" firstAttribute="top" secondItem="LhG-2S-pr8" secondAttribute="top" constant="17" id="7uD-9p-VWd"/>
@@ -940,19 +941,8 @@
                                     <action selector="signUpPressed" destination="mxx-6L-8xM" eventType="touchUpInside" id="dE5-nS-XRe"/>
                                 </connections>
                             </button>
-<<<<<<< HEAD
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-tail" translatesAutoresizingMaskIntoConstraints="NO" id="ODs-Ba-dIy">
-                                <rect key="frame" x="136" y="567" width="103.00000000000003" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="P3r-Hq-e49"/>
-                                </constraints>
-                            </imageView>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ruh roh! Something went wrong!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zZg-SN-IQt">
-                                <rect key="frame" x="35" y="485.5" width="306" height="21"/>
-=======
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ruh roh! Something went wrong!" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zZg-SN-IQt">
                                 <rect key="frame" x="34" y="416" width="306" height="20.5"/>
->>>>>>> 563a7564ebec9ae0a4732f43f7ae185b01aa5e3a
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -964,7 +954,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-tail" translatesAutoresizingMaskIntoConstraints="NO" id="ODs-Ba-dIy">
-                                <rect key="frame" x="136" y="571" width="103.00000000000003" height="96"/>
+                                <rect key="frame" x="84.5" y="571" width="206" height="96"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="96" id="zqk-43-4dC"/>
                                 </constraints>
