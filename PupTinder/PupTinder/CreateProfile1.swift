@@ -35,6 +35,7 @@ class CreateProfile1: UIViewController, UIImagePickerControllerDelegate ,UINavig
         
         userProfilePhoto.image = profImage
         breedGuessView.isHidden = true
+        breedGuessView.layer.cornerRadius = 10
         
         femaleButton.layer.masksToBounds = true
         femaleButton.layer.cornerRadius = femaleButton.frame.width/2
@@ -79,7 +80,6 @@ class CreateProfile1: UIViewController, UIImagePickerControllerDelegate ,UINavig
         userProfilePhoto.image = image
         
         // This function is just for testing; remove after profile stuff is all working!
-        eliasTestingFunction(image)
         
         let imageURL = info[UIImagePickerController.InfoKey.imageURL] as! URL
         let imageName = imageURL.lastPathComponent
@@ -139,11 +139,7 @@ class CreateProfile1: UIViewController, UIImagePickerControllerDelegate ,UINavig
     }
     
     // This function is just for testing; remove after profile stuff is all working!
-    func eliasTestingFunction(_ image: UIImage) {
-        let profile = Profile(picture: image, name: "Ethan", breed: "Human", size: "Small", bio: "about me", traits: ["Cool", "weird"], characteristics: ["Not cool", "musical"])
-        Api.uploadProfile(profile: profile) { (string) in return }
-    }
-    
+
     @IBAction func logoutButton(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let loginVC = storyboard.instantiateViewController(withIdentifier: "loginViewController") as! Login
