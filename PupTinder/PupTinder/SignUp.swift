@@ -24,9 +24,10 @@ class SignUp: UIViewController {
             return
         }
         Api.signup(email: email, password: password) { (error) in
-            if error != nil {
-                print(error!)
-                self.errorField.text = error // display error
+            if let error = error {
+                // display error
+                self.errorField.text = "Ruh roh! " + error
+                self.errorField.isHidden = false
             } else {
                 self.performSegue(withIdentifier: "toProfileSetup", sender: nil)
             }

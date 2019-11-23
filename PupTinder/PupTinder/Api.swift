@@ -11,7 +11,6 @@ import UIKit
 import Firebase
 
 struct Profile {
-    var uid: String
     var picture: UIImage
     var name: String
     var breed: String
@@ -19,6 +18,18 @@ struct Profile {
     var bio: String
     var traits: [String]
     var characteristics: [String]
+}
+// For initializing a Profile with data from firestore
+extension Profile {
+    init(data: [String:Any?]) {
+        picture = data["picture"] as? UIImage ?? UIImage()
+        name = data["name"] as? String ?? ""
+        breed = data["breed"] as? String ?? ""
+        size = data["size"] as? String ?? ""
+        bio = data["bio"] as? String ?? ""
+        traits = data["traits"] as? [String] ?? []
+        characteristics = data["characteristics"] as? [String] ?? []
+    }
 }
 
 struct Conversation {
@@ -44,36 +55,41 @@ class Api {
     static let storage = Storage.storage().reference()
     static var delegate: NewMessageChecker?
     
-    // TEMP FUNCTION FOR GETTING UID
-    static func getUID() -> String {
+    static private func getUID() -> String {
         guard let uid =  Auth.auth().currentUser?.uid else {return ""}
         return uid
     }
-    
-    static private func getErrorCode(_ error: Error?) -> AuthErrorCode? {
+        
+    static private func getAuthErrorCode(_ error: Error?) -> AuthErrorCode? {
         let nsError = error as NSError?
         guard let errorCode = nsError?.code else {return nil}
         return AuthErrorCode(rawValue: errorCode)
     }
-    
+
+    static private func getStorageErrorCode(_ error: Error?) -> StorageErrorCode? {
+        let nsError = error as NSError?
+        guard let errorCode = nsError?.code else {return nil}
+        return StorageErrorCode(rawValue: errorCode)
+    }
+        
     /// Signs new user up.
     /// - Parameter completion: If successful, completion's `error` argument will be `nil`, else it will contain a `Optional(String)` describing the error for now it just always says "Failed to sign up").
     static func signup(email: String, password: String, completion: @escaping ((_ error: String?) -> Void)) {
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             
-            guard let errorCode = getErrorCode(error) else {
+            guard let errorCode = getAuthErrorCode(error) else {
                 completion(nil) // No error occurred
                 return
             }
             
             switch (errorCode) {
             case .invalidEmail:
-                completion("malformed email address")
+                completion("Don't think that's an email address!")
             case .emailAlreadyInUse:
-                completion("email already in use by another account")
+                completion("Email already in use by another account.")
             case .weakPassword:
                 guard let specificReason = (error as NSError?)?.userInfo[NSLocalizedFailureReasonErrorKey] as? String else {
-                    completion("password is too weak")
+                    completion("Password is too weak.")
                     return
                 }
                 completion(specificReason)
@@ -89,20 +105,20 @@ class Api {
         
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
             
-            guard let errorCode = getErrorCode(error) else {
+            guard let errorCode = getAuthErrorCode(error) else {
                 completion(nil) // No error occurred
                 return
             }
                         
             switch (errorCode) {
             case .invalidEmail:
-                completion("malformed email address")
+                completion("Don't think that's an email address!")
             case .userDisabled:
-                completion("your account has been disabled")
+                completion("Your account has been disabled.")
             case .wrongPassword:
-                completion("icorrect password, please try again")
+                completion("Incorrect password, please try again.")
             default:
-                completion("login failed for unknown reason")
+                completion("Login failed for an unknown reason.")
             }
         }
     }
@@ -128,20 +144,19 @@ class Api {
         }
        
        // Upload profile
-        db.collection("profiles").addDocument(data:["picture":filepath,"name":profile.name,"breed":profile.breed,"size":profile.size,"bio":profile.bio,"traits":profile.traits,"characteristics":profile.traits])
+        db.collection("profiles").document(getUID()).setData(["picture":filepath,"name":profile.name,"breed":profile.breed,"size":profile.size,"bio":profile.bio,"traits":profile.traits,"characteristics":profile.traits])
     }
         
     static private func uploadProfilePicture(_ picture: UIImage) -> String? {
         
-         // We will name profile pictures based on the uid of the corresponding user
-         guard let uid = Auth.auth().currentUser?.uid else {return nil}
-         let filepath = "profilePictures/" + uid
+        // We will name profile pictures based on the uid of the corresponding user
+        let filepath = "profilePictures/" + getUID()
          
-         // Create a reference to the location to upload picture to
-         let profilePicRef = storage.child(filepath)
+        // Create a reference to the location to upload picture to
+        let profilePicRef = storage.child(filepath)
         
-        // Convert profile picture to raw data
-        guard let rawPicData = picture.cgImage?.dataProvider?.data as Data? else {return nil}
+        // Convert profile picture to raw data, compresssed
+        guard let rawPicData = picture.jpegData(compressionQuality: 0.7) else {return nil}
 
         // Upload profile picture data
         profilePicRef.putData(rawPicData, metadata: nil) { (metadata, error) in
@@ -155,12 +170,72 @@ class Api {
     /**
         Gets the profile of the current user.
         - Parameter completion: If successful, completion's `error` argument will be `nil`, else it will contain a `Optional(String)` describing the error.
-
-        Possible error strings so far include:
-        "user has not created a profile", if an account has been created but no profile has yet been created.
      */
     static func getProfile(completion: @escaping ((_ profile: Profile?, _ error: String?) -> Void)) {
-        // TODO: Implement this function!
+        getProfileOf(uid: getUID(), completion: completion)
+    }
+    
+    /**
+        Gets the profile of any specified user.
+        - Parameter uid: the uid of the user whose profile we want to get.
+        - Parameter completion: If successful, completion's `error` argument will be `nil`, else it will contain a `Optional(String)` describing the error.
+     
+        You might want to use this function to get another user's name, like when messaging someone.
+     
+         Possible error strings include:
+         "Profile doesn't have a profile picture!"
+         "Profile picture is too big to download."
+         "Couldn't get profile picture for an unknown reason."
+         "Profile was never created."
+    */
+    static func getProfileOf(uid: String, completion: @escaping ((_ profile: Profile?, _ error: String?) -> Void)) {
+        getProfilePicture(uid) { (image, error) in
+            // Now that we have attempted to get our profile picture...
+            
+            // Complete with error if error occurred in getting profile picture
+            if let error = error {
+                completion(nil, error)
+            }
+            
+            // Otherwise, get the rest of the Profile info
+            let profileLocation = db.collection("profiles").document(uid)
+
+            profileLocation.getDocument { (document, error) in
+                if let document = document, document.exists {
+                    guard var profileData = document.data() else {return}
+                    guard let image = image else {return}
+                    profileData["picture"] = image // Add profile picture to profile data
+                    let profile = Profile(data: profileData)
+                    completion(profile, nil) // Finally pass back the profile info!
+                } else {
+                    completion(nil, "Profile was never created")
+                }
+            }
+        }
+    }
+    
+    static private func getProfilePicture(_ uid: String, completion: @escaping ((_ image: UIImage?, _ error: String?) -> Void)) -> Void {
+        
+        let profilePicLocation = storage.child("profilePictures/" + uid)
+
+        // Download pic to memory with a maximum allowed size of 1MB
+        profilePicLocation.getData(maxSize: 1 * 1024 * 1024) { data, error in
+            guard let errorCode = getStorageErrorCode(error) else {
+                // No error occurred!
+                guard let data = data else {return}
+                completion(UIImage(data: data), nil)
+                return
+            }
+            
+            switch (errorCode) {
+            case .objectNotFound:
+                completion(nil, "Profile doesn't have a profile picture!")
+            case .downloadSizeExceeded:
+                completion(nil, "Profile picture is too big to download.")
+            default:
+                completion(nil, "Couldn't get profile picture for an unknown reason.")
+            }
+        }
     }
     
     /**
@@ -168,17 +243,6 @@ class Api {
         - Parameter completion: If successful, completion's `error` argument will be `nil`, else it will contain a `Optional(String)` describing the error.
      */
     static func updateProfile(profile: Profile, completion: ((_ error: String?) -> Void)) {
-        // TODO: Implement this function!
-    }
-    
-    /**
-        Gets the profile of a specific other user.
-        - Parameter uid: the uid of the user whose profile we want to get.
-        - Parameter completion: If successful, completion's `error` argument will be `nil`, else it will contain a `Optional(String)` describing the error.
-     
-        You might want to use this function to get another user's name, like when messaging someone.
-    */
-    static func getProfileOf(uid: String, completion: @escaping ((_ profile: Profile?, _ error: String?) -> Void)) {
         // TODO: Implement this function!
     }
     
@@ -244,7 +308,7 @@ class Api {
         // Will need to call `delegate?.onReceivedNewMessage()` here.
     }
     
-    /** Stops listening for new messages from a specific user.
+    /** Stops listening for new messages from a specific other user.
         - Parameter from: the uid of the user we want to stop listening for new messages from.
         - Parameter completion: If successful, completion's `error` argument will be `nil`, else it will contain a `Optional(String)` describing the error.
      */
