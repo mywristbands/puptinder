@@ -146,7 +146,7 @@ class CreateProfile1: UIViewController, UIImagePickerControllerDelegate ,UINavig
     
     @IBAction func logoutButton(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let loginVC = storyboard.instantiateViewController(identifier: "loginViewController") as! Login
+        let loginVC = storyboard.instantiateViewController(withIdentifier: "loginViewController") as! Login
         loginVC.modalPresentationStyle = .fullScreen
         self.present(loginVC, animated: true, completion: nil)
     }
