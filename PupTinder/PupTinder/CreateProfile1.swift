@@ -79,7 +79,7 @@ class CreateProfile1: UIViewController, UIImagePickerControllerDelegate ,UINavig
         userProfilePhoto.image = image
         
         // This function is just for testing; remove after profile stuff is all working!
-        eliasTestingFunction(image)
+        //eliasTestingFunction(image)
         
         let imageURL = info[UIImagePickerController.InfoKey.imageURL] as! URL
         let imageName = imageURL.lastPathComponent
