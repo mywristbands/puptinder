@@ -12,6 +12,10 @@ import Firebase
 
 // As we're implementing this Api, reference our database structure here:
 // https://drive.google.com/file/d/1wh2Bb0nTlIzK-a9Kbr89DsQotLfsNNRN/view?usp=sharing
+
+// Examples of how to call our Api:
+// Api.auth.login( ... ), Api.auth.logout(), Api.profiles.uploadProfile( ... )
+
 class Api: ApiShared {
     
     // Contains: signup, login, logout
