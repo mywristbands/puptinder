@@ -27,11 +27,11 @@ What I plan to do:
 
 ### Hajra Mobashar
 
-What I have done: 
+What I have done: Completed front end for Home Screen, and mostly for the user profile screen.
 
 Any roadblocks: None at the moment.
 
-What I plan to do: 
+What I plan to do: Use API calls to implement functionality for the home screen. User profile screen needs adjustment for characteristics list and personality list. Adjust the front end for the create profile screens 3 and 4 for better UX.
 
 ### Alannah Woodward
 
