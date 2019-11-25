@@ -797,13 +797,8 @@
                                                     <action selector="xButton:" destination="m7b-ob-d02" eventType="touchUpInside" id="sii-eY-rDu"/>
                                                 </connections>
                                             </button>
-<<<<<<< HEAD
-                                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H3t-hK-AFC">
-                                                <rect key="frame" x="158" y="5" width="100" height="100"/>
-=======
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H3t-hK-AFC">
                                                 <rect key="frame" x="202" y="0.0" width="56" height="110"/>
->>>>>>> 4e243e61a5623d23d60f94377a395b729bfd3509
                                                 <state key="normal" image="love"/>
                                                 <connections>
                                                     <action selector="loveButton:" destination="m7b-ob-d02" eventType="touchUpInside" id="92A-Hc-n59"/>
