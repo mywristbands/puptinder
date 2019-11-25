@@ -29,13 +29,13 @@ class Matches: ApiShared {
                         print("Error getting documents: \(err)")
                     } else {
                         for document in querySnapshot!.documents {
-                            print("\(document.documentID) => \(document.data())")
+                            Api.profiles.getProfileOf(uid: document.documentID, completion: completion)
                         }
                     }
                 }
             } else {
                 for document in querySnapshot!.documents {
-                    print("\(document.documentID) => \(document.data())")
+                    Api.profiles.getProfileOf(uid: document.documentID, completion: completion)
                 }
             }
         }
