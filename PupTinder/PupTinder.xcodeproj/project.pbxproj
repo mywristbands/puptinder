@@ -15,7 +15,7 @@
 		64130057238B5FA60071C380 /* ApiProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64130056238B5FA60071C380 /* ApiProfile.swift */; };
 		6413005B238B66E30071C380 /* ApiMatches.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6413005A238B66E30071C380 /* ApiMatches.swift */; };
 		6413005D238B66F50071C380 /* ApiMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6413005C238B66F50071C380 /* ApiMessages.swift */; };
-		6413005F238B67080071C380 /* ApiAuthing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6413005E238B67080071C380 /* ApiAuthing.swift */; };
+		6413005F238B67080071C380 /* ApiAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6413005E238B67080071C380 /* ApiAuth.swift */; };
 		64130061238B687B0071C380 /* ApiShared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64130060238B687A0071C380 /* ApiShared.swift */; };
 		64AF582A23822BFA0060B13B /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64AF582923822BFA0060B13B /* Api.swift */; };
 		64AF582C238236A50060B13B /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64AF582B238236A50060B13B /* SignUp.swift */; };
@@ -43,7 +43,7 @@
 		64130056238B5FA60071C380 /* ApiProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiProfile.swift; sourceTree = "<group>"; };
 		6413005A238B66E30071C380 /* ApiMatches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiMatches.swift; sourceTree = "<group>"; };
 		6413005C238B66F50071C380 /* ApiMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiMessages.swift; sourceTree = "<group>"; };
-		6413005E238B67080071C380 /* ApiAuthing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiAuthing.swift; sourceTree = "<group>"; };
+		6413005E238B67080071C380 /* ApiAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiAuth.swift; sourceTree = "<group>"; };
 		64130060238B687A0071C380 /* ApiShared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiShared.swift; sourceTree = "<group>"; };
 		64AF582923822BFA0060B13B /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		64AF582B238236A50060B13B /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
@@ -92,7 +92,7 @@
 			children = (
 				64AF582923822BFA0060B13B /* Api.swift */,
 				64130060238B687A0071C380 /* ApiShared.swift */,
-				6413005E238B67080071C380 /* ApiAuthing.swift */,
+				6413005E238B67080071C380 /* ApiAuth.swift */,
 				64130056238B5FA60071C380 /* ApiProfile.swift */,
 				6413005A238B66E30071C380 /* ApiMatches.swift */,
 				6413005C238B66F50071C380 /* ApiMessages.swift */,
@@ -295,7 +295,7 @@
 				51CB36EF237A3E1A00D6ABF0 /* CreateProfile1.swift in Sources */,
 				77D80D8B2377849B0043254B /* Login.swift in Sources */,
 				518DDE8C237E61DD0060FDAA /* UserProfile.swift in Sources */,
-				6413005F238B67080071C380 /* ApiAuthing.swift in Sources */,
+				6413005F238B67080071C380 /* ApiAuth.swift in Sources */,
 				64130057238B5FA60071C380 /* ApiProfile.swift in Sources */,
 				77A2F2B0238782F000B5D963 /* Home.swift in Sources */,
 				64AF582E2382411D0060B13B /* MatchesAndConversations.swift in Sources */,

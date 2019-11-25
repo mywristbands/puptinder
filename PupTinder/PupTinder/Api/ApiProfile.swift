@@ -42,7 +42,7 @@ class Profiles: ApiShared {
         return StorageErrorCode(rawValue: errorCode)
     }
         
-    /// Uploads profile for a new user.
+    /// Uploads new profile for current user, or overwrites existing profile if user has already created a profile.
     /// - Parameter completion: If successful, completion's `error` argument will be `nil`, else it will contain a `Optional(String)` describing the error.
     func uploadProfile(profile: Profile, completion: @escaping ((_ error: String?) -> Void)) {
         
@@ -52,7 +52,8 @@ class Profiles: ApiShared {
         }
        
         // Upload profile
-        db.collection("profiles").document(getUID()).setData(["picture":filepath,"name":profile.name,"gender":profile.gender,"breed":profile.breed,"size":profile.size,"bio":profile.bio,"traits":profile.traits,"characteristics":profile.traits])
+        db.collection("profiles").document(getUID()).setData(
+            ["picture":filepath,"name":profile.name,"gender":profile.gender,"breed":profile.breed,"size":profile.size,"bio":profile.bio,"traits":profile.traits,"characteristics":profile.traits])
     }
         
     func uploadProfilePicture(_ picture: UIImage) -> String? {
@@ -145,13 +146,4 @@ class Profiles: ApiShared {
             }
         }
     }
-    
-    /**
-        Updates the profile of the current user.
-        - Parameter completion: If successful, completion's `error` argument will be `nil`, else it will contain a `Optional(String)` describing the error.
-     */
-    func updateProfile(profile: Profile, completion: ((_ error: String?) -> Void)) {
-        // TODO: Implement this function!
-    }
-
 }
