@@ -47,7 +47,7 @@ class Login: UIViewController {
         guard let email = emailField.text, let password = passwordField.text else {
             return
         }
-        Api.login(email: email, password: password) { (error) in
+        Api.auth.login(email: email, password: password) { (error) in
             if error != nil {
                 // TODO: Deal with the error
             } else {
@@ -61,7 +61,7 @@ class Login: UIViewController {
     
     // This function is just for testing; remove after profile stuff is all working!
     func testingFunction() {
-        Api.getProfileOf(uid: "HfPac5bFtmODf4YSZuuPZ76BBgH2") { (profile, error) in
+        Api.profiles.getProfileOf(uid: "HfPac5bFtmODf4YSZuuPZ76BBgH2") { (profile, error) in
             if let error = error {
                 print(error)
             } else {

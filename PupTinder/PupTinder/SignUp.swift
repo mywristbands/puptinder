@@ -23,7 +23,7 @@ class SignUp: UIViewController {
         guard let email = emailField.text, let password = passwordField.text else {
             return
         }
-        Api.signup(email: email, password: password) { (error) in
+        Api.auth.signup(email: email, password: password) { (error) in
             if let error = error {
                 // display error
                 self.errorField.text = "Ruh roh! " + error

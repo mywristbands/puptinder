@@ -80,10 +80,7 @@ class CreateProfile1: UIViewController, UIImagePickerControllerDelegate ,UINavig
         userProfilePhoto.image = image
         
         // This function is just for testing; remove after profile stuff is all working!
-<<<<<<< HEAD
         //eliasTestingFunction(image)
-=======
->>>>>>> 57e82085006b3bcc761c39ea09a364ed1f214bb2
         
         let imageURL = info[UIImagePickerController.InfoKey.imageURL] as! URL
         let imageName = imageURL.lastPathComponent
@@ -142,8 +139,6 @@ class CreateProfile1: UIViewController, UIImagePickerControllerDelegate ,UINavig
         }
     }
     
-    // This function is just for testing; remove after profile stuff is all working!
-
     @IBAction func logoutButton(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let loginVC = storyboard.instantiateViewController(withIdentifier: "loginViewController") as! Login
@@ -236,7 +231,7 @@ class CreateProfile1: UIViewController, UIImagePickerControllerDelegate ,UINavig
         }
     }
     @IBAction func logoutPressed() {
-        if let errorMessage = Api.logout() {
+        if let errorMessage = Api.auth.logout() {
             // If logout fails, send and alert to user.
             let alertController = UIAlertController(title: "Logout failed", message: errorMessage, preferredStyle: .alert)
             self.present(alertController, animated: true, completion: nil)
