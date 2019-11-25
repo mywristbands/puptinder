@@ -13,6 +13,7 @@ import Firebase
 struct Profile {
     var picture: UIImage
     var name: String
+    var gender: String
     var breed: String
     var size: String
     var bio: String
@@ -24,6 +25,7 @@ extension Profile {
     init(data: [String:Any?]) {
         picture = data["picture"] as? UIImage ?? UIImage()
         name = data["name"] as? String ?? ""
+        gender = data["gender"] as? String ?? ""
         breed = data["breed"] as? String ?? ""
         size = data["size"] as? String ?? ""
         bio = data["bio"] as? String ?? ""
@@ -144,7 +146,7 @@ class Api {
         }
        
        // Upload profile
-        db.collection("profiles").document(getUID()).setData(["picture":filepath,"name":profile.name,"breed":profile.breed,"size":profile.size,"bio":profile.bio,"traits":profile.traits,"characteristics":profile.traits])
+        db.collection("profiles").document(getUID()).setData(["picture":filepath,"name":profile.name,"gender":profile.gender,"breed":profile.breed,"size":profile.size,"bio":profile.bio,"traits":profile.traits,"characteristics":profile.traits])
     }
         
     static private func uploadProfilePicture(_ picture: UIImage) -> String? {
@@ -255,7 +257,7 @@ class Api {
     }
 
     /**
-        Adds specified user to our list of users that we have "swiped right" on.
+        Adds specified user to our list of users that the current user has "swiped right" on.
         - Parameter uid: the uid of the user who we are accepting as a match.
         - Parameter completion: If successful, completion's `error` argument will be `nil`, else it will contain a `Optional(String)` describing the error.
          */
@@ -263,14 +265,14 @@ class Api {
         // TODO: Implement this function!
     }
 
-    /** Gets all the profiles of users who we have matched.
+    /** Gets all the profiles of users who the current user has been matched with.
         - Parameter completion: If successful, completion's `error` argument will be `nil`, else it will contain a `Optional(String)` describing the error.
     */
     static func getMatches(completion: ((_ profiles: [Profile]?, _ error: String?) -> Void)) {
         // TODO: Implement this function!
     }
 
-    /** Gets all the conversations started with the users who we have been matched with. (NOTE: messages property will start out as empty for each conversation returned, so you'll need to call `getMessages` to fill that info in when you need it)
+    /** Gets all the conversations started with the users who the current user has been matched with. (NOTE: messages property will start out as empty for each conversation returned, so you'll need to call `getMessages` to fill that info in when you need it)
         - Parameter completion: If successful, completion's `error` argument will be `nil`, else it will contain a `Optional(String)` describing the error.
     */
     static func getConversations(completion: ((_ conversations: [Conversation]?, _ error: String?) -> Void)) {
