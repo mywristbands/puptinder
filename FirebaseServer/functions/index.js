@@ -1,5 +1,9 @@
 const functions = require('firebase-functions');
 
-//exports.findNewMatches = functions.firestore
-//	.document(
+exports.checkAndMakeMatchOnSwipeRight = functions.firestore
+	.document('profiles/swipedRight/{uid}')
+	.onCreate((snap, context) => {
+		let uidSwipedOn = snap.id;
 
+
+	});

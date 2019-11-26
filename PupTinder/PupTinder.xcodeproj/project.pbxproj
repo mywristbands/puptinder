@@ -12,6 +12,7 @@
 		518DDE8C237E61DD0060FDAA /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518DDE8B237E61DD0060FDAA /* UserProfile.swift */; };
 		51A009BD237D195F00719C27 /* CustomCheckedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A009BC237D195F00719C27 /* CustomCheckedTableViewCell.swift */; };
 		51CB36EF237A3E1A00D6ABF0 /* CreateProfile1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CB36EE237A3E1A00D6ABF0 /* CreateProfile1.swift */; };
+		64101DFB238D00680025701D /* test_dog.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 64101DFA238D00670025701D /* test_dog.jpg */; };
 		64130057238B5FA60071C380 /* ApiProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64130056238B5FA60071C380 /* ApiProfile.swift */; };
 		6413005B238B66E30071C380 /* ApiMatches.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6413005A238B66E30071C380 /* ApiMatches.swift */; };
 		6413005D238B66F50071C380 /* ApiMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6413005C238B66F50071C380 /* ApiMessages.swift */; };
@@ -40,6 +41,7 @@
 		518DDE8B237E61DD0060FDAA /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		51A009BC237D195F00719C27 /* CustomCheckedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCheckedTableViewCell.swift; sourceTree = "<group>"; };
 		51CB36EE237A3E1A00D6ABF0 /* CreateProfile1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateProfile1.swift; sourceTree = "<group>"; };
+		64101DFA238D00670025701D /* test_dog.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = test_dog.jpg; path = Assets.xcassets/test_dog.jpg; sourceTree = "<group>"; };
 		64130056238B5FA60071C380 /* ApiProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiProfile.swift; sourceTree = "<group>"; };
 		6413005A238B66E30071C380 /* ApiMatches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiMatches.swift; sourceTree = "<group>"; };
 		6413005C238B66F50071C380 /* ApiMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiMessages.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				77D80D94237784A00043254B /* Info.plist */,
 				934AAA742377DE9A0007EBAA /* GoogleService-Info.plist */,
 				77D80D8F237784A00043254B /* Assets.xcassets */,
+				64101DFA238D00670025701D /* test_dog.jpg */,
 				77D80D862377849B0043254B /* AppDelegate.swift */,
 				77D80D882377849B0043254B /* SceneDelegate.swift */,
 				77D80D91237784A00043254B /* LaunchScreen.storyboard */,
@@ -216,6 +219,7 @@
 			files = (
 				77D80D93237784A00043254B /* LaunchScreen.storyboard in Resources */,
 				934AAA752377DE9A0007EBAA /* GoogleService-Info.plist in Resources */,
+				64101DFB238D00680025701D /* test_dog.jpg in Resources */,
 				77D80D90237784A00043254B /* Assets.xcassets in Resources */,
 				77D80D8E2377849B0043254B /* Main.storyboard in Resources */,
 			);

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -230,7 +230,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-tail" translatesAutoresizingMaskIntoConstraints="NO" id="Xgg-o6-1yJ">
-                                <rect key="frame" x="67.5" y="438" width="240" height="128"/>
+                                <rect key="frame" x="67.499999999999986" y="438" width="240.00000000000003" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="ar4-zH-l5m"/>
                                     <constraint firstAttribute="width" constant="240" id="u8X-bE-8MY"/>
@@ -362,7 +362,6 @@
                                 </state>
                                 <connections>
                                     <action selector="createProfileButtonPressed:" destination="FmV-Ua-Ict" eventType="touchUpInside" id="J8g-P6-Nfi"/>
-                                    <segue destination="8f6-N4-xgo" kind="presentation" identifier="CP4ToUPSegue" modalPresentationStyle="fullScreen" id="0TQ-yB-x1C"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -391,6 +390,7 @@
                     </view>
                     <connections>
                         <outlet property="personalityTV" destination="YsZ-I2-aIX" id="vSL-ke-yFu"/>
+                        <segue destination="8f6-N4-xgo" kind="presentation" identifier="CP4ToUPSegue" modalPresentationStyle="fullScreen" id="yFx-Yl-Uxi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zri-fb-cfd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -804,15 +804,15 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="2U6-nn-SqD">
                                         <rect key="frame" x="28" y="493" width="258" height="110"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sJI-nI-6q5">
-                                                <rect key="frame" x="0.0" y="0.0" width="200" height="110"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sJI-nI-6q5">
+                                                <rect key="frame" x="0.0" y="5" width="100" height="100"/>
                                                 <state key="normal" image="cancel"/>
                                                 <connections>
                                                     <action selector="xButton:" destination="m7b-ob-d02" eventType="touchUpInside" id="sii-eY-rDu"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H3t-hK-AFC">
-                                                <rect key="frame" x="202" y="0.0" width="56" height="110"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H3t-hK-AFC">
+                                                <rect key="frame" x="158" y="5" width="100" height="100"/>
                                                 <state key="normal" image="love"/>
                                                 <connections>
                                                     <action selector="loveButton:" destination="m7b-ob-d02" eventType="touchUpInside" id="92A-Hc-n59"/>
@@ -1296,7 +1296,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-tail" translatesAutoresizingMaskIntoConstraints="NO" id="ODs-Ba-dIy">
-                                <rect key="frame" x="84.5" y="571" width="206" height="96"/>
+                                <rect key="frame" x="136" y="571" width="103.00000000000003" height="96"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="96" id="zqk-43-4dC"/>
                                 </constraints>

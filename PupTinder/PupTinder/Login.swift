@@ -53,10 +53,36 @@ class Login: UIViewController {
             } else {
                 // TODO: Login was a success, so Segueway to the next screen!
                 
-                // This function is just for testing; remove after profile stuff is all working!
-                self.testingFunction()
-                print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-                self.testingFunctionMatches()
+                // These functions are just for testing; remove after profile stuff is all working!
+                //self.uploadProfile()
+                //self.testGetProfile()
+                //self.testingFunction()
+                //print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+                //self.testingFunctionMatches()
+            }
+        }
+    }
+    
+    // This function is just for testing; remove after profile stuff is all working!
+    func uploadProfile(){
+        Api.profiles.uploadProfile(profile: Profile(picture: UIImage(named: "test_dog")!, name: "Elias", gender: "male", breed: "SuperHuman", size: "small", bio: "Why isn't upload profile working?", traits: ["impatient"], characteristics: ["In my room", "here"])) {
+            (error) in
+            if (error != nil) {
+                print(error!)
+            }
+        }
+    }
+    // This function is just for testing; remove after profile stuff is all working!
+    func testGetProfile() {
+        Api.profiles.getProfile { (profile, error) in
+            if let error = error {
+                print(error)
+            } else {
+                guard let profile = profile else {return}
+                print(profile.name, profile.bio, profile.breed, profile.size, profile.characteristics, profile.traits)
+                let imageView = UIImageView(image: profile.picture)
+                imageView.frame = CGRect(x: 0, y: 0, width: 100, height: 200)
+                self.view.addSubview(imageView)
             }
         }
     }
