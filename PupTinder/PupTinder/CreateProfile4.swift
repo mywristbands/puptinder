@@ -17,7 +17,6 @@ class CreateProfile4: UIViewController,UITableViewDataSource, UITableViewDelegat
     var bio: String = ""
     var pickedCharacteristics: [String] = []
     var pickedPTraits: [String] = []
-    //var profile: Profile = Profile(data: [:])
     
     @IBOutlet weak var personalityTV: UITableView!
         var personalityTraits:[String] = ["Friendly", "Shy", "Calm", "Submissive", "Dominant", "Energetic", "Playful", "Grumpy", "Fun-loving", "Affectionate", "Intelligent", "Inquisitive", "Fearless"];

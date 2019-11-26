@@ -618,7 +618,7 @@
                                 </constraints>
                                 <state key="normal" image="home"/>
                                 <connections>
-                                    <segue destination="m7b-ob-d02" kind="presentation" modalPresentationStyle="fullScreen" id="oJI-JD-Htr"/>
+                                    <segue destination="m7b-ob-d02" kind="presentation" identifier="ProfileToHomeSegue" modalPresentationStyle="fullScreen" id="oJI-JD-Htr"/>
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="06O-O8-9ZM">
