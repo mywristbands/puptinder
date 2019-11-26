@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5fR-Ec-Roi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -208,7 +208,8 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="5fR-Ec-Roi" kind="presentation" modalPresentationStyle="fullScreen" id="Btk-GA-aCT"/>
+                                    <action selector="backButtonPressed:" destination="E7U-Jf-76f" eventType="touchUpInside" id="OTz-9E-aQS"/>
+                                    <segue destination="5fR-Ec-Roi" kind="presentation" identifier="CP2ToCP1Segue" modalPresentationStyle="fullScreen" id="Btk-GA-aCT"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tV3-K7-bqu">
@@ -218,6 +219,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
+                                    <action selector="skipButtonPressed:" destination="E7U-Jf-76f" eventType="touchUpInside" id="KMv-Cj-NPn"/>
                                     <segue destination="AlW-r6-dJ3" kind="presentation" identifier="CP2ToCP3SkipSegue" modalPresentationStyle="fullScreen" id="IZX-wX-kBE"/>
                                 </connections>
                             </button>
@@ -228,7 +230,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-tail" translatesAutoresizingMaskIntoConstraints="NO" id="Xgg-o6-1yJ">
-                                <rect key="frame" x="67.499999999999986" y="438" width="240.00000000000003" height="128"/>
+                                <rect key="frame" x="67.5" y="438" width="240" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="ar4-zH-l5m"/>
                                     <constraint firstAttribute="width" constant="240" id="u8X-bE-8MY"/>
@@ -245,6 +247,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
+                                    <action selector="continueButtonPressed:" destination="E7U-Jf-76f" eventType="touchUpInside" id="tZP-K0-Cqf"/>
                                     <segue destination="AlW-r6-dJ3" kind="presentation" identifier="CP2ToCP3Segue" modalPresentationStyle="fullScreen" id="Ryy-lF-lTa"/>
                                 </connections>
                             </button>
@@ -343,7 +346,8 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="AlW-r6-dJ3" kind="presentation" modalPresentationStyle="fullScreen" id="iGg-WX-fob"/>
+                                    <action selector="backButtonPressed:" destination="FmV-Ua-Ict" eventType="touchUpInside" id="bYd-kX-zsm"/>
+                                    <segue destination="AlW-r6-dJ3" kind="presentation" identifier="CP4ToCP3Segue" modalPresentationStyle="fullScreen" id="iGg-WX-fob"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Jd-FU-I3I">
@@ -357,6 +361,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
+                                    <action selector="createProfileButtonPressed:" destination="FmV-Ua-Ict" eventType="touchUpInside" id="J8g-P6-Nfi"/>
                                     <segue destination="8f6-N4-xgo" kind="presentation" identifier="CP4ToUPSegue" modalPresentationStyle="fullScreen" id="0TQ-yB-x1C"/>
                                 </connections>
                             </button>
@@ -422,7 +427,8 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="E7U-Jf-76f" kind="presentation" modalPresentationStyle="fullScreen" id="49r-10-922"/>
+                                    <action selector="backButtonPressed:" destination="AlW-r6-dJ3" eventType="touchUpInside" id="P3S-Sa-GEv"/>
+                                    <segue destination="E7U-Jf-76f" kind="presentation" identifier="CP3ToCP2Segue" modalPresentationStyle="fullScreen" id="49r-10-922"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6mJ-1w-TTI">
@@ -432,6 +438,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
+                                    <action selector="skipButtonPressed:" destination="AlW-r6-dJ3" eventType="touchUpInside" id="ahg-El-VF9"/>
                                     <segue destination="FmV-Ua-Ict" kind="presentation" identifier="CP3ToCP4SkipSegue" modalPresentationStyle="fullScreen" id="YLX-GS-Xx9"/>
                                 </connections>
                             </button>
@@ -446,6 +453,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
+                                    <action selector="continueButtonPressed:" destination="AlW-r6-dJ3" eventType="touchUpInside" id="Tag-q0-TAC"/>
                                     <segue destination="FmV-Ua-Ict" kind="presentation" identifier="CP3ToCP4Segue" modalPresentationStyle="fullScreen" id="iDd-Ip-oy5"/>
                                 </connections>
                             </button>
@@ -790,15 +798,15 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="2U6-nn-SqD">
                                         <rect key="frame" x="28" y="493" width="258" height="110"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sJI-nI-6q5">
-                                                <rect key="frame" x="0.0" y="0.0" width="200" height="110"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sJI-nI-6q5">
+                                                <rect key="frame" x="0.0" y="5" width="100" height="100"/>
                                                 <state key="normal" image="cancel"/>
                                                 <connections>
                                                     <action selector="xButton:" destination="m7b-ob-d02" eventType="touchUpInside" id="sii-eY-rDu"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H3t-hK-AFC">
-                                                <rect key="frame" x="202" y="0.0" width="56" height="110"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H3t-hK-AFC">
+                                                <rect key="frame" x="158" y="5" width="100" height="100"/>
                                                 <state key="normal" image="love"/>
                                                 <connections>
                                                     <action selector="loveButton:" destination="m7b-ob-d02" eventType="touchUpInside" id="92A-Hc-n59"/>
@@ -1282,7 +1290,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-tail" translatesAutoresizingMaskIntoConstraints="NO" id="ODs-Ba-dIy">
-                                <rect key="frame" x="136" y="571" width="103.00000000000003" height="96"/>
+                                <rect key="frame" x="84.5" y="571" width="206" height="96"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="96" id="zqk-43-4dC"/>
                                 </constraints>
@@ -1635,8 +1643,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Btk-GA-aCT"/>
-        <segue reference="IZX-wX-kBE"/>
+        <segue reference="iGg-WX-fob"/>
         <segue reference="YLX-GS-Xx9"/>
-        <segue reference="s5c-px-00h"/>
+        <segue reference="49r-10-922"/>
     </inferredMetricsTieBreakers>
 </document>

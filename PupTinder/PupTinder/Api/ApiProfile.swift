@@ -53,7 +53,7 @@ class Profiles: ApiShared {
        
         // Upload profile
         db.collection("profiles").document(getUID()).setData(
-            ["picture":filepath,"name":profile.name,"gender":profile.gender,"breed":profile.breed,"size":profile.size,"bio":profile.bio,"traits":profile.traits,"characteristics":profile.traits])
+            ["picture":filepath,"name":profile.name,"gender":profile.gender,"breed":profile.breed,"size":profile.size,"bio":profile.bio,"traits":profile.traits,"characteristics":profile.characteristics])
     }
         
     func uploadProfilePicture(_ picture: UIImage) -> String? {
