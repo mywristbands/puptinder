@@ -230,7 +230,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-tail" translatesAutoresizingMaskIntoConstraints="NO" id="Xgg-o6-1yJ">
-                                <rect key="frame" x="67.499999999999986" y="438" width="240.00000000000003" height="128"/>
+                                <rect key="frame" x="67.5" y="438" width="240" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="ar4-zH-l5m"/>
                                     <constraint firstAttribute="width" constant="240" id="u8X-bE-8MY"/>
@@ -829,15 +829,15 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="2U6-nn-SqD">
                                         <rect key="frame" x="28" y="493" width="258" height="110"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sJI-nI-6q5">
-                                                <rect key="frame" x="0.0" y="5" width="100" height="100"/>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sJI-nI-6q5">
+                                                <rect key="frame" x="0.0" y="0.0" width="200" height="110"/>
                                                 <state key="normal" image="cancel"/>
                                                 <connections>
                                                     <action selector="xButton:" destination="m7b-ob-d02" eventType="touchUpInside" id="sii-eY-rDu"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H3t-hK-AFC">
-                                                <rect key="frame" x="158" y="5" width="100" height="100"/>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H3t-hK-AFC">
+                                                <rect key="frame" x="202" y="0.0" width="56" height="110"/>
                                                 <state key="normal" image="love"/>
                                                 <connections>
                                                     <action selector="loveButton:" destination="m7b-ob-d02" eventType="touchUpInside" id="92A-Hc-n59"/>
@@ -1321,7 +1321,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-tail" translatesAutoresizingMaskIntoConstraints="NO" id="ODs-Ba-dIy">
-                                <rect key="frame" x="136" y="571" width="103.00000000000003" height="96"/>
+                                <rect key="frame" x="84.5" y="571" width="206" height="96"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="96" id="zqk-43-4dC"/>
                                 </constraints>

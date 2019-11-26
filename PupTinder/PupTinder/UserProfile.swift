@@ -246,11 +246,11 @@ class UserProfile: UIViewController, UICollectionViewDelegate, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath as IndexPath) as! ImageCollectionViewCell
         
-        if collectionView == self.characteristicsCV {
+        /*if collectionView == self.characteristicsCV {
             cell.imageView.image = getCharacteristicImage(indexPath: indexPath)
         } else {
             cell.imageView.image = getPersonalityImage(indexPath: indexPath)
-        }
+        }*/
         
         return cell
     }
