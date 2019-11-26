@@ -12,7 +12,7 @@ class CreateProfile3: UIViewController, UITableViewDataSource, UITableViewDelega
     
      @IBOutlet weak var characteristicsTV: UITableView!
     
-    var characteristics:[String] = ["Hypoallergenic", "Sheds a lot", "Kid friendly", "Drool potential", "Barks a lot"];
+    var characteristics:[String] = ["Hypoallergenic", "Sheds a lot", "Kid friendly", "Drool potential", "Barks a lot"]
     var profImage: UIImage = UIImage()
     var name: String = ""
     var breed: String = ""
