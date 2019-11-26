@@ -24,7 +24,7 @@ class Api: ApiShared {
     // Contains: uploadProfile, getProfile, getProfileOf, updateProfile
     static let profiles = Profiles()
     
-    // Conains: getPotentialMatch, swipedRightOn, getMatches
+    // Contains: getPotentialMatch, swipedRightOn, getMatches
     static let matches = Matches()
     
     // Contains: getConversations, getMessages, sendMessage, startListeningForNewMessages, stopListeningForNewMessages

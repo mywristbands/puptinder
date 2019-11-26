@@ -55,6 +55,8 @@ class Login: UIViewController {
                 
                 // This function is just for testing; remove after profile stuff is all working!
                 self.testingFunction()
+                print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+                self.testingFunctionMatches()
             }
         }
     }
@@ -62,6 +64,21 @@ class Login: UIViewController {
     // This function is just for testing; remove after profile stuff is all working!
     func testingFunction() {
         Api.profiles.getProfileOf(uid: "HfPac5bFtmODf4YSZuuPZ76BBgH2") { (profile, error) in
+            if let error = error {
+                print(error)
+            } else {
+                guard let profile = profile else {return}
+                print(profile.name, profile.bio, profile.breed, profile.size, profile.characteristics, profile.traits)
+                let imageView = UIImageView(image: profile.picture)
+                imageView.frame = CGRect(x: 0, y: 0, width: 100, height: 200)
+                self.view.addSubview(imageView)
+            }
+        }
+    }
+    
+    // This function is just for testing matches; remove after matches functions are all working!
+    func testingFunctionMatches() {
+        Api.matches.getPotentialMatch{ (profile, error) in
             if let error = error {
                 print(error)
             } else {

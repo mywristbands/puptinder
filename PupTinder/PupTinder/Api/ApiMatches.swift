@@ -15,7 +15,30 @@ class Matches: ApiShared {
         - Parameter completion: If successful, completion's `error` argument will be `nil`, else it will contain a `Optional(String)` describing the error.
     */
     func getPotentialMatch(completion: @escaping ((_ profile: Profile?, _ error: String?) -> Void)) {
-        // TODO: Implement this function!
+        // For simplicity, we assume best match is a random match
+        let profiles = db.collection("profiles")
+        let randKey = profiles.document().documentID
+        var query = profiles.whereField("__name__", isGreaterThanOrEqualTo: randKey).order(by: "__name__").limit(to: 1)
+        query.getDocuments { (querySnapshot, err) in
+            if let _ = err {
+                // Document was not found, so wrap-around and query on low value which is the empty string
+                query = profiles.whereField("__name__", isGreaterThanOrEqualTo: "").order(by: "__name__").limit(to: 1)
+                query.getDocuments { (querySnapshot, err) in
+                    if let err = err {
+                        // Error should technically be impossible, unless there are no profiles in the datebase
+                        print("Error getting documents: \(err)")
+                    } else {
+                        for document in querySnapshot!.documents {
+                            Api.profiles.getProfileOf(uid: document.documentID, completion: completion)
+                        }
+                    }
+                }
+            } else {
+                for document in querySnapshot!.documents {
+                    Api.profiles.getProfileOf(uid: document.documentID, completion: completion)
+                }
+            }
+        }
     }
 
     /**
