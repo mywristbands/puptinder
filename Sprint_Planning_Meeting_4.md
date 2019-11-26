@@ -35,8 +35,8 @@ What I plan to do: Use API calls to implement functionality for the home screen.
 
 ### Alannah Woodward
 
-What I have done: 
+What I have done: Transferred all data between screens to be able to upload profile to the database,[here](https://github.com/ECS189E/project-f19-puptinder/commit/d372dfc142d972782563e5c561d7e39b29145a7a); Added error checking for the first profile view, [here](https://github.com/ECS189E/project-f19-puptinder/commit/b556830f40d64c00ad8371dca039d9367b0ae5d1). Have done some work for profile set up from database, but not currently functional.
 
 Any roadblocks: None so far. 
 
-What I plan to do: 
+What I plan to do: Finish the UI and get the API functions integrated. 
