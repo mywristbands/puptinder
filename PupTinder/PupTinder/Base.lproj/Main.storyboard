@@ -804,15 +804,15 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="2U6-nn-SqD">
                                         <rect key="frame" x="28" y="493" width="258" height="110"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sJI-nI-6q5">
-                                                <rect key="frame" x="0.0" y="5" width="100" height="100"/>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sJI-nI-6q5">
+                                                <rect key="frame" x="0.0" y="0.0" width="200" height="110"/>
                                                 <state key="normal" image="cancel"/>
                                                 <connections>
                                                     <action selector="xButton:" destination="m7b-ob-d02" eventType="touchUpInside" id="sii-eY-rDu"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H3t-hK-AFC">
-                                                <rect key="frame" x="158" y="5" width="100" height="100"/>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H3t-hK-AFC">
+                                                <rect key="frame" x="202" y="0.0" width="56" height="110"/>
                                                 <state key="normal" image="love"/>
                                                 <connections>
                                                     <action selector="loveButton:" destination="m7b-ob-d02" eventType="touchUpInside" id="92A-Hc-n59"/>
