@@ -91,8 +91,9 @@ class Matches: ApiShared {
         }
     }
 }
-/*
- ***************IMPORTANT NOTE*****************************
-    We’ll need to also create a firebase Admin SDK “function” (whoever implements this will need to look up the details on how to do this) which will be triggered whenever someone swipes right. This function will check if the person who they swiped right on also swiped right on them, in which case it would add a new document to the matches collection with the `members` list containing both of their UIDs, and the `timestamp` containing the time that the match was found (whatever the current time is).
+
+
+/* func checkForMatchOnSwipeRight() {}
+    This function is located online (it's called a "Cloud Function"), and it will autmatically check if the person that someone swiped right on also swiped right them, in which case it will declare they are a "match" by adding a new document to the "matches" collection, in which they are "members" of the document.
     The reason we have to do this is outside the client code is we don’t want to let just anyone add entries to the `matches` collection, or else a malicious person could wreak havoc by matching random people together.
     */
