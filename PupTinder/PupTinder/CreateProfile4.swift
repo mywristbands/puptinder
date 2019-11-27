@@ -19,7 +19,7 @@ class CreateProfile4: UIViewController,UITableViewDataSource, UITableViewDelegat
     var pickedPTraits: [String] = []
     
     @IBOutlet weak var personalityTV: UITableView!
-        var personalityTraits:[String] = ["Friendly", "Shy", "Calm", "Submissive", "Dominant", "Energetic", "Playful", "Grumpy", "Fun-loving", "Affectionate", "Intelligent", "Inquisitive", "Fearless"];
+    var personalityTraits:[String] = ["Friendly", "Shy", "Calm", "Submissive", "Dominant", "Energetic", "Playful", "Grumpy", "Fun-loving", "Affectionate", "Intelligent", "Inquisitive", "Fearless"]
 
     override func viewDidLoad() {
         super.viewDidLoad()

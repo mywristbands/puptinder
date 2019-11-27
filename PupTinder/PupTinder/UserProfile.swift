@@ -8,7 +8,8 @@
 
 import UIKit
 
-class UserProfile: UIViewController {
+class UserProfile: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+    
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var profileImage: UIImageView!
@@ -22,7 +23,11 @@ class UserProfile: UIViewController {
     @IBOutlet weak var characteristicsCV: UICollectionView!
     @IBOutlet weak var personalityCV: UICollectionView!
     
-    //var userProfile: Profile = Profile(data: ["picture" : "", "name" : "", "gender" : "", "breed" : "", "size" : "", "bio" : "", "traits" : [], "characteristics" : []])
+    var characteristics:[String] = ["Hypoallergenic", "Sheds a lot", "Kid friendly", "Drool potential", "Barks a lot"]
+    var personalityTraits:[String] = ["Friendly", "Shy", "Calm", "Submissive", "Dominant", "Energetic", "Playful", "Grumpy", "Fun-loving", "Affectionate", "Intelligent", "Inquisitive", "Fearless"]
+    
+    var profileCharacteristics: [String] = []
+    var profileTraits: [String] = []
     
     let white = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1).cgColor
     let yellow = UIColor(red: 255.0/255.0, green: 213.0/255.0, blue: 72.0/255.0, alpha: 1)
@@ -33,14 +38,13 @@ class UserProfile: UIViewController {
 
         Api.profiles.getProfile() { profile, error in
             if error == nil {
-                //self.userProfile = profile ?? Profile(data: ["picture" : "", "name" : "", "gender" : "", "breed" : "", "size" : "", "bio" : "", "traits" : [], "characteristics" : []])
-                self.profileImage.image = profile?.picture//self.userProfile.picture
-                self.nameLabel.text = profile?.name//self.userProfile.name
-                self.breedLabel.text = profile?.breed//self.userProfile.breed
-                self.aboutNameLabel.text = "About \(profile?.name ?? "Mr Woofer")" //About \(self.userProfile.name)"
-                self.bioTextView.text = profile?.bio//self.userProfile.bio
-                self.sizeImage.image = self.getSizeImage(size: profile?.size ?? "", gender: profile?.gender ?? "")//self.getSizeImage(size: self.userProfile.size, gender: self.userProfile.gender)
-                self.genderImage.image = self.getGenderImage(gender: profile?.gender ?? "")//self.getGenderImage(gender: self.userProfile.gender)
+                self.profileImage.image = profile?.picture
+                self.nameLabel.text = profile?.name
+                self.breedLabel.text = profile?.breed
+                self.aboutNameLabel.text = "About \(profile?.name ?? "Mr Woofer")"
+                self.bioTextView.text = profile?.bio
+                self.sizeImage.image = self.getSizeImage(size: profile?.size ?? "", gender: profile?.gender ?? "")
+                self.genderImage.image = self.getGenderImage(gender: profile?.gender ?? "")
                 if profile?.gender == "female" {
                     self.genderImage.backgroundColor = self.purple
                     self.sizeImage.backgroundColor = self.purple
@@ -48,13 +52,12 @@ class UserProfile: UIViewController {
                     self.genderImage.backgroundColor = self.yellow
                     self.sizeImage.backgroundColor = self.yellow
                 }
-                /*if self.userProfile.gender == "female" {
-                    self.genderImage.backgroundColor = self.purple
-                    self.sizeImage.backgroundColor = self.purple
-                } else {
-                    self.genderImage.backgroundColor = self.yellow
-                    self.sizeImage.backgroundColor = self.yellow
-                }*/
+                self.profileCharacteristics = profile?.characteristics ?? []
+                self.profileTraits = profile?.traits ?? []
+                self.characteristicsCV.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+                self.personalityCV.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+                self.characteristicsCV.reloadData()
+                self.personalityCV.reloadData()
             } else {
                 print(error ?? "ERROR")
             }
@@ -159,5 +162,96 @@ class UserProfile: UIViewController {
 
         self.backgroundImage.layer.insertSublayer(gradientLayer, at: 0)
     }
-
+    
+    func getCharacteristicImage(indexPath: IndexPath) -> UIImage {
+        var image = UIImage()
+        switch(self.profileCharacteristics[indexPath.row]) {
+        case "Hypoallergenic":
+            image = UIImage(named: "dog-icon") ?? UIImage()
+            break
+        case "Sheds a lot":
+            image = UIImage(named: "dog-icon") ?? UIImage()
+            break
+        case "Kid friendly":
+            image = UIImage(named: "dog-icon") ?? UIImage()
+            break
+        case "Drool potential":
+            image = UIImage(named: "dog-icon") ?? UIImage()
+            break
+        case "Barks a lot":
+            image = UIImage(named: "dog-icon") ?? UIImage()
+            break
+        default:
+            break
+        }
+        return image
+    }
+    //"Friendly", "Shy", "Calm", "Submissive", "Dominant", "Energetic", "Playful", "Grumpy", "Fun-loving", "Affectionate", "Intelligent", "Inquisitive", "Fearless"
+    func getPersonalityImage(indexPath: IndexPath) -> UIImage {
+        var image = UIImage()
+        switch(self.profileTraits[indexPath.row]) {
+        case "Friendly":
+            image = UIImage(named: "dog-icon") ?? UIImage()
+            break
+        case "Shy":
+            image = UIImage(named: "dog-icon") ?? UIImage()
+            break
+        case "Calm":
+            image = UIImage(named: "dog-icon") ?? UIImage()
+            break
+        case "Submissive":
+            image = UIImage(named: "dog-icon") ?? UIImage()
+            break
+        case "Dominant":
+            break
+        case "Energetic":
+            image = UIImage(named: "dog-icon") ?? UIImage()
+            break
+        case "Playful":
+            image = UIImage(named: "dog-icon") ?? UIImage()
+            break
+        case "Grumpy":
+            image = UIImage(named: "dog-icon") ?? UIImage()
+            break
+        case "Fun-loving":
+            image = UIImage(named: "dog-icon") ?? UIImage()
+            break
+        case "Affectionate":
+            image = UIImage(named: "dog-icon") ?? UIImage()
+            break
+        case "Intelligent":
+            image = UIImage(named: "dog-icon") ?? UIImage()
+            break
+        case "Inquisitive":
+            image = UIImage(named: "dog-icon") ?? UIImage()
+            break
+        case "Fearless":
+            image = UIImage(named: "dog-icon") ?? UIImage()
+            break
+        default:
+            break
+        }
+        return image
+    }
+    
+    // Collection View Protocol
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if collectionView == self.characteristicsCV {
+            return self.profileCharacteristics.count
+        } else {
+            return self.profileTraits.count
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath as IndexPath) as! ImageCollectionViewCell
+        
+        /*if collectionView == self.characteristicsCV {
+            cell.imageView.image = getCharacteristicImage(indexPath: indexPath)
+        } else {
+            cell.imageView.image = getPersonalityImage(indexPath: indexPath)
+        }*/
+        
+        return cell
+    }
 }

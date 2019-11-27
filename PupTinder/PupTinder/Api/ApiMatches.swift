@@ -55,8 +55,40 @@ class Matches: ApiShared {
     /** Gets all the profiles of users who the current user has been matched with.
         - Parameter completion: If successful, completion's `error` argument will be `nil`, else it will contain a `Optional(String)` describing the error.
     */
-    func getMatches(completion: ((_ profiles: [Profile]?, _ error: String?) -> Void)) {
-        // TODO: Implement this function!
+    func getMatches(completion: @escaping ((_ profiles: [Profile]?, _ error: String?) -> Void)) {
+        let uid = getUID()
+        var profileArray:[Profile]?
+        // In the matches collection, query all documents with this uid in the members array
+        let query = db.collection("matches").whereField("members", arrayContains: uid)
+        query.getDocuments { (querySnapshot, err) in
+            if let _ = err {
+                completion(nil, "Error getting documents")
+            } else {
+                let dispatchGroup = DispatchGroup()
+                for document in querySnapshot!.documents {
+                    // Get the opposite uid
+                    let membersArray = document.data()["members"] as! [String]
+                    let otherUid = (membersArray[0] == uid) ? membersArray[1] : membersArray[0]
+                    dispatchGroup.enter()
+                    Api.profiles.getProfileOf(uid: otherUid) { profile, error in
+                        if let error = error {
+                            completion(nil, error)
+                        } else {
+                            guard let profile = profile else { return }
+                            if profileArray != nil {
+                                profileArray?.append(profile)
+                            } else {
+                                profileArray = [profile]
+                            }
+                        }
+                        dispatchGroup.leave()
+                    }
+                }
+                dispatchGroup.notify(queue: DispatchQueue.main, execute: {
+                    completion(profileArray, nil)
+                })
+            }
+        }
     }
 }
 /*
