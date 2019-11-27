@@ -54,9 +54,9 @@ class Login: UIViewController {
                 // TODO: Login was a success, so Segueway to the next screen!
                 
                 // This function is just for testing; remove after profile stuff is all working!
-                self.testingFunction()
-                print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-                self.testingFunctionMatches()
+                //self.testingFunction()
+                //self.testingFunctionMatches()
+                self.testingFunctionMatchesArray()
             }
         }
     }
@@ -84,6 +84,25 @@ class Login: UIViewController {
             } else {
                 guard let profile = profile else {return}
                 print(profile.name, profile.bio, profile.breed, profile.size, profile.characteristics, profile.traits)
+                let imageView = UIImageView(image: profile.picture)
+                imageView.frame = CGRect(x: 0, y: 0, width: 100, height: 200)
+                self.view.addSubview(imageView)
+            }
+        }
+    }
+    
+    // This function is just for testing matches array; remove after matches functions are all working!
+    func testingFunctionMatchesArray() {
+        Api.matches.getMatches{ (profiles, error) in
+            if let error = error {
+                print(error)
+            } else {
+                guard let profiles = profiles else {return}
+                print("Print profiles now ... ")
+                let profile = profiles[0]
+                let profile1 = profiles[1]
+                print(profile.name, profile.bio, profile.breed, profile.size, profile.characteristics, profile.traits)
+                print(profile1.name, profile1.bio, profile1.breed, profile1.size, profile1.characteristics, profile1.traits)
                 let imageView = UIImageView(image: profile.picture)
                 imageView.frame = CGRect(x: 0, y: 0, width: 100, height: 200)
                 self.view.addSubview(imageView)
