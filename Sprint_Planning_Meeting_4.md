@@ -20,10 +20,11 @@ What I plan to do: Implement the rest of the Api functions along with Tammy, as 
 ### Tammy Lee
 
 What I have done: 
-
+- Implement and test matches API functions, [`getMatches()`](https://github.com/ECS189E/project-f19-puptinder/commit/9019e0988714d002a4cbe174e2f24f9e0415e328) and [`getPotentialMatch()`](https://github.com/ECS189E/project-f19-puptinder/commit/21720706dffcdfb05476e2ca66568389bfa5e944) and [here](https://github.com/ECS189E/project-f19-puptinder/commit/be047a2591b088eff62e3944bc298018be94f9d8)
+- Small modification to [Login UI](https://github.com/ECS189E/project-f19-puptinder/commit/897f5f7180bac8070e898f967490c4395d371e96) to make user experience more secure
 Any roadblocks: None. 
 
-What I plan to do: 
+What I plan to do: Work on implementing functions in ApiMessages.swift and modify any data structures in current database as needed to work with MessageKit. Set up Matches and Conversation View.
 
 ### Hajra Mobashar
 
