@@ -13,7 +13,10 @@ class ApiShared {
     let db = Firestore.firestore()
 
     func getUID() -> String {
-        guard let uid =  Auth.auth().currentUser?.uid else {return ""}
+        guard let uid =  Auth.auth().currentUser?.uid else {
+            print("Couldn't get user's uid")
+            return ""
+        }
         return uid
     }
 }

@@ -27,10 +27,10 @@ class CreateProfile1: UIViewController, UIImagePickerControllerDelegate ,UINavig
     
     // variables we need to pass to the next view controller and keep passing until the very end of profile creation
     var profImage: UIImage = UIImage(named: "profile-dog") ?? UIImage()
-    var dogName: String = ""
-    var dogBreed: String = ""
-    var dogSize : String = ""
-    var dogGender: String = ""
+    var name: String = ""
+    var breed: String = ""
+    var size : String = ""
+    var gender: String = ""
     
     let swiftColor = UIColor(red: 130/256, green: 94/256, blue: 246/256, alpha: 1)
     
@@ -66,7 +66,6 @@ class CreateProfile1: UIViewController, UIImagePickerControllerDelegate ,UINavig
     
     @IBAction func editPhotoPressed(_ sender: Any) {
         if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
-            print("Button capture")
 
             imagePicker.delegate = self
             imagePicker.sourceType = .photoLibrary
@@ -119,9 +118,9 @@ class CreateProfile1: UIViewController, UIImagePickerControllerDelegate ,UINavig
                 DispatchQueue.main.async {
                     if((breed as? String ?? "") != "not found") {
                         self.dogBreedTextField.text = breed as? String ?? ""
-                        self.dogSize = size as? String ?? ""
+                        self.size = size as? String ?? ""
                         
-                        switch(self.dogSize)
+                        switch(self.size)
                         {
                             case "small":
                                 self.smallSizePressedGen()
@@ -163,10 +162,10 @@ class CreateProfile1: UIViewController, UIImagePickerControllerDelegate ,UINavig
             }
             
             smallDogIcon.backgroundColor = swiftColor
-            self.dogSize = "small"
+            self.size = "small"
         } else { //unselect the dog
             smallDogIcon.backgroundColor = UIColor.white
-            dogSize = ""
+            self.size = ""
         }
     }
     
@@ -183,10 +182,10 @@ class CreateProfile1: UIViewController, UIImagePickerControllerDelegate ,UINavig
             }
             
             medDogIcon.backgroundColor = swiftColor
-            self.dogSize = "medium"
+            self.size = "medium"
         } else { //unselect the dog
             medDogIcon.backgroundColor = UIColor.white
-            dogSize = ""
+            self.size = ""
         }
     }
     
@@ -203,10 +202,10 @@ class CreateProfile1: UIViewController, UIImagePickerControllerDelegate ,UINavig
             }
             
             largeDogIcon.backgroundColor = swiftColor
-            self.dogSize = "large"
+            self.size = "large"
         } else { //unselect the dog
             largeDogIcon.backgroundColor = UIColor.white
-            dogSize = ""
+            self.size = ""
         }
     }
     
@@ -221,10 +220,10 @@ class CreateProfile1: UIViewController, UIImagePickerControllerDelegate ,UINavig
             }
             
             femaleButton.backgroundColor = swiftColor
-            self.dogGender = "female"
+            self.gender = "female"
         } else {
             femaleButton.backgroundColor = UIColor.white
-            self.dogGender = ""
+            self.gender = ""
         }
     }
     
@@ -235,10 +234,10 @@ class CreateProfile1: UIViewController, UIImagePickerControllerDelegate ,UINavig
             }
             
             maleButton.backgroundColor = swiftColor
-            self.dogGender = "male"
+            self.gender = "male"
         } else {
             maleButton.backgroundColor = UIColor.white
-            self.dogGender = ""
+            self.gender = ""
         }
     }
     @IBAction func logoutPressed() {
@@ -250,8 +249,8 @@ class CreateProfile1: UIViewController, UIImagePickerControllerDelegate ,UINavig
     }
     
     @IBAction func continueButtonPressed(_ sender: Any) {
-        self.dogName = dogNameTextField.text ?? ""
-        self.dogBreed = dogBreedTextField.text ?? ""
+        self.name = dogNameTextField.text ?? ""
+        self.breed = dogBreedTextField.text ?? ""
         
         if(errorCheck()) { //if no errors
             self.errorLabel.isHidden = true
@@ -267,22 +266,22 @@ class CreateProfile1: UIViewController, UIImagePickerControllerDelegate ,UINavig
             return false
         }
         
-        if(self.dogBreed == "") {
+        if(self.breed == "") {
             errorLabel.text = "Please enter a breed"
             return false
         }
         
-        if(self.dogName == "") {
+        if(self.name == "") {
             errorLabel.text = "Please enter a name"
             return false
         }
         
-        if(self.dogSize == "") {
+        if(self.size == "") {
             errorLabel.text = "Please choose a size"
             return false
         }
         
-        if(self.dogGender == "") {
+        if(self.gender == "") {
             errorLabel.text = "Please choose an gender"
             return false
         }
@@ -291,7 +290,7 @@ class CreateProfile1: UIViewController, UIImagePickerControllerDelegate ,UINavig
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        if identifier == "CP1ToCP2Segue" && (self.profImage == UIImage() || self.profImage == UIImage(named: "profile-dog") || self.dogBreed == "" || self.dogName == "" || self.dogSize == "" || self.dogGender == "") {
+        if identifier == "CP1ToCP2Segue" && (self.profImage == UIImage() || self.profImage == UIImage(named: "profile-dog") || self.breed == "" || self.name == "" || self.size == "" || self.gender == "") {
             return false
         }
         
@@ -299,13 +298,13 @@ class CreateProfile1: UIViewController, UIImagePickerControllerDelegate ,UINavig
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "CP1ToCP2Segue" && !(self.profImage == UIImage() || self.profImage == UIImage(named: "profile-dog") || self.dogBreed == "" || self.dogName == "" || self.dogSize == "" || self.dogGender == "") {
+        if segue.identifier == "CP1ToCP2Segue" && !(self.profImage == UIImage() || self.profImage == UIImage(named: "profile-dog") || self.breed == "" || self.name == "" || self.size == "" || self.gender == "") {
             if let destinationVC = segue.destination as? CreateProfile2 { //if the destination is what we want
                 destinationVC.profImage = self.profImage
-                destinationVC.name = self.dogName
-                destinationVC.breed = self.dogBreed
-                destinationVC.size = self.dogSize
-                destinationVC.gender = self.dogGender
+                destinationVC.name = self.name
+                destinationVC.breed = self.breed
+                destinationVC.size = self.size
+                destinationVC.gender = self.gender
             }
         }
     }

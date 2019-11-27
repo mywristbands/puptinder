@@ -122,7 +122,7 @@ func getDogBreed(pictureID: String, completion: @escaping (_ breed: Any?, _ size
 
         // Print out reponse body
         let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
-        print("****** response data = \(responseString!)")
+        //print("****** response data = \(responseString!)")
         var breedFound = false
         
         for(key, value) in dogBreeds {

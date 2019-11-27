@@ -46,17 +46,27 @@ class Profiles: ApiShared {
     /// - Parameter completion: If successful, completion's `error` argument will be `nil`, else it will contain a `Optional(String)` describing the error.
     func uploadProfile(profile: Profile, completion: @escaping ((_ error: String?) -> Void)) {
         
-        guard let filepath = uploadProfilePicture(profile.picture) else {
-            print("Could not prepare profile picture for upload")
-            return
+        uploadProfilePicture(profile.picture) { (filepath, error) in
+            // Now that we have attempted to upload our profile picture...
+            
+            // Complete with error if error occurred in uploading profile picture
+            if let error = error {
+                completion(error)
+                return
+            }
+            
+            // Otherwise, upload the rest of the Profile info
+            guard let filepath = filepath else {return}
+            self.db.collection("profiles").document(self.getUID()).setData(
+                ["picture":filepath,"name":profile.name,"gender":profile.gender,"breed":profile.breed,"size":profile.size,"bio":profile.bio,"traits":profile.traits,"characteristics":profile.characteristics])
+            
+            // Upload succeeded!
+            completion(nil)
         }
-       
-        // Upload profile
-        db.collection("profiles").document(getUID()).setData(
-            ["picture":filepath,"name":profile.name,"gender":profile.gender,"breed":profile.breed,"size":profile.size,"bio":profile.bio,"traits":profile.traits,"characteristics":profile.traits])
+        
     }
         
-    func uploadProfilePicture(_ picture: UIImage) -> String? {
+    private func uploadProfilePicture(_ picture: UIImage, completion: @escaping ((_ filepath: String?, _ error: String?) -> Void)) -> Void {
         
         // We will name profile pictures based on the uid of the corresponding user
         let filepath = "profilePictures/" + getUID()
@@ -65,15 +75,19 @@ class Profiles: ApiShared {
         let profilePicRef = storage.child(filepath)
         
         // Convert profile picture to raw data, compresssed
-        guard let rawPicData = picture.jpegData(compressionQuality: 0.7) else {return nil}
+        guard let rawPicData = picture.jpegData(compressionQuality: 0.7) else {
+            completion(nil, "Could not prepare profile picture for upload")
+            return
+        }
 
         // Upload profile picture data
         profilePicRef.putData(rawPicData, metadata: nil) { (metadata, error) in
             if error != nil {
-                print("Could not upload profile picture")
+                completion(nil, "Could not upload profile picture")
+            } else {
+                completion(filepath, nil)
             }
         }
-        return filepath
     }
     
     /**
@@ -104,6 +118,7 @@ class Profiles: ApiShared {
             // Complete with error if error occurred in getting profile picture
             if let error = error {
                 completion(nil, error)
+                return
             }
             
             // Otherwise, get the rest of the Profile info

@@ -9,8 +9,17 @@
 import UIKit
 
 class CreateProfile4: UIViewController,UITableViewDataSource, UITableViewDelegate {
+    var profImage: UIImage = UIImage()
+    var name: String = ""
+    var breed: String = ""
+    var size: String = ""
+    var gender: String = ""
+    var bio: String = ""
+    var pickedCharacteristics: [String] = []
+    var pickedPTraits: [String] = []
+    
     @IBOutlet weak var personalityTV: UITableView!
-        var personalityTraits:[String] = ["Friendly", "Shy", "Calm", "Submissive", "Dominant", "Energetic", "Playful", "Grumpy", "Fun-loving", "Affectionate", "Intelligent", "Inquisitive", "Fearless"];
+    var personalityTraits:[String] = ["Friendly", "Shy", "Calm", "Submissive", "Dominant", "Energetic", "Playful", "Grumpy", "Fun-loving", "Affectionate", "Intelligent", "Inquisitive", "Fearless"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,8 +27,35 @@ class CreateProfile4: UIViewController,UITableViewDataSource, UITableViewDelegat
         self.personalityTV.delegate = self
         self.personalityTV.allowsMultipleSelection = true
         self.personalityTV.reloadData()
+    }
+    
+    @IBAction func createProfileButtonPressed(_ sender: Any) {
+        if let list = personalityTV.indexPathsForSelectedRows {
+            if list.count > 0 {
+                guard let indexPaths = self.personalityTV.indexPathsForSelectedRows else { // if no selected cells just return
+                  return
+                }
 
-        // Do any additional setup after loading the view.
+                for indexPath in indexPaths {
+                    pickedPTraits.append(personalityTraits[indexPath.row])
+                }
+            }
+        }
+        
+        let profile1 = Profile(data: ["picture" : self.profImage, "name" : self.name, "gender" : self.gender, "breed" : self.breed, "size" : self.size, "bio" : self.bio, "traits" : self.pickedPTraits, "characteristics" : self.pickedCharacteristics])
+        
+        Api.profiles.uploadProfile(profile: profile1) {
+            error in
+            if error == nil {
+                self.performSegue(withIdentifier: "CP4ToUPSegue", sender: nil)
+            } else {
+                print(error ?? "ERROR")
+            }
+        }
+    }
+    
+    @IBAction func backButtonPressed(_ sender: Any) {
+        self.performSegue(withIdentifier: "CP4ToCP3Segue", sender: nil)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -58,5 +94,19 @@ class CreateProfile4: UIViewController,UITableViewDataSource, UITableViewDelegat
         }
         
         return indexPath
-    } 
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "CP4ToCP3Segue" {
+            if let destinationVC = segue.destination as? CreateProfile3 { //if the destination is what we want
+                destinationVC.profImage = self.profImage
+                destinationVC.name = self.name
+                destinationVC.breed = self.breed
+                destinationVC.size = self.size
+                destinationVC.gender = self.gender
+                destinationVC.bio = self.bio
+                destinationVC.pickedCharacteristics = self.pickedCharacteristics
+            }
+        }
+    }
 }

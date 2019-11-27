@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5fR-Ec-Roi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -208,7 +208,8 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="5fR-Ec-Roi" kind="presentation" modalPresentationStyle="fullScreen" id="Btk-GA-aCT"/>
+                                    <action selector="backButtonPressed:" destination="E7U-Jf-76f" eventType="touchUpInside" id="OTz-9E-aQS"/>
+                                    <segue destination="5fR-Ec-Roi" kind="presentation" identifier="CP2ToCP1Segue" modalPresentationStyle="fullScreen" id="Btk-GA-aCT"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tV3-K7-bqu">
@@ -218,6 +219,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
+                                    <action selector="skipButtonPressed:" destination="E7U-Jf-76f" eventType="touchUpInside" id="KMv-Cj-NPn"/>
                                     <segue destination="AlW-r6-dJ3" kind="presentation" identifier="CP2ToCP3SkipSegue" modalPresentationStyle="fullScreen" id="IZX-wX-kBE"/>
                                 </connections>
                             </button>
@@ -228,7 +230,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-tail" translatesAutoresizingMaskIntoConstraints="NO" id="Xgg-o6-1yJ">
-                                <rect key="frame" x="67.499999999999986" y="438" width="240.00000000000003" height="128"/>
+                                <rect key="frame" x="67.5" y="438" width="240" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="ar4-zH-l5m"/>
                                     <constraint firstAttribute="width" constant="240" id="u8X-bE-8MY"/>
@@ -245,6 +247,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
+                                    <action selector="continueButtonPressed:" destination="E7U-Jf-76f" eventType="touchUpInside" id="tZP-K0-Cqf"/>
                                     <segue destination="AlW-r6-dJ3" kind="presentation" identifier="CP2ToCP3Segue" modalPresentationStyle="fullScreen" id="Ryy-lF-lTa"/>
                                 </connections>
                             </button>
@@ -343,7 +346,8 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="AlW-r6-dJ3" kind="presentation" modalPresentationStyle="fullScreen" id="iGg-WX-fob"/>
+                                    <action selector="backButtonPressed:" destination="FmV-Ua-Ict" eventType="touchUpInside" id="bYd-kX-zsm"/>
+                                    <segue destination="AlW-r6-dJ3" kind="presentation" identifier="CP4ToCP3Segue" modalPresentationStyle="fullScreen" id="iGg-WX-fob"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Jd-FU-I3I">
@@ -357,7 +361,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="8f6-N4-xgo" kind="presentation" identifier="CP4ToUPSegue" modalPresentationStyle="fullScreen" id="0TQ-yB-x1C"/>
+                                    <action selector="createProfileButtonPressed:" destination="FmV-Ua-Ict" eventType="touchUpInside" id="J8g-P6-Nfi"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -386,6 +390,7 @@
                     </view>
                     <connections>
                         <outlet property="personalityTV" destination="YsZ-I2-aIX" id="vSL-ke-yFu"/>
+                        <segue destination="8f6-N4-xgo" kind="presentation" identifier="CP4ToUPSegue" modalPresentationStyle="fullScreen" id="yFx-Yl-Uxi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zri-fb-cfd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -422,7 +427,8 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="E7U-Jf-76f" kind="presentation" modalPresentationStyle="fullScreen" id="49r-10-922"/>
+                                    <action selector="backButtonPressed:" destination="AlW-r6-dJ3" eventType="touchUpInside" id="P3S-Sa-GEv"/>
+                                    <segue destination="E7U-Jf-76f" kind="presentation" identifier="CP3ToCP2Segue" modalPresentationStyle="fullScreen" id="49r-10-922"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6mJ-1w-TTI">
@@ -432,6 +438,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
+                                    <action selector="skipButtonPressed:" destination="AlW-r6-dJ3" eventType="touchUpInside" id="ahg-El-VF9"/>
                                     <segue destination="FmV-Ua-Ict" kind="presentation" identifier="CP3ToCP4SkipSegue" modalPresentationStyle="fullScreen" id="YLX-GS-Xx9"/>
                                 </connections>
                             </button>
@@ -446,6 +453,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
+                                    <action selector="continueButtonPressed:" destination="AlW-r6-dJ3" eventType="touchUpInside" id="Tag-q0-TAC"/>
                                     <segue destination="FmV-Ua-Ict" kind="presentation" identifier="CP3ToCP4Segue" modalPresentationStyle="fullScreen" id="iDd-Ip-oy5"/>
                                 </connections>
                             </button>
@@ -610,7 +618,7 @@
                                 </constraints>
                                 <state key="normal" image="home"/>
                                 <connections>
-                                    <segue destination="m7b-ob-d02" kind="presentation" modalPresentationStyle="fullScreen" id="oJI-JD-Htr"/>
+                                    <segue destination="m7b-ob-d02" kind="presentation" identifier="ProfileToHomeSegue" modalPresentationStyle="fullScreen" id="oJI-JD-Htr"/>
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="06O-O8-9ZM">
@@ -623,13 +631,27 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Syk-ve-r1W">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Syk-ve-r1W" customClass="ImageCollectionViewCell" customModule="PupTinder" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="AIV-c8-MZ8">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hV0-6O-j4Y">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="hV0-6O-j4Y" secondAttribute="bottom" id="3qm-wE-dAt"/>
+                                                <constraint firstItem="hV0-6O-j4Y" firstAttribute="top" secondItem="AIV-c8-MZ8" secondAttribute="top" id="SpF-6w-BUn"/>
+                                                <constraint firstAttribute="trailing" secondItem="hV0-6O-j4Y" secondAttribute="trailing" id="nm7-Ld-lXk"/>
+                                                <constraint firstItem="hV0-6O-j4Y" firstAttribute="leading" secondItem="AIV-c8-MZ8" secondAttribute="leading" id="quz-aH-dbO"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="imageView" destination="AIV-c8-MZ8" id="zS4-Af-AE0"/>
+                                        </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="hQg-GH-jRV">
                                         <rect key="frame" x="69.5" y="0.0" width="50" height="50"/>
@@ -678,12 +700,23 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ZHX-tw-V0e">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ZHX-tw-V0e" customClass="ImageCollectionViewCell" customModule="PupTinder" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ydT-T8-QAQ">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xrl-4z-YV7">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Xrl-4z-YV7" firstAttribute="top" secondItem="ydT-T8-QAQ" secondAttribute="top" id="2pW-cl-Mwj"/>
+                                                <constraint firstAttribute="bottom" secondItem="Xrl-4z-YV7" secondAttribute="bottom" id="LIv-pI-oXN"/>
+                                                <constraint firstAttribute="trailing" secondItem="Xrl-4z-YV7" secondAttribute="trailing" id="VwD-NW-YDU"/>
+                                                <constraint firstItem="Xrl-4z-YV7" firstAttribute="leading" secondItem="ydT-T8-QAQ" secondAttribute="leading" id="mAQ-ah-vLD"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="7l0-6q-IJi">
@@ -764,10 +797,16 @@
                         <viewLayoutGuide key="safeArea" id="15R-6I-lkm"/>
                     </view>
                     <connections>
+                        <outlet property="aboutNameLabel" destination="5AU-JW-92b" id="Pve-a5-Xs7"/>
                         <outlet property="backgroundImage" destination="Tq5-Kp-yar" id="gVf-FM-iEZ"/>
+                        <outlet property="bioTextView" destination="suw-mF-ksA" id="1Qv-ql-FOR"/>
+                        <outlet property="breedLabel" destination="YdU-OE-EEx" id="3im-p5-y6x"/>
+                        <outlet property="characteristicsCV" destination="06O-O8-9ZM" id="drU-BW-iF7"/>
                         <outlet property="editButton" destination="dyo-nV-iPE" id="4yI-RW-Tm3"/>
                         <outlet property="genderImage" destination="QNu-a6-OLX" id="67x-9x-y2p"/>
-                        <outlet property="imageContianer" destination="0VL-wL-7ho" id="LEw-WQ-v2u"/>
+                        <outlet property="imageContainer" destination="0VL-wL-7ho" id="LEw-WQ-v2u"/>
+                        <outlet property="nameLabel" destination="MgB-2l-tc8" id="XWg-WM-Fj6"/>
+                        <outlet property="personalityCV" destination="2vF-He-21z" id="luW-JR-VhM"/>
                         <outlet property="profileImage" destination="9PP-eY-vAg" id="8m2-h8-pzD"/>
                         <outlet property="sizeImage" destination="KiL-19-bLu" id="ucA-lN-CXt"/>
                     </connections>
@@ -1282,7 +1321,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-tail" translatesAutoresizingMaskIntoConstraints="NO" id="ODs-Ba-dIy">
-                                <rect key="frame" x="136" y="571" width="103.00000000000003" height="96"/>
+                                <rect key="frame" x="84.5" y="571" width="206" height="96"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="96" id="zqk-43-4dC"/>
                                 </constraints>
@@ -1635,8 +1674,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Btk-GA-aCT"/>
-        <segue reference="IZX-wX-kBE"/>
+        <segue reference="iGg-WX-fob"/>
         <segue reference="YLX-GS-Xx9"/>
-        <segue reference="s5c-px-00h"/>
+        <segue reference="49r-10-922"/>
     </inferredMetricsTieBreakers>
 </document>
