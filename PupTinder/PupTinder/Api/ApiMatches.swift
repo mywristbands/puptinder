@@ -47,9 +47,7 @@ class Matches: ApiShared {
         - Parameter completion: If successful, completion's `error` argument will be `nil`, else it will contain a `Optional(String)` describing the error.
          */
     func swipedRightOn(uid: String, completion: @escaping ((_ error: String?) -> Void)) {
-        // TODO: Implement this function!
-        
-        // TODO: See "IMPORTANT NOTE" below
+        // TODO: Implement this function!        
     }
 
     /** Gets all the profiles of users who the current user has been matched with.
@@ -90,10 +88,12 @@ class Matches: ApiShared {
             }
         }
     }
+    
+    /*
+        func checkForMatchOnSwipeRight() {}
+            This function is located online (it's called a "Cloud Function"), and it will automatically check if the person that someone swiped right on also swiped right them, in which case it will declare they are a "match" by adding a new document to the "matches" collection, in which they are "members" of that new document.
+            The reason we have to do this outside the client code is we don’t want to let just anyone add entries to the `matches` collection, or else a malicious person could wreak havoc by matching random people together.
+    */    
 }
 
 
-/* func checkForMatchOnSwipeRight() {}
-    This function is located online (it's called a "Cloud Function"), and it will autmatically check if the person that someone swiped right on also swiped right them, in which case it will declare they are a "match" by adding a new document to the "matches" collection, in which they are "members" of the document.
-    The reason we have to do this is outside the client code is we don’t want to let just anyone add entries to the `matches` collection, or else a malicious person could wreak havoc by matching random people together.
-    */
