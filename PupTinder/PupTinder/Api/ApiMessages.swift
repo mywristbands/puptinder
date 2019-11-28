@@ -23,6 +23,14 @@ protocol NewMessageChecker {
 class Messages: ApiShared {
     var delegate: NewMessageChecker?
     
+    /** Gets an array of the uids of all of the users that the current user has has started a conversation with, from most-recently-spoken-with to least-recently-spoken-with.
+        - Parameter completion: If successful, completion's `error` argument will be `nil`, else it will contain a `Optional(String)` describing the error.
+    */
+    func getConversationPartners(completion: ((_ conversationPartners: [String]?, _ error: String?) -> Void)) {
+        // TODO: Implement this function!
+        // Note: A user has "started a conversation with someone" if they have matched with that person and there is at least one message in their messages collection.
+    }
+    
     /** Gets all the messages in a particular conversation.
         - Parameter from: the uid of the user we're in the conversation with
         - Parameter completion: If successful, completion's `error` argument will be `nil`, else it will contain a `Optional(String)` describing the error.

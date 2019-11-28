@@ -27,15 +27,11 @@ class Login: UIViewController {
                 // TODO: Deal with the error
             } else {
                 // TODO: Login was a success, so Segueway to the next screen!
-                
-                // These functions are just for testing; remove after everything is all working!
-                //self.testSwipeRight()
-                //self.testingFunctionMatches()
-                //self.testingFunctionMatchesArray()
             }
         }
     }
     
+    // This function is just for testing matches; remove after matches functions are all working!
     func testSwipeRight() {
         let uids = ["0nE8qrJXBVYxtATnkXCHzSUw7jB2","45AXFdBoUld6OjG2tli64kC34VI3", "CT6zTIAip0NyVwpKwMCE115QfSk2", Api.matches.getUID()]
         for uid in uids {
