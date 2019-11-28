@@ -10,6 +10,7 @@ import Foundation
 import Firebase
 
 struct Profile {
+    var uid: String
     var picture: UIImage
     var name: String
     var gender: String
@@ -18,10 +19,10 @@ struct Profile {
     var bio: String
     var traits: [String]
     var characteristics: [String]
-}
-// For initializing a Profile with data from firestore
-extension Profile {
+
+    // For initializing a Profile with data from firestore
     init(data: [String:Any?]) {
+        uid = data["uid"] as? String ?? ""
         picture = data["picture"] as? UIImage ?? UIImage()
         name = data["name"] as? String ?? ""
         gender = data["gender"] as? String ?? ""
@@ -30,6 +31,12 @@ extension Profile {
         bio = data["bio"] as? String ?? ""
         traits = data["traits"] as? [String] ?? []
         characteristics = data["characteristics"] as? [String] ?? []
+    }
+    
+    // For initializing a Profile from the front-end (you don't have to provide a uid)
+    init(picture: UIImage, name: String, gender: String, breed: String, size: String, bio: String, traits: [String],
+         characteristics: [String]) {
+        uid = ""; self.picture = picture; self.name = name; self.gender = gender; self.breed = breed; self.size = size; self.bio = bio; self.traits = traits; self.characteristics = characteristics
     }
 }
 
@@ -58,12 +65,11 @@ class Profiles: ApiShared {
             // Otherwise, upload the rest of the Profile info
             guard let filepath = filepath else {return}
             self.db.collection("profiles").document(self.getUID()).setData(
-                ["picture":filepath,"name":profile.name,"gender":profile.gender,"breed":profile.breed,"size":profile.size,"bio":profile.bio,"traits":profile.traits,"characteristics":profile.characteristics])
+                ["uid": self.getUID(), "picture":filepath,"name":profile.name,"gender":profile.gender,"breed":profile.breed,"size":profile.size,"bio":profile.bio,"traits":profile.traits,"characteristics":profile.characteristics])
             
             // Upload succeeded!
             completion(nil)
         }
-        
     }
         
     private func uploadProfilePicture(_ picture: UIImage, completion: @escaping ((_ filepath: String?, _ error: String?) -> Void)) -> Void {

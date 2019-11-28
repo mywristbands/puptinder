@@ -28,53 +28,36 @@ class Login: UIViewController {
             } else {
                 // TODO: Login was a success, so Segueway to the next screen!
                 
-                // These functions are just for testing; remove after profile stuff is all working!
-                //self.uploadProfile()
-                //self.testGetProfile()
-                //self.testingFunction()
-                //print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+                // These functions are just for testing; remove after everything is all working!
+                //self.testSwipeRight()
                 //self.testingFunctionMatches()
                 //self.testingFunctionMatchesArray()
             }
         }
     }
     
-    // This function is just for testing; remove after profile stuff is all working!
-    func uploadProfile(){
-        Api.profiles.uploadProfile(profile: Profile(picture: UIImage(named: "test_dog")!, name: "Elias", gender: "male", breed: "SuperHuman", size: "small", bio: "Why isn't upload profile working?", traits: ["impatient"], characteristics: ["In my room", "here"])) {
-            (error) in
-            if (error != nil) {
-                print(error!)
+    func testSwipeRight() {
+        let uids = ["0nE8qrJXBVYxtATnkXCHzSUw7jB2","45AXFdBoUld6OjG2tli64kC34VI3", "CT6zTIAip0NyVwpKwMCE115QfSk2", Api.matches.getUID()]
+        for uid in uids {
+            Api.matches.swipedRightOn(uid: uid) { error in
+                if let error = error {
+                    print(error)
+                } else {
+                    print("Successfully swiped right!")
+                }
             }
         }
-    }
-    // This function is just for testing; remove after profile stuff is all working!
-    func testGetProfile() {
-        Api.profiles.getProfile { (profile, error) in
-            if let error = error {
-                print(error)
-            } else {
-                guard let profile = profile else {return}
-                print(profile.name, profile.bio, profile.breed, profile.size, profile.characteristics, profile.traits)
-                let imageView = UIImageView(image: profile.picture)
-                imageView.frame = CGRect(x: 0, y: 0, width: 100, height: 200)
-                self.view.addSubview(imageView)
-
-            }
-        }
-    }
-    
-    // This function is just for testing; remove after profile stuff is all working!
-    func testingFunction() {
-        Api.profiles.getProfileOf(uid: "HfPac5bFtmODf4YSZuuPZ76BBgH2") { (profile, error) in
-            if let error = error {
-                print(error)
-            } else {
-                guard let profile = profile else {return}
-                print(profile.name, profile.bio, profile.breed, profile.size, profile.characteristics, profile.traits)
-                let imageView = UIImageView(image: profile.picture)
-                imageView.frame = CGRect(x: 0, y: 0, width: 100, height: 200)
-                self.view.addSubview(imageView)
+        let _ = Timer(timeInterval: 60, repeats: false) { _ in
+            print("timer ended")
+            Api.matches.getMatches() { profiles, error in
+                if let error = error {
+                    print(error)
+                } else {
+                    guard let profiles = profiles else {return}
+                    for profile in profiles {
+                        print("Found match: " + profile.name)
+                    }
+                }
             }
         }
     }

@@ -14,6 +14,12 @@ exports.checkForMatchOnSwipeRight = functions.firestore
 	.onCreate((snap, context) => {
 		let uidOfUser1 = snap.ref.parent.parent.id;
 		let uidSwipedOn = snap.id;
+
+		if (uidOfUser1 === uidSwipedOn) {
+			console.log("User cannot be matched with themself.");
+			return SUCCESS;
+		}
+
 		let swipedRightCollectionOfUserSwipedOn =
 			db.collection('profiles').doc(uidSwipedOn).collection('swipedRight');
 
@@ -25,8 +31,10 @@ exports.checkForMatchOnSwipeRight = functions.firestore
 		return swipedRightCollectionOfUserSwipedOn.doc(uidOfUser1).get()
 			.then(doc => {
 				if (doc.exists) {
-					// The user did swipe right on User1, so match the users together!
-					match(uidOfUser1, uidSwipedOn);
+					// The user did swipe right on User1, so attempt to match the
+					// users together (will fail if match has already been made
+					// between them)
+					attemptMatch(uidOfUser1, uidSwipedOn);
 				}
 				return SUCCESS;
 			})
@@ -34,11 +42,48 @@ exports.checkForMatchOnSwipeRight = functions.firestore
 				console.log("Getting document in swipedRight collection failed " +
 										"for reason OTHER than document missing.\n" +
 									  "Error message: " + error);
-			})
+			});
 	})
 
+function attemptMatch(uid1, uid2) {
+	// Check if match has already been made between the two users
+	db.collection('matches')
+		.where('members', 'array-contains', uid1)
+		.get()
+	.then(uid1MatchesQuery => {
+	    if (!memberOfAMatch(uid2, uid1MatchesQuery)) {
+	      // Match has never been made before, so make the match!
+	      match(uid1, uid2);
+	    } else {
+	      console.log("Didn't make match since match already exists.");
+	    }
+	    return SUCCESS;
+	  })
+	.catch(err => {
+	    console.log('Error getting documents from matches collection:', err);
+	});
+}
+
+function memberOfAMatch(uid2, uid1MatchesQuery) {	
+	if (uid1MatchesQuery.empty)
+		// If uid1 has no matches, then uid2 is certainly not a member of uid1's
+		// matches.
+		return false;
+
+	else {
+		// Assumes uid2 is not in uid1's matches until we find it.
+		let isMember = false;
+
+		uid1MatchesQuery.forEach(matchDoc => {
+			if (matchDoc.data().members.includes(uid2))
+				isMember =  true; // Looks like uid1 is already matched with uid2!
+		});
+		return isMember;
+	}
+}
+
 function match(uid1, uid2) {
-	return db.collection('matches').add({
+	db.collection('matches').add({
 		members: [uid1, uid2],
 		timestamp: admin.firestore.Timestamp.now()
 	})
@@ -49,5 +94,5 @@ function match(uid1, uid2) {
 			console.log("Failed to add new match between " + uid1 + " and " +
 									 uid2 + "." +
 								  "Error message: " + error);
-		})
+		});	
 }

@@ -9,12 +9,6 @@
 import Foundation
 import Firebase
 
-
-struct Conversation {
-    var partner: String // the other user's uid
-    var messages: [Message]
-}
-
 struct Message {   // TODO: might need to modify this to conform to MessageKit
     var sender: String // the sender's uid
     var text: String
@@ -28,13 +22,6 @@ protocol NewMessageChecker {
 
 class Messages: ApiShared {
     var delegate: NewMessageChecker?
-    
-    /** Gets all the conversations started with the users who the current user has been matched with. (NOTE: messages property will start out as empty for each conversation returned, so you'll need to call `getMessages` to fill that info in when you need it)
-        - Parameter completion: If successful, completion's `error` argument will be `nil`, else it will contain a `Optional(String)` describing the error.
-    */
-    func getConversations(completion: ((_ conversations: [Conversation]?, _ error: String?) -> Void)) {
-        // TODO: Implement this function!
-    }
     
     /** Gets all the messages in a particular conversation.
         - Parameter from: the uid of the user we're in the conversation with
@@ -76,5 +63,4 @@ class Messages: ApiShared {
         
         // Useful link for implementing this function: firebase.google.com/docs/firestore/query-data/listen
     }
-
 }
