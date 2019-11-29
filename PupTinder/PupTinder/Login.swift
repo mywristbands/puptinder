@@ -10,12 +10,14 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
-class Login: UIViewController {
+class Login: UIViewController, NewMessageChecker {
+    
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Api.messages.delegate = self
     }
     
     @IBAction func loginPressed() {
@@ -30,6 +32,36 @@ class Login: UIViewController {
             }
         }
     }
+    
+    // This function is just for testing messages; remove after messages Api functions are all working!
+    func testListeningForMessages() {
+        print("About to get old messages")
+        Api.messages.startGettingMessages(with: "0nE8qrJXBVYxtATnkXCHzSUw7jB2") { error in
+            if let error = error {
+                print(error)
+                return
+            }
+            let _ = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.fire), userInfo: nil, repeats: true)
+        }
+    }
+    
+    // This function is just for testing messages; remove after messages Api functions are all working!
+    @objc func fire()
+    {
+        Api.messages.stopGettingMessages { error in
+            if let error = error {
+                print(error)
+                return
+            }
+            print("Stopped getting new messages")
+        }
+    }
+    
+    //This function is just for testing messages functions where you start listening for new mesages; remove after these listener functions are all working!
+    func onReceivedNewMessage(_ message: Message) {
+        print("Received new message from \(message.sender): \(message.text)")
+    }
+
     
     // This function is just for testing matches; remove after matches functions are all working!
     func testSwipeRight() {
