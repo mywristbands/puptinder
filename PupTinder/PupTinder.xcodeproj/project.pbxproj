@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5116D08B238D8C6700A5B2F7 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5116D08A238D8C6700A5B2F7 /* ImageCollectionViewCell.swift */; };
 		5147C7AF238A050F0074D017 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5147C7AE238A050F0074D017 /* EditProfileViewController.swift */; };
 		517024452383975C00C5CB00 /* DogAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517024442383975C00C5CB00 /* DogAPI.swift */; };
 		518DDE8C237E61DD0060FDAA /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518DDE8B237E61DD0060FDAA /* UserProfile.swift */; };
@@ -36,7 +35,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5116D08A238D8C6700A5B2F7 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		5147C7AE238A050F0074D017 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		517024442383975C00C5CB00 /* DogAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogAPI.swift; sourceTree = "<group>"; };
 		518DDE8B237E61DD0060FDAA /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
@@ -143,7 +141,6 @@
 				51A009BC237D195F00719C27 /* CustomCheckedTableViewCell.swift */,
 				77A2F2AF238782F000B5D963 /* Home.swift */,
 				5147C7AE238A050F0074D017 /* EditProfileViewController.swift */,
-				5116D08A238D8C6700A5B2F7 /* ImageCollectionViewCell.swift */,
 			);
 			path = PupTinder;
 			sourceTree = "<group>";
@@ -293,7 +290,6 @@
 				6413005D238B66F50071C380 /* ApiMessages.swift in Sources */,
 				777EAFD8237E5C1A007CFF96 /* CreateProfile4.swift in Sources */,
 				64AF582C238236A50060B13B /* SignUp.swift in Sources */,
-				5116D08B238D8C6700A5B2F7 /* ImageCollectionViewCell.swift in Sources */,
 				51A009BD237D195F00719C27 /* CustomCheckedTableViewCell.swift in Sources */,
 				64130061238B687B0071C380 /* ApiShared.swift in Sources */,
 				51CB36EF237A3E1A00D6ABF0 /* CreateProfile1.swift in Sources */,

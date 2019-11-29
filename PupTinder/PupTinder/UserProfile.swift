@@ -35,6 +35,11 @@ class UserProfile: UIViewController, UICollectionViewDelegate, UICollectionViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.characteristicsCV.delegate = self
+        self.characteristicsCV.dataSource = self
+        self.personalityCV.delegate = self
+        self.personalityCV.dataSource = self
 
         Api.profiles.getProfile() { profile, error in
             if error == nil {
@@ -54,8 +59,8 @@ class UserProfile: UIViewController, UICollectionViewDelegate, UICollectionViewD
                 }
                 self.profileCharacteristics = profile?.characteristics ?? []
                 self.profileTraits = profile?.traits ?? []
-                self.characteristicsCV.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-                self.personalityCV.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+                self.characteristicsCV.register(CustomCell.self, forCellWithReuseIdentifier: "cell")
+                self.personalityCV.register(CustomCell.self, forCellWithReuseIdentifier: "cell")
                 self.characteristicsCV.reloadData()
                 self.personalityCV.reloadData()
             } else {
@@ -203,6 +208,7 @@ class UserProfile: UIViewController, UICollectionViewDelegate, UICollectionViewD
             image = UIImage(named: "dog-icon") ?? UIImage()
             break
         case "Dominant":
+            image = UIImage(named: "dog-icon") ?? UIImage()
             break
         case "Energetic":
             image = UIImage(named: "dog-icon") ?? UIImage()
@@ -244,14 +250,43 @@ class UserProfile: UIViewController, UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath as IndexPath) as! ImageCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath as IndexPath) as! CustomCell
         
-        /*if collectionView == self.characteristicsCV {
-            cell.imageView.image = getCharacteristicImage(indexPath: indexPath)
+        if collectionView == self.characteristicsCV {
+            cell.bg.image = getCharacteristicImage(indexPath: indexPath)
         } else {
-            cell.imageView.image = getPersonalityImage(indexPath: indexPath)
-        }*/
+            cell.bg.image = getPersonalityImage(indexPath: indexPath)
+        }
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width * 0.4, height: collectionView.frame.height * 0.4)
+    }
+}
+
+class CustomCell: UICollectionViewCell {
+    fileprivate let bg: UIImageView = {
+        let iv = UIImageView()
+        //iv.image = UIImage(named: "dog-icon") ?? UIImage()
+        iv.translatesAutoresizingMaskIntoConstraints = false
+        iv.contentMode = .scaleAspectFill
+        iv.clipsToBounds = true
+        return iv
+    }()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        contentView.addSubview(bg)
+        bg.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        bg.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+        bg.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+        bg.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
