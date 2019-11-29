@@ -24,7 +24,7 @@ extension Message {
 }
 
 /// To define how you'd like to update the View when you receive new messages, implement this protocol, and then set `Api.messages.delegate = self`.
-/// Also make sure to call `Api.messages.startListeningForNewMessages()` to start listening for new messages.
+/// Also make sure to call `Api.messages.startGettingMessages()` to start listening for messages.
 protocol NewMessageChecker {
     func onReceivedNewMessage(_ message: Message)
 }
@@ -35,11 +35,11 @@ class Messages: ApiShared {
     var listeningForMessagesWith: String?
     
     /** Gets the profiles of all of the users that the current user has started a conversation with, from most-recently-spoken-with to least-recently-spoken-with.
+        Note: A user has "started a conversation with someone" if they have matched with that person and there is at least one message in their messages collection.
         - Parameter completion: If successful, completion's `error` argument will be `nil`, else it will contain a `Optional(String)` describing the error.
     */
     func getConversationPartners(completion: ((_ conversationPartners: [Profile]?, _ error: String?) -> Void)) {
         // TODO: Implement this function!
-        // Note: A user has "started a conversation with someone" if they have matched with that person and there is at least one message in their messages collection.
     }
     
     /** Sends a message to another user.
@@ -49,10 +49,10 @@ class Messages: ApiShared {
     func sendMessage(message: Message, to: String, completion: ((_ error: String?) -> Void)) {
         // TODO: Implement this function!
         
-        // It will probably be useful to call getMatchDoc() here that Elias made.
+        // It will probably be useful to call getMatchDoc() here that I (Elias) made.
     }
     
-    /** Get all messages in the conversation between the current user and a specific other user, and then continue listening for new messages in the conversation (from both the current user and the other user).
+    /** Get all messages in the conversation between the current user and a specific other user, and then continue listening for new messages (from both the current user and the other user).
         - Parameter with: the uid of the user whose conversation we want to get messages from.
         - Parameter completion: If successful, completion's `error` argument will be `nil`, else it will contain a `Optional(String)` describing the error.
      */
@@ -93,7 +93,7 @@ class Messages: ApiShared {
         }
     }
     
-    /** Stops listening for messages in the conversation with whatever user you last started listening for messages.
+    /** Stops listening for messages in whatever conversation you last started listening for messages from.
         - Parameter completion: If successful, completion's `error` argument will be `nil`, else it will contain a `Optional(String)` describing the error.
      */
     func stopGettingMessages(completion: ((_ error: String?) -> Void)) {
