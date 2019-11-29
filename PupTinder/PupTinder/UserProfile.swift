@@ -186,7 +186,7 @@ class UserProfile: UIViewController, UICollectionViewDelegate, UICollectionViewD
         }
         return image
     }
-    //"Friendly", "Shy", "Calm", "Submissive", "Dominant", "Energetic", "Playful", "Grumpy", "Fun-loving", "Affectionate", "Intelligent", "Inquisitive", "Fearless"
+
     func getPersonalityImage(indexPath: IndexPath) -> UIImage {
         var image = UIImage()
         switch(self.profileTraits[indexPath.row]) {

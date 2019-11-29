@@ -12,7 +12,6 @@ class EditProfileViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var breedTextField: UITextField!
     @IBOutlet weak var editPhotoButton: UIButton!
-    @IBOutlet weak var aboutNameLabel: UILabel!
     @IBOutlet weak var bioTextView: UITextView!
     @IBOutlet weak var editCharacteristicsButton: UIButton!
     @IBOutlet weak var editPersonalityButton: UIButton!
