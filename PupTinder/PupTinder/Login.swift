@@ -14,7 +14,7 @@ class Login: UIViewController, NewMessageChecker {
     
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         Api.messages.delegate = self
@@ -29,10 +29,12 @@ class Login: UIViewController, NewMessageChecker {
                 return
             }
             
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            /*let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let homeVC = storyboard.instantiateViewController(withIdentifier: "home") as! Home
             homeVC.modalPresentationStyle = .fullScreen
             self.present(homeVC, animated: true, completion: nil)
+            */
+            self.testGetConversationPartners()
         }
     }
     
@@ -137,6 +139,27 @@ class Login: UIViewController, NewMessageChecker {
             if let error = error {
                 print(error)
                 return
+            }
+        }
+    }
+    
+    // This function is just for testing getConversationPartners.
+    func testGetConversationPartners() {
+        Api.messages.getConversationPartners { (profiles, error) in
+            if let error = error {
+                print(error)
+            } else {
+                guard let profiles = profiles else {
+                    return
+                }
+                print("Print \(profiles.count) profiles from conversations now ... ")
+                let profile = profiles[0]
+                let profile1 = profiles[1]
+                print(profile.name, profile.bio, profile.breed, profile.size, profile.characteristics, profile.traits)
+                print(profile1.name, profile1.bio, profile1.breed, profile1.size, profile1.characteristics, profile1.traits)
+                let imageView = UIImageView(image: profile.picture)
+                imageView.frame = CGRect(x: 0, y: 0, width: 100, height: 200)
+                self.view.addSubview(imageView)
             }
         }
     }
