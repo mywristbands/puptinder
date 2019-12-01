@@ -14,7 +14,7 @@ class Login: UIViewController, NewMessageChecker {
     
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         Api.messages.delegate = self
@@ -33,6 +33,7 @@ class Login: UIViewController, NewMessageChecker {
             let homeVC = storyboard.instantiateViewController(withIdentifier: "home") as! Home
             homeVC.modalPresentationStyle = .fullScreen
             self.present(homeVC, animated: true, completion: nil)
+            
         }
     }
     
@@ -116,6 +117,41 @@ class Login: UIViewController, NewMessageChecker {
             } else {
                 guard let profiles = profiles else {return}
                 print("Print profiles now ... ")
+                let profile = profiles[0]
+                let profile1 = profiles[1]
+                print(profile.name, profile.bio, profile.breed, profile.size, profile.characteristics, profile.traits)
+                print(profile1.name, profile1.bio, profile1.breed, profile1.size, profile1.characteristics, profile1.traits)
+                let imageView = UIImageView(image: profile.picture)
+                imageView.frame = CGRect(x: 0, y: 0, width: 100, height: 200)
+                self.view.addSubview(imageView)
+            }
+        }
+    }
+    
+    // This function is just for testing send; remove after messages Api functions are all working!
+    func testSendMessages() {
+        print("About to send a message")
+        // Sender is atwood@ucdavis.edu
+        let messageToSend = Message(data: ["sender":"xLhuwsrXMMbfRCmAV3MFAQPOVak2", "text":"The message was sent successfully!", "timestamp": Timestamp()])
+        // Hardcoded receiver as "ethanheffan@gmail.com"
+        Api.messages.sendMessage(message: messageToSend, to: "0nE8qrJXBVYxtATnkXCHzSUw7jB2") { error in
+            if let error = error {
+                print(error)
+                return
+            }
+        }
+    }
+    
+    // This function is just for testing getConversationPartners.
+    func testGetConversationPartners() {
+        Api.messages.getConversationPartners { (profiles, error) in
+            if let error = error {
+                print(error)
+            } else {
+                guard let profiles = profiles else {
+                    return
+                }
+                print("Print \(profiles.count) profiles from conversations now ... ")
                 let profile = profiles[0]
                 let profile1 = profiles[1]
                 print(profile.name, profile.bio, profile.breed, profile.size, profile.characteristics, profile.traits)
