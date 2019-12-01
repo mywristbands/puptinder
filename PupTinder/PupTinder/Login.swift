@@ -124,6 +124,20 @@ class Login: UIViewController, NewMessageChecker {
         }
     }
     
+    // This function is just for testing send; remove after messages Api functions are all working!
+    func testSendMessages() {
+        print("About to send a message")
+        // Sender is atwood@ucdavis.edu
+        let messageToSend = Message(data: ["sender":"xLhuwsrXMMbfRCmAV3MFAQPOVak2", "text":"The message was sent successfully!", "timestamp": Timestamp()])
+        // Hardcoded receiver as "ethanheffan@gmail.com"
+        Api.messages.sendMessage(message: messageToSend, to: "0nE8qrJXBVYxtATnkXCHzSUw7jB2") { error in
+            if let error = error {
+                print(error)
+                return
+            }
+        }
+    }
+    
     // This serves as a gateway to the Matches feature during development
     @IBAction func goToMatchesAndConversations() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)

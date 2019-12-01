@@ -43,13 +43,20 @@ class Messages: ApiShared {
     }
     
     /** Sends a message to another user.
-        - Parameter from: the uid of the user we want to send the message to.
+        - Parameter to: the uid of the user we want to send the message to.
         - Parameter completion: If successful, completion's `error` argument will be `nil`, else it will contain a `Optional(String)` describing the error.
      */
-    func sendMessage(message: Message, to: String, completion: ((_ error: String?) -> Void)) {
-        // TODO: Implement this function!
-        
-        // It will probably be useful to call getMatchDoc() here that I (Elias) made.
+    func sendMessage(message: Message, to uidReceiver: String, completion: @escaping ((_ error: String?) -> Void)) {
+        // Get the match document between the message sender and receiver
+        getMatchDoc(between: getUID(), and: uidReceiver) { matchDoc, error in
+            guard let matchDoc = matchDoc else {
+                completion(error!) // Will always unwrap due to our setup.
+                return
+            }
+            matchDoc.reference.collection("messages").document().setData(
+                ["sender":message.sender, "text":message.text, "timestamp":message.timestamp])
+            completion(nil)
+        }
     }
     
     /** Get all messages in the conversation between the current user and a specific other user, and then continue listening for new messages (from both the current user and the other user).
