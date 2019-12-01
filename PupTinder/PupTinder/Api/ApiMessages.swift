@@ -38,8 +38,56 @@ class Messages: ApiShared {
         Note: A user has "started a conversation with someone" if they have matched with that person and there is at least one message in their messages collection.
         - Parameter completion: If successful, completion's `error` argument will be `nil`, else it will contain a `Optional(String)` describing the error.
     */
-    func getConversationPartners(completion: ((_ conversationPartners: [Profile]?, _ error: String?) -> Void)) {
-        // TODO: Implement this function!
+    func getConversationPartners(completion: @escaping ((_ conversationPartners: [Profile]?, _ error: String?) -> Void)) {
+        var profileArray:[Profile]?
+        let uid1 = getUID()
+        
+        db.collection("matches").whereField("members", arrayContains: uid1)
+            .getDocuments { querySnapshot, error in
+            if let error = error {
+                completion(nil, "Error getting matches for \(uid1): \(error)")
+            } else {
+                guard let querySnapshot = querySnapshot else {
+                    completion(nil, "querySnapshot for \(uid1)'s matches could not be unwrapped")
+                    return
+                }
+               
+                for matchDoc in querySnapshot.documents {
+                    matchDoc.reference.collection("messages").limit(to: 1)
+                    .getDocuments { (querySnapshot, err) in
+                        if let err = err {
+                            // Messages subcollection does not exist
+                            completion(nil, "Error getting documents: \(err)")
+                        } else {
+                            let dispatchGroup = DispatchGroup()
+                            // There exists an active conversation within this match
+                            for _ in querySnapshot!.documents {
+                                guard let membersArray = matchDoc.data()["members"] as? [String] else {continue}
+                                // Get the other uid2
+                                let otherUid = (membersArray[0] == uid1) ? membersArray[1] : membersArray[0]
+                                dispatchGroup.enter()
+                                Api.profiles.getProfileOf(uid: otherUid) { profile, error in
+                                    if let error = error {
+                                        completion(nil, error)
+                                    } else {
+                                        guard let profile = profile else { return }
+                                        if profileArray != nil {
+                                            profileArray?.append(profile)
+                                        } else {
+                                            profileArray = [profile]
+                                        }
+                                    }
+                                    dispatchGroup.leave()
+                                }
+                            }
+                            dispatchGroup.notify(queue: DispatchQueue.main, execute: {
+                                completion(profileArray, nil)
+                            })
+                        }
+                    }
+                }
+            }
+        }
     }
     
     /** Sends a message to another user.

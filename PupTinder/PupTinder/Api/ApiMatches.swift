@@ -75,7 +75,7 @@ class Matches: ApiShared {
                 let dispatchGroup = DispatchGroup()
                 for document in querySnapshot!.documents {
                     // Get the opposite uid
-                    let membersArray = document.data()["members"] as! [String]
+                    guard let membersArray = document.data()["members"] as? [String] else {continue}
                     let otherUid = (membersArray[0] == uid) ? membersArray[1] : membersArray[0]
                     dispatchGroup.enter()
                     Api.profiles.getProfileOf(uid: otherUid) { profile, error in
