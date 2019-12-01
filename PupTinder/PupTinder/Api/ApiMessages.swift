@@ -50,21 +50,25 @@ class Messages: ApiShared {
                     completion(nil, "querySnapshot for \(uid1)'s matches could not be unwrapped")
                     return
                 }
-               
+                
+                let dispatchGroup = DispatchGroup()
+                
                 for matchDoc in querySnapshot.documents {
-                    matchDoc.reference.collection("messages").limit(to: 1)
-                    .getDocuments { (querySnapshot, err) in
+                    dispatchGroup.enter()
+                    matchDoc.reference.collection("messages").limit(to: 1).getDocuments { (querySnapshot, err) in
                         guard let querySnapshot = querySnapshot else {
+                            dispatchGroup.leave()
                             completion(nil, "querySnapshot for messages could not be unwrapped")
                             return
                         }
-                        let dispatchGroup = DispatchGroup()
+                        
                         // There exists an active conversation within this match at this point
+                            
                         if !querySnapshot.isEmpty {
                             guard let membersArray = matchDoc.data()["members"] as? [String] else {return}
                             // Get the other uid2
                             let otherUid = (membersArray[0] == uid1) ? membersArray[1] : membersArray[0]
-                            dispatchGroup.enter()
+                            
                             Api.profiles.getProfileOf(uid: otherUid) { profile, error in
                                 if let error = error {
                                     completion(nil, error)
@@ -75,15 +79,18 @@ class Messages: ApiShared {
                                     } else {
                                         profileArray = [profile]
                                     }
+                                    dispatchGroup.leave()
                                 }
-                                dispatchGroup.leave()
                             }
+                        } else {
+                            dispatchGroup.leave()
                         }
-                        dispatchGroup.notify(queue: DispatchQueue.main, execute: {
-                            completion(profileArray, nil)
-                        })
                     }
                 }
+                dispatchGroup.notify(queue: DispatchQueue.main, execute: {
+                    print("Finished request")
+                    completion(profileArray, nil)
+                })
             }
         }
     }
