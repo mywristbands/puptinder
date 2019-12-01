@@ -26,10 +26,13 @@ class Login: UIViewController, NewMessageChecker {
         }
         Api.auth.login(email: email, password: password) { (error) in
             if error != nil {
-                // TODO: Deal with the error
-            } else {
-                // TODO: Login was a success, so Segueway to the next screen!
+                return
             }
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let homeVC = storyboard.instantiateViewController(withIdentifier: "home") as! Home
+            homeVC.modalPresentationStyle = .fullScreen
+            self.present(homeVC, animated: true, completion: nil)
         }
     }
     

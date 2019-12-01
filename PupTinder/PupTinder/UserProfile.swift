@@ -40,6 +40,8 @@ class UserProfile: UIViewController, UICollectionViewDelegate, UICollectionViewD
         self.characteristicsCV.dataSource = self
         self.personalityCV.delegate = self
         self.personalityCV.dataSource = self
+        
+        setProfileImageStyle()
 
         Api.profiles.getProfile() { profile, error in
             if error == nil {
@@ -67,13 +69,14 @@ class UserProfile: UIViewController, UICollectionViewDelegate, UICollectionViewD
                 print(error ?? "ERROR")
             }
         }
-        
+    }
+    
+    func setProfileImageStyle(){
         self.profileImage.layer.cornerRadius = self.profileImage.frame.height/2
         self.profileImage.clipsToBounds = true
         
         self.imageContainer.layer.cornerRadius = self.imageContainer.frame.height/2
-        
-       self.imageContainer.layer.shadowPath =
+        self.imageContainer.layer.shadowPath =
               UIBezierPath(roundedRect: self.imageContainer.bounds,
               cornerRadius: self.imageContainer.layer.cornerRadius).cgPath
         self.imageContainer.layer.shadowColor = UIColor.black.cgColor
