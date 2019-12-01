@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserProfile: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class UserProfile: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var backgroundImage: UIImageView!
@@ -76,6 +76,7 @@ class UserProfile: UIViewController, UICollectionViewDelegate, UICollectionViewD
         self.profileImage.clipsToBounds = true
         
         self.imageContainer.layer.cornerRadius = self.imageContainer.frame.height/2
+        
         self.imageContainer.layer.shadowPath =
               UIBezierPath(roundedRect: self.imageContainer.bounds,
               cornerRadius: self.imageContainer.layer.cornerRadius).cgPath
@@ -83,6 +84,7 @@ class UserProfile: UIViewController, UICollectionViewDelegate, UICollectionViewD
         self.imageContainer.layer.shadowOffset = CGSize(width: 2, height: 2)
         self.imageContainer.layer.shadowRadius = 5
         self.imageContainer.clipsToBounds = false
+        self.imageContainer.layer.shadowOpacity = 0.3
         
         self.sizeImage.clipsToBounds = true
         self.sizeImage.layer.cornerRadius = self.sizeImage.frame.height/2
@@ -199,34 +201,34 @@ class UserProfile: UIViewController, UICollectionViewDelegate, UICollectionViewD
         var image = UIImage()
         switch(self.profileTraits[indexPath.row]) {
         case "Friendly":
-            image = UIImage(named: "dog-icon") ?? UIImage()
+            image = UIImage(named: "friendly") ?? UIImage()
             break
         case "Shy":
-            image = UIImage(named: "dog-icon") ?? UIImage()
+            image = UIImage(named: "shy") ?? UIImage()
             break
         case "Calm":
-            image = UIImage(named: "dog-icon") ?? UIImage()
+            image = UIImage(named: "calm") ?? UIImage()
             break
         case "Submissive":
-            image = UIImage(named: "dog-icon") ?? UIImage()
+            image = UIImage(named: "submissive") ?? UIImage()
             break
         case "Dominant":
-            image = UIImage(named: "dog-icon") ?? UIImage()
+            image = UIImage(named: "dominant") ?? UIImage()
             break
         case "Energetic":
-            image = UIImage(named: "dog-icon") ?? UIImage()
+            image = UIImage(named: "energetic") ?? UIImage()
             break
         case "Playful":
-            image = UIImage(named: "dog-icon") ?? UIImage()
+            image = UIImage(named: "playful") ?? UIImage()
             break
         case "Grumpy":
-            image = UIImage(named: "dog-icon") ?? UIImage()
+            image = UIImage(named: "grumpy") ?? UIImage()
             break
         case "Fun-loving":
-            image = UIImage(named: "dog-icon") ?? UIImage()
+            image = UIImage(named: "fun-loving") ?? UIImage()
             break
         case "Affectionate":
-            image = UIImage(named: "dog-icon") ?? UIImage()
+            image = UIImage(named: "affectionate") ?? UIImage()
             break
         case "Intelligent":
             image = UIImage(named: "dog-icon") ?? UIImage()
@@ -256,21 +258,23 @@ class UserProfile: UIViewController, UICollectionViewDelegate, UICollectionViewD
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath as IndexPath) as! CustomCell
         
         if collectionView == self.characteristicsCV {
-            cell.bg.image = getCharacteristicImage(indexPath: indexPath)
+            cell.img.image = getCharacteristicImage(indexPath: indexPath)
         } else {
-            cell.bg.image = getPersonalityImage(indexPath: indexPath)
+            cell.img.image = getPersonalityImage(indexPath: indexPath)
         }
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width * 0.4, height: collectionView.frame.height * 0.4)
+        print("\n\n\nYOOOOOOO\n\n\n")
+        return CGSize(width: 50.0, height: 50.0)
     }
+    
 }
 
 class CustomCell: UICollectionViewCell {
-    fileprivate let bg: UIImageView = {
+    fileprivate let img: UIImageView = {
         let iv = UIImageView()
         //iv.image = UIImage(named: "dog-icon") ?? UIImage()
         iv.translatesAutoresizingMaskIntoConstraints = false
@@ -282,11 +286,11 @@ class CustomCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        contentView.addSubview(bg)
-        bg.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        bg.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
-        bg.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
-        bg.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        contentView.addSubview(img)
+        img.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        img.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+        img.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+        img.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
     }
     
     required init?(coder: NSCoder) {
