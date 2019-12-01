@@ -29,12 +29,11 @@ class Login: UIViewController, NewMessageChecker {
                 return
             }
             
-            /*let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let homeVC = storyboard.instantiateViewController(withIdentifier: "home") as! Home
             homeVC.modalPresentationStyle = .fullScreen
             self.present(homeVC, animated: true, completion: nil)
-            */
-            self.testGetConversationPartners()
+            
         }
     }
     

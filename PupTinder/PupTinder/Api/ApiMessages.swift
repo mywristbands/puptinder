@@ -50,9 +50,7 @@ class Messages: ApiShared {
                     completion(nil, "querySnapshot for \(uid1)'s matches could not be unwrapped")
                     return
                 }
-                
                 let dispatchGroup = DispatchGroup()
-                
                 for matchDoc in querySnapshot.documents {
                     dispatchGroup.enter()
                     matchDoc.reference.collection("messages").limit(to: 1).getDocuments { (querySnapshot, err) in
@@ -61,12 +59,9 @@ class Messages: ApiShared {
                             completion(nil, "querySnapshot for messages could not be unwrapped")
                             return
                         }
-                        
                         // There exists an active conversation within this match at this point
-                            
                         if !querySnapshot.isEmpty {
                             guard let membersArray = matchDoc.data()["members"] as? [String] else {return}
-                            // Get the other uid2
                             let otherUid = (membersArray[0] == uid1) ? membersArray[1] : membersArray[0]
                             
                             Api.profiles.getProfileOf(uid: otherUid) { profile, error in
@@ -88,7 +83,6 @@ class Messages: ApiShared {
                     }
                 }
                 dispatchGroup.notify(queue: DispatchQueue.main, execute: {
-                    print("Finished request")
                     completion(profileArray, nil)
                 })
             }
