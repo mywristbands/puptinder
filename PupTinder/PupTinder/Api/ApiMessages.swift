@@ -42,8 +42,7 @@ class Messages: ApiShared {
         var profileArray:[Profile]?
         let uid1 = getUID()
         
-        db.collection("matches").whereField("members", arrayContains: uid1)
-            .getDocuments { querySnapshot, error in
+        db.collection("matches").whereField("members", arrayContains: uid1).getDocuments { querySnapshot, error in
             if let error = error {
                 completion(nil, "Error getting matches for \(uid1): \(error)")
             } else {
@@ -55,35 +54,34 @@ class Messages: ApiShared {
                 for matchDoc in querySnapshot.documents {
                     matchDoc.reference.collection("messages").limit(to: 1)
                     .getDocuments { (querySnapshot, err) in
-                        if let err = err {
-                            // Messages subcollection does not exist
-                            completion(nil, "Error getting documents: \(err)")
-                        } else {
-                            let dispatchGroup = DispatchGroup()
-                            // There exists an active conversation within this match
-                            for _ in querySnapshot!.documents {
-                                guard let membersArray = matchDoc.data()["members"] as? [String] else {continue}
-                                // Get the other uid2
-                                let otherUid = (membersArray[0] == uid1) ? membersArray[1] : membersArray[0]
-                                dispatchGroup.enter()
-                                Api.profiles.getProfileOf(uid: otherUid) { profile, error in
-                                    if let error = error {
-                                        completion(nil, error)
-                                    } else {
-                                        guard let profile = profile else { return }
-                                        if profileArray != nil {
-                                            profileArray?.append(profile)
-                                        } else {
-                                            profileArray = [profile]
-                                        }
-                                    }
-                                    dispatchGroup.leave()
-                                }
-                            }
-                            dispatchGroup.notify(queue: DispatchQueue.main, execute: {
-                                completion(profileArray, nil)
-                            })
+                        guard let querySnapshot = querySnapshot else {
+                            completion(nil, "querySnapshot for messages could not be unwrapped")
+                            return
                         }
+                        let dispatchGroup = DispatchGroup()
+                        // There exists an active conversation within this match at this point
+                        if !querySnapshot.isEmpty {
+                            guard let membersArray = matchDoc.data()["members"] as? [String] else {return}
+                            // Get the other uid2
+                            let otherUid = (membersArray[0] == uid1) ? membersArray[1] : membersArray[0]
+                            dispatchGroup.enter()
+                            Api.profiles.getProfileOf(uid: otherUid) { profile, error in
+                                if let error = error {
+                                    completion(nil, error)
+                                } else {
+                                    guard let profile = profile else { return }
+                                    if profileArray != nil {
+                                        profileArray?.append(profile)
+                                    } else {
+                                        profileArray = [profile]
+                                    }
+                                }
+                                dispatchGroup.leave()
+                            }
+                        }
+                        dispatchGroup.notify(queue: DispatchQueue.main, execute: {
+                            completion(profileArray, nil)
+                        })
                     }
                 }
             }
