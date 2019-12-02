@@ -11,6 +11,7 @@ What I have done:
  - Added [checkForMatchOnSwipeRight()](https://github.com/ECS189E/project-f19-puptinder/commit/62dbbe237ede2f6d059b013eb4a6ea6df94727d9). Related commits [here](https://github.com/ECS189E/project-f19-puptinder/commit/0be315d16d1492136acfd3ebf4dcd26734779eee) and [here](https://github.com/ECS189E/project-f19-puptinder/commit/b20ba53f3de8ea6ad56348029a239c3d289f2c0a).
   - Implemented [swipedRightOn()](https://github.com/ECS189E/project-f19-puptinder/commit/7bf1b330ff8aa96a44be993e636a8ec10706324c).
   - Implemented [message listeners](https://github.com/ECS189E/project-f19-puptinder/commit/cd268889d29655e526aad04a035cbd68c7507fc7).
+  
 Any roadblocks: None.  
 What I plan to do:  Help fix currently found bugs in app, assist in fixing any issues that come up as others call my Api functions in finishing our app's front-end.
 
