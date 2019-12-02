@@ -90,10 +90,11 @@ class Messages: ApiShared {
     }
     
     /** Sends a message to another user.
+        - Parameter messageText: the text we want to send to the other user.
         - Parameter to: the uid of the user we want to send the message to.
         - Parameter completion: If successful, completion's `error` argument will be `nil`, else it will contain a `Optional(String)` describing the error.
      */
-    func sendMessage(message: Message, to uidReceiver: String, completion: @escaping ((_ error: String?) -> Void)) {
+    func sendMessage(messageText: String, to uidReceiver: String, completion: @escaping ((_ error: String?) -> Void)) {
         // Get the match document between the message sender and receiver
         getMatchDoc(between: getUID(), and: uidReceiver) { matchDoc, error in
             guard let matchDoc = matchDoc else {
@@ -101,7 +102,7 @@ class Messages: ApiShared {
                 return
             }
             matchDoc.reference.collection("messages").document().setData(
-                ["sender":message.sender, "text":message.text, "timestamp":message.timestamp])
+                ["sender":self.getUID(), "text":messageText, "timestamp": Timestamp()])
             completion(nil)
         }
     }
