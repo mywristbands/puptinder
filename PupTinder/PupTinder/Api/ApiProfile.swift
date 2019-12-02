@@ -148,8 +148,8 @@ class Profiles: ApiShared {
         
         let profilePicLocation = storage.child("profilePictures/" + uid)
 
-        // Download pic to memory with a maximum allowed size of 1MB
-        profilePicLocation.getData(maxSize: 1 * 1024 * 1024) { data, error in
+        // Download pic to memory with a maximum allowed size of 5MB
+        profilePicLocation.getData(maxSize: 5 * 1024 * 1024) { data, error in
             guard let errorCode = self.getStorageErrorCode(error) else {
                 // No error occurred!
                 guard let data = data else {return}
