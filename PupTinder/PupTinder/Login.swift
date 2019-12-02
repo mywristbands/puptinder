@@ -28,7 +28,6 @@ class Login: UIViewController, NewMessageChecker {
             if error != nil {
                 return
             }
-            
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let homeVC = storyboard.instantiateViewController(withIdentifier: "home") as! Home
             homeVC.modalPresentationStyle = .fullScreen
@@ -131,10 +130,9 @@ class Login: UIViewController, NewMessageChecker {
     // This function is just for testing send; remove after messages Api functions are all working!
     func testSendMessages() {
         print("About to send a message")
-        // Sender is atwood@ucdavis.edu
-        let messageToSend = Message(data: ["sender":"xLhuwsrXMMbfRCmAV3MFAQPOVak2", "text":"The message was sent successfully!", "timestamp": Timestamp()])
+        let messageToSend = "The message was sent successfully!"
         // Hardcoded receiver as "ethanheffan@gmail.com"
-        Api.messages.sendMessage(message: messageToSend, to: "0nE8qrJXBVYxtATnkXCHzSUw7jB2") { error in
+        Api.messages.sendMessage(text: messageToSend, to: "0nE8qrJXBVYxtATnkXCHzSUw7jB2") { error in
             if let error = error {
                 print(error)
                 return
