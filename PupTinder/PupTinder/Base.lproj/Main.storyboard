@@ -3,7 +3,7 @@
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -230,7 +230,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-tail" translatesAutoresizingMaskIntoConstraints="NO" id="Xgg-o6-1yJ">
-                                <rect key="frame" x="67.5" y="438" width="240" height="128"/>
+                                <rect key="frame" x="67.499999999999986" y="438" width="240.00000000000003" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="ar4-zH-l5m"/>
                                     <constraint firstAttribute="width" constant="240" id="u8X-bE-8MY"/>
@@ -934,6 +934,7 @@
                         <viewLayoutGuide key="safeArea" id="zY7-hE-V2A"/>
                     </view>
                     <connections>
+                        <outlet property="breed" destination="e1p-wG-7nb" id="PRB-mm-K8w"/>
                         <outlet property="containerView" destination="LhG-2S-pr8" id="rbw-Oo-Qq4"/>
                         <outlet property="dogName" destination="5nY-5b-8IG" id="PDN-wq-VX6"/>
                         <outlet property="dogProfileImage" destination="JAy-Ip-yCZ" id="MNh-go-0YT"/>
@@ -942,6 +943,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yyi-hj-z2g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1988" y="1078.1109445277361"/>
+        </scene>
+        <!--Converstions-->
+        <scene sceneID="1wm-JC-IwH">
+            <objects>
+                <viewController storyboardIdentifier="conversations" id="oxI-w0-7S7" customClass="Converstions" customModule="PupTinder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Avo-Jo-UuC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="0B4-T7-hiL"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cqU-eY-7y9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1193" y="1811"/>
+        </scene>
+        <!--Message View-->
+        <scene sceneID="2hh-5C-H37">
+            <objects>
+                <viewController storyboardIdentifier="message" id="CwD-wL-bJO" customClass="MessageView" customModule="PupTinder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YRK-D7-aFb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Gcw-Ls-rWv"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D8c-DM-xdG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1985" y="1810"/>
         </scene>
         <!--Edit Profile View Controller-->
         <scene sceneID="B0x-dL-jfB">
@@ -1417,7 +1448,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-tail" translatesAutoresizingMaskIntoConstraints="NO" id="ODs-Ba-dIy">
-                                <rect key="frame" x="119.5" y="547" width="136" height="120"/>
+                                <rect key="frame" x="119.49999999999999" y="547" width="136.00000000000003" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ODs-Ba-dIy" secondAttribute="height" multiplier="17:15" id="84L-Ch-wp1"/>
                                     <constraint firstAttribute="height" constant="120" id="zqk-43-4dC"/>

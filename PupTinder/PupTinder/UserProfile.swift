@@ -267,7 +267,6 @@ class UserProfile: UIViewController, UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        print("\n\n\nYOOOOOOO\n\n\n")
         return CGSize(width: 50.0, height: 50.0)
     }
     
