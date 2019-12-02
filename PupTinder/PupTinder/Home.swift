@@ -50,6 +50,9 @@ class Home: UIViewController {
     }
     
     @IBAction func logoutButton(_ sender: UIButton) {
+        if let error = Api.auth.logout() {
+            print("Error logging out")
+        }
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let loginVC = storyboard.instantiateViewController(withIdentifier: "loginViewController") as! Login
         loginVC.modalPresentationStyle = .fullScreen
