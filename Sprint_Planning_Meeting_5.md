@@ -12,8 +12,8 @@ What I plan to do:
 
 ### Tammy Lee
 What I have done: 
-- [Implement sendMessage()](https://github.com/ECS189E/project-f19-puptinder/commit/079dd861bb367d6b7376e99caa43b5b020fb4644) and [getConversationPartners()](https://github.com/ECS189E/project-f19-puptinder/commit/ad4ea863cfcc660cd19add10d5469d23d5775331) 
-- Minor fix on [UI](https://github.com/ECS189E/project-f19-puptinder/commit/cd7da86a77b2e58964043f2722c8315b02f5e42d) and add [logout()](https://github.com/ECS189E/project-f19-puptinder/commit/0c0decb072feb3e16d8754f3193ef456051461df
+- Implement [sendMessage()](https://github.com/ECS189E/project-f19-puptinder/commit/079dd861bb367d6b7376e99caa43b5b020fb4644) and [getConversationPartners()](https://github.com/ECS189E/project-f19-puptinder/commit/ad4ea863cfcc660cd19add10d5469d23d5775331) 
+- Minor fix on [UI](https://github.com/ECS189E/project-f19-puptinder/commit/cd7da86a77b2e58964043f2722c8315b02f5e42d) and add [logout()](https://github.com/ECS189E/project-f19-puptinder/commit/0c0decb072feb3e16d8754f3193ef456051461df)
 
 Any roadblocks: None.  
 
