@@ -24,7 +24,7 @@ extension Message {
 }
 
 /// To define how you'd like to update the View when you receive new messages, implement this protocol, and then set `Api.messages.delegate = self`.
-/// Also make sure to call `Api.messages.startListeningForNewMessages()` to start listening for new messages.
+/// Also make sure to call `Api.messages.startGettingMessages()` to start listening for messages.
 protocol NewMessageChecker {
     func onReceivedNewMessage(_ message: Message)
 }
@@ -35,24 +35,78 @@ class Messages: ApiShared {
     var listeningForMessagesWith: String?
     
     /** Gets the profiles of all of the users that the current user has started a conversation with, from most-recently-spoken-with to least-recently-spoken-with.
+        Note: A user has "started a conversation with someone" if they have matched with that person and there is at least one message in their messages collection.
         - Parameter completion: If successful, completion's `error` argument will be `nil`, else it will contain a `Optional(String)` describing the error.
     */
-    func getConversationPartners(completion: ((_ conversationPartners: [Profile]?, _ error: String?) -> Void)) {
-        // TODO: Implement this function!
-        // Note: A user has "started a conversation with someone" if they have matched with that person and there is at least one message in their messages collection.
+    func getConversationPartners(completion: @escaping ((_ conversationPartners: [Profile]?, _ error: String?) -> Void)) {
+        var profileArray:[Profile]?
+        let uid1 = getUID()
+        
+        db.collection("matches").whereField("members", arrayContains: uid1).getDocuments { querySnapshot, error in
+            if let error = error {
+                completion(nil, "Error getting matches for \(uid1): \(error)")
+            } else {
+                guard let querySnapshot = querySnapshot else {
+                    completion(nil, "querySnapshot for \(uid1)'s matches could not be unwrapped")
+                    return
+                }
+                let dispatchGroup = DispatchGroup()
+                for matchDoc in querySnapshot.documents {
+                    dispatchGroup.enter()
+                    matchDoc.reference.collection("messages").limit(to: 1).getDocuments { (querySnapshot, err) in
+                        guard let querySnapshot = querySnapshot else {
+                            dispatchGroup.leave()
+                            completion(nil, "querySnapshot for messages could not be unwrapped")
+                            return
+                        }
+                        // There exists an active conversation within this match at this point
+                        if !querySnapshot.isEmpty {
+                            guard let membersArray = matchDoc.data()["members"] as? [String] else {return}
+                            let otherUid = (membersArray[0] == uid1) ? membersArray[1] : membersArray[0]
+                            
+                            Api.profiles.getProfileOf(uid: otherUid) { profile, error in
+                                if let error = error {
+                                    completion(nil, error)
+                                } else {
+                                    guard let profile = profile else { return }
+                                    if profileArray != nil {
+                                        profileArray?.append(profile)
+                                    } else {
+                                        profileArray = [profile]
+                                    }
+                                    dispatchGroup.leave()
+                                }
+                            }
+                        } else {
+                            dispatchGroup.leave()
+                        }
+                    }
+                }
+                dispatchGroup.notify(queue: DispatchQueue.main, execute: {
+                    completion(profileArray, nil)
+                })
+            }
+        }
     }
     
     /** Sends a message to another user.
-        - Parameter from: the uid of the user we want to send the message to.
+        - Parameter to: the uid of the user we want to send the message to.
         - Parameter completion: If successful, completion's `error` argument will be `nil`, else it will contain a `Optional(String)` describing the error.
      */
-    func sendMessage(message: Message, to: String, completion: ((_ error: String?) -> Void)) {
-        // TODO: Implement this function!
-        
-        // It will probably be useful to call getMatchDoc() here that Elias made.
+    func sendMessage(message: Message, to uidReceiver: String, completion: @escaping ((_ error: String?) -> Void)) {
+        // Get the match document between the message sender and receiver
+        getMatchDoc(between: getUID(), and: uidReceiver) { matchDoc, error in
+            guard let matchDoc = matchDoc else {
+                completion(error!) // Will always unwrap due to our setup.
+                return
+            }
+            matchDoc.reference.collection("messages").document().setData(
+                ["sender":message.sender, "text":message.text, "timestamp":message.timestamp])
+            completion(nil)
+        }
     }
     
-    /** Get all messages in the conversation between the current user and a specific other user, and then continue listening for new messages in the conversation (from both the current user and the other user).
+    /** Get all messages in the conversation between the current user and a specific other user, and then continue listening for new messages (from both the current user and the other user).
         - Parameter with: the uid of the user whose conversation we want to get messages from.
         - Parameter completion: If successful, completion's `error` argument will be `nil`, else it will contain a `Optional(String)` describing the error.
      */
@@ -93,7 +147,7 @@ class Messages: ApiShared {
         }
     }
     
-    /** Stops listening for messages in the conversation with whatever user you last started listening for messages.
+    /** Stops listening for messages in whatever conversation you last started listening for messages from.
         - Parameter completion: If successful, completion's `error` argument will be `nil`, else it will contain a `Optional(String)` describing the error.
      */
     func stopGettingMessages(completion: ((_ error: String?) -> Void)) {

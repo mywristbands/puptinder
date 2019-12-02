@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5116D08B238D8C6700A5B2F7 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5116D08A238D8C6700A5B2F7 /* ImageCollectionViewCell.swift */; };
 		5147C7AF238A050F0074D017 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5147C7AE238A050F0074D017 /* EditProfileViewController.swift */; };
 		517024452383975C00C5CB00 /* DogAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517024442383975C00C5CB00 /* DogAPI.swift */; };
 		518DDE8C237E61DD0060FDAA /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518DDE8B237E61DD0060FDAA /* UserProfile.swift */; };
@@ -21,6 +20,8 @@
 		64AF582A23822BFA0060B13B /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64AF582923822BFA0060B13B /* Api.swift */; };
 		64AF582C238236A50060B13B /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64AF582B238236A50060B13B /* SignUp.swift */; };
 		64AF582E2382411D0060B13B /* MatchesAndConversations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64AF582D2382411D0060B13B /* MatchesAndConversations.swift */; };
+		7768712523946443009E29CA /* Converstions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7768712423946443009E29CA /* Converstions.swift */; };
+		77687127239464FB009E29CA /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77687126239464FB009E29CA /* MessageView.swift */; };
 		777EAFD4237E5B49007CFF96 /* CreateProfile2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777EAFD3237E5B49007CFF96 /* CreateProfile2.swift */; };
 		777EAFD6237E5C02007CFF96 /* CreateProfile3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777EAFD5237E5C02007CFF96 /* CreateProfile3.swift */; };
 		777EAFD8237E5C1A007CFF96 /* CreateProfile4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777EAFD7237E5C1A007CFF96 /* CreateProfile4.swift */; };
@@ -36,7 +37,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5116D08A238D8C6700A5B2F7 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		5147C7AE238A050F0074D017 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		517024442383975C00C5CB00 /* DogAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogAPI.swift; sourceTree = "<group>"; };
 		518DDE8B237E61DD0060FDAA /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
@@ -50,6 +50,8 @@
 		64AF582923822BFA0060B13B /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		64AF582B238236A50060B13B /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
 		64AF582D2382411D0060B13B /* MatchesAndConversations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchesAndConversations.swift; sourceTree = "<group>"; };
+		7768712423946443009E29CA /* Converstions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converstions.swift; sourceTree = "<group>"; };
+		77687126239464FB009E29CA /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		777EAFD3237E5B49007CFF96 /* CreateProfile2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfile2.swift; sourceTree = "<group>"; };
 		777EAFD5237E5C02007CFF96 /* CreateProfile3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfile3.swift; sourceTree = "<group>"; };
 		777EAFD7237E5C1A007CFF96 /* CreateProfile4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfile4.swift; sourceTree = "<group>"; };
@@ -124,26 +126,27 @@
 			isa = PBXGroup;
 			children = (
 				64130055238B5D230071C380 /* Api */,
-				77D80D94237784A00043254B /* Info.plist */,
 				934AAA742377DE9A0007EBAA /* GoogleService-Info.plist */,
 				77D80D8F237784A00043254B /* Assets.xcassets */,
+				77D80D94237784A00043254B /* Info.plist */,
 				77D80D862377849B0043254B /* AppDelegate.swift */,
 				77D80D882377849B0043254B /* SceneDelegate.swift */,
 				77D80D91237784A00043254B /* LaunchScreen.storyboard */,
 				77D80D8C2377849B0043254B /* Main.storyboard */,
 				77D80D8A2377849B0043254B /* Login.swift */,
 				64AF582B238236A50060B13B /* SignUp.swift */,
-				51CB36EE237A3E1A00D6ABF0 /* CreateProfile1.swift */,
 				517024442383975C00C5CB00 /* DogAPI.swift */,
+				51CB36EE237A3E1A00D6ABF0 /* CreateProfile1.swift */,
 				777EAFD3237E5B49007CFF96 /* CreateProfile2.swift */,
 				777EAFD5237E5C02007CFF96 /* CreateProfile3.swift */,
+				7768712423946443009E29CA /* Converstions.swift */,
 				777EAFD7237E5C1A007CFF96 /* CreateProfile4.swift */,
 				518DDE8B237E61DD0060FDAA /* UserProfile.swift */,
+				77687126239464FB009E29CA /* MessageView.swift */,
 				64AF582D2382411D0060B13B /* MatchesAndConversations.swift */,
 				51A009BC237D195F00719C27 /* CustomCheckedTableViewCell.swift */,
 				77A2F2AF238782F000B5D963 /* Home.swift */,
 				5147C7AE238A050F0074D017 /* EditProfileViewController.swift */,
-				5116D08A238D8C6700A5B2F7 /* ImageCollectionViewCell.swift */,
 			);
 			path = PupTinder;
 			sourceTree = "<group>";
@@ -293,13 +296,14 @@
 				6413005D238B66F50071C380 /* ApiMessages.swift in Sources */,
 				777EAFD8237E5C1A007CFF96 /* CreateProfile4.swift in Sources */,
 				64AF582C238236A50060B13B /* SignUp.swift in Sources */,
-				5116D08B238D8C6700A5B2F7 /* ImageCollectionViewCell.swift in Sources */,
 				51A009BD237D195F00719C27 /* CustomCheckedTableViewCell.swift in Sources */,
 				64130061238B687B0071C380 /* ApiShared.swift in Sources */,
 				51CB36EF237A3E1A00D6ABF0 /* CreateProfile1.swift in Sources */,
+				77687127239464FB009E29CA /* MessageView.swift in Sources */,
 				77D80D8B2377849B0043254B /* Login.swift in Sources */,
 				518DDE8C237E61DD0060FDAA /* UserProfile.swift in Sources */,
 				6413005F238B67080071C380 /* ApiAuth.swift in Sources */,
+				7768712523946443009E29CA /* Converstions.swift in Sources */,
 				64130057238B5FA60071C380 /* ApiProfile.swift in Sources */,
 				77A2F2B0238782F000B5D963 /* Home.swift in Sources */,
 				64AF582E2382411D0060B13B /* MatchesAndConversations.swift in Sources */,
