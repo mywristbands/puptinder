@@ -62,9 +62,6 @@ class Home: UIViewController {
             self.breed.text = matchProfile?.breed
             self.uid = matchProfile?.uid ?? ""
         }
-        Api.matches.getMatches() { profiles, error in
-            print(profiles ?? ["no profiles"])
-        }
     }
     
     @IBAction func messagesButton(_ sender: UIButton) {
