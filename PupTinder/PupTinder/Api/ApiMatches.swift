@@ -50,6 +50,9 @@ class Matches: ApiShared {
         if uid == getUID() {
             completion("You can't swipe right on yourself!")
             return
+        } else if uid == "" {
+            completion("You didn't provide a uid to swipe on.")
+            return
         }
         db.collection("profiles").document(self.getUID()).collection("swipedRight").document(uid).setData([:]) { error in
             if let _ = error {

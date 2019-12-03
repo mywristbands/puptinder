@@ -22,6 +22,7 @@ class Home: UIViewController {
         styleTile()
         Api.matches.getPotentialMatch(){ matchProfile, error in
             if(error != nil){
+                print(error!)
                 return
             }
             self.dogName.text = matchProfile?.name
@@ -34,6 +35,7 @@ class Home: UIViewController {
     @IBAction func xButton(_ sender: UIButton) {
         Api.matches.getPotentialMatch(){ matchProfile, error in
             if(error != nil){
+                print(error!)
                 return
             }
             self.dogName.text = matchProfile?.name
