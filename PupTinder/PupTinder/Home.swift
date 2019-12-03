@@ -10,10 +10,10 @@ import UIKit
 
 class Home: UIViewController {
     
-    @IBOutlet weak var dogProfileImage: UIButton!
-    @IBOutlet weak var dogName: UIButton!
+    @IBOutlet weak var dogProfileImage: UIImageView!
+    @IBOutlet weak var dogName: UILabel!
     @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var breed: UIButton!
+    @IBOutlet weak var breed: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +22,9 @@ class Home: UIViewController {
             if(error != nil){
                 return
             }
-            self.dogName.titleLabel?.text = matchProfile?.name
-            self.dogProfileImage.imageView?.image = matchProfile?.picture
-            self.breed.titleLabel?.text = matchProfile?.breed
+            self.dogName.text = matchProfile?.name
+            self.dogProfileImage.image = matchProfile?.picture
+            self.breed.text = matchProfile?.breed
         }
     }
     
@@ -33,9 +33,9 @@ class Home: UIViewController {
             if(error != nil){
                 return
             }
-            self.dogName.titleLabel?.text = matchProfile?.name
-            self.dogProfileImage.imageView?.image = matchProfile?.picture
-            self.breed.titleLabel?.text = matchProfile?.breed
+            self.dogName.text = matchProfile?.name
+            self.dogProfileImage.image = matchProfile?.picture
+            self.breed.text = matchProfile?.breed
         }
     }
     
@@ -50,6 +50,7 @@ class Home: UIViewController {
     }
     
     @IBAction func logoutButton(_ sender: UIButton) {
+        /*
         if Api.auth.logout() != nil {
             print("Error logging out")
         }
@@ -57,6 +58,7 @@ class Home: UIViewController {
         let loginVC = storyboard.instantiateViewController(withIdentifier: "loginViewController") as! Login
         loginVC.modalPresentationStyle = .fullScreen
         self.present(loginVC, animated: true, completion: nil)
+ */
     }
     
     func styleTile(){
