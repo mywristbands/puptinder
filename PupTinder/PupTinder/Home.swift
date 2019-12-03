@@ -50,7 +50,7 @@ class Home: UIViewController {
     }
     
     @IBAction func logoutButton(_ sender: UIButton) {
-        if let error = Api.auth.logout() {
+        if Api.auth.logout() != nil {
             print("Error logging out")
         }
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
