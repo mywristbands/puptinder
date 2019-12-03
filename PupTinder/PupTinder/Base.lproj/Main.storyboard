@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -500,13 +500,62 @@
                     <view key="view" contentMode="scaleToFill" id="il9-1X-jt4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qdm-mj-pUY">
+                                <rect key="frame" x="16" y="269" width="343" height="128"/>
+                                <color key="backgroundColor" red="0.5684436007" green="0.26441649410000001" blue="0.71585573189999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="a8Q-tI-hyq">
+                                    <size key="itemSize" width="81" height="60"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="matchCell" id="SGh-zv-6Db" customClass="matchCollectionViewCell" customModule="PupTinder" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="34" width="81" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="4nG-lI-BGw">
+                                            <rect key="frame" x="0.0" y="0.0" width="81" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M5J-L7-XnW">
+                                                    <rect key="frame" x="14" y="8" width="59" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="1" green="0.84820681649999996" blue="0.31337543940000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="81" height="60"/>
+                                        <connections>
+                                            <outlet property="profile" destination="M5J-L7-XnW" id="lNC-uq-68D"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="iBo-3F-3KH" id="x8w-fm-ZN1"/>
+                                    <outlet property="delegate" destination="iBo-3F-3KH" id="b3r-my-YZx"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="qdm-mj-pUY" firstAttribute="centerY" secondItem="il9-1X-jt4" secondAttribute="centerY" id="0dp-pq-VVM"/>
+                            <constraint firstItem="Q05-lG-Tc9" firstAttribute="trailing" secondItem="qdm-mj-pUY" secondAttribute="trailing" constant="16" id="2Fy-EZ-c5d"/>
+                            <constraint firstItem="qdm-mj-pUY" firstAttribute="leading" secondItem="Q05-lG-Tc9" secondAttribute="leading" constant="16" id="uKg-IC-zac"/>
+                            <constraint firstItem="qdm-mj-pUY" firstAttribute="centerX" secondItem="il9-1X-jt4" secondAttribute="centerX" id="vN9-FD-R8q"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Q05-lG-Tc9"/>
                     </view>
+                    <connections>
+                        <outlet property="matchesCollection" destination="qdm-mj-pUY" id="npg-qe-1b4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KU9-lh-PWs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="433" y="1077"/>
+            <point key="canvasLocation" x="432.80000000000001" y="1076.311844077961"/>
         </scene>
         <!--User Profile-->
         <scene sceneID="ra4-XF-FyX">
@@ -971,7 +1020,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cqU-eY-7y9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1193" y="1811"/>
+            <point key="canvasLocation" x="1192.8" y="1810.344827586207"/>
         </scene>
         <!--Message View-->
         <scene sceneID="2hh-5C-H37">
@@ -1941,7 +1990,7 @@
                                     <constraint firstAttribute="height" constant="20.5" id="w7e-8R-Wmf"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" systemColor="systemPinkColor" red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BCg-pH-10K">
