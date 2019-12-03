@@ -1,4 +1,4 @@
-## Sprint Planning 4 12/02/19
+## Sprint Planning 5 12/02/19
 
 Project summary: Find the perfect play-date for your pet. Swipe left or right, enter your ideal pet date preferences, share pictures, share personality traits, find suggested locations to set up the play date. Bob and Milo can find a third wheel.
 
@@ -6,9 +6,14 @@ Link to trello board: https://trello.com/invite/b/rubewu9h/19e96c4ef1baaef9118aa
 [App flow and Wireframe Link](https://drive.google.com/open?id=14Jl4QUFf4HCzplrTsMw0kmbq-UGNcwXa)
 
 ### Elias Heffan
-What I have done:  
+What I have done:
+ - Fixed [uploadProfile()](https://github.com/ECS189E/project-f19-puptinder/commit/35a687a3dffdf54eeb13a725e2783072435184bd).
+ - Added [checkForMatchOnSwipeRight()](https://github.com/ECS189E/project-f19-puptinder/commit/62dbbe237ede2f6d059b013eb4a6ea6df94727d9). Related commits [here](https://github.com/ECS189E/project-f19-puptinder/commit/0be315d16d1492136acfd3ebf4dcd26734779eee) and [here](https://github.com/ECS189E/project-f19-puptinder/commit/b20ba53f3de8ea6ad56348029a239c3d289f2c0a).
+  - Implemented [swipedRightOn()](https://github.com/ECS189E/project-f19-puptinder/commit/7bf1b330ff8aa96a44be993e636a8ec10706324c).
+  - Implemented [message listeners](https://github.com/ECS189E/project-f19-puptinder/commit/cd268889d29655e526aad04a035cbd68c7507fc7).
+  
 Any roadblocks: None.  
-What I plan to do:  
+What I plan to do:  Help fix currently found bugs in app, assist in fixing any issues that come up as others call my Api functions in finishing our app's front-end.
 
 ### Tammy Lee
 What I have done: 

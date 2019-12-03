@@ -10,10 +10,12 @@ import UIKit
 
 class Home: UIViewController {
     
-    @IBOutlet weak var dogProfileImage: UIButton!
-    @IBOutlet weak var dogName: UIButton!
+    @IBOutlet weak var dogProfileImage: UIImageView!
+    @IBOutlet weak var dogName: UILabel!
     @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var breed: UIButton!
+    @IBOutlet weak var breed: UILabel!
+    
+    var uid = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +24,10 @@ class Home: UIViewController {
             if(error != nil){
                 return
             }
-            self.dogName.titleLabel?.text = matchProfile?.name
-            self.dogProfileImage.imageView?.image = matchProfile?.picture
-            self.breed.titleLabel?.text = matchProfile?.breed
+            self.dogName.text = matchProfile?.name
+            self.dogProfileImage.image = matchProfile?.picture
+            self.breed.text = matchProfile?.breed
+            self.uid = matchProfile?.uid ?? ""
         }
     }
     
@@ -33,13 +36,33 @@ class Home: UIViewController {
             if(error != nil){
                 return
             }
-            self.dogName.titleLabel?.text = matchProfile?.name
-            self.dogProfileImage.imageView?.image = matchProfile?.picture
-            self.breed.titleLabel?.text = matchProfile?.breed
+            self.dogName.text = matchProfile?.name
+            self.dogProfileImage.image = matchProfile?.picture
+            self.breed.text = matchProfile?.breed
+            self.uid = matchProfile?.uid ?? ""
         }
     }
     
     @IBAction func loveButton(_ sender: UIButton) {
+        print(uid)
+        Api.matches.swipedRightOn(uid: uid) { error in
+            if(error != nil){
+                print(error ?? "")
+                return
+            }
+        }
+        Api.matches.getPotentialMatch(){ matchProfile, error in
+            if(error != nil){
+                return
+            }
+            self.dogName.text = matchProfile?.name
+            self.dogProfileImage.image = matchProfile?.picture
+            self.breed.text = matchProfile?.breed
+            self.uid = matchProfile?.uid ?? ""
+        }
+        Api.matches.getMatches() { profiles, error in
+            print(profiles ?? ["no profiles"])
+        }
     }
     
     @IBAction func messagesButton(_ sender: UIButton) {
@@ -47,16 +70,6 @@ class Home: UIViewController {
         let conversationsVC = storyboard.instantiateViewController(withIdentifier: "conversations") as! Converstions
         conversationsVC.modalPresentationStyle = .fullScreen
         self.present(conversationsVC, animated: true, completion: nil)
-    }
-    
-    @IBAction func logoutButton(_ sender: UIButton) {
-        if let error = Api.auth.logout() {
-            print("Error logging out")
-        }
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let loginVC = storyboard.instantiateViewController(withIdentifier: "loginViewController") as! Login
-        loginVC.modalPresentationStyle = .fullScreen
-        self.present(loginVC, animated: true, completion: nil)
     }
     
     func styleTile(){
@@ -69,32 +82,4 @@ class Home: UIViewController {
         self.containerView.layer.shadowRadius = 25
     }
     
-    /*
-    Api.profiles.getProfile() { profile, error in
-        if error == nil {
-            self.profileImage.image = profile?.picture
-            self.nameLabel.text = profile?.name
-            self.breedLabel.text = profile?.breed
-            self.aboutNameLabel.text = "About \(profile?.name ?? "Mr Woofer")"
-            self.bioTextView.text = profile?.bio
-            self.sizeImage.image = self.getSizeImage(size: profile?.size ?? "", gender: profile?.gender ?? "")
-            self.genderImage.image = self.getGenderImage(gender: profile?.gender ?? "")
-            if profile?.gender == "female" {
-                self.genderImage.backgroundColor = self.purple
-                self.sizeImage.backgroundColor = self.purple
-            } else {
-                self.genderImage.backgroundColor = self.yellow
-                self.sizeImage.backgroundColor = self.yellow
-            }
-            self.profileCharacteristics = profile?.characteristics ?? []
-            self.profileTraits = profile?.traits ?? []
-            self.characteristicsCV.register(CustomCell.self, forCellWithReuseIdentifier: "cell")
-            self.personalityCV.register(CustomCell.self, forCellWithReuseIdentifier: "cell")
-            self.characteristicsCV.reloadData()
-            self.personalityCV.reloadData()
-        } else {
-            print(error ?? "ERROR")
-        }
-    }
- */
 }
