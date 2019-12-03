@@ -135,6 +135,7 @@ class Profiles: ApiShared {
                     guard var profileData = document.data() else {return}
                     guard let image = image else {return}
                     profileData["picture"] = image // Add profile picture to profile data
+                    profileData["uid"] = document.documentID
                     let profile = Profile(data: profileData)
                     completion(profile, nil) // Finally pass back the profile info!
                 } else {
