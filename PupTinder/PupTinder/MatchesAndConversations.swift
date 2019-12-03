@@ -23,10 +23,9 @@ class MatchesAndConversations: UIViewController, UICollectionViewDelegate, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = matchesCollection.dequeueReusableCell(withReuseIdentifier: "matchCell", for: indexPath) as? matchCollectionViewCell
-        cell?.profile.text = String(indexPath.row)
-        // Fix force unwrap
-        return cell!
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "matchCell", for: indexPath) as! matchCollectionViewCell
+        cell.matchLabel.text = "String(indexPath.row)"
+        return cell
     }
     
     

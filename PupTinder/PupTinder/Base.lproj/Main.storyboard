@@ -101,15 +101,6 @@
                                     <constraint firstItem="dOn-pq-qjl" firstAttribute="top" secondItem="ieJ-nZ-QeS" secondAttribute="top" id="y2l-5J-L7U"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cZL-VV-11f">
-                                <rect key="frame" x="218" y="617" width="141" height="30"/>
-                                <state key="normal" title="Shortcut to Matches">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="goToMatchesAndConversations" destination="BYZ-38-t0r" eventType="touchUpInside" id="kOU-8C-3hl"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6oH-Ob-nUZ">
                                 <rect key="frame" x="47" y="407.5" width="280" height="36"/>
                                 <color key="backgroundColor" red="0.99527865650000003" green="0.84270948170000004" blue="0.3096210063" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -147,7 +138,6 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Fdc-vo-eWt" firstAttribute="top" secondItem="35H-YP-kAn" secondAttribute="bottom" constant="26" id="2av-u9-pp9"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cZL-VV-11f" secondAttribute="bottom" constant="20" id="3CB-T4-RGl"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eNS-oK-1cZ" secondAttribute="trailing" constant="48" id="7N5-Uc-me0"/>
                             <constraint firstItem="eNS-oK-1cZ" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="BGQ-ck-LsI"/>
                             <constraint firstItem="6oH-Ob-nUZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="47" id="BwC-UZ-kBy"/>
@@ -159,10 +149,8 @@
                             <constraint firstItem="35H-YP-kAn" firstAttribute="top" secondItem="EfK-zb-zk8" secondAttribute="bottom" constant="15" id="FXh-iw-PLU"/>
                             <constraint firstItem="EfK-zb-zk8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="48" id="GHe-qC-Efy"/>
                             <constraint firstItem="Cxa-vR-so5" firstAttribute="top" secondItem="eNS-oK-1cZ" secondAttribute="bottom" constant="12.5" id="IwK-6d-qNc"/>
-                            <constraint firstItem="cZL-VV-11f" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" symbolic="YES" id="LQI-SO-1FN"/>
                             <constraint firstItem="6oH-Ob-nUZ" firstAttribute="top" secondItem="Cxa-vR-so5" secondAttribute="bottom" constant="8.5" id="Moj-zW-hAR"/>
                             <constraint firstItem="Fdc-vo-eWt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="136" id="Sfa-fg-JYS"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cZL-VV-11f" secondAttribute="trailing" constant="16" id="USU-dx-ebB"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EfK-zb-zk8" secondAttribute="trailing" constant="48" id="a3e-H7-3Ms"/>
                             <constraint firstItem="2kQ-tm-bGX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="48" id="bAc-VB-zii"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6oH-Ob-nUZ" secondAttribute="trailing" constant="48" id="d15-O5-qeW"/>
@@ -230,7 +218,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-tail" translatesAutoresizingMaskIntoConstraints="NO" id="Xgg-o6-1yJ">
-                                <rect key="frame" x="67.5" y="438" width="240.00000000000003" height="128"/>
+                                <rect key="frame" x="67.499999999999986" y="438" width="240.00000000000003" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="ar4-zH-l5m"/>
                                     <constraint firstAttribute="width" constant="240" id="u8X-bE-8MY"/>
@@ -492,70 +480,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AHD-Vd-jFh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2770" y="310"/>
-        </scene>
-        <!--Matches And Conversations-->
-        <scene sceneID="FEM-0g-QF5">
-            <objects>
-                <viewController storyboardIdentifier="MatchesAndConversations" id="iBo-3F-3KH" customClass="MatchesAndConversations" customModule="PupTinder" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="il9-1X-jt4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qdm-mj-pUY">
-                                <rect key="frame" x="16" y="269" width="343" height="128"/>
-                                <color key="backgroundColor" red="0.5684436007" green="0.26441649410000001" blue="0.71585573189999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="a8Q-tI-hyq">
-                                    <size key="itemSize" width="81" height="60"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="matchCell" id="SGh-zv-6Db" customClass="matchCollectionViewCell" customModule="PupTinder" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="34" width="81" height="60"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="4nG-lI-BGw">
-                                            <rect key="frame" x="0.0" y="0.0" width="81" height="60"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M5J-L7-XnW">
-                                                    <rect key="frame" x="14" y="8" width="59" height="44"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" red="1" green="0.84820681649999996" blue="0.31337543940000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </collectionViewCellContentView>
-                                        <size key="customSize" width="81" height="60"/>
-                                        <connections>
-                                            <outlet property="profile" destination="M5J-L7-XnW" id="lNC-uq-68D"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="iBo-3F-3KH" id="x8w-fm-ZN1"/>
-                                    <outlet property="delegate" destination="iBo-3F-3KH" id="b3r-my-YZx"/>
-                                </connections>
-                            </collectionView>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="qdm-mj-pUY" firstAttribute="centerY" secondItem="il9-1X-jt4" secondAttribute="centerY" id="0dp-pq-VVM"/>
-                            <constraint firstItem="Q05-lG-Tc9" firstAttribute="trailing" secondItem="qdm-mj-pUY" secondAttribute="trailing" constant="16" id="2Fy-EZ-c5d"/>
-                            <constraint firstItem="qdm-mj-pUY" firstAttribute="leading" secondItem="Q05-lG-Tc9" secondAttribute="leading" constant="16" id="uKg-IC-zac"/>
-                            <constraint firstItem="qdm-mj-pUY" firstAttribute="centerX" secondItem="il9-1X-jt4" secondAttribute="centerX" id="vN9-FD-R8q"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="Q05-lG-Tc9"/>
-                    </view>
-                    <connections>
-                        <outlet property="matchesCollection" destination="qdm-mj-pUY" id="npg-qe-1b4"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KU9-lh-PWs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="432.80000000000001" y="1076.311844077961"/>
         </scene>
         <!--User Profile-->
         <scene sceneID="ra4-XF-FyX">
@@ -1010,13 +934,60 @@
         <!--Converstions-->
         <scene sceneID="1wm-JC-IwH">
             <objects>
-                <viewController storyboardIdentifier="conversations" id="oxI-w0-7S7" customClass="Converstions" customModule="PupTinder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="conversations" id="oxI-w0-7S7" customClass="Converstions" customModule="PupTinder" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Avo-Jo-UuC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="CKY-Xy-QHE">
+                                <rect key="frame" x="16" y="48" width="343" height="128"/>
+                                <color key="backgroundColor" red="0.5684436007" green="0.26441649410000001" blue="0.71585573189999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="0ci-WM-v7r"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="woY-1u-VTc">
+                                    <size key="itemSize" width="118" height="123"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="match" id="OED-jo-V4V" customClass="matchCollectionViewCell" customModule="PupTinder" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="2.5" width="118" height="123"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="IA4-6d-MuY">
+                                            <rect key="frame" x="0.0" y="0.0" width="118" height="123"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tlp-rL-eEp">
+                                                    <rect key="frame" x="0.0" y="0.0" width="118" height="123"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="118" height="123"/>
+                                        <connections>
+                                            <outlet property="matchProfileImage" destination="tlp-rL-eEp" id="mwV-Zh-vLF"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="oxI-w0-7S7" id="9lk-0Z-5DU"/>
+                                    <outlet property="delegate" destination="oxI-w0-7S7" id="iLc-3g-zad"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="0B4-T7-hiL" firstAttribute="trailing" secondItem="CKY-Xy-QHE" secondAttribute="trailing" constant="16" id="1rx-tt-g7m"/>
+                            <constraint firstItem="CKY-Xy-QHE" firstAttribute="top" secondItem="0B4-T7-hiL" secondAttribute="top" constant="48" id="m7u-Lv-vsi"/>
+                            <constraint firstItem="CKY-Xy-QHE" firstAttribute="leading" secondItem="0B4-T7-hiL" secondAttribute="leading" constant="16" id="qOE-bY-GJ5"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="0B4-T7-hiL"/>
                     </view>
+                    <connections>
+                        <outlet property="matchesCollection" destination="CKY-Xy-QHE" id="oGW-CW-END"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cqU-eY-7y9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1029,7 +1000,19 @@
                     <view key="view" contentMode="scaleToFill" id="YRK-D7-aFb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Messages" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="650-KR-gbW">
+                                <rect key="frame" x="148.5" y="323" width="78" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="650-KR-gbW" firstAttribute="centerY" secondItem="YRK-D7-aFb" secondAttribute="centerY" id="Cgk-5T-OPu"/>
+                            <constraint firstItem="650-KR-gbW" firstAttribute="centerX" secondItem="YRK-D7-aFb" secondAttribute="centerX" id="zMF-bZ-VrA"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Gcw-Ls-rWv"/>
                     </view>
                 </viewController>
@@ -1770,7 +1753,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-tail" translatesAutoresizingMaskIntoConstraints="NO" id="ODs-Ba-dIy">
-                                <rect key="frame" x="119.5" y="547" width="136.00000000000003" height="120"/>
+                                <rect key="frame" x="119.49999999999999" y="547" width="136.00000000000003" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ODs-Ba-dIy" secondAttribute="height" multiplier="17:15" id="84L-Ch-wp1"/>
                                     <constraint firstAttribute="height" constant="120" id="zqk-43-4dC"/>
