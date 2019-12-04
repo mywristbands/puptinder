@@ -218,7 +218,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-tail" translatesAutoresizingMaskIntoConstraints="NO" id="Xgg-o6-1yJ">
-                                <rect key="frame" x="67.5" y="438" width="240" height="128"/>
+                                <rect key="frame" x="67.499999999999986" y="438" width="240.00000000000003" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="ar4-zH-l5m"/>
                                     <constraint firstAttribute="width" constant="240" id="u8X-bE-8MY"/>
@@ -808,6 +808,13 @@
                                             <constraint firstAttribute="width" constant="258" id="zgn-dO-ENg"/>
                                         </constraints>
                                     </stackView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UDq-Gz-gcO">
+                                        <rect key="frame" x="-14" y="29" width="343" height="338"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="UDq-Gz-gcO" secondAttribute="height" multiplier="343:338" id="fd8-Cq-pAJ"/>
+                                        </constraints>
+                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading Breed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E7B-Xf-8xQ">
                                         <rect key="frame" x="8" y="444" width="299" height="40"/>
                                         <color key="backgroundColor" red="1" green="0.84820681649999996" blue="0.31337543940000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -843,16 +850,20 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.94730756518804482" green="0.94396821940407716" blue="0.91535886089484475" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="UDq-Gz-gcO" secondAttribute="trailing" constant="-14" id="8sB-AP-oFO"/>
                                     <constraint firstAttribute="trailing" secondItem="yRk-kJ-Ata" secondAttribute="trailing" constant="8" id="8zx-te-0G2"/>
                                     <constraint firstItem="2U6-nn-SqD" firstAttribute="top" secondItem="ISp-bd-bVE" secondAttribute="bottom" constant="4" id="C6f-A9-KjW"/>
                                     <constraint firstItem="yRk-kJ-Ata" firstAttribute="top" secondItem="okh-ne-v8z" secondAttribute="bottom" constant="27" id="Cfx-QC-nN4"/>
+                                    <constraint firstItem="UDq-Gz-gcO" firstAttribute="top" secondItem="LhG-2S-pr8" secondAttribute="top" constant="29" id="GRW-Xy-J2G"/>
                                     <constraint firstItem="E7B-Xf-8xQ" firstAttribute="top" secondItem="yRk-kJ-Ata" secondAttribute="bottom" constant="10" id="ILQ-mw-kZq"/>
                                     <constraint firstItem="2U6-nn-SqD" firstAttribute="leading" secondItem="LhG-2S-pr8" secondAttribute="leading" constant="28" id="Rn0-0f-M8L"/>
                                     <constraint firstItem="ISp-bd-bVE" firstAttribute="leading" secondItem="LhG-2S-pr8" secondAttribute="leading" constant="8" id="TcP-BY-0XF"/>
+                                    <constraint firstItem="yRk-kJ-Ata" firstAttribute="top" secondItem="UDq-Gz-gcO" secondAttribute="bottom" constant="27" id="Tmi-I4-jQe"/>
                                     <constraint firstAttribute="trailing" secondItem="2U6-nn-SqD" secondAttribute="trailing" constant="29" id="Utt-2M-a8n"/>
                                     <constraint firstAttribute="bottom" secondItem="2U6-nn-SqD" secondAttribute="bottom" constant="11" id="XEt-mI-bXY"/>
                                     <constraint firstItem="E7B-Xf-8xQ" firstAttribute="leading" secondItem="LhG-2S-pr8" secondAttribute="leading" constant="8" id="XN2-Qv-mC9"/>
                                     <constraint firstItem="okh-ne-v8z" firstAttribute="leading" secondItem="LhG-2S-pr8" secondAttribute="leading" constant="-14" id="ZJl-Oe-xsO"/>
+                                    <constraint firstItem="UDq-Gz-gcO" firstAttribute="leading" secondItem="LhG-2S-pr8" secondAttribute="leading" constant="-14" id="boV-Fo-htY"/>
                                     <constraint firstItem="E7B-Xf-8xQ" firstAttribute="top" secondItem="yRk-kJ-Ata" secondAttribute="bottom" constant="10" id="fnf-RR-mew"/>
                                     <constraint firstAttribute="trailing" secondItem="okh-ne-v8z" secondAttribute="trailing" constant="-14" id="iGc-pS-VXk"/>
                                     <constraint firstItem="yRk-kJ-Ata" firstAttribute="leading" secondItem="LhG-2S-pr8" secondAttribute="leading" constant="8" id="iu9-0c-AJZ"/>
@@ -925,6 +936,7 @@
                         <outlet property="containerView" destination="LhG-2S-pr8" id="rbw-Oo-Qq4"/>
                         <outlet property="dogName" destination="yRk-kJ-Ata" id="6u7-WI-m0o"/>
                         <outlet property="dogProfileImage" destination="okh-ne-v8z" id="hJR-m8-NuH"/>
+                        <outlet property="gifView" destination="UDq-Gz-gcO" id="Cnj-gi-cvx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yyi-hj-z2g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1848,7 +1860,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-tail" translatesAutoresizingMaskIntoConstraints="NO" id="ODs-Ba-dIy">
-                                <rect key="frame" x="119.5" y="547" width="136" height="120"/>
+                                <rect key="frame" x="119.49999999999999" y="547" width="136.00000000000003" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ODs-Ba-dIy" secondAttribute="height" multiplier="17:15" id="84L-Ch-wp1"/>
                                     <constraint firstAttribute="height" constant="120" id="zqk-43-4dC"/>

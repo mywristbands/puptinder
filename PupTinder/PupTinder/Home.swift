@@ -14,12 +14,12 @@ class Home: UIViewController {
     @IBOutlet weak var dogName: UILabel!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var breed: UILabel!
+    @IBOutlet var gifView: UIImageView!
     
     var uid = ""
-    var image = UIImage(named:"source")
-    
+
     override func viewDidLoad() {
-        
+        gifView.loadGif(name: "sending")
         Api.matches.getPotentialMatch(){ matchProfile, error in
             if(error != nil){
                 print(error ?? "")
