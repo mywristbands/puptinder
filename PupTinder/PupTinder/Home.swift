@@ -18,11 +18,9 @@ class Home: UIViewController {
     var uid = ""
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        styleTile()
         Api.matches.getPotentialMatch(){ matchProfile, error in
             if(error != nil){
-                print(error!)
+                print(error ?? "")
                 return
             }
             self.dogName.text = matchProfile?.name
@@ -30,12 +28,15 @@ class Home: UIViewController {
             self.breed.text = matchProfile?.breed
             self.uid = matchProfile?.uid ?? ""
         }
+        super.viewDidLoad()
+        styleTile()
     }
     
     @IBAction func selectProfileButton(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let otherProfileVC = storyboard.instantiateViewController(withIdentifier: "otherUserProfile") as! OtherUserProfile
         otherProfileVC.modalPresentationStyle = .fullScreen
+        otherProfileVC.uid = uid
         self.present(otherProfileVC, animated: true, completion: nil)
     }
     
@@ -43,7 +44,7 @@ class Home: UIViewController {
     @IBAction func xButton(_ sender: UIButton) {
         Api.matches.getPotentialMatch(){ matchProfile, error in
             if(error != nil){
-                print(error!)
+                print(error ?? "")
                 return
             }
             self.dogName.text = matchProfile?.name

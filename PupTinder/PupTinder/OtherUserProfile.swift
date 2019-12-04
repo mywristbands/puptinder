@@ -9,11 +9,18 @@
 import UIKit
 
 class OtherUserProfile: UIViewController {
+    
+    var uid = ""
 
     override func viewDidLoad() {
+        Api.profiles.getProfileOf(uid: uid) { profile, error in
+            if(error != nil){
+                print(error ?? "")
+                return
+            }
+            
+        }
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
 }
