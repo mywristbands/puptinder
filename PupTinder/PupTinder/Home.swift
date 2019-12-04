@@ -32,6 +32,14 @@ class Home: UIViewController {
         }
     }
     
+    @IBAction func selectProfileButton(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let otherProfileVC = storyboard.instantiateViewController(withIdentifier: "otherUserProfile") as! OtherUserProfile
+        otherProfileVC.modalPresentationStyle = .fullScreen
+        self.present(otherProfileVC, animated: true, completion: nil)
+    }
+    
+    
     @IBAction func xButton(_ sender: UIButton) {
         Api.matches.getPotentialMatch(){ matchProfile, error in
             if(error != nil){
@@ -61,9 +69,6 @@ class Home: UIViewController {
             self.dogProfileImage.image = matchProfile?.picture
             self.breed.text = matchProfile?.breed
             self.uid = matchProfile?.uid ?? ""
-        }
-        Api.matches.getMatches() { profiles, error in
-            print(profiles ?? ["no profiles"])
         }
     }
     

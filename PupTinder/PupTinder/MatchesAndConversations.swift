@@ -7,69 +7,26 @@
 //
 
 import UIKit
-import MessageKit
 
-class MatchesAndConversations: MessagesViewController {
+class MatchesAndConversations: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+    @IBOutlet weak var matchesCollection: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        messagesCollectionView.messagesDataSource = self
-        messagesCollectionView.messagesLayoutDelegate = self
-        messagesCollectionView.messagesDisplayDelegate = self
+        matchesCollection.delegate = self
+        matchesCollection.dataSource = self
     }
-    
-    
+
     
 
-}
-
-let sender = Sender(id: "any_unique_id", displayName: "Steven")
-let messages: [MessageType] = []
-
-extension MatchesAndConversations: MessagesDataSource {
-    func currentSender() -> SenderType {
-        return Sender(id: "any_unique_id", displayName: "Bob")
-    }
-
-    func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
-        return messages.count
-    }
-
-    func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageType {
-        return messages[indexPath.section]
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 5
     }
     
-    func cellTopLabelAttributedText(for message: MessageType,
-      at indexPath: IndexPath) -> NSAttributedString? {
-
-      let name = "Bob"
-      return NSAttributedString(
-        string: name,
-        attributes: [
-          .font: UIFont.preferredFont(forTextStyle: .caption1),
-          .foregroundColor: UIColor(white: 0.3, alpha: 1)
-        ]
-      )
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "matchCell", for: indexPath) as! matchCollectionViewCell
+        cell.matchLabel.text = "String(indexPath.row)"
+        return cell
     }
-}
-
-extension MatchesAndConversations: MessagesLayoutDelegate {
-
-  func avatarSize(for message: MessageType, at indexPath: IndexPath,
-    in messagesCollectionView: MessagesCollectionView) -> CGSize {
-    return .zero
-  }
-
-  func footerViewSize(for message: MessageType, at indexPath: IndexPath,
-    in messagesCollectionView: MessagesCollectionView) -> CGSize {
-    return CGSize(width: 0, height: 8)
-  }
-
-  func heightForLocation(message: MessageType, at indexPath: IndexPath,
-    with maxWidth: CGFloat, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
-    return 0
-  }
-}
-
-extension MatchesAndConversations: MessagesDisplayDelegate {
+    
     
 }
