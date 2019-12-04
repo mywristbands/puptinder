@@ -177,19 +177,19 @@ class UserProfile: UIViewController, UICollectionViewDelegate, UICollectionViewD
         var image = UIImage()
         switch(self.profileCharacteristics[indexPath.row]) {
         case "Hypoallergenic":
-            image = UIImage(named: "dog-icon") ?? UIImage()
+            image = UIImage(named: "hypoallergenic") ?? UIImage()
             break
         case "Sheds a lot":
-            image = UIImage(named: "dog-icon") ?? UIImage()
+            image = UIImage(named: "sheds") ?? UIImage()
             break
         case "Kid friendly":
-            image = UIImage(named: "dog-icon") ?? UIImage()
+            image = UIImage(named: "kid-friendly") ?? UIImage()
             break
         case "Drool potential":
-            image = UIImage(named: "dog-icon") ?? UIImage()
+            image = UIImage(named: "drools") ?? UIImage()
             break
         case "Barks a lot":
-            image = UIImage(named: "dog-icon") ?? UIImage()
+            image = UIImage(named: "barks") ?? UIImage()
             break
         default:
             break
@@ -231,13 +231,13 @@ class UserProfile: UIViewController, UICollectionViewDelegate, UICollectionViewD
             image = UIImage(named: "affectionate") ?? UIImage()
             break
         case "Intelligent":
-            image = UIImage(named: "dog-icon") ?? UIImage()
+            image = UIImage(named: "intelligent") ?? UIImage()
             break
         case "Inquisitive":
-            image = UIImage(named: "dog-icon") ?? UIImage()
+            image = UIImage(named: "curious") ?? UIImage()
             break
         case "Fearless":
-            image = UIImage(named: "dog-icon") ?? UIImage()
+            image = UIImage(named: "brave") ?? UIImage()
             break
         default:
             break
@@ -267,7 +267,7 @@ class UserProfile: UIViewController, UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 50.0, height: 50.0)
+        return CGSize(width: 70.0, height: 70.0)
     }
     
 }
@@ -277,7 +277,7 @@ class CustomCell: UICollectionViewCell {
         let iv = UIImageView()
         //iv.image = UIImage(named: "dog-icon") ?? UIImage()
         iv.translatesAutoresizingMaskIntoConstraints = false
-        iv.contentMode = .scaleAspectFill
+        iv.contentMode = .scaleAspectFit
         iv.clipsToBounds = true
         return iv
     }()
