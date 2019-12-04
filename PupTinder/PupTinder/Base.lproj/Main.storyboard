@@ -932,11 +932,14 @@
                         <viewLayoutGuide key="safeArea" id="zY7-hE-V2A"/>
                     </view>
                     <connections>
+                        <outlet property="LoveButton" destination="H3t-hK-AFC" id="lo6-ix-p4h"/>
+                        <outlet property="XButton" destination="sJI-nI-6q5" id="zPi-BH-OU1"/>
                         <outlet property="breed" destination="E7B-Xf-8xQ" id="jxn-73-bu2"/>
                         <outlet property="containerView" destination="LhG-2S-pr8" id="rbw-Oo-Qq4"/>
                         <outlet property="dogName" destination="yRk-kJ-Ata" id="6u7-WI-m0o"/>
                         <outlet property="dogProfileImage" destination="okh-ne-v8z" id="hJR-m8-NuH"/>
                         <outlet property="gifView" destination="UDq-Gz-gcO" id="Cnj-gi-cvx"/>
+                        <outlet property="selectProfile" destination="ISp-bd-bVE" id="HKs-Yo-RIk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yyi-hj-z2g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

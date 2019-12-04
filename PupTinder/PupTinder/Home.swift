@@ -15,6 +15,9 @@ class Home: UIViewController {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var breed: UILabel!
     @IBOutlet var gifView: UIImageView!
+    @IBOutlet weak var selectProfile: UIButton!
+    @IBOutlet weak var XButton: UIButton!
+    @IBOutlet weak var LoveButton: UIButton!
     
     var uid = ""
 
@@ -44,22 +47,27 @@ class Home: UIViewController {
     
     
     @IBAction func xButton(_ sender: UIButton) {
-        //dogProfileImage.loadGif(name: "loading-gif")
+        disableButtons()
+        dogProfileImage.isHidden = true
         Api.matches.getPotentialMatch(){ matchProfile, error in
             if(error != nil){
                 print(error ?? "")
+                self.dogProfileImage.isHidden = false
+                self.enableButtons()
                 return
             }
             self.dogName.text = matchProfile?.name
             self.dogProfileImage.image = matchProfile?.picture
+            self.dogProfileImage.isHidden = false
             self.breed.text = matchProfile?.breed
             self.uid = matchProfile?.uid ?? ""
+            self.enableButtons()
         }
     }
     
     @IBAction func loveButton(_ sender: UIButton) {
-        //dogProfileImage.loadGif(name: "loading-gif")
-        dogProfileImage.startAnimating()
+        disableButtons()
+        dogProfileImage.isHidden = true
         Api.matches.swipedRightOn(uid: uid) { error in
             if(error != nil){
                 print(error ?? "")
@@ -68,12 +76,16 @@ class Home: UIViewController {
         }
         Api.matches.getPotentialMatch(){ matchProfile, error in
             if(error != nil){
+                self.dogProfileImage.isHidden = false
+                self.enableButtons()
                 return
             }
             self.dogName.text = matchProfile?.name
             self.dogProfileImage.image = matchProfile?.picture
+            self.dogProfileImage.isHidden = false
             self.breed.text = matchProfile?.breed
             self.uid = matchProfile?.uid ?? ""
+            self.enableButtons()
         }
     }
     
@@ -92,6 +104,18 @@ class Home: UIViewController {
         self.containerView.layer.shadowOpacity = 0.7
         self.containerView.layer.shadowOffset = CGSize(width: 25, height: 25)
         self.containerView.layer.shadowRadius = 25
+    }
+    
+    func disableButtons(){
+        selectProfile.isEnabled = false
+        XButton.isEnabled = false
+        LoveButton.isEnabled = false
+    }
+    
+    func enableButtons(){
+        selectProfile.isEnabled = true
+        XButton.isEnabled = true
+        LoveButton.isEnabled = true
     }
     
 }
