@@ -63,7 +63,7 @@ class Converstions: UIViewController, UICollectionViewDelegate, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "match", for: indexPath as IndexPath) as! matchCollectionViewCell
-       
+        cell.matchProfileImage.setRounded()
         cell.matchProfileImage.image = self.profilesArray[indexPath.item].picture
         cell.nameLabel.text = self.profilesArray[indexPath.item].name
         return cell
