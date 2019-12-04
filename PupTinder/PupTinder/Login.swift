@@ -28,6 +28,7 @@ class Login: UIViewController, NewMessageChecker {
             if error != nil {
                 return
             }
+            
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let homeVC = storyboard.instantiateViewController(withIdentifier: "home") as! Home
             homeVC.modalPresentationStyle = .fullScreen
