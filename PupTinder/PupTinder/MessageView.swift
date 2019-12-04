@@ -40,7 +40,7 @@ class MessageView: MessagesViewController, MessagesDataSource, MessagesLayoutDel
     }
     
     func onReceivedNewMessage(_ message: Message) {
-        <#code#>
+        
     }
     
     // Implementation for MessagesDataSourceProtocol

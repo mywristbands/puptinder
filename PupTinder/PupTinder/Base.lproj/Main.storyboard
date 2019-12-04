@@ -2220,6 +2220,7 @@
         <image name="save" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="SY8-1J-e89"/>
         <segue reference="Btk-GA-aCT"/>
         <segue reference="oJI-JD-Htr"/>
         <segue reference="fJ7-g4-f6I"/>
