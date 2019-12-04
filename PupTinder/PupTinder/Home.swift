@@ -16,6 +16,7 @@ class Home: UIViewController {
     @IBOutlet weak var breed: UILabel!
     
     var uid = ""
+    var image = UIImage(named:"source")
     
     override func viewDidLoad() {
         

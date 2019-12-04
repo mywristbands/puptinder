@@ -132,14 +132,18 @@
 			children = (
 				64130055238B5D230071C380 /* Api */,
 				77F6A54F23981DE300F2BADB /* createProfileViews */,
-				77F6A55323981EF000F2BADB /* delegates */,
 				77F6A55123981E8A00F2BADB /* loginSignUp */,
-				77F6A55223981EB300F2BADB /* messageAndConversationViews */,
 				77F6A55023981E3000F2BADB /* userProfiles */,
 				934AAA742377DE9A0007EBAA /* GoogleService-Info.plist */,
 				77D80D91237784A00043254B /* LaunchScreen.storyboard */,
+				77D80D862377849B0043254B /* AppDelegate.swift */,
+				77D80D882377849B0043254B /* SceneDelegate.swift */,
 				77D80D8C2377849B0043254B /* Main.storyboard */,
 				77D80D94237784A00043254B /* Info.plist */,
+				7768712423946443009E29CA /* Converstions.swift */,
+				93421987239758E200D21361 /* ConvoTableViewCell.swift */,
+				9342197F23965D3D00D21361 /* matchCollectionViewCell.swift */,
+				77687126239464FB009E29CA /* MessageView.swift */,
 				77A2F2AF238782F000B5D963 /* Home.swift */,
 				77D80D8F237784A00043254B /* Assets.xcassets */,
 			);
@@ -175,26 +179,6 @@
 				64AF582B238236A50060B13B /* SignUp.swift */,
 			);
 			path = loginSignUp;
-			sourceTree = "<group>";
-		};
-		77F6A55223981EB300F2BADB /* messageAndConversationViews */ = {
-			isa = PBXGroup;
-			children = (
-				7768712423946443009E29CA /* Converstions.swift */,
-				93421987239758E200D21361 /* ConvoTableViewCell.swift */,
-				9342197F23965D3D00D21361 /* matchCollectionViewCell.swift */,
-				77687126239464FB009E29CA /* MessageView.swift */,
-			);
-			path = messageAndConversationViews;
-			sourceTree = "<group>";
-		};
-		77F6A55323981EF000F2BADB /* delegates */ = {
-			isa = PBXGroup;
-			children = (
-				77D80D862377849B0043254B /* AppDelegate.swift */,
-				77D80D882377849B0043254B /* SceneDelegate.swift */,
-			);
-			path = delegates;
 			sourceTree = "<group>";
 		};
 		8A166E01EB08526174C12088 /* Frameworks */ = {
