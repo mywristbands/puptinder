@@ -28,6 +28,7 @@ class Login: UIViewController, NewMessageChecker {
             if error != nil {
                 return
             }
+            
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let homeVC = storyboard.instantiateViewController(withIdentifier: "home") as! Home
             homeVC.modalPresentationStyle = .fullScreen
@@ -159,14 +160,6 @@ class Login: UIViewController, NewMessageChecker {
                 self.view.addSubview(imageView)
             }
         }
-    }
-    
-    // This serves as a gateway to the Matches feature during development
-    @IBAction func goToMatchesAndConversations() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let messengerVC = storyboard.instantiateViewController(withIdentifier: "MatchesAndConversations") as! MatchesAndConversations
-        messengerVC.modalPresentationStyle = .fullScreen
-        self.present(messengerVC, animated: true, completion: nil)
     }
     
 }

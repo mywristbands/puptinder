@@ -8,12 +8,89 @@
 
 import UIKit
 
-class Converstions: UIViewController {
-
+class Converstions: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDataSource, UITableViewDelegate {
+    @IBOutlet weak var matchesCollection: UICollectionView!
+    @IBOutlet weak var conversationsTV: UITableView!
+    
+    var profilesArray: [Profile] = []
+    var conversationPartnersArray: [Profile] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.matchesCollection.delegate = self
+        self.matchesCollection.dataSource = self
+        self.conversationsTV.delegate = self
+        self.conversationsTV.dataSource = self
+        let dispatchGroup = DispatchGroup()
+        dispatchGroup.enter()
+        Api.matches.getMatches() { profiles, error in
+            if let error = error {
+                print("getMatches failed: \(error)")
+            } else {
+                guard let profiles = profiles else {return}
+                self.profilesArray = profiles
+                
+            }
+            dispatchGroup.leave()
+        }
+        
+        dispatchGroup.enter()
+        Api.messages.getConversationPartners() { conversationPartners, error in
+            if let error = error {
+                print("getMatches failed: \(error)")
+            } else {
+                guard let conversationPartners = conversationPartners else {return}
+                self.conversationPartnersArray = conversationPartners
+                
+            }
+            dispatchGroup.leave()
+        }
+        dispatchGroup.notify(queue: DispatchQueue.main, execute: {
+            self.matchesCollection.reloadData()
+            self.conversationsTV.reloadData()
+        })
+        
+        
+    }
+    @IBAction func homeButtonPressed(_ sender: Any) {
+        self.dismiss(animated: false, completion: nil)
+    }
+    
+    // Collection View Protocol for Matches
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return profilesArray.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "match", for: indexPath as IndexPath) as! matchCollectionViewCell
+        cell.matchProfileImage.setRounded()
+        cell.matchProfileImage.image = self.profilesArray[indexPath.item].picture
+        cell.nameLabel.text = self.profilesArray[indexPath.item].name
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 50.0, height: 50.0)
+    }
+    
+    // Table View Protocol for Conversations
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return conversationPartnersArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "conversationCell", for: indexPath as IndexPath) as! ConvoTableViewCell
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none
+        cell.convoNameLabel.text = self.conversationPartnersArray[indexPath.item].name
+        cell.convoPic.image = self.conversationPartnersArray[indexPath.item].picture
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let messageVC = storyboard.instantiateViewController(withIdentifier: "message") as! MessageView
+        messageVC.modalPresentationStyle = .fullScreen
+        self.present(messageVC, animated: false, completion: nil)
     }
 
 }

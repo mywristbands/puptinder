@@ -9,6 +9,7 @@
 import UIKit
 
 class matchCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var profile: UILabel!
+    @IBOutlet weak var matchProfileImage: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
     
 }
