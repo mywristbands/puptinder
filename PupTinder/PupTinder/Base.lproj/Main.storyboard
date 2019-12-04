@@ -1038,6 +1038,17 @@
                                 <color key="textColor" red="0.5684436007" green="0.26441649410000001" blue="0.71585573189999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cni-te-BVr">
+                                <rect key="frame" x="16" y="12" width="38" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="Fne-Za-D7t"/>
+                                    <constraint firstAttribute="width" constant="38" id="hAS-mZ-hJP"/>
+                                </constraints>
+                                <state key="normal" title="Home" image="home"/>
+                                <connections>
+                                    <action selector="homeButtonPressed:" destination="oxI-w0-7S7" eventType="touchUpInside" id="M8X-ff-LZf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -1050,10 +1061,12 @@
                             <constraint firstItem="0B4-T7-hiL" firstAttribute="bottom" secondItem="jmq-9m-d1W" secondAttribute="bottom" constant="37" id="Kmp-3Q-HFc"/>
                             <constraint firstItem="jmq-9m-d1W" firstAttribute="leading" secondItem="0B4-T7-hiL" secondAttribute="leading" constant="16" id="NCz-IA-nR1"/>
                             <constraint firstItem="CKY-Xy-QHE" firstAttribute="top" secondItem="e1k-ax-3DC" secondAttribute="bottom" constant="8" id="SsM-HH-aWY"/>
+                            <constraint firstItem="cni-te-BVr" firstAttribute="leading" secondItem="0B4-T7-hiL" secondAttribute="leading" constant="16" id="YNE-nR-ESx"/>
                             <constraint firstItem="0B4-T7-hiL" firstAttribute="trailing" secondItem="jmq-9m-d1W" secondAttribute="trailing" constant="16" id="h9y-c8-T9E"/>
                             <constraint firstItem="brb-ft-LwY" firstAttribute="top" secondItem="CKY-Xy-QHE" secondAttribute="bottom" constant="23" id="nUu-QP-sCD"/>
                             <constraint firstItem="CKY-Xy-QHE" firstAttribute="leading" secondItem="0B4-T7-hiL" secondAttribute="leading" constant="16" id="qOE-bY-GJ5"/>
                             <constraint firstItem="jmq-9m-d1W" firstAttribute="top" secondItem="brb-ft-LwY" secondAttribute="bottom" constant="8" id="qPd-YU-BXz"/>
+                            <constraint firstItem="cni-te-BVr" firstAttribute="top" secondItem="0B4-T7-hiL" secondAttribute="top" constant="12" id="zlN-9X-RsQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0B4-T7-hiL"/>
                     </view>
@@ -2191,7 +2204,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Btk-GA-aCT"/>
-        <segue reference="5j8-Tr-5qx"/>
+        <segue reference="oJI-JD-Htr"/>
         <segue reference="fJ7-g4-f6I"/>
         <segue reference="Ryy-lF-lTa"/>
         <segue reference="YLX-GS-Xx9"/>

@@ -52,6 +52,9 @@ class Converstions: UIViewController, UICollectionViewDelegate, UICollectionView
         
         
     }
+    @IBAction func homeButtonPressed(_ sender: Any) {
+        self.dismiss(animated: false, completion: nil)
+    }
     
     // Collection View Protocol for Matches
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
