@@ -1080,10 +1080,19 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OEG-xR-KYT">
+                                <rect key="frame" x="16" y="20" width="20" height="22"/>
+                                <state key="normal" image="arrow.left" catalog="system"/>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="CwD-wL-bJO" eventType="touchUpInside" id="tve-VV-m7H"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="650-KR-gbW" firstAttribute="centerY" secondItem="YRK-D7-aFb" secondAttribute="centerY" id="Cgk-5T-OPu"/>
+                            <constraint firstItem="OEG-xR-KYT" firstAttribute="top" secondItem="Gcw-Ls-rWv" secondAttribute="top" constant="20" id="FjP-1Z-td6"/>
+                            <constraint firstItem="OEG-xR-KYT" firstAttribute="leading" secondItem="Gcw-Ls-rWv" secondAttribute="leading" constant="16" id="RAX-Re-wzT"/>
                             <constraint firstItem="650-KR-gbW" firstAttribute="centerX" secondItem="YRK-D7-aFb" secondAttribute="centerX" id="zMF-bZ-VrA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Gcw-Ls-rWv"/>
@@ -1091,7 +1100,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D8c-DM-xdG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1985" y="1810"/>
+            <point key="canvasLocation" x="1984.8" y="1809.4452773613195"/>
         </scene>
         <!--Other User Profile-->
         <scene sceneID="jdE-tK-Nd4">
@@ -2158,6 +2167,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.left" catalog="system" width="64" height="48"/>
         <image name="backgroundProfileImage" width="154.5" height="81.5"/>
         <image name="cancel" width="100" height="100"/>
         <image name="cancel-purple-2" width="100" height="100"/>

@@ -16,7 +16,10 @@ class MessageView: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func backButtonPressed(_ sender: Any) {
+        self.dismiss(animated: false, completion: nil)
+    }
+    
     
 
 }

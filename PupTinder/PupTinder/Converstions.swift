@@ -72,15 +72,22 @@ class Converstions: UIViewController, UICollectionViewDelegate, UICollectionView
     
     // Table View Protocol for Conversations
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(conversationPartnersArray.count)
         return conversationPartnersArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "conversationCell", for: indexPath as IndexPath) as! ConvoTableViewCell
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none
         cell.convoNameLabel.text = self.conversationPartnersArray[indexPath.item].name
         cell.convoPic.image = self.conversationPartnersArray[indexPath.item].picture
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let messageVC = storyboard.instantiateViewController(withIdentifier: "message") as! MessageView
+        messageVC.modalPresentationStyle = .fullScreen
+        self.present(messageVC, animated: false, completion: nil)
     }
 
 }
