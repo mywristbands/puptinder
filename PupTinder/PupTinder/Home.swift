@@ -19,7 +19,7 @@ class Home: UIViewController {
     var uid = ""
 
     override func viewDidLoad() {
-        gifView.loadGif(name: "sending")
+        gifView.loadGif(name: "dog_load2")
         Api.matches.getPotentialMatch(){ matchProfile, error in
             if(error != nil){
                 print(error ?? "")
