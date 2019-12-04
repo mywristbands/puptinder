@@ -18,6 +18,7 @@ class Home: UIViewController {
     var uid = ""
     
     override func viewDidLoad() {
+        
         Api.matches.getPotentialMatch(){ matchProfile, error in
             if(error != nil){
                 print(error ?? "")
@@ -42,6 +43,7 @@ class Home: UIViewController {
     
     
     @IBAction func xButton(_ sender: UIButton) {
+        //dogProfileImage.loadGif(name: "loading-gif")
         Api.matches.getPotentialMatch(){ matchProfile, error in
             if(error != nil){
                 print(error ?? "")
@@ -55,7 +57,8 @@ class Home: UIViewController {
     }
     
     @IBAction func loveButton(_ sender: UIButton) {
-        print(uid)
+        //dogProfileImage.loadGif(name: "loading-gif")
+        dogProfileImage.startAnimating()
         Api.matches.swipedRightOn(uid: uid) { error in
             if(error != nil){
                 print(error ?? "")
