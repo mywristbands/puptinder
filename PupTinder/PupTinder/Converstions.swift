@@ -48,8 +48,6 @@ class Converstions: UIViewController, UICollectionViewDelegate, UICollectionView
         dispatchGroup.notify(queue: DispatchQueue.main, execute: {
             self.matchesCollection.reloadData()
             self.conversationsTV.reloadData()
-            print(self.conversationPartnersArray.count)
-            print("Done with both calls")
         })
         
         
@@ -80,8 +78,8 @@ class Converstions: UIViewController, UICollectionViewDelegate, UICollectionView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "conversationCell", for: indexPath as IndexPath) as! ConvoTableViewCell
-        let name = self.conversationPartnersArray[indexPath.item].name
-        cell.convoLabel?.text = name
+        cell.convoNameLabel.text = self.conversationPartnersArray[indexPath.item].name
+        cell.convoPic.image = self.conversationPartnersArray[indexPath.item].picture
         return cell
     }
 

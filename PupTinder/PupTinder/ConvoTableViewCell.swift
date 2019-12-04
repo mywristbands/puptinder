@@ -9,8 +9,10 @@
 import UIKit
 
 class ConvoTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var convoLabel: UILabel!
+    @IBOutlet weak var convoPic: UIImageView!
+    @IBOutlet weak var convoNameLabel: UILabel!
+    @IBOutlet weak var convoMessageLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
