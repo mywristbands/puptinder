@@ -18,21 +18,16 @@ class Matches: ApiShared {
         // For simplicity, we assume best match is a random match
         let profiles = db.collection("profiles")
         let randKey = profiles.document().documentID
-        var query = profiles.whereField("__name__", isGreaterThanOrEqualTo: randKey).order(by: "__name__").limit(to: 1)
+        let query = profiles.whereField("__name__", isGreaterThanOrEqualTo: randKey).order(by: "__name__").limit(to: 1)
         query.getDocuments { (querySnapshot, err) in
-            if let _ = err {
+            if let err = err {
+                completion(nil, "Error with getDocuments() query: \(err)")
+                
+            } else if querySnapshot!.documents.count != 1 {
                 // Document was not found, so wrap-around and query on low value which is the empty string
-                query = profiles.whereField("__name__", isGreaterThanOrEqualTo: "").order(by: "__name__").limit(to: 1)
-                query.getDocuments { (querySnapshot, err) in
-                    if let err = err {
-                        // Error should technically be impossible, unless there are no profiles in the datebase
-                        completion(nil, "Error getting documents: \(err)")
-                    } else {
-                        for document in querySnapshot!.documents {
-                            Api.profiles.getProfileOf(uid: document.documentID, completion: completion)
-                        }
-                    }
-                }
+                print("no documents found tis time, will continuing trying to query until we get a match")
+                self.getPotentialMatch(completion: completion)
+                
             } else {
                 for document in querySnapshot!.documents {
                     Api.profiles.getProfileOf(uid: document.documentID, completion: completion)
