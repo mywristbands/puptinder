@@ -26,13 +26,13 @@ What I plan to do: Use implemented message API to get data for MessageKit and bu
 
 ### Hajra Mobashar
 What I have done: Worked on profile edit view front end. Worked on implentation of home view and functionality. 
-- [HomeView()] (https://github.com/ECS189E/project-f19-puptinder/commit/4b049f6b7e42c628c765f8a46592f9014e4b9f80)
-- User [profile view] (https://github.com/ECS189E/project-f19-puptinder/commit/f0c4ecd8e89e468f4c4907ee2f70e2db2311bb60)
+- [HomeView()](https://github.com/ECS189E/project-f19-puptinder/commit/4b049f6b7e42c628c765f8a46592f9014e4b9f80)
+- User [profile view](https://github.com/ECS189E/project-f19-puptinder/commit/f0c4ecd8e89e468f4c4907ee2f70e2db2311bb60)
 Any roadblocks: None.  
 What I plan to do: Work on implementation of profile edit view. Front end of messages view.  
 
 ### Alannah Woodward
 What I have done: Completed implementation of profile view. This view now successfully loads all the users data and information. Created profile edit view.
-- [Profile view] (https://github.com/ECS189E/project-f19-puptinder/commit/0657fdb3f768a28db5e210fd0b7e2b2ada9ed6b5)
+- [Profile view](https://github.com/ECS189E/project-f19-puptinder/commit/0657fdb3f768a28db5e210fd0b7e2b2ada9ed6b5)
 Any roadblocks: None.  
 What I plan to do: Work on messages view front and implementation. Work on any remaining bugs and tweeks for the app.  
