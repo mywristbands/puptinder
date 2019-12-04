@@ -132,21 +132,16 @@
 			children = (
 				64130055238B5D230071C380 /* Api */,
 				77F6A54F23981DE300F2BADB /* createProfileViews */,
-				77F6A55023981E3000F2BADB /* userProfiles */,
-				77F6A55123981E8A00F2BADB /* loginSignUp */,
 				77F6A55323981EF000F2BADB /* delegates */,
+				77F6A55123981E8A00F2BADB /* loginSignUp */,
 				77F6A55223981EB300F2BADB /* messageAndConversationViews */,
-				77D80D8F237784A00043254B /* Assets.xcassets */,
+				77F6A55023981E3000F2BADB /* userProfiles */,
 				934AAA742377DE9A0007EBAA /* GoogleService-Info.plist */,
-				77D80D94237784A00043254B /* Info.plist */,
 				77D80D91237784A00043254B /* LaunchScreen.storyboard */,
 				77D80D8C2377849B0043254B /* Main.storyboard */,
-				93421987239758E200D21361 /* ConvoTableViewCell.swift */,
-				9342197F23965D3D00D21361 /* matchCollectionViewCell.swift */,
-				7768712423946443009E29CA /* Converstions.swift */,
-				77687126239464FB009E29CA /* MessageView.swift */,
-				51A009BC237D195F00719C27 /* CustomCheckedTableViewCell.swift */,
+				77D80D94237784A00043254B /* Info.plist */,
 				77A2F2AF238782F000B5D963 /* Home.swift */,
+				77D80D8F237784A00043254B /* Assets.xcassets */,
 			);
 			path = PupTinder;
 			sourceTree = "<group>";
@@ -158,6 +153,7 @@
 				777EAFD3237E5B49007CFF96 /* CreateProfile2.swift */,
 				777EAFD5237E5C02007CFF96 /* CreateProfile3.swift */,
 				777EAFD7237E5C1A007CFF96 /* CreateProfile4.swift */,
+				51A009BC237D195F00719C27 /* CustomCheckedTableViewCell.swift */,
 			);
 			path = createProfileViews;
 			sourceTree = "<group>";
@@ -184,6 +180,10 @@
 		77F6A55223981EB300F2BADB /* messageAndConversationViews */ = {
 			isa = PBXGroup;
 			children = (
+				7768712423946443009E29CA /* Converstions.swift */,
+				93421987239758E200D21361 /* ConvoTableViewCell.swift */,
+				9342197F23965D3D00D21361 /* matchCollectionViewCell.swift */,
+				77687126239464FB009E29CA /* MessageView.swift */,
 			);
 			path = messageAndConversationViews;
 			sourceTree = "<group>";
