@@ -33,6 +33,7 @@ class UserProfile: UIViewController, UICollectionViewDelegate, UICollectionViewD
     var profileCharacteristics: [String] = []
     var profileTraits: [String] = []
     var uid = ""
+    var viewingOtherProf = false
     
     let white = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1).cgColor
     let yellow = UIColor(red: 255.0/255.0, green: 213.0/255.0, blue: 72.0/255.0, alpha: 1)
@@ -79,6 +80,7 @@ class UserProfile: UIViewController, UICollectionViewDelegate, UICollectionViewD
                     print(error ?? "ERROR")
                 }
             }
+            viewingOtherProf = false
         } else {
             Api.profiles.getProfileOf(uid: uid) { profile, error in
                 if(error != nil){
@@ -107,6 +109,7 @@ class UserProfile: UIViewController, UICollectionViewDelegate, UICollectionViewD
                 self.characteristicsCV.reloadData()
                 self.personalityCV.reloadData()
             }
+            viewingOtherProf = true
         }
     }
     
@@ -228,6 +231,18 @@ class UserProfile: UIViewController, UICollectionViewDelegate, UICollectionViewD
           self.settingsView.transform = .identity
         })
     }
+    
+    @IBAction func homeButton(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let homeVC = storyboard.instantiateViewController(withIdentifier: "home") as! Home
+        homeVC.modalPresentationStyle = .fullScreen
+        if(viewingOtherProf){
+            homeVC.viewingOtherProfile = true
+            homeVC.uid = uid
+        }
+        self.present(homeVC, animated: true, completion: nil)
+    }
+    
     
     @IBAction func logoutPressed(_ sender: Any) {
         _ = Api.auth.logout()

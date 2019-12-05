@@ -22,20 +22,32 @@ class Home: UIViewController {
     
     var uid = ""
     let myUid = Auth.auth().currentUser?.uid
-    
-    //let group = DispatchGroup()
+    var viewingOtherProfile = false
 
     override func viewDidLoad() {
         gifView.loadGif(name: "dog_load2")
-        Api.matches.getPotentialMatch(){ matchProfile, error in
-            if(error != nil){
-                print(error ?? "")
-                return
+        if(viewingOtherProfile){
+            Api.profiles.getProfileOf(uid: uid) { matchProfile, error in
+                if(error != nil){
+                    print(error ?? "")
+                    return
+                }
+                self.dogName.text = matchProfile?.name
+                self.dogProfileImage.image = matchProfile?.picture
+                self.breed.text = matchProfile?.breed
+                self.uid = matchProfile?.uid ?? ""
             }
-            self.dogName.text = matchProfile?.name
-            self.dogProfileImage.image = matchProfile?.picture
-            self.breed.text = matchProfile?.breed
-            self.uid = matchProfile?.uid ?? ""
+        } else {
+            Api.matches.getPotentialMatch(){ matchProfile, error in
+                if(error != nil){
+                    print(error ?? "")
+                    return
+                }
+                self.dogName.text = matchProfile?.name
+                self.dogProfileImage.image = matchProfile?.picture
+                self.breed.text = matchProfile?.breed
+                self.uid = matchProfile?.uid ?? ""
+            }
         }
         super.viewDidLoad()
         styleTile()
