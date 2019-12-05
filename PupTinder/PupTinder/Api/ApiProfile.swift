@@ -48,6 +48,13 @@ class Profiles: ApiShared {
         guard let errorCode = nsError?.code else {return nil}
         return StorageErrorCode(rawValue: errorCode)
     }
+    
+    private func getFirestoreErrorCode(_ error: Error?) -> FirestoreErrorCode? {
+        let nsError = error as NSError?
+        guard let errorCode = nsError?.code else {return nil}
+        return FirestoreErrorCode(rawValue: errorCode)
+    }
+
         
     /// Uploads new profile for current user, or overwrites existing profile if user has already created a profile.
     /// - Parameter completion: If successful, completion's `error` argument will be `nil`, else it will contain a `Optional(String)` describing the error.
@@ -65,10 +72,23 @@ class Profiles: ApiShared {
             // Otherwise, upload the rest of the Profile info
             guard let filepath = filepath else {return}
             self.db.collection("profiles").document(self.getUID()).setData(
-                ["uid": self.getUID(), "picture":filepath,"name":profile.name,"gender":profile.gender,"breed":profile.breed,"size":profile.size,"bio":profile.bio,"traits":profile.traits,"characteristics":profile.characteristics])
-            
-            // Upload succeeded!
-            completion(nil)
+            ["uid": self.getUID(), "picture":filepath,"name":profile.name,"gender":profile.gender,"breed":profile.breed,"size":profile.size,"bio":profile.bio,"traits":profile.traits,"characteristics":profile.characteristics]) { error in
+                
+                guard let errorCode = self.getFirestoreErrorCode(error) else {
+                    // No error occurred, so upload succeeded!
+                    completion(nil)
+                    return
+                }
+                
+                switch (errorCode) {
+                case .alreadyExists:
+                    completion("Couldn't upload profile because profile already exists!")
+                case .permissionDenied:
+                    completion("You don't have permission to do upload this profile.")
+                default:
+                    completion("Couldn't upload profile for an unknown reason.")
+                }
+            }
         }
     }
         
