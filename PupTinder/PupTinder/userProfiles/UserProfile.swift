@@ -27,7 +27,7 @@ class UserProfile: UIViewController, UICollectionViewDelegate, UICollectionViewD
     @IBOutlet weak var logoutButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     
-    var characteristics:[String] = ["Hypoallergenic", "Sheds a lot", "Kid friendly", "Drool potential", "Barks a lot"]
+    var characteristics:[String] = ["Hypoallergenic", "Sheds a lot", "Kid friendly", "Drool potential", "Barks a lot", "Pudgy", "Hairless", "Fluffy", "Tiny", "Tall"]
     var personalityTraits:[String] = ["Friendly", "Shy", "Calm", "Submissive", "Dominant", "Energetic", "Playful", "Grumpy", "Fun-loving", "Affectionate", "Intelligent", "Inquisitive", "Fearless"]
     
     var profileCharacteristics: [String] = []
@@ -212,6 +212,21 @@ class UserProfile: UIViewController, UICollectionViewDelegate, UICollectionViewD
             break
         case "Barks a lot":
             image = UIImage(named: "barks") ?? UIImage()
+            break
+        case "Pudgy":
+            image = UIImage(named: "pudgy") ?? UIImage()
+            break
+        case "Hairless":
+            image = UIImage(named: "hairless") ?? UIImage()
+            break
+        case "Fluffy":
+            image = UIImage(named: "fluffy") ?? UIImage()
+            break
+        case "Tiny":
+            image = UIImage(named: "tiny") ?? UIImage()
+            break
+        case "Tall":
+            image = UIImage(named: "tall") ?? UIImage()
             break
         default:
             break

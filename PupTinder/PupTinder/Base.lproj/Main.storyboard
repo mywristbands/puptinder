@@ -18,9 +18,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cxa-vR-so5">
-                                <rect key="frame" x="48" y="363" width="280" height="36"/>
+                                <rect key="frame" x="48" y="363" width="280" height="39"/>
                                 <color key="backgroundColor" red="0.490886867" green="0.37596613169999998" blue="0.93338412049999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                 <state key="normal" title="Login">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -102,9 +102,9 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6oH-Ob-nUZ">
-                                <rect key="frame" x="47" y="407.5" width="280" height="36"/>
+                                <rect key="frame" x="47" y="410.5" width="280" height="39"/>
                                 <color key="backgroundColor" red="0.99527865650000003" green="0.84270948170000004" blue="0.3096210063" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                 <state key="normal" title="Sign Up">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -239,9 +239,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="a7X-un-nQ8"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                 <state key="normal" title="Continue">
-                                    <color key="titleColor" red="0.48050296320000002" green="0.451276921" blue="0.71084684259999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="continueButtonPressed:" destination="E7U-Jf-76f" eventType="touchUpInside" id="tZP-K0-Cqf"/>
@@ -342,12 +342,13 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="ebv-kH-mE8"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y0Z-rb-uR6">
-                                <rect key="frame" x="6" y="10" width="30" height="30"/>
+                                <rect key="frame" x="6" y="8" width="30" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="&lt;">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -382,7 +383,7 @@
                             <constraint firstItem="tfR-S6-lu9" firstAttribute="trailing" secondItem="ach-QY-HBj" secondAttribute="trailing" id="HoW-xQ-vJ6"/>
                             <constraint firstItem="2Jd-FU-I3I" firstAttribute="leading" secondItem="jCg-W4-V4l" secondAttribute="leading" constant="30" id="QZA-BU-1ua"/>
                             <constraint firstItem="tfR-S6-lu9" firstAttribute="top" secondItem="ach-QY-HBj" secondAttribute="top" id="T3w-UK-IAj"/>
-                            <constraint firstItem="Y0Z-rb-uR6" firstAttribute="top" secondItem="ach-QY-HBj" secondAttribute="top" constant="10" id="W76-4X-axL"/>
+                            <constraint firstItem="Y0Z-rb-uR6" firstAttribute="top" secondItem="ach-QY-HBj" secondAttribute="top" constant="8" id="W76-4X-axL"/>
                             <constraint firstItem="ach-QY-HBj" firstAttribute="trailing" secondItem="L1x-ec-JOE" secondAttribute="trailing" constant="86.5" id="ama-19-oRT"/>
                             <constraint firstItem="YsZ-I2-aIX" firstAttribute="leading" secondItem="ach-QY-HBj" secondAttribute="leading" constant="30" id="i1E-jg-j1z"/>
                             <constraint firstItem="2Jd-FU-I3I" firstAttribute="top" secondItem="YsZ-I2-aIX" secondAttribute="bottom" constant="30" id="iuu-rG-XEm"/>
@@ -423,14 +424,15 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="1Ly-h1-bvf"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="25"/>
-                                <color key="textColor" red="0.48050296320000002" green="0.451276921" blue="0.71084684259999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9c1-gu-kbS">
-                                <rect key="frame" x="6" y="10" width="30" height="30"/>
+                                <rect key="frame" x="6" y="9" width="30" height="34"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" title="&lt;">
-                                    <color key="titleColor" red="0.48050296320000002" green="0.451276921" blue="0.71084684259999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="backButtonPressed:" destination="AlW-r6-dJ3" eventType="touchUpInside" id="P3S-Sa-GEv"/>
@@ -438,10 +440,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6mJ-1w-TTI">
-                                <rect key="frame" x="327" y="8" width="34" height="33"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="322" y="8" width="39" height="35"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                                 <state key="normal" title="Skip">
-                                    <color key="titleColor" red="0.48050296320000002" green="0.451276921" blue="0.71084684259999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="skipButtonPressed:" destination="AlW-r6-dJ3" eventType="touchUpInside" id="ahg-El-VF9"/>
@@ -454,9 +456,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Dcf-cc-ure"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                 <state key="normal" title="Continue">
-                                    <color key="titleColor" red="0.48050296320000002" green="0.451276921" blue="0.71084684259999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="continueButtonPressed:" destination="AlW-r6-dJ3" eventType="touchUpInside" id="Tag-q0-TAC"/>
@@ -471,7 +473,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="l9N-lw-PbF" firstAttribute="trailing" secondItem="c99-8R-DwT" secondAttribute="trailing" id="0aF-U8-izv"/>
-                            <constraint firstItem="9c1-gu-kbS" firstAttribute="top" secondItem="c99-8R-DwT" secondAttribute="top" constant="10" id="62h-Ur-m1b"/>
+                            <constraint firstItem="9c1-gu-kbS" firstAttribute="top" secondItem="c99-8R-DwT" secondAttribute="top" constant="9" id="62h-Ur-m1b"/>
                             <constraint firstItem="c99-8R-DwT" firstAttribute="trailing" secondItem="Hga-cH-N8G" secondAttribute="trailing" constant="30" id="9cf-wb-Pcx"/>
                             <constraint firstItem="c99-8R-DwT" firstAttribute="bottom" secondItem="Hga-cH-N8G" secondAttribute="bottom" constant="55" id="Qv7-Nc-Ddf"/>
                             <constraint firstItem="l9N-lw-PbF" firstAttribute="leading" secondItem="c99-8R-DwT" secondAttribute="leading" id="Xlj-xc-YvT"/>
@@ -2129,14 +2131,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="63E-Q4-KaB">
-                                <rect key="frame" x="35" y="599" width="304" height="40"/>
+                                <rect key="frame" x="35" y="599" width="304" height="41"/>
                                 <color key="backgroundColor" red="0.99527865650000003" green="0.84270948170000004" blue="0.3096210063" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="xZ4-py-Kgg"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
                                 <state key="normal" title="Continue">
-                                    <color key="titleColor" red="0.48050296320000002" green="0.451276921" blue="0.71084684259999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="continueButtonPressed:" destination="5fR-Ec-Roi" eventType="touchUpInside" id="G7k-kv-9uj"/>
@@ -2328,10 +2330,10 @@
     <inferredMetricsTieBreakers>
         <segue reference="Btk-GA-aCT"/>
         <segue reference="oJI-JD-Htr"/>
-        <segue reference="f57-7j-dgs"/>
-        <segue reference="Ryy-lF-lTa"/>
+        <segue reference="yFx-Yl-Uxi"/>
+        <segue reference="iGg-WX-fob"/>
         <segue reference="YLX-GS-Xx9"/>
-        <segue reference="s5c-px-00h"/>
+        <segue reference="49r-10-922"/>
         <segue reference="SY8-1J-e89"/>
     </inferredMetricsTieBreakers>
 </document>
