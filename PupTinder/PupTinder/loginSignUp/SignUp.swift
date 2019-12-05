@@ -17,6 +17,10 @@ class SignUp: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    @IBAction func dismissKeyboard(_ sender: Any) {
+        self.view.endEditing(true)
+    }
 
     // This is just a basic implementation for this function--will need to expand on it later (to check passwords match, for instance)
     @IBAction func signUpPressed() {

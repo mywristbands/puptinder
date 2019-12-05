@@ -53,18 +53,20 @@ class EditProfileViewController: UIViewController,UICollectionViewDelegate, UICo
                 }
                 self.profileCharacteristics = profile?.characteristics ?? []
                 self.profileTraits = profile?.traits ?? []
-                self.characteristicsCV.register(CustomCell1.self, forCellWithReuseIdentifier: "cell")
+            self.characteristicsCV.register(CustomCell1.self, forCellWithReuseIdentifier: "cell")
+            
                 self.personalityCV.register(CustomCell1.self, forCellWithReuseIdentifier: "cell1")
-                DispatchQueue.main.async {
-                    self.characteristicsCV.reloadData()
-                    self.personalityCV.reloadData()
-                }
-                //self.characteristicsCV.reloadData()
-                //self.personalityCV.reloadData()
+
+                self.characteristicsCV.reloadData()
+                self.personalityCV.reloadData()
             } else {
                 print(error ?? "ERROR")
             }
         }
+    }
+    
+    @IBAction func dismissKeyboard(_ sender: Any) {
+        self.view.endEditing(true)
     }
     
     func getSizeImage(size: String, gender: String) -> UIImage {
