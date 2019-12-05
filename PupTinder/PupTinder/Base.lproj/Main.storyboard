@@ -2003,6 +2003,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Z5s-iF-iGc"/>
                     <connections>
+                        <outlet property="confirmPassField" destination="mPl-ng-V0l" id="Bvr-Sy-GvG"/>
                         <outlet property="emailField" destination="c0N-bP-aE3" id="OLd-RS-gVJ"/>
                         <outlet property="errorField" destination="zZg-SN-IQt" id="q1B-xr-dYu"/>
                         <outlet property="passwordField" destination="seu-Te-i9f" id="FNK-77-bJA"/>
@@ -2328,7 +2329,7 @@
         <image name="save" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Btk-GA-aCT"/>
+        <segue reference="QyH-0W-NrC"/>
         <segue reference="oJI-JD-Htr"/>
         <segue reference="yFx-Yl-Uxi"/>
         <segue reference="iGg-WX-fob"/>

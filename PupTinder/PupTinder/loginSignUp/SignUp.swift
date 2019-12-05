@@ -13,6 +13,7 @@ class SignUp: UIViewController {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var errorField: UILabel!
+    @IBOutlet weak var confirmPassField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,9 +25,16 @@ class SignUp: UIViewController {
 
     // This is just a basic implementation for this function--will need to expand on it later (to check passwords match, for instance)
     @IBAction func signUpPressed() {
-        guard let email = emailField.text, let password = passwordField.text else {
+        guard let email = emailField.text, let password = passwordField.text, let confirmPass = confirmPassField.text else {
             return
         }
+        
+        if(confirmPass != password){
+            errorField.text = "Ruh roh! passwords do not match!"
+            self.errorField.isHidden = false
+            return
+        }
+        
         Api.auth.signup(email: email, password: password) { (error) in
             if let error = error {
                 // display error
