@@ -150,6 +150,7 @@ class CreateProfile1: UIViewController, UIImagePickerControllerDelegate ,UINavig
     }
     
     @IBAction func logoutButton(_ sender: UIButton) {
+         _ = Api.auth.logout()
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let loginVC = storyboard.instantiateViewController(withIdentifier: "loginViewController") as! Login
         loginVC.modalPresentationStyle = .fullScreen
