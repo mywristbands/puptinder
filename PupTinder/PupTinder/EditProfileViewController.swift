@@ -23,6 +23,7 @@ class EditProfileViewController: UIViewController,UICollectionViewDelegate, UICo
     
     var profileCharacteristics: [String] = []
     var profileTraits: [String] = []
+    var gender = ""
     
     let white = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1).cgColor
     let yellow = UIColor(red: 255.0/255.0, green: 213.0/255.0, blue: 72.0/255.0, alpha: 1)
@@ -45,9 +46,11 @@ class EditProfileViewController: UIViewController,UICollectionViewDelegate, UICo
                 self.sizeImage.image = self.getSizeImage(size: profile?.size ?? "", gender: profile?.gender ?? "")
                 self.genderImage.image = self.getGenderImage(gender: profile?.gender ?? "")
                 if profile?.gender == "female" {
+                    self.gender = "female"
                     self.genderImage.backgroundColor = self.purple
                     self.sizeImage.backgroundColor = self.purple
                 } else {
+                    self.gender = "male"
                     self.genderImage.backgroundColor = self.yellow
                     self.sizeImage.backgroundColor = self.yellow
                 }
@@ -62,6 +65,23 @@ class EditProfileViewController: UIViewController,UICollectionViewDelegate, UICo
             } else {
                 print(error ?? "ERROR")
             }
+        }
+    }
+    
+    @IBAction func savebutton(_ sender: Any) {
+        let profile1 = Profile(data: ["picture" : self.profileImage, "name" : self.nameTextField.text, "gender" : self.gender, "breed" : self.breedTextField.text, "size" : self.size, "bio" : self.bioTextView.text, "traits" : self.profileTraits, "characteristics" : self.profileCharacteristics])
+        
+        Api.profiles.uploadProfile(profile: profile1) { error in
+            if error == nil {
+                self.performSegue(withIdentifier: "CP4ToUPSegue", sender: nil)
+            } else {
+                print(error ?? "ERROR")
+            }
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let userProfileVC = storyboard.instantiateViewController(withIdentifier: "userProfile") as! UserProfile
+            userProfileVC.modalPresentationStyle = .fullScreen
+            self.present(userProfileVC, animated: true, completion: nil)
         }
     }
     
