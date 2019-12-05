@@ -81,6 +81,11 @@ class MessageView: MessagesViewController, MessagesDataSource, MessagesLayoutDel
         self.dismiss(animated: false, completion: nil)
     }
     
+    func isFromMe(message: MessageType) -> Bool {
+        guard let myProfile = myProfile else {print("profileUnwrapError"); return false}
+        return myProfile.uid == message.messageId
+    }
+    
     func onReceivedNewMessage(_ message: Message) {
         // Get profile info from the view
         guard let myProfile = myProfile else {print("profileUnwrapError"); return}
@@ -115,6 +120,32 @@ class MessageView: MessagesViewController, MessagesDataSource, MessagesLayoutDel
         return messages.count
     }
     
+    // MARK: Implementation for MessagesLayoutDelegate
+    // We don't want to show the person's profile picture for now, so we'll make it zero big.
+    func avatarSize(for message: MessageType, at indexPath: IndexPath,
+      in messagesCollectionView: MessagesCollectionView) -> CGSize {
+      return .zero
+    }
+    
+    // MARK: Implementation for MessagesDisplayDelegate
+    // Background color for messages
+    func backgroundColor(for message: MessageType, at indexPath: IndexPath,
+      in messagesCollectionView: MessagesCollectionView) -> UIColor {
+      return isFromMe(message: message) ? .outgoingGreen : .incomingGray
+    }
+
+    func shouldDisplayHeader(for message: MessageType, at indexPath: IndexPath,
+      in messagesCollectionView: MessagesCollectionView) -> Bool {
+      return true
+    }
+
+    func messageStyle(for message: MessageType, at indexPath: IndexPath,
+      in messagesCollectionView: MessagesCollectionView) -> MessageStyle {
+
+      let corner: MessageStyle.TailCorner = isFromMe(message: message) ? .bottomRight : .bottomLeft
+      return .bubbleTail(corner, .curved)
+    }
+    
     // MARK: Implementation for MessageInputBarDelegate
     func inputBar(_ inputBar: MessageInputBar, didPressSendButtonWith text: String) {
         guard let conversationPartnerUid = conversationPartnerUid else { print("error"); return }
@@ -126,4 +157,9 @@ class MessageView: MessagesViewController, MessagesDataSource, MessagesLayoutDel
         inputBar.inputTextView.text = ""
     }
 
+}
+
+private extension UIColor {
+    static let incomingGray = UIColor(red: 230/255, green: 230/255, blue: 235/255, alpha: 1.0)
+    static let outgoingGreen = UIColor(red: 69/255, green: 214/255, blue: 93/255, alpha: 1.0)
 }
