@@ -58,7 +58,7 @@ class EditProfileViewController: UIViewController,UICollectionViewDelegate, UICo
                 }
                 self.profileCharacteristics = profile?.characteristics ?? []
                 self.profileTraits = profile?.traits ?? []
-            self.characteristicsCV.register(CustomCell1.self, forCellWithReuseIdentifier: "cell")
+                self.characteristicsCV.register(CustomCell1.self, forCellWithReuseIdentifier: "cell")
             
                 self.personalityCV.register(CustomCell1.self, forCellWithReuseIdentifier: "cell1")
 

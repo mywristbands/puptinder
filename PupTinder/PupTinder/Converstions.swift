@@ -12,18 +12,22 @@ class Converstions: UIViewController, UICollectionViewDelegate, UICollectionView
     @IBOutlet weak var matchesCollection: UICollectionView!
     @IBOutlet weak var conversationsTV: UITableView!
     @IBOutlet weak var loadingImage: UIImageView!
+    @IBOutlet weak var profilePopUp: UIView!
     
     var profilesArray: [Profile] = []
     var conversationPartnersArray: [Profile] = []
     var recentTextArray: [String] = ["Let's meet at 3 in Downtown Davis!", "I'd love to go on a play date", "See you soon :)"]
+    var uid = ""
     override func viewDidLoad() {
         loadingImage.isHidden = false
         loadingImage.loadGif(name: "sending")
+        profilePopUp.isHidden = true
         super.viewDidLoad()
         self.matchesCollection.delegate = self
         self.matchesCollection.dataSource = self
         self.conversationsTV.delegate = self
         self.conversationsTV.dataSource = self
+        
         let dispatchGroup = DispatchGroup()
         dispatchGroup.enter()
         Api.matches.getMatches() { profiles, error in
@@ -64,6 +68,22 @@ class Converstions: UIViewController, UICollectionViewDelegate, UICollectionView
         self.dismiss(animated: false, completion: nil)
     }
     
+    @IBAction func cancelButton(_ sender: Any) {
+        profilePopUp.isHidden = true
+    }
+    
+    @IBAction func viewProfileButton(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let profileVC = storyboard.instantiateViewController(withIdentifier: "userProfile") as! UserProfile
+        profileVC.modalPresentationStyle = .fullScreen
+        profileVC.uid = uid
+        self.present(profileVC, animated: true, completion: nil)
+    }
+    
+    @IBAction func startTalkingButton(_ sender: Any) {
+    }
+    
+    
     // Collection View Protocol for Matches
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return profilesArray.count
@@ -80,6 +100,22 @@ class Converstions: UIViewController, UICollectionViewDelegate, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 50.0, height: 50.0)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.profilePopUp.isHidden = false
+        profilePopUp.center = view.center
+        profilePopUp.alpha = 1
+        profilePopUp.transform = CGAffineTransform(scaleX: 0.8, y: 1.2)
+
+        //self.view.addSubview(popupView)
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: [],  animations: {
+            //use if you want to darken the background
+          //self.viewDim.alpha = 0.8
+          //go back to original form
+          self.profilePopUp.transform = .identity
+        })
+        self.uid = self.profilesArray[indexPath.item].uid
     }
     
     // Table View Protocol for Conversations
