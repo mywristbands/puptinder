@@ -32,6 +32,7 @@ class UserProfile: UIViewController, UICollectionViewDelegate, UICollectionViewD
     
     var profileCharacteristics: [String] = []
     var profileTraits: [String] = []
+    var uid = ""
     
     let white = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1).cgColor
     let yellow = UIColor(red: 255.0/255.0, green: 213.0/255.0, blue: 72.0/255.0, alpha: 1)
@@ -50,9 +51,41 @@ class UserProfile: UIViewController, UICollectionViewDelegate, UICollectionViewD
         settingsView.layer.cornerRadius = 10
         
         setProfileImageStyle()
-
-        Api.profiles.getProfile() { profile, error in
-            if error == nil {
+        
+        if uid == "" {
+            Api.profiles.getProfile() { profile, error in
+                if error == nil {
+                    self.profileImage.image = profile?.picture
+                    self.nameLabel.text = profile?.name
+                    self.breedLabel.text = profile?.breed
+                    self.aboutNameLabel.text = "About \(profile?.name ?? "Mr Woofer")"
+                    self.bioTextView.text = profile?.bio
+                    self.sizeImage.image = self.getSizeImage(size: profile?.size ?? "", gender: profile?.gender ?? "")
+                    self.genderImage.image = self.getGenderImage(gender: profile?.gender ?? "")
+                    if profile?.gender == "female" {
+                        self.genderImage.backgroundColor = self.purple
+                        self.sizeImage.backgroundColor = self.purple
+                    } else {
+                        self.genderImage.backgroundColor = self.yellow
+                        self.sizeImage.backgroundColor = self.yellow
+                    }
+                    self.profileCharacteristics = profile?.characteristics ?? []
+                    self.profileTraits = profile?.traits ?? []
+                    self.characteristicsCV.register(CustomCell.self, forCellWithReuseIdentifier: "cell")
+                    self.personalityCV.register(CustomCell.self, forCellWithReuseIdentifier: "cell1")
+                    self.characteristicsCV.reloadData()
+                    self.personalityCV.reloadData()
+                } else {
+                    print(error ?? "ERROR")
+                }
+            }
+        } else {
+            Api.profiles.getProfileOf(uid: uid) { profile, error in
+                if(error != nil){
+                    print(error ?? "")
+                    return
+                }
+                self.settingsButton.isHidden = true
                 self.profileImage.image = profile?.picture
                 self.nameLabel.text = profile?.name
                 self.breedLabel.text = profile?.breed
@@ -73,8 +106,6 @@ class UserProfile: UIViewController, UICollectionViewDelegate, UICollectionViewD
                 self.personalityCV.register(CustomCell.self, forCellWithReuseIdentifier: "cell1")
                 self.characteristicsCV.reloadData()
                 self.personalityCV.reloadData()
-            } else {
-                print(error ?? "ERROR")
             }
         }
     }
@@ -184,6 +215,18 @@ class UserProfile: UIViewController, UICollectionViewDelegate, UICollectionViewD
     @IBAction func settingsPressed(_ sender: Any) {
         settingsView.isHidden = false
         settingsView.isUserInteractionEnabled = true
+        
+        settingsView.center = view.center
+        settingsView.alpha = 1
+        settingsView.transform = CGAffineTransform(scaleX: 0.8, y: 1.2)
+
+        //self.view.addSubview(popupView)
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: [],  animations: {
+        //use if you want to darken the background
+          //self.viewDim.alpha = 0.8
+          //go back to original form
+          self.settingsView.transform = .identity
+        })
     }
     
     @IBAction func logoutPressed(_ sender: Any) {

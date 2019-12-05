@@ -43,10 +43,10 @@ class Home: UIViewController {
     
     @IBAction func selectProfileButton(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let otherProfileVC = storyboard.instantiateViewController(withIdentifier: "otherUserProfile") as! OtherUserProfile
-        otherProfileVC.modalPresentationStyle = .fullScreen
-        otherProfileVC.uid = uid
-        self.present(otherProfileVC, animated: true, completion: nil)
+        let profileVC = storyboard.instantiateViewController(withIdentifier: "userProfile") as! UserProfile
+        profileVC.modalPresentationStyle = .fullScreen
+        profileVC.uid = uid
+        self.present(profileVC, animated: true, completion: nil)
     }
     
     
