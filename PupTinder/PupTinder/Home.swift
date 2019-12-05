@@ -22,6 +22,8 @@ class Home: UIViewController {
     
     var uid = ""
     let myUid = Auth.auth().currentUser?.uid
+    
+    //let group = DispatchGroup()
 
     override func viewDidLoad() {
         gifView.loadGif(name: "dog_load2")
@@ -96,19 +98,31 @@ class Home: UIViewController {
     }
     
     func makeMatchApiCall() {
-      Api.matches.getPotentialMatch(){ matchProfile, error in
-          if(error != nil){
-              self.dogProfileImage.isHidden = false
-              self.enableButtons()
-              return
-          }
-          self.dogName.text = matchProfile?.name
-          self.dogProfileImage.image = matchProfile?.picture
-          self.dogProfileImage.isHidden = false
-          self.breed.text = matchProfile?.breed
-          self.uid = matchProfile?.uid ?? ""
-          self.enableButtons()
-      }
+        //let group = DispatchGroup()
+        //repeat {
+        //    group.enter()
+            print("before api")
+            Api.matches.getPotentialMatch(){ matchProfile, error in
+                if(error != nil){
+                    self.dogProfileImage.isHidden = false
+                    self.enableButtons()
+                    print("before the error leave")
+                   // group.leave()
+                    return
+                }
+                self.dogName.text = matchProfile?.name
+                self.dogProfileImage.image = matchProfile?.picture
+                self.dogProfileImage.isHidden = false
+                self.breed.text = matchProfile?.breed
+                self.uid = matchProfile?.uid ?? ""
+                print("before the error leave")
+                self.enableButtons()
+               // group.leave()
+                print("after the leave")
+            }
+          //  group.notify(queue: DispatchQueue.main, execute: {})
+            print("i am at the end of the loop")
+       // } while (uid == myUid)
     }
     
 }
