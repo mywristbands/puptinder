@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditProfileViewController: UIViewController {
+class EditProfileViewController: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var breedTextField: UITextField!
@@ -30,6 +30,11 @@ class EditProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.characteristicsCV.delegate = self
+        self.characteristicsCV.dataSource = self
+        self.personalityCV.delegate = self
+        self.personalityCV.dataSource = self
 
         Api.profiles.getProfile() { profile, error in
             if error == nil {
@@ -48,10 +53,14 @@ class EditProfileViewController: UIViewController {
                 }
                 self.profileCharacteristics = profile?.characteristics ?? []
                 self.profileTraits = profile?.traits ?? []
-                //self.characteristicsCV.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-                //self.personalityCV.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-                self.characteristicsCV.reloadData()
-                self.personalityCV.reloadData()
+                self.characteristicsCV.register(CustomCell1.self, forCellWithReuseIdentifier: "cell")
+                self.personalityCV.register(CustomCell1.self, forCellWithReuseIdentifier: "cell1")
+                DispatchQueue.main.async {
+                    self.characteristicsCV.reloadData()
+                    self.personalityCV.reloadData()
+                }
+                //self.characteristicsCV.reloadData()
+                //self.personalityCV.reloadData()
             } else {
                 print(error ?? "ERROR")
             }
@@ -120,15 +129,123 @@ class EditProfileViewController: UIViewController {
         }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func getCharacteristicImage(indexPath: IndexPath) -> UIImage {
+        var image = UIImage()
+        switch(self.profileCharacteristics[indexPath.row]) {
+        case "Hypoallergenic":
+            image = UIImage(named: "hypoallergenic") ?? UIImage()
+            break
+        case "Sheds a lot":
+            image = UIImage(named: "sheds") ?? UIImage()
+            break
+        case "Kid friendly":
+            image = UIImage(named: "kid-friendly") ?? UIImage()
+            break
+        case "Drool potential":
+            image = UIImage(named: "drools") ?? UIImage()
+            break
+        case "Barks a lot":
+            image = UIImage(named: "barks") ?? UIImage()
+            break
+        default:
+            break
+        }
+        return image
     }
-    */
 
+    func getPersonalityImage(indexPath: IndexPath) -> UIImage {
+        var image = UIImage()
+        switch(self.profileTraits[indexPath.row]) {
+        case "Friendly":
+            image = UIImage(named: "friendly") ?? UIImage()
+            break
+        case "Shy":
+            image = UIImage(named: "shy") ?? UIImage()
+            break
+        case "Calm":
+            image = UIImage(named: "calm") ?? UIImage()
+            break
+        case "Submissive":
+            image = UIImage(named: "submissive") ?? UIImage()
+            break
+        case "Dominant":
+            image = UIImage(named: "dominant") ?? UIImage()
+            break
+        case "Energetic":
+            image = UIImage(named: "energetic") ?? UIImage()
+            break
+        case "Playful":
+            image = UIImage(named: "playful") ?? UIImage()
+            break
+        case "Grumpy":
+            image = UIImage(named: "grumpy") ?? UIImage()
+            break
+        case "Fun-loving":
+            image = UIImage(named: "fun-loving") ?? UIImage()
+            break
+        case "Affectionate":
+            image = UIImage(named: "affectionate") ?? UIImage()
+            break
+        case "Intelligent":
+            image = UIImage(named: "intelligent") ?? UIImage()
+            break
+        case "Inquisitive":
+            image = UIImage(named: "curious") ?? UIImage()
+            break
+        case "Fearless":
+            image = UIImage(named: "brave") ?? UIImage()
+            break
+        default:
+            break
+        }
+        return image
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if collectionView == self.characteristicsCV {
+            return self.profileCharacteristics.count
+        } else {
+            return self.profileTraits.count
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if collectionView == self.characteristicsCV {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath as IndexPath) as! CustomCell1
+            cell.img.image = getCharacteristicImage(indexPath: indexPath)
+            return cell
+        } else {
+            let cell1 = collectionView.dequeueReusableCell(withReuseIdentifier: "cell1", for: indexPath as IndexPath) as! CustomCell1
+            cell1.img.image = getPersonalityImage(indexPath: indexPath)
+            return cell1
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 70.0, height: 70.0)
+    }
+}
+
+class CustomCell1: UICollectionViewCell {
+    fileprivate let img: UIImageView = {
+        let iv = UIImageView()
+        iv.translatesAutoresizingMaskIntoConstraints = false
+        iv.contentMode = .scaleAspectFit
+        iv.clipsToBounds = true
+        return iv
+    }()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        contentView.addSubview(img)
+        img.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        img.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+        img.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+        img.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
