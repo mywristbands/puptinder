@@ -11,6 +11,8 @@ import UIKit
 class CreateProfile3: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
      @IBOutlet weak var characteristicsTV: UITableView!
+    @IBOutlet weak var skipButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
     
     var characteristics:[String] = ["Hypoallergenic", "Sheds a lot", "Kid friendly", "Drool potential", "Barks a lot", "Pudgy", "Hairless", "Fluffy", "Tiny", "Tall"]
     var profImage: UIImage = UIImage()
@@ -20,6 +22,7 @@ class CreateProfile3: UIViewController, UITableViewDataSource, UITableViewDelega
     var gender: String = ""
     var bio: String = ""
     var pickedCharacteristics: [String] = []
+    var fromEditProfile = false
 
     override func viewDidLoad() {
         self.characteristicsTV.dataSource = self
@@ -27,6 +30,10 @@ class CreateProfile3: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
         self.characteristicsTV.reloadData()
         self.characteristicsTV.allowsMultipleSelection = true
+        
+        if fromEditProfile {
+            
+        }
     }
     
     @IBAction func continueButtonPressed(_ sender: Any) {

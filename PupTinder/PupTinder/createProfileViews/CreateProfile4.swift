@@ -17,8 +17,12 @@ class CreateProfile4: UIViewController,UITableViewDataSource, UITableViewDelegat
     var bio: String = ""
     var pickedCharacteristics: [String] = []
     var pickedPTraits: [String] = []
+    var fromEditProfile = false
     
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var personalityTV: UITableView!
+    @IBOutlet weak var createProfileButton: UIButton!
+    
     var personalityTraits:[String] = ["Friendly", "Shy", "Calm", "Submissive", "Dominant", "Energetic", "Playful", "Grumpy", "Fun-loving", "Affectionate", "Intelligent", "Inquisitive", "Fearless"]
 
     override func viewDidLoad() {
@@ -27,6 +31,25 @@ class CreateProfile4: UIViewController,UITableViewDataSource, UITableViewDelegat
         self.personalityTV.delegate = self
         self.personalityTV.allowsMultipleSelection = true
         self.personalityTV.reloadData()
+        
+        if fromEditProfile {
+            createProfileButton.setTitle("Continue", for: .normal)
+            backButton.isHidden = true
+            for trait in self.pickedPTraits {
+                //print("trait:")
+                //print(trait)
+                //self.personalityTraits.firstIndex(of: trait)
+                for cell in self.personalityTV.visibleCells { //THIS IS WRONG, NEED TO LOOK THROUGH ALL CELLS BUT CANT?
+                    if cell.textLabel?.text == trait {
+                        //print("text:")
+                        //print(cell.textLabel?.text)
+                        let indP = self.personalityTV.indexPath(for: cell)
+                        self.personalityTV.selectRow(at: indP, animated: true, scrollPosition: UITableView.ScrollPosition.middle)
+                    }
+                }
+                //self.personalityTV.selectRow(at: <#T##IndexPath?#>, animated: true, scrollPosition: UITableView.ScrollPosition.middle)
+            }
+        }
     }
     
     @IBAction func createProfileButtonPressed(_ sender: Any) {
