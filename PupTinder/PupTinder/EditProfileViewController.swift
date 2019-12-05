@@ -24,6 +24,7 @@ class EditProfileViewController: UIViewController,UICollectionViewDelegate, UICo
     var profileCharacteristics: [String] = []
     var profileTraits: [String] = []
     var gender = ""
+    var size = ""
     
     let white = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1).cgColor
     let yellow = UIColor(red: 255.0/255.0, green: 213.0/255.0, blue: 72.0/255.0, alpha: 1)
@@ -44,6 +45,7 @@ class EditProfileViewController: UIViewController,UICollectionViewDelegate, UICo
                 self.breedTextField.text = profile?.breed
                 self.bioTextView.text = profile?.bio
                 self.sizeImage.image = self.getSizeImage(size: profile?.size ?? "", gender: profile?.gender ?? "")
+                self.size = profile?.size ?? "medium"
                 self.genderImage.image = self.getGenderImage(gender: profile?.gender ?? "")
                 if profile?.gender == "female" {
                     self.gender = "female"
@@ -69,13 +71,13 @@ class EditProfileViewController: UIViewController,UICollectionViewDelegate, UICo
     }
     
     @IBAction func savebutton(_ sender: Any) {
-        let profile1 = Profile(data: ["picture" : self.profileImage, "name" : self.nameTextField.text, "gender" : self.gender, "breed" : self.breedTextField.text, "size" : self.size, "bio" : self.bioTextView.text, "traits" : self.profileTraits, "characteristics" : self.profileCharacteristics])
+        print("before the Profile call")
+        let profile1 = Profile(data: ["picture" : self.profileImage.image, "name" : self.nameTextField.text, "gender" : self.gender, "breed" : self.breedTextField.text, "size" : self.size, "bio" : self.bioTextView.text, "traits" : self.profileTraits, "characteristics" : self.profileCharacteristics])
         
         Api.profiles.uploadProfile(profile: profile1) { error in
-            if error == nil {
-                self.performSegue(withIdentifier: "CP4ToUPSegue", sender: nil)
-            } else {
+            if error != nil {
                 print(error ?? "ERROR")
+                return
             }
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
