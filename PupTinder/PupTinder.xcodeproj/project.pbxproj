@@ -139,7 +139,6 @@
 				64130055238B5D230071C380 /* Api */,
 				77F6A54F23981DE300F2BADB /* createProfileViews */,
 				77F6A55123981E8A00F2BADB /* loginSignUp */,
-				77F6A55023981E3000F2BADB /* userProfiles */,
 				934AAA742377DE9A0007EBAA /* GoogleService-Info.plist */,
 				77D80D91237784A00043254B /* LaunchScreen.storyboard */,
 				77D80D862377849B0043254B /* AppDelegate.swift */,
@@ -151,6 +150,9 @@
 				9342197F23965D3D00D21361 /* matchCollectionViewCell.swift */,
 				77687126239464FB009E29CA /* MessageView.swift */,
 				77A2F2AF238782F000B5D963 /* Home.swift */,
+				518DDE8B237E61DD0060FDAA /* UserProfile.swift */,
+				778A33622396E21700C71D5E /* OtherUserProfile.swift */,
+				5147C7AE238A050F0074D017 /* EditProfileViewController.swift */,
 				77F6A557239831C100F2BADB /* UIImage+Gif.swift */,
 				77F6A55B2398376800F2BADB /* dog_load2.gif */,
 				77F6A5592398352F00F2BADB /* sending.gif */,
@@ -169,16 +171,6 @@
 				51A009BC237D195F00719C27 /* CustomCheckedTableViewCell.swift */,
 			);
 			path = createProfileViews;
-			sourceTree = "<group>";
-		};
-		77F6A55023981E3000F2BADB /* userProfiles */ = {
-			isa = PBXGroup;
-			children = (
-				518DDE8B237E61DD0060FDAA /* UserProfile.swift */,
-				778A33622396E21700C71D5E /* OtherUserProfile.swift */,
-				5147C7AE238A050F0074D017 /* EditProfileViewController.swift */,
-			);
-			path = userProfiles;
 			sourceTree = "<group>";
 		};
 		77F6A55123981E8A00F2BADB /* loginSignUp */ = {
