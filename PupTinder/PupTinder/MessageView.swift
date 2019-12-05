@@ -17,10 +17,7 @@ struct MessageKitMessage: MessageType {
 }
 
 class MessageView: MessagesViewController, MessagesDataSource, MessagesLayoutDelegate, MessagesDisplayDelegate, MessageInputBarDelegate, NewMessageChecker {
-    
-    // Pass this into MessageView was seguing in so that it knows who you're in conversation with
-    let conversationPartnerUid: String? = "ROKKZ2Dlr2c2rF8on5HlJszNd112"
-    
+        
     // Other data to keep track of in the view
     var conversationPartnerProfile: Profile? = nil
     var myProfile: Profile? = nil
@@ -28,6 +25,13 @@ class MessageView: MessagesViewController, MessagesDataSource, MessagesLayoutDel
      
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        messagesCollectionView.messagesDataSource = self
+        messagesCollectionView.messagesLayoutDelegate = self
+        messagesCollectionView.messagesDisplayDelegate = self
+        messageInputBar.delegate = self
+        Api.messages.delegate = self
+                
         self.setUpHeader()
         self.becomeFirstResponder()
     }
@@ -35,27 +39,12 @@ class MessageView: MessagesViewController, MessagesDataSource, MessagesLayoutDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        messagesCollectionView.messagesDataSource = self
-        messagesCollectionView.messagesLayoutDelegate = self
-        messagesCollectionView.messagesDisplayDelegate = self
-        messageInputBar.delegate = self
-        Api.messages.delegate = self
-        
-        guard let conversationPartnerUid = conversationPartnerUid else {
-            print("Message View was not passed a Conversation Partner")
+        guard let conversationPartnerProfile = conversationPartnerProfile else {
+            print("Message View was not passed a Conversation Partner Profile")
             return
         }
         
         let dispatchGroup = DispatchGroup()
-        dispatchGroup.enter()
-        Api.profiles.getProfileOf(uid: conversationPartnerUid) { profile, error in
-            if let error = error {
-                print(error)
-            } else {
-                self.conversationPartnerProfile = profile
-            }
-            dispatchGroup.leave()
-        }
         dispatchGroup.enter()
         Api.profiles.getProfile { profile, error in
             if let error = error {
@@ -66,9 +55,9 @@ class MessageView: MessagesViewController, MessagesDataSource, MessagesLayoutDel
             dispatchGroup.leave()
         }
         
-        // Once we've gotten both our profile and the other user's profile, we can start getting messages!
+        // Once we've gotten both our profile, we can start getting messages!
         dispatchGroup.notify(queue: DispatchQueue.main, execute: {
-            Api.messages.startGettingMessages(with: conversationPartnerUid) { error in
+            Api.messages.startGettingMessages(with: conversationPartnerProfile.uid) { error in
                 if let error = error {
                     print(error)
                     return
@@ -79,10 +68,10 @@ class MessageView: MessagesViewController, MessagesDataSource, MessagesLayoutDel
     
     func setUpHeader() {
         let viewWidth = self.view.frame.size.width
-        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: viewWidth, height: 80))
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: viewWidth, height: 85))
         let backButton = UIButton(type: UIButton.ButtonType.system) as UIButton
         let xPostion:CGFloat = 5
-        let yPostion:CGFloat = 30
+        let yPostion:CGFloat = 35
         let buttonWidth:CGFloat = 90
         let buttonHeight:CGFloat = 50
         let purple = UIColor(red: 130.0/255.0, green: 94.0/255.0, blue: 246.0/255.0, alpha: 1)
@@ -96,7 +85,7 @@ class MessageView: MessagesViewController, MessagesDataSource, MessagesLayoutDel
         backButton.addTarget(self, action: #selector(MessageView.buttonAction(_:)), for: .touchUpInside)
         
         let descLabel = UILabel(frame: CGRect(x: 5, y: 20, width: headerView.frame.size.width , height: headerView.frame.size.height - 10))
-        descLabel.text = "Cinderella"
+        descLabel.text = conversationPartnerProfile?.name
         descLabel.textColor = .white
         descLabel.font = descLabel.font.withSize(25)
         descLabel.textAlignment = .center
@@ -181,8 +170,8 @@ class MessageView: MessagesViewController, MessagesDataSource, MessagesLayoutDel
     
     // MARK: Implementation for MessageInputBarDelegate
     func inputBar(_ inputBar: MessageInputBar, didPressSendButtonWith text: String) {
-        guard let conversationPartnerUid = conversationPartnerUid else { print("error"); return }
-        Api.messages.sendMessage(text: text, to: conversationPartnerUid) { error in
+        guard let conversationPartnerProfile = conversationPartnerProfile else { print("error"); return }
+        Api.messages.sendMessage(text: text, to: conversationPartnerProfile.uid) { error in
             if let error = error {
                 print(error)
             }

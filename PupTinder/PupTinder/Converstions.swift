@@ -14,7 +14,7 @@ class Converstions: UIViewController, UICollectionViewDelegate, UICollectionView
     
     var profilesArray: [Profile] = []
     var conversationPartnersArray: [Profile] = []
-    
+    var recentTextArray: [String] = ["Let's meet at 3 in Downtown Davis!", "I'd love to go on a play date", "See you soon :)"]
     override func viewDidLoad() {
         super.viewDidLoad()
         self.matchesCollection.delegate = self
@@ -89,6 +89,7 @@ class Converstions: UIViewController, UICollectionViewDelegate, UICollectionView
         cell.convoPic.contentMode = .scaleAspectFill
         cell.convoNameLabel.text = self.conversationPartnersArray[indexPath.item].name
         cell.convoPic.image = self.conversationPartnersArray[indexPath.item].picture
+        cell.convoMessageLabel.text = self.recentTextArray[indexPath.row]
         return cell
     }
     
@@ -96,6 +97,7 @@ class Converstions: UIViewController, UICollectionViewDelegate, UICollectionView
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let messageVC = storyboard.instantiateViewController(withIdentifier: "message") as! MessageView
         messageVC.modalPresentationStyle = .fullScreen
+        messageVC.conversationPartnerProfile = self.conversationPartnersArray[indexPath.item]
         self.present(messageVC, animated: false, completion: nil)
     }
 
