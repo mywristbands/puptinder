@@ -96,6 +96,7 @@ class Converstions: UIViewController, UICollectionViewDelegate, UICollectionView
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let messageVC = storyboard.instantiateViewController(withIdentifier: "message") as! MessageView
         messageVC.modalPresentationStyle = .fullScreen
+        messageVC.conversationPartnerProfile = self.conversationPartnersArray[indexPath.item]
         self.present(messageVC, animated: false, completion: nil)
     }
 
