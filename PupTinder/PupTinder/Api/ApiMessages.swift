@@ -13,6 +13,7 @@ struct Message {   // TODO: might need to modify this to conform to MessageKit
     var sender: String // the sender's uid
     var text: String
     var timestamp: Timestamp
+    var id: String
 }
 // For initializing a Message with data from firestore
 extension Message {
@@ -20,6 +21,7 @@ extension Message {
         sender = data["sender"] as? String ?? ""
         text = data["text"] as? String ?? ""
         timestamp = data["timestamp"] as? Timestamp ?? Timestamp()
+        id = data["id"] as? String ?? ""
     }
 }
 
@@ -135,7 +137,8 @@ class Messages: ApiShared {
                 // Upon new message added by other user, notify app about the change.
                 querySnapshot.documentChanges.forEach { diff in
                     if (diff.type == .added) {
-                        let newMessage = diff.document.data()
+                        var newMessage = diff.document.data()
+                        newMessage["id"] = diff.document.documentID
                         self.delegate?.onReceivedNewMessage(Message(data: newMessage))
                     }
                 }
