@@ -1075,6 +1075,13 @@
                                     <action selector="homeButtonPressed:" destination="oxI-w0-7S7" eventType="touchUpInside" id="M8X-ff-LZf"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ETt-Cf-IMK">
+                                <rect key="frame" x="16" y="99" width="343" height="436"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ETt-Cf-IMK" secondAttribute="height" multiplier="49:58" constant="-25.344827586206918" id="tGD-aL-7rH"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -1084,12 +1091,15 @@
                             <constraint firstItem="0B4-T7-hiL" firstAttribute="trailing" secondItem="brb-ft-LwY" secondAttribute="trailing" constant="16" id="5up-Px-w2j"/>
                             <constraint firstItem="e1k-ax-3DC" firstAttribute="leading" secondItem="0B4-T7-hiL" secondAttribute="leading" constant="16" id="Bry-lK-2U5"/>
                             <constraint firstItem="brb-ft-LwY" firstAttribute="leading" secondItem="0B4-T7-hiL" secondAttribute="leading" constant="16" id="ErD-jo-sng"/>
+                            <constraint firstItem="0B4-T7-hiL" firstAttribute="trailing" secondItem="ETt-Cf-IMK" secondAttribute="trailing" constant="16" id="JR2-jZ-wpa"/>
                             <constraint firstItem="0B4-T7-hiL" firstAttribute="bottom" secondItem="jmq-9m-d1W" secondAttribute="bottom" constant="37" id="Kmp-3Q-HFc"/>
                             <constraint firstItem="jmq-9m-d1W" firstAttribute="leading" secondItem="0B4-T7-hiL" secondAttribute="leading" constant="16" id="NCz-IA-nR1"/>
                             <constraint firstItem="CKY-Xy-QHE" firstAttribute="top" secondItem="e1k-ax-3DC" secondAttribute="bottom" constant="8" id="SsM-HH-aWY"/>
+                            <constraint firstItem="ETt-Cf-IMK" firstAttribute="leading" secondItem="0B4-T7-hiL" secondAttribute="leading" constant="16" id="TNe-Lb-9RP"/>
                             <constraint firstItem="cni-te-BVr" firstAttribute="leading" secondItem="0B4-T7-hiL" secondAttribute="leading" constant="16" id="YNE-nR-ESx"/>
                             <constraint firstItem="0B4-T7-hiL" firstAttribute="trailing" secondItem="jmq-9m-d1W" secondAttribute="trailing" constant="16" id="h9y-c8-T9E"/>
                             <constraint firstItem="brb-ft-LwY" firstAttribute="top" secondItem="CKY-Xy-QHE" secondAttribute="bottom" constant="23" id="nUu-QP-sCD"/>
+                            <constraint firstItem="0B4-T7-hiL" firstAttribute="bottom" secondItem="ETt-Cf-IMK" secondAttribute="bottom" constant="132" id="pJa-k2-y5T"/>
                             <constraint firstItem="CKY-Xy-QHE" firstAttribute="leading" secondItem="0B4-T7-hiL" secondAttribute="leading" constant="16" id="qOE-bY-GJ5"/>
                             <constraint firstItem="jmq-9m-d1W" firstAttribute="top" secondItem="brb-ft-LwY" secondAttribute="bottom" constant="8" id="qPd-YU-BXz"/>
                             <constraint firstItem="cni-te-BVr" firstAttribute="top" secondItem="0B4-T7-hiL" secondAttribute="top" constant="12" id="zlN-9X-RsQ"/>
@@ -1099,6 +1109,7 @@
                     <navigationItem key="navigationItem" id="iwz-FC-bE4"/>
                     <connections>
                         <outlet property="conversationsTV" destination="jmq-9m-d1W" id="Nt2-xO-Scn"/>
+                        <outlet property="loadingImage" destination="ETt-Cf-IMK" id="liy-ll-UiX"/>
                         <outlet property="matchesCollection" destination="CKY-Xy-QHE" id="oGW-CW-END"/>
                     </connections>
                 </viewController>

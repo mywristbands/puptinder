@@ -11,11 +11,14 @@ import UIKit
 class Converstions: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var matchesCollection: UICollectionView!
     @IBOutlet weak var conversationsTV: UITableView!
+    @IBOutlet weak var loadingImage: UIImageView!
     
     var profilesArray: [Profile] = []
     var conversationPartnersArray: [Profile] = []
     var recentTextArray: [String] = ["Let's meet at 3 in Downtown Davis!", "I'd love to go on a play date", "See you soon :)"]
     override func viewDidLoad() {
+        loadingImage.isHidden = false
+        loadingImage.loadGif(name: "sending")
         super.viewDidLoad()
         self.matchesCollection.delegate = self
         self.matchesCollection.dataSource = self
@@ -52,6 +55,7 @@ class Converstions: UIViewController, UICollectionViewDelegate, UICollectionView
         dispatchGroup.notify(queue: DispatchQueue.main, execute: {
             self.matchesCollection.reloadData()
             self.conversationsTV.reloadData()
+            self.loadingImage.isHidden = true
         })
         
         
