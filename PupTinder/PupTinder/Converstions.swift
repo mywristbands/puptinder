@@ -86,6 +86,7 @@ class Converstions: UIViewController, UICollectionViewDelegate, UICollectionView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "conversationCell", for: indexPath as IndexPath) as! ConvoTableViewCell
         cell.selectionStyle = UITableViewCell.SelectionStyle.none
+        cell.convoPic.contentMode = .scaleAspectFill
         cell.convoNameLabel.text = self.conversationPartnersArray[indexPath.item].name
         cell.convoPic.image = self.conversationPartnersArray[indexPath.item].picture
         return cell
@@ -96,7 +97,6 @@ class Converstions: UIViewController, UICollectionViewDelegate, UICollectionView
         let messageVC = storyboard.instantiateViewController(withIdentifier: "message") as! MessageView
         messageVC.modalPresentationStyle = .fullScreen
         self.present(messageVC, animated: false, completion: nil)
-        //self.navigationController?.pushViewController(messageVC, animated: true)
     }
 
 }

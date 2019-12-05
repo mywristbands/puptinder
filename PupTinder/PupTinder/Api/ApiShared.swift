@@ -19,4 +19,11 @@ class ApiShared {
         }
         return uid
     }
+    static func getUID() -> String {
+        guard let uid =  Auth.auth().currentUser?.uid else {
+            print("Couldn't get user's uid")
+            return ""
+        }
+        return uid
+    }
 }
