@@ -32,6 +32,10 @@ class CreateProfile2: UIViewController, UITextViewDelegate {
         textView.text = ""
     }
     
+    @IBAction func dismissKeyboard(_ sender: Any) {
+        self.view.endEditing(true)
+    }
+    
     @IBAction func continueButtonPressed(_ sender: Any) {
         self.bio = self.bioTextView.text
         if(shouldPerformSegue(withIdentifier: "CP2ToCP3Segue", sender: nil)) {

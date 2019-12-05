@@ -20,6 +20,10 @@ class Login: UIViewController, NewMessageChecker {
         Api.messages.delegate = self
     }
     
+    @IBAction func dismissKeyboard(_ sender: Any) {
+        self.view.endEditing(true)
+    }
+    
     @IBAction func loginPressed() {
         guard let email = emailField.text, let password = passwordField.text else {
             return

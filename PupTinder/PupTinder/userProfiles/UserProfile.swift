@@ -22,6 +22,10 @@ class UserProfile: UIViewController, UICollectionViewDelegate, UICollectionViewD
     @IBOutlet weak var bioTextView: UITextView!
     @IBOutlet weak var characteristicsCV: UICollectionView!
     @IBOutlet weak var personalityCV: UICollectionView!
+    @IBOutlet weak var settingsView: UIView!
+    @IBOutlet weak var settingsButton: UIButton!
+    @IBOutlet weak var logoutButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
     
     var characteristics:[String] = ["Hypoallergenic", "Sheds a lot", "Kid friendly", "Drool potential", "Barks a lot"]
     var personalityTraits:[String] = ["Friendly", "Shy", "Calm", "Submissive", "Dominant", "Energetic", "Playful", "Grumpy", "Fun-loving", "Affectionate", "Intelligent", "Inquisitive", "Fearless"]
@@ -40,6 +44,10 @@ class UserProfile: UIViewController, UICollectionViewDelegate, UICollectionViewD
         self.characteristicsCV.dataSource = self
         self.personalityCV.delegate = self
         self.personalityCV.dataSource = self
+        
+        settingsView.isHidden = true
+        settingsView.isUserInteractionEnabled = false
+        settingsView.layer.cornerRadius = 10
         
         setProfileImageStyle()
 
@@ -173,6 +181,20 @@ class UserProfile: UIViewController, UICollectionViewDelegate, UICollectionViewD
         self.backgroundImage.layer.insertSublayer(gradientLayer, at: 0)
     }
     
+    @IBAction func settingsPressed(_ sender: Any) {
+        settingsView.isHidden = false
+        settingsView.isUserInteractionEnabled = true
+    }
+    
+    @IBAction func logoutPressed(_ sender: Any) {
+        _ = Api.auth.logout()
+    }
+    
+    @IBAction func cancelPressed(_ sender: Any) {
+        settingsView.isHidden = true
+        settingsView.isUserInteractionEnabled = false
+    }
+    
     func getCharacteristicImage(indexPath: IndexPath) -> UIImage {
         var image = UIImage()
         switch(self.profileCharacteristics[indexPath.row]) {
@@ -255,8 +277,6 @@ class UserProfile: UIViewController, UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        //let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath as IndexPath) as! CustomCell
-        
         if collectionView == self.characteristicsCV {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath as IndexPath) as! CustomCell
             cell.img.image = getCharacteristicImage(indexPath: indexPath)
@@ -266,17 +286,9 @@ class UserProfile: UIViewController, UICollectionViewDelegate, UICollectionViewD
             cell1.img.image = getPersonalityImage(indexPath: indexPath)
             return cell1
         }
-        
-        //return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        /*if collectionView == self.characteristicsCV {
-            return CGSize(width: 70.0, height: 70.0)
-        } else {
-            return CGSize(width: 50.0, height: 50.0)
-        }*/
-        
         return CGSize(width: 70.0, height: 70.0)
     }
     
