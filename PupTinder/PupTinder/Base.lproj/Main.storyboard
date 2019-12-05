@@ -158,7 +158,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-tail" translatesAutoresizingMaskIntoConstraints="NO" id="Xgg-o6-1yJ">
-                                <rect key="frame" x="67.5" y="438" width="240" height="128"/>
+                                <rect key="frame" x="67.499999999999986" y="438" width="240.00000000000003" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="ar4-zH-l5m"/>
                                     <constraint firstAttribute="width" constant="240" id="u8X-bE-8MY"/>
@@ -1113,7 +1113,7 @@
                     <view key="view" contentMode="scaleToFill" id="YRK-D7-aFb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="Gcw-Ls-rWv"/>
                     </view>
                 </viewController>
@@ -1610,7 +1610,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-tail" translatesAutoresizingMaskIntoConstraints="NO" id="ODs-Ba-dIy">
-                                <rect key="frame" x="119.5" y="547" width="136" height="120"/>
+                                <rect key="frame" x="119.49999999999999" y="547" width="136.00000000000003" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ODs-Ba-dIy" secondAttribute="height" multiplier="17:15" id="84L-Ch-wp1"/>
                                     <constraint firstAttribute="height" constant="120" id="zqk-43-4dC"/>
@@ -2000,11 +2000,12 @@
         <image name="save" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="dus-7s-e3E"/>
         <segue reference="QyH-0W-NrC"/>
         <segue reference="AfV-Mv-uGP"/>
         <segue reference="iGg-WX-fob"/>
         <segue reference="YLX-GS-Xx9"/>
         <segue reference="49r-10-922"/>
-        <segue reference="SY8-1J-e89"/>
+        <segue reference="gjH-Bn-cMg"/>
     </inferredMetricsTieBreakers>
 </document>
