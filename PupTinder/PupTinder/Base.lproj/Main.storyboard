@@ -1035,7 +1035,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="CKY-Xy-QHE">
-                                <rect key="frame" x="16" y="84.5" width="343" height="128"/>
+                                <rect key="frame" x="16" y="128.5" width="343" height="128"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="0ci-WM-v7r"/>
@@ -1080,7 +1080,7 @@
                                 </connections>
                             </collectionView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jmq-9m-d1W">
-                                <rect key="frame" x="16" y="265" width="343" height="365"/>
+                                <rect key="frame" x="16" y="309" width="343" height="321"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="conversationCell" id="iqc-lK-ZEt" customClass="ConvoTableViewCell" customModule="PupTinder" customModuleProvider="target">
@@ -1122,19 +1122,19 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   Messages" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="brb-ft-LwY">
-                                <rect key="frame" x="16" y="235.5" width="343" height="21.5"/>
+                                <rect key="frame" x="16" y="279.5" width="343" height="21.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <color key="textColor" red="0.5684436007" green="0.26441649410000001" blue="0.71585573189999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   Matches" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e1k-ax-3DC">
-                                <rect key="frame" x="16" y="55.5" width="343" height="21"/>
+                                <rect key="frame" x="16" y="99.5" width="343" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <color key="textColor" red="0.5684436007" green="0.26441649410000001" blue="0.71585573189999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cni-te-BVr">
-                                <rect key="frame" x="16" y="12" width="38" height="35"/>
+                                <rect key="frame" x="16" y="56" width="38" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="Fne-Za-D7t"/>
                                     <constraint firstAttribute="width" constant="38" id="hAS-mZ-hJP"/>
@@ -1165,6 +1165,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0B4-T7-hiL"/>
                     </view>
+                    <navigationItem key="navigationItem" id="iwz-FC-bE4"/>
                     <connections>
                         <outlet property="conversationsTV" destination="jmq-9m-d1W" id="Nt2-xO-Scn"/>
                         <outlet property="matchesCollection" destination="CKY-Xy-QHE" id="oGW-CW-END"/>
@@ -1172,7 +1173,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cqU-eY-7y9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1192.8" y="1810.344827586207"/>
+            <point key="canvasLocation" x="2132" y="1810.344827586207"/>
         </scene>
         <!--Message View-->
         <scene sceneID="2hh-5C-H37">
@@ -1196,7 +1197,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="650-KR-gbW" firstAttribute="centerY" secondItem="YRK-D7-aFb" secondAttribute="centerY" id="Cgk-5T-OPu"/>
                             <constraint firstItem="OEG-xR-KYT" firstAttribute="top" secondItem="Gcw-Ls-rWv" secondAttribute="top" constant="20" id="FjP-1Z-td6"/>
@@ -1208,7 +1209,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D8c-DM-xdG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1984.8" y="1809.4452773613195"/>
+            <point key="canvasLocation" x="2924" y="1809.4452773613195"/>
         </scene>
         <!--Other User Profile-->
         <scene sceneID="jdE-tK-Nd4">
@@ -1955,7 +1956,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-tail" translatesAutoresizingMaskIntoConstraints="NO" id="ODs-Ba-dIy">
-                                <rect key="frame" x="119.5" y="547" width="136" height="120"/>
+                                <rect key="frame" x="119.49999999999999" y="547" width="136.00000000000003" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ODs-Ba-dIy" secondAttribute="height" multiplier="17:15" id="84L-Ch-wp1"/>
                                     <constraint firstAttribute="height" constant="120" id="zqk-43-4dC"/>
@@ -2184,7 +2185,7 @@
                                     <constraint firstAttribute="height" constant="20.5" id="w7e-8R-Wmf"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" systemColor="systemPinkColor" red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BCg-pH-10K">
@@ -2302,6 +2303,24 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1192.8" y="309.89505247376314"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="EdO-wF-FXi">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="d8N-ar-r1p" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Pu3-jX-K1i">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="oxI-w0-7S7" kind="relationship" relationship="rootViewController" id="X79-Ig-FQ4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Aol-y9-zPq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1192.8" y="1810.344827586207"/>
         </scene>
     </scenes>
     <resources>

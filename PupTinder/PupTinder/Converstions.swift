@@ -96,6 +96,7 @@ class Converstions: UIViewController, UICollectionViewDelegate, UICollectionView
         let messageVC = storyboard.instantiateViewController(withIdentifier: "message") as! MessageView
         messageVC.modalPresentationStyle = .fullScreen
         self.present(messageVC, animated: false, completion: nil)
+        //self.navigationController?.pushViewController(messageVC, animated: true)
     }
 
 }

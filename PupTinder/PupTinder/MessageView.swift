@@ -26,7 +26,12 @@ class MessageView: MessagesViewController, MessagesDataSource, MessagesLayoutDel
     var myProfile: Profile? = nil
     var currSender: Sender? = nil
     var messages: [MessageKitMessage] = []
-        
+     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.becomeFirstResponder()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
