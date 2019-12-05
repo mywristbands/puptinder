@@ -215,6 +215,18 @@ class UserProfile: UIViewController, UICollectionViewDelegate, UICollectionViewD
     @IBAction func settingsPressed(_ sender: Any) {
         settingsView.isHidden = false
         settingsView.isUserInteractionEnabled = true
+        
+        settingsView.center = view.center
+        settingsView.alpha = 1
+        settingsView.transform = CGAffineTransform(scaleX: 0.8, y: 1.2)
+
+        //self.view.addSubview(popupView)
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: [],  animations: {
+        //use if you want to darken the background
+          //self.viewDim.alpha = 0.8
+          //go back to original form
+          self.settingsView.transform = .identity
+        })
     }
     
     @IBAction func logoutPressed(_ sender: Any) {
