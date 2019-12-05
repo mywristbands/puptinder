@@ -63,9 +63,9 @@ class CreateProfile3: UIViewController, UITableViewDataSource, UITableViewDelega
         let characteristic = String(format: "%@", self.characteristics[indexPath.row])
         cell.textLabel?.text = "\(characteristic)"
         
-        if(cell.imageView?.image != UIImage(named: "checked"))
+        if(cell.imageView?.image != UIImage(named: "checked1"))
         {
-            cell.imageView?.image = UIImage(named: "unchecked")
+            cell.imageView?.image = UIImage(named: "unchecked2")
         }
         
         cell.isUserInteractionEnabled = true
@@ -74,19 +74,19 @@ class CreateProfile3: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
-        if(cell?.imageView?.image ?? UIImage() == UIImage(named:"unchecked")) {
-            cell?.imageView?.image = UIImage(named:"checked") ?? UIImage()
+        if(cell?.imageView?.image ?? UIImage() == UIImage(named:"unchecked2")) {
+            cell?.imageView?.image = UIImage(named:"checked1") ?? UIImage()
         } else {
-            cell?.imageView?.image = UIImage(named:"unchecked") ?? UIImage()
+            cell?.imageView?.image = UIImage(named:"unchecked2") ?? UIImage()
         }
     }
     
     func tableView(_ tableView: UITableView, willDeselectRowAt indexPath: IndexPath) -> IndexPath? {
         let cell = tableView.cellForRow(at: indexPath)
-        if(cell?.imageView?.image ?? UIImage() == UIImage(named:"unchecked")) {
-            cell?.imageView?.image = UIImage(named:"checked") ?? UIImage()
+        if(cell?.imageView?.image ?? UIImage() == UIImage(named:"unchecked2")) {
+            cell?.imageView?.image = UIImage(named:"checked1") ?? UIImage()
         } else {
-            cell?.imageView?.image = UIImage(named:"unchecked") ?? UIImage()
+            cell?.imageView?.image = UIImage(named:"unchecked2") ?? UIImage()
         }
         
         return indexPath
