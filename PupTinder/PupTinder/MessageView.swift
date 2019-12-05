@@ -29,6 +29,7 @@ class MessageView: MessagesViewController, MessagesDataSource, MessagesLayoutDel
      
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        self.setUpHeader()
         self.becomeFirstResponder()
     }
     
@@ -77,7 +78,43 @@ class MessageView: MessagesViewController, MessagesDataSource, MessagesLayoutDel
         })
     }
     
-    @IBAction func backButtonPressed(_ sender: Any) {
+    func setUpHeader() {
+        let viewWidth = self.view.frame.size.width
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: viewWidth, height: 80))
+        let backButton = UIButton(type: UIButton.ButtonType.system) as UIButton
+        let xPostion:CGFloat = 5
+        let yPostion:CGFloat = 30
+        let buttonWidth:CGFloat = 90
+        let buttonHeight:CGFloat = 50
+        let purple = UIColor(red: 130.0/255.0, green: 94.0/255.0, blue: 246.0/255.0, alpha: 1)
+        
+        backButton.frame = CGRect(x:xPostion, y:yPostion, width:buttonWidth, height:buttonHeight)
+        
+        backButton.backgroundColor = purple
+        backButton.setTitle("Back", for: UIControl.State.normal)
+        backButton.titleLabel?.font = backButton.titleLabel?.font.withSize(18)
+        backButton.setTitleColor(UIColor.white, for: .normal)
+        backButton.addTarget(self, action: #selector(MessageView.buttonAction(_:)), for: .touchUpInside)
+        
+        let descLabel = UILabel(frame: CGRect(x: 5, y: 20, width: headerView.frame.size.width , height: headerView.frame.size.height - 10))
+        descLabel.text = "Cinderella"
+        descLabel.textColor = .white
+        descLabel.font = descLabel.font.withSize(25)
+        descLabel.textAlignment = .center
+        
+        headerView.backgroundColor = purple
+        headerView.addSubview(descLabel)
+        headerView.addSubview(backButton)
+        self.view.addSubview(headerView)
+    }
+    
+    @objc func buttonAction(_ sender:UIButton!) {
+        Api.messages.stopGettingMessages { error in
+            if let error = error {
+                print(error)
+                return
+            }
+        }
         self.dismiss(animated: false, completion: nil)
     }
     
