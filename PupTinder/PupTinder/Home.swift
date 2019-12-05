@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class Home: UIViewController {
     
@@ -20,6 +21,7 @@ class Home: UIViewController {
     @IBOutlet weak var LoveButton: UIButton!
     
     var uid = ""
+    let myUid = Auth.auth().currentUser?.uid
 
     override func viewDidLoad() {
         gifView.loadGif(name: "dog_load2")
@@ -49,20 +51,7 @@ class Home: UIViewController {
     @IBAction func xButton(_ sender: UIButton) {
         disableButtons()
         dogProfileImage.isHidden = true
-        Api.matches.getPotentialMatch(){ matchProfile, error in
-            if(error != nil){
-                print(error ?? "")
-                self.dogProfileImage.isHidden = false
-                self.enableButtons()
-                return
-            }
-            self.dogName.text = matchProfile?.name
-            self.dogProfileImage.image = matchProfile?.picture
-            self.dogProfileImage.isHidden = false
-            self.breed.text = matchProfile?.breed
-            self.uid = matchProfile?.uid ?? ""
-            self.enableButtons()
-        }
+        makeMatchApiCall()
     }
     
     @IBAction func loveButton(_ sender: UIButton) {
@@ -74,19 +63,7 @@ class Home: UIViewController {
                 return
             }
         }
-        Api.matches.getPotentialMatch(){ matchProfile, error in
-            if(error != nil){
-                self.dogProfileImage.isHidden = false
-                self.enableButtons()
-                return
-            }
-            self.dogName.text = matchProfile?.name
-            self.dogProfileImage.image = matchProfile?.picture
-            self.dogProfileImage.isHidden = false
-            self.breed.text = matchProfile?.breed
-            self.uid = matchProfile?.uid ?? ""
-            self.enableButtons()
-        }
+        makeMatchApiCall()
     }
     
     @IBAction func messagesButton(_ sender: UIButton) {
@@ -116,6 +93,22 @@ class Home: UIViewController {
         selectProfile.isEnabled = true
         XButton.isEnabled = true
         LoveButton.isEnabled = true
+    }
+    
+    func makeMatchApiCall() {
+      Api.matches.getPotentialMatch(){ matchProfile, error in
+          if(error != nil){
+              self.dogProfileImage.isHidden = false
+              self.enableButtons()
+              return
+          }
+          self.dogName.text = matchProfile?.name
+          self.dogProfileImage.image = matchProfile?.picture
+          self.dogProfileImage.isHidden = false
+          self.breed.text = matchProfile?.breed
+          self.uid = matchProfile?.uid ?? ""
+          self.enableButtons()
+      }
     }
     
 }
