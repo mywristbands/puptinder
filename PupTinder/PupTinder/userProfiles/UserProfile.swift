@@ -62,7 +62,7 @@ class UserProfile: UIViewController, UICollectionViewDelegate, UICollectionViewD
                 self.profileCharacteristics = profile?.characteristics ?? []
                 self.profileTraits = profile?.traits ?? []
                 self.characteristicsCV.register(CustomCell.self, forCellWithReuseIdentifier: "cell")
-                self.personalityCV.register(CustomCell.self, forCellWithReuseIdentifier: "cell")
+                self.personalityCV.register(CustomCell.self, forCellWithReuseIdentifier: "cell1")
                 self.characteristicsCV.reloadData()
                 self.personalityCV.reloadData()
             } else {
@@ -255,18 +255,28 @@ class UserProfile: UIViewController, UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath as IndexPath) as! CustomCell
+        //let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath as IndexPath) as! CustomCell
         
         if collectionView == self.characteristicsCV {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath as IndexPath) as! CustomCell
             cell.img.image = getCharacteristicImage(indexPath: indexPath)
+             return cell
         } else {
-            cell.img.image = getPersonalityImage(indexPath: indexPath)
+            let cell1 = collectionView.dequeueReusableCell(withReuseIdentifier: "cell1", for: indexPath as IndexPath) as! CustomCell
+            cell1.img.image = getPersonalityImage(indexPath: indexPath)
+            return cell1
         }
         
-        return cell
+        //return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        /*if collectionView == self.characteristicsCV {
+            return CGSize(width: 70.0, height: 70.0)
+        } else {
+            return CGSize(width: 50.0, height: 50.0)
+        }*/
+        
         return CGSize(width: 70.0, height: 70.0)
     }
     
@@ -275,7 +285,6 @@ class UserProfile: UIViewController, UICollectionViewDelegate, UICollectionViewD
 class CustomCell: UICollectionViewCell {
     fileprivate let img: UIImageView = {
         let iv = UIImageView()
-        //iv.image = UIImage(named: "dog-icon") ?? UIImage()
         iv.translatesAutoresizingMaskIntoConstraints = false
         iv.contentMode = .scaleAspectFit
         iv.clipsToBounds = true
