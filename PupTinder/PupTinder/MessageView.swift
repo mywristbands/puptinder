@@ -24,7 +24,6 @@ class MessageView: MessagesViewController, MessagesDataSource, MessagesLayoutDel
     // Other data to keep track of in the view
     var conversationPartnerProfile: Profile? = nil
     var myProfile: Profile? = nil
-    var currSender: Sender? = nil
     var messages: [MessageKitMessage] = []
      
     override func viewDidAppear(_ animated: Bool) {
@@ -120,7 +119,7 @@ class MessageView: MessagesViewController, MessagesDataSource, MessagesLayoutDel
     
     func isFromMe(message: MessageType) -> Bool {
         guard let myProfile = myProfile else {print("profileUnwrapError"); return false}
-        return myProfile.uid == message.messageId
+        return myProfile.uid == message.sender.senderId
     }
     
     func onReceivedNewMessage(_ message: Message) {
@@ -130,11 +129,10 @@ class MessageView: MessagesViewController, MessagesDataSource, MessagesLayoutDel
         
         // Form Sender object
         let senderName = myProfile.uid == message.sender ? myProfile.name : conversationPartnerProfile.name
-        currSender = Sender(senderId: message.sender, displayName: senderName)
-        guard let currSender = currSender else {print("currSenderUnwrapError"); return}
+        let sender = Sender(senderId: message.sender, displayName: senderName)
         
         // Insert message in message collection view and display it
-        let messageKitMessage = MessageKitMessage(sender: currSender, messageId: message.id, sentDate: message.timestamp.dateValue(), kind: .text(message.text))
+        let messageKitMessage = MessageKitMessage(sender: sender, messageId: message.id, sentDate: message.timestamp.dateValue(), kind: .text(message.text))
         messages.append(messageKitMessage)
                   
         messagesCollectionView.reloadData()
@@ -146,9 +144,11 @@ class MessageView: MessagesViewController, MessagesDataSource, MessagesLayoutDel
     
     // MARK: Implementation for MessagesDataSourceProtocol
     func currentSender() -> SenderType {
-        return currSender ?? Sender(senderId: "", displayName: "default")
+        guard let myProfile = myProfile else {return Sender(senderId: Api.getUID(), displayName: "defaultName")}
+        return Sender(senderId: Api.getUID(), displayName: myProfile.name)
     }
     
+    // Finds the message associated with a given indexPath in MessageView
     func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageType {
         return messages[indexPath.section]
     }
@@ -157,31 +157,27 @@ class MessageView: MessagesViewController, MessagesDataSource, MessagesLayoutDel
         return messages.count
     }
     
-    // MARK: Implementation for MessagesLayoutDelegate
-    // We don't want to show the person's profile picture for now, so we'll make it zero big.
-    func avatarSize(for message: MessageType, at indexPath: IndexPath,
-      in messagesCollectionView: MessagesCollectionView) -> CGSize {
-      return .zero
-    }
-    
     // MARK: Implementation for MessagesDisplayDelegate
     // Background color for messages
     func backgroundColor(for message: MessageType, at indexPath: IndexPath,
       in messagesCollectionView: MessagesCollectionView) -> UIColor {
       return isFromMe(message: message) ? .outgoingGreen : .incomingGray
     }
-
-    func shouldDisplayHeader(for message: MessageType, at indexPath: IndexPath,
-      in messagesCollectionView: MessagesCollectionView) -> Bool {
-      return true
-    }
-
+    
     func messageStyle(for message: MessageType, at indexPath: IndexPath,
       in messagesCollectionView: MessagesCollectionView) -> MessageStyle {
 
       let corner: MessageStyle.TailCorner = isFromMe(message: message) ? .bottomRight : .bottomLeft
       return .bubbleTail(corner, .curved)
     }
+    
+    func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
+        
+        guard let myProfile = myProfile, let conversationPartnerProfile = conversationPartnerProfile else {return}
+        let avatarImage = isFromMe(message: message) ? myProfile.picture : conversationPartnerProfile.picture
+        avatarView.set(avatar: Avatar(image: avatarImage))
+    }
+
     
     // MARK: Implementation for MessageInputBarDelegate
     func inputBar(_ inputBar: MessageInputBar, didPressSendButtonWith text: String) {
