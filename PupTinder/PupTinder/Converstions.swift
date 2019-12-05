@@ -27,9 +27,11 @@ class Converstions: UIViewController, UICollectionViewDelegate, UICollectionView
             if let error = error {
                 print("getMatches failed: \(error)")
             } else {
-                guard let profiles = profiles else {return}
+                guard let profiles = profiles else {
+                    dispatchGroup.leave()
+                    return
+                }
                 self.profilesArray = profiles
-                
             }
             dispatchGroup.leave()
         }
@@ -39,9 +41,11 @@ class Converstions: UIViewController, UICollectionViewDelegate, UICollectionView
             if let error = error {
                 print("getMatches failed: \(error)")
             } else {
-                guard let conversationPartners = conversationPartners else {return}
+                guard let conversationPartners = conversationPartners else {
+                    dispatchGroup.leave()
+                    return
+                }
                 self.conversationPartnersArray = conversationPartners
-                
             }
             dispatchGroup.leave()
         }
@@ -64,6 +68,7 @@ class Converstions: UIViewController, UICollectionViewDelegate, UICollectionView
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "match", for: indexPath as IndexPath) as! matchCollectionViewCell
         cell.matchProfileImage.setRounded()
+        cell.matchProfileImage.contentMode = .scaleAspectFill
         cell.matchProfileImage.image = self.profilesArray[indexPath.item].picture
         cell.nameLabel.text = self.profilesArray[indexPath.item].name
         return cell
