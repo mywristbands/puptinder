@@ -79,10 +79,10 @@ class MessageView: MessagesViewController, MessagesDataSource, MessagesLayoutDel
     
     func setUpHeader() {
         let viewWidth = self.view.frame.size.width
-        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: viewWidth, height: 80))
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: viewWidth, height: 85))
         let backButton = UIButton(type: UIButton.ButtonType.system) as UIButton
         let xPostion:CGFloat = 5
-        let yPostion:CGFloat = 30
+        let yPostion:CGFloat = 35
         let buttonWidth:CGFloat = 90
         let buttonHeight:CGFloat = 50
         let purple = UIColor(red: 130.0/255.0, green: 94.0/255.0, blue: 246.0/255.0, alpha: 1)
