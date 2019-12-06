@@ -23,10 +23,11 @@ class Home: UIViewController {
     var uid = ""
     let myUid = Auth.auth().currentUser?.uid
     var viewingOtherProfile = false
+    var wasMessaging = false
 
     override func viewDidLoad() {
         gifView.loadGif(name: "dog_load2")
-        if(viewingOtherProfile){
+        if(viewingOtherProfile && wasMessaging != true){
             Api.profiles.getProfileOf(uid: uid) { matchProfile, error in
                 if(error != nil){
                     print(error ?? "")
@@ -49,6 +50,7 @@ class Home: UIViewController {
         let profileVC = storyboard.instantiateViewController(withIdentifier: "userProfile") as! UserProfile
         profileVC.modalPresentationStyle = .fullScreen
         profileVC.uid = uid
+        profileVC.messaging = false
         self.present(profileVC, animated: true, completion: nil)
     }
     

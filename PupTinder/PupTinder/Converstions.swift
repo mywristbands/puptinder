@@ -76,6 +76,7 @@ class Converstions: UIViewController, UICollectionViewDelegate, UICollectionView
         let profileVC = storyboard.instantiateViewController(withIdentifier: "userProfile") as! UserProfile
         profileVC.modalPresentationStyle = .fullScreen
         profileVC.uid = uid
+        profileVC.messaging = true
         self.present(profileVC, animated: true, completion: nil)
     }
     

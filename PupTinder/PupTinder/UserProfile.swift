@@ -26,6 +26,7 @@ class UserProfile: UIViewController, UICollectionViewDelegate, UICollectionViewD
     @IBOutlet weak var settingsButton: UIButton!
     @IBOutlet weak var logoutButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var messagesButton: UIButton!
     
     var characteristics:[String] = ["Hypoallergenic", "Sheds a lot", "Kid friendly", "Drool potential", "Barks a lot", "Pudgy", "Hairless", "Fluffy", "Tiny", "Tall"]
     var personalityTraits:[String] = ["Friendly", "Shy", "Calm", "Submissive", "Dominant", "Energetic", "Playful", "Grumpy", "Fun-loving", "Affectionate", "Intelligent", "Inquisitive", "Fearless"]
@@ -34,6 +35,7 @@ class UserProfile: UIViewController, UICollectionViewDelegate, UICollectionViewD
     var profileTraits: [String] = []
     var uid = ""
     var viewingOtherProf = false
+    var messaging = false
     
     let white = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1).cgColor
     let yellow = UIColor(red: 255.0/255.0, green: 213.0/255.0, blue: 72.0/255.0, alpha: 1)
@@ -50,6 +52,12 @@ class UserProfile: UIViewController, UICollectionViewDelegate, UICollectionViewD
         settingsView.isHidden = true
         settingsView.isUserInteractionEnabled = false
         settingsView.layer.cornerRadius = 10
+        
+        if(messaging){
+            messagesButton.isHidden = false
+        } else {
+            messagesButton.isHidden = true
+        }
         
         setProfileImageStyle()
         
@@ -240,8 +248,19 @@ class UserProfile: UIViewController, UICollectionViewDelegate, UICollectionViewD
             homeVC.viewingOtherProfile = true
             homeVC.uid = uid
         }
+        if(messaging){
+            homeVC.wasMessaging = true
+        }
         self.present(homeVC, animated: true, completion: nil)
     }
+    
+    @IBAction func messagesButton(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let conversationsVC = storyboard.instantiateViewController(withIdentifier: "conversations") as! Converstions
+        conversationsVC.modalPresentationStyle = .fullScreen
+        self.present(conversationsVC, animated: true, completion: nil)
+    }
+    
     
     
     @IBAction func logoutPressed(_ sender: Any) {
