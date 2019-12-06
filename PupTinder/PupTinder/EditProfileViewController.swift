@@ -43,7 +43,7 @@ class EditProfileViewController: UIViewController,UICollectionViewDelegate, UICo
         self.personalityCV.delegate = self
         self.personalityCV.dataSource = self
         
-        setProfileImageStyle()
+        //setProfileImageStyle()
 
         Api.profiles.getProfile() { profile, error in
             if error == nil {
@@ -107,9 +107,26 @@ class EditProfileViewController: UIViewController,UICollectionViewDelegate, UICo
     }
     
     @IBAction func genderButton(_ sender: Any) {
+        if(gender == "female"){
+            gender = "male"
+            genderImage.image = UIImage(named: "malePurpleProfile") ?? UIImage()
+        } else {
+            gender = "female"
+            genderImage.image = UIImage(named: "femalePurpleProfile") ?? UIImage()
+        }
     }
     
     @IBAction func sizeButton(_ sender: Any) {
+        if(size == "small"){
+            size = "medium"
+            sizeImage.image = UIImage(named: "mPurpleProfile") ?? UIImage()
+        } else if (size == "medium") {
+            size = "large"
+            sizeImage.image = UIImage(named: "lPurpleProfile") ?? UIImage()
+        } else { //large
+            size = "small"
+            sizeImage.image = UIImage(named: "sPurpleProfile") ?? UIImage()
+        }
     }
     
     
