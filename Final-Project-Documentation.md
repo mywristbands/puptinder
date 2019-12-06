@@ -13,6 +13,7 @@ I also created a javascript function that is run in the cloud called checkForMat
 Finally, I implemented the messagesView (the one where you chat with other people).
 
 ### Hajra Mobashar
+Most of my work involved in implementing the UI for most of the view controllers. I also implemented the usage of a UIimage extension api that lets you use GIFs on image views. These were all the animations that I put into the app to help it flow a lot more cleanly. I also helped make most of the design for the app along with Alannah. Between the two of us we did all the front end and implementation of Api calls (and hooking up the back end to front end) for the view controllers.
 
 
 ** We all contributed to some form of general bug fixing, account creating, and testing. 
