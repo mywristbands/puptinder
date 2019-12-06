@@ -1504,11 +1504,12 @@
                                         </subviews>
                                         <color key="backgroundColor" red="0.9949510694" green="0.84745627639999999" blue="0.1249458864" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="lb0-64-3n1" secondAttribute="height" multiplier="1:1" id="4xL-Ke-Qbp"/>
                                             <constraint firstItem="Xmr-vh-9nT" firstAttribute="leading" secondItem="lb0-64-3n1" secondAttribute="leading" constant="5" id="5Yq-k3-gqp"/>
                                             <constraint firstItem="Xmr-vh-9nT" firstAttribute="top" secondItem="lb0-64-3n1" secondAttribute="top" constant="5" id="8co-SP-nK8"/>
+                                            <constraint firstAttribute="width" constant="135" id="BeS-HO-cDk"/>
                                             <constraint firstAttribute="trailing" secondItem="Xmr-vh-9nT" secondAttribute="trailing" constant="5" id="CpY-Sw-QgJ"/>
                                             <constraint firstAttribute="bottom" secondItem="Xmr-vh-9nT" secondAttribute="bottom" constant="5" id="ILA-eX-84d"/>
+                                            <constraint firstAttribute="height" constant="135" id="L4T-fn-Zv1"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dw2-w3-KQA">
@@ -1524,22 +1525,47 @@
                                             <action selector="editProfilePicture:" destination="ChL-Na-aXF" eventType="touchUpInside" id="1Aa-l2-oLT"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GnO-72-5Mu">
+                                        <rect key="frame" x="173" y="38" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="GnO-72-5Mu" secondAttribute="height" multiplier="1:1" id="Zqu-xW-tzm"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="genderButton:" destination="ChL-Na-aXF" eventType="touchUpInside" id="i5g-vf-K5W"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MDE-1X-ukc">
+                                        <rect key="frame" x="248" y="38" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="MDE-1X-ukc" secondAttribute="height" multiplier="1:1" id="aZ6-QK-Dmz"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="sizeButton:" destination="ChL-Na-aXF" eventType="touchUpInside" id="idN-9Z-mG9"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="4bA-Ni-9wG" firstAttribute="leading" secondItem="YuI-7R-gxf" secondAttribute="trailing" constant="15" id="41a-Gc-9Gn"/>
+                                    <constraint firstItem="R7r-tZ-3fo" firstAttribute="top" secondItem="GnO-72-5Mu" secondAttribute="bottom" constant="7.5" id="4Ue-6d-2i0"/>
+                                    <constraint firstItem="lb0-64-3n1" firstAttribute="top" secondItem="yxB-H5-U1y" secondAttribute="top" id="6EL-jC-HZ7"/>
                                     <constraint firstItem="4bA-Ni-9wG" firstAttribute="leading" secondItem="YuI-7R-gxf" secondAttribute="trailing" constant="15" id="75e-td-vpn"/>
                                     <constraint firstItem="YuI-7R-gxf" firstAttribute="leading" secondItem="lb0-64-3n1" secondAttribute="trailing" constant="19" id="9Nd-yC-Sjf"/>
                                     <constraint firstItem="lb0-64-3n1" firstAttribute="centerY" secondItem="yxB-H5-U1y" secondAttribute="centerY" constant="-12.5" id="C8B-FJ-XqC"/>
+                                    <constraint firstItem="R7r-tZ-3fo" firstAttribute="top" secondItem="MDE-1X-ukc" secondAttribute="bottom" constant="7.5" id="DdY-fw-FzJ"/>
                                     <constraint firstItem="R7r-tZ-3fo" firstAttribute="top" secondItem="4bA-Ni-9wG" secondAttribute="bottom" constant="8" id="Erv-pn-9Ay"/>
                                     <constraint firstItem="Dw2-w3-KQA" firstAttribute="leading" secondItem="yxB-H5-U1y" secondAttribute="leading" constant="19" id="I14-u3-2Ox"/>
                                     <constraint firstItem="R7r-tZ-3fo" firstAttribute="leading" secondItem="Dw2-w3-KQA" secondAttribute="trailing" id="Lua-yc-Ysk"/>
                                     <constraint firstItem="R7r-tZ-3fo" firstAttribute="top" secondItem="YuI-7R-gxf" secondAttribute="bottom" constant="8" id="U1p-AR-uoI"/>
                                     <constraint firstAttribute="trailing" secondItem="4bA-Ni-9wG" secondAttribute="trailing" constant="27" id="dNR-AJ-kis"/>
+                                    <constraint firstAttribute="trailing" secondItem="MDE-1X-ukc" secondAttribute="trailing" constant="27" id="eBQ-8K-imA"/>
                                     <constraint firstItem="YuI-7R-gxf" firstAttribute="centerY" secondItem="yxB-H5-U1y" secondAttribute="centerY" constant="-12.5" id="h2w-Ep-6Zm"/>
                                     <constraint firstItem="Dw2-w3-KQA" firstAttribute="top" secondItem="lb0-64-3n1" secondAttribute="bottom" constant="4" id="hVp-wi-vxW"/>
                                     <constraint firstItem="lb0-64-3n1" firstAttribute="leading" secondItem="yxB-H5-U1y" secondAttribute="leading" constant="19" id="jJk-4m-2Dp"/>
+                                    <constraint firstItem="MDE-1X-ukc" firstAttribute="leading" secondItem="YuI-7R-gxf" secondAttribute="trailing" constant="15" id="kMA-FY-iar"/>
+                                    <constraint firstItem="4bA-Ni-9wG" firstAttribute="leading" secondItem="GnO-72-5Mu" secondAttribute="trailing" constant="15" id="pDu-Gj-FuQ"/>
                                     <constraint firstItem="R7r-tZ-3fo" firstAttribute="leading" secondItem="lb0-64-3n1" secondAttribute="trailing" id="qu5-Pe-Xkg"/>
                                     <constraint firstAttribute="bottom" secondItem="Dw2-w3-KQA" secondAttribute="bottom" constant="3" id="xI2-Eo-yYW"/>
+                                    <constraint firstItem="GnO-72-5Mu" firstAttribute="leading" secondItem="lb0-64-3n1" secondAttribute="trailing" constant="19" id="z5Y-vT-1vh"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -1622,7 +1648,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="433" y="1077"/>
+            <point key="canvasLocation" x="432.80000000000001" y="1076.311844077961"/>
         </scene>
         <!--Sign Up-->
         <scene sceneID="fq8-GV-3kn">
@@ -2089,9 +2115,9 @@
     <inferredMetricsTieBreakers>
         <segue reference="Btk-GA-aCT"/>
         <segue reference="2cI-vD-ORT"/>
-        <segue reference="yFx-Yl-Uxi"/>
-        <segue reference="Ryy-lF-lTa"/>
-        <segue reference="9kO-rH-0pS"/>
+        <segue reference="AfV-Mv-uGP"/>
+        <segue reference="Fd4-EV-uru"/>
+        <segue reference="3jh-Yi-s7S"/>
         <segue reference="49r-10-922"/>
         <segue reference="gjH-Bn-cMg"/>
     </inferredMetricsTieBreakers>

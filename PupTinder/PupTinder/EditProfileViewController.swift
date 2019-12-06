@@ -87,7 +87,7 @@ class EditProfileViewController: UIViewController,UICollectionViewDelegate, UICo
     
     func setProfileImageStyle(){
         self.profileImage.layer.cornerRadius = self.profileImage.frame.height/2
-        //self.profileImage.clipsToBounds = true
+        self.profileImage.clipsToBounds = true
         
         self.imageContainer.layer.cornerRadius = self.imageContainer.frame.height/2
         
@@ -105,6 +105,13 @@ class EditProfileViewController: UIViewController,UICollectionViewDelegate, UICo
         self.genderImage.clipsToBounds = true
         self.genderImage.layer.cornerRadius = self.genderImage.frame.height/2
     }
+    
+    @IBAction func genderButton(_ sender: Any) {
+    }
+    
+    @IBAction func sizeButton(_ sender: Any) {
+    }
+    
     
     @IBAction func editProfilePicture(_ sender: Any) {
         if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
