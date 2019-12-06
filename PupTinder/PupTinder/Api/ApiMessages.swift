@@ -25,6 +25,11 @@ extension Message {
     }
 }
 
+struct ConversationInfo {
+    var partnerProfile: Profile
+    var latestMessageText: String
+}
+
 /// To define how you'd like to update the View when you receive new messages, implement this protocol, and then set `Api.messages.delegate = self`.
 /// Also make sure to call `Api.messages.startGettingMessages()` to start listening for messages.
 protocol NewMessageChecker {
@@ -40,8 +45,9 @@ class Messages: ApiShared {
         Note: A user has "started a conversation with someone" if they have matched with that person and there is at least one message in their messages collection.
         - Parameter completion: If successful, completion's `error` argument will be `nil`, else it will contain a `Optional(String)` describing the error.
     */
-    func getConversationPartners(completion: @escaping ((_ conversationPartners: [Profile]?, _ error: String?) -> Void)) {
-        var profileArray:[Profile]?
+    func getConversationsInfo(completion: @escaping ((_ conversationsInfo: [ConversationInfo]?, _ error: String?) -> Void)) {
+        var conversationsInfoArray:[ConversationInfo]?
+        var globalError: String? = nil // Assume there's no error until we find one.
         let uid1 = getUID()
         
         db.collection("matches").whereField("members", arrayContains: uid1).getDocuments { querySnapshot, error in
@@ -58,23 +64,36 @@ class Messages: ApiShared {
                     matchDoc.reference.collection("messages").limit(to: 1).getDocuments { (querySnapshot, err) in
                         guard let querySnapshot = querySnapshot else {
                             dispatchGroup.leave()
-                            completion(nil, "querySnapshot for messages could not be unwrapped")
+                            globalError = "querySnapshot for messages could not be unwrapped"
                             return
                         }
                         // There exists an active conversation within this match at this point
                         if !querySnapshot.isEmpty {
-                            guard let membersArray = matchDoc.data()["members"] as? [String] else {return}
+                            guard let membersArray = matchDoc.data()["members"] as? [String] else {
+                                dispatchGroup.leave()
+                                globalError = "Couldn't convert members array from database to array of Strings"
+                                return
+                            }
                             let otherUid = (membersArray[0] == uid1) ? membersArray[1] : membersArray[0]
                             
                             Api.profiles.getProfileOf(uid: otherUid) { profile, error in
-                                if let error = error {
-                                    completion(nil, error)
-                                } else {
-                                    guard let profile = profile else { return }
-                                    if profileArray != nil {
-                                        profileArray?.append(profile)
+                                guard let profile = profile else {
+                                    dispatchGroup.leave()
+                                    globalError = error
+                                    return
+                                }
+                                
+                                self.getLatestMessage(with: otherUid) { text, error in
+                                    guard let text = text else {
+                                        dispatchGroup.leave()
+                                        globalError = error
+                                        return
+                                    }
+                                    let convInfo = ConversationInfo(partnerProfile: profile, latestMessageText: text)
+                                    if conversationsInfoArray != nil {
+                                        conversationsInfoArray?.append(convInfo)
                                     } else {
-                                        profileArray = [profile]
+                                        conversationsInfoArray = [convInfo]
                                     }
                                     dispatchGroup.leave()
                                 }
@@ -85,8 +104,42 @@ class Messages: ApiShared {
                     }
                 }
                 dispatchGroup.notify(queue: DispatchQueue.main, execute: {
-                    completion(profileArray, nil)
+                    completion(conversationsInfoArray, globalError)
                 })
+            }
+        }
+    }
+    
+    /** Gets latest message from conversation with another user.
+        - Parameter with: the uid of the user whose conversation we want to get the latest message from.
+        - Parameter completion: If successful, completion's `error` argument will be `nil`, else it will contain a `Optional(String)` describing the error.
+     */
+    func getLatestMessage(with otherUID: String, completion: @escaping ((_ text: String?, _ error: String?) -> Void)) {
+        
+        // Get the match document between the current user and otherUID
+        getMatchDoc(between: getUID(), and: otherUID) { matchDoc, error in
+            
+            // Make sure we successfully got the matchDoc.
+            guard let matchDoc = matchDoc else { completion(nil, error ?? ""); return }
+                        
+            // We've successfully got the match document, so now get the most recent message from the collection associated with the match.
+            matchDoc.reference.collection("messages").order(by: "timestamp", descending: true).limit(to: 1).getDocuments() { (querySnapshot, err) in
+                
+                guard let querySnapshot = querySnapshot else {
+                    guard let error = error else {return}
+                    completion(nil, "Error querying most recent message from \(otherUID): \(error)")
+                    return
+                }
+                
+                if querySnapshot.isEmpty {
+                    completion(nil, "No messages in conversation with \(otherUID)")
+                }
+                
+                // The query contains the most recent message, so return it!
+                for document in querySnapshot.documents {
+                    let recentMessageText = document.data()["text"] as? String ?? ""
+                    completion(recentMessageText, nil)
+                }
             }
         }
     }
@@ -100,7 +153,8 @@ class Messages: ApiShared {
         // Get the match document between the message sender and receiver
         getMatchDoc(between: getUID(), and: uidReceiver) { matchDoc, error in
             guard let matchDoc = matchDoc else {
-                completion(error!) // Will always unwrap due to our setup.
+                guard let error = error else {return}
+                completion(error)
                 return
             }
             matchDoc.reference.collection("messages").document().setData(
@@ -122,7 +176,8 @@ class Messages: ApiShared {
         // Get the match document between the current user and otherUID
         getMatchDoc(between: getUID(), and: otherUID) { matchDoc, error in
             guard let matchDoc = matchDoc else {
-                completion(error!) // Will always unwrap due to our setup.
+                guard let error = error else {return}
+                completion(error)
                 return
             }
                         
@@ -130,7 +185,8 @@ class Messages: ApiShared {
             self.messageListener = matchDoc.reference.collection("messages").order(by: "timestamp").addSnapshotListener { querySnapshot, error in
                                 
                 guard let querySnapshot = querySnapshot else {
-                    print("Error querying messages with \(otherUID): \(error!)") // Will always unwrap due to snapshotListener setup.
+                    guard let error = error else {return}
+                    print("Error querying messages with \(otherUID): \(error)")
                     return
                 }
 

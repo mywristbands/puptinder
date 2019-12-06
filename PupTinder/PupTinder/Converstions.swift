@@ -15,8 +15,7 @@ class Converstions: UIViewController, UICollectionViewDelegate, UICollectionView
     @IBOutlet weak var profilePopUp: UIView!
     
     var profilesArray: [Profile] = []
-    var conversationPartnersArray: [Profile] = []
-    var recentTextArray: [String] = ["Let's meet at 3 in Downtown Davis!", "I'd love to go on a play date", "See you soon :)"]
+    var conversationsInfoArray: [ConversationInfo] = []
     var uid = ""
     override func viewDidLoad() {
         loadingImage.isHidden = false
@@ -44,15 +43,15 @@ class Converstions: UIViewController, UICollectionViewDelegate, UICollectionView
         }
         
         dispatchGroup.enter()
-        Api.messages.getConversationPartners() { conversationPartners, error in
+        Api.messages.getConversationsInfo() { conversationsInfo, error in
             if let error = error {
-                print("getMatches failed: \(error)")
+                print("getConversationsInfo failed: \(error)")
             } else {
-                guard let conversationPartners = conversationPartners else {
+                guard let conversationsInfo = conversationsInfo else {
                     dispatchGroup.leave()
                     return
                 }
-                self.conversationPartnersArray = conversationPartners
+                self.conversationsInfoArray = conversationsInfo
             }
             dispatchGroup.leave()
         }
@@ -120,16 +119,16 @@ class Converstions: UIViewController, UICollectionViewDelegate, UICollectionView
     
     // Table View Protocol for Conversations
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return conversationPartnersArray.count
+        return conversationsInfoArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "conversationCell", for: indexPath as IndexPath) as! ConvoTableViewCell
         cell.selectionStyle = UITableViewCell.SelectionStyle.none
         cell.convoPic.contentMode = .scaleAspectFill
-        cell.convoNameLabel.text = self.conversationPartnersArray[indexPath.item].name
-        cell.convoPic.image = self.conversationPartnersArray[indexPath.item].picture
-        cell.convoMessageLabel.text = self.recentTextArray[indexPath.row]
+        cell.convoNameLabel.text = self.conversationsInfoArray[indexPath.item].partnerProfile.name
+        cell.convoPic.image = self.conversationsInfoArray[indexPath.item].partnerProfile.picture
+        cell.convoMessageLabel.text = self.conversationsInfoArray[indexPath.item].latestMessageText
         return cell
     }
     
@@ -137,7 +136,7 @@ class Converstions: UIViewController, UICollectionViewDelegate, UICollectionView
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let messageVC = storyboard.instantiateViewController(withIdentifier: "message") as! MessageView
         messageVC.modalPresentationStyle = .fullScreen
-        messageVC.conversationPartnerProfile = self.conversationPartnersArray[indexPath.item]
+        messageVC.conversationPartnerProfile = self.conversationsInfoArray[indexPath.item].partnerProfile
         self.present(messageVC, animated: false, completion: nil)
     }
 
