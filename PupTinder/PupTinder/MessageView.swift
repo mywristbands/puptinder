@@ -22,7 +22,7 @@ class MessageView: MessagesViewController, MessagesDataSource, MessagesLayoutDel
     var conversationPartnerProfile: Profile? = nil
     var myProfile: Profile? = nil
     var messages: [MessageKitMessage] = []
-     
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -67,6 +67,9 @@ class MessageView: MessagesViewController, MessagesDataSource, MessagesLayoutDel
     }
     
     func setUpHeader() {
+        self.messagesCollectionView.contentInset = UIEdgeInsets(top: 44, left: 0, bottom: 0, right: 0)
+        
+        
         let viewWidth = self.view.frame.size.width
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: viewWidth, height: 85))
         let backButton = UIButton(type: UIButton.ButtonType.system) as UIButton
