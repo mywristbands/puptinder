@@ -158,7 +158,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-tail" translatesAutoresizingMaskIntoConstraints="NO" id="Xgg-o6-1yJ">
-                                <rect key="frame" x="67.5" y="438" width="240" height="128"/>
+                                <rect key="frame" x="67.499999999999986" y="438" width="240.00000000000003" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="ar4-zH-l5m"/>
                                     <constraint firstAttribute="width" constant="240" id="u8X-bE-8MY"/>
@@ -712,6 +712,18 @@
                                     <constraint firstAttribute="height" constant="166" id="tnN-md-4Iq"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="neq-nL-6re">
+                                <rect key="frame" x="317" y="6" width="42" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="42" id="WC8-de-eKl"/>
+                                    <constraint firstAttribute="height" constant="42" id="avT-ms-c6n"/>
+                                </constraints>
+                                <state key="normal" image="icons8-communication-96"/>
+                                <connections>
+                                    <action selector="messagesButton:" destination="8f6-N4-xgo" eventType="touchUpInside" id="7hA-t9-RKe"/>
+                                    <action selector="messagesButton:" destination="m7b-ob-d02" eventType="touchUpInside" id="QoH-cD-j10"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -740,6 +752,8 @@
                             <constraint firstItem="YdU-OE-EEx" firstAttribute="leading" secondItem="15R-6I-lkm" secondAttribute="leading" constant="16" id="V9a-GQ-51V"/>
                             <constraint firstItem="0VL-wL-7ho" firstAttribute="top" secondItem="YdU-OE-EEx" secondAttribute="bottom" constant="40.5" id="Wtf-es-9qK"/>
                             <constraint firstItem="sha-W0-b1H" firstAttribute="leading" secondItem="15R-6I-lkm" secondAttribute="leading" constant="14" id="Yt8-fq-zKO"/>
+                            <constraint firstItem="neq-nL-6re" firstAttribute="top" secondItem="15R-6I-lkm" secondAttribute="top" constant="6" id="Z7r-zK-fhk"/>
+                            <constraint firstItem="15R-6I-lkm" firstAttribute="trailing" secondItem="neq-nL-6re" secondAttribute="trailing" constant="16" id="Zpf-kR-g6h"/>
                             <constraint firstItem="dyo-nV-iPE" firstAttribute="top" secondItem="15R-6I-lkm" secondAttribute="top" constant="10" id="aPk-H8-zdz"/>
                             <constraint firstItem="suw-mF-ksA" firstAttribute="leading" secondItem="15R-6I-lkm" secondAttribute="leading" constant="16" id="ez3-uf-Iqg"/>
                             <constraint firstItem="YdU-OE-EEx" firstAttribute="top" secondItem="MgB-2l-tc8" secondAttribute="bottom" id="j68-Yh-KQt"/>
@@ -767,6 +781,7 @@
                         <outlet property="genderImage" destination="QNu-a6-OLX" id="67x-9x-y2p"/>
                         <outlet property="imageContainer" destination="0VL-wL-7ho" id="LEw-WQ-v2u"/>
                         <outlet property="logoutButton" destination="Ua6-AS-n2m" id="QwC-CZ-AFz"/>
+                        <outlet property="messagesButton" destination="neq-nL-6re" id="NKy-I8-duu"/>
                         <outlet property="nameLabel" destination="MgB-2l-tc8" id="XWg-WM-Fj6"/>
                         <outlet property="personalityCV" destination="2vF-He-21z" id="luW-JR-VhM"/>
                         <outlet property="profileImage" destination="9PP-eY-vAg" id="8m2-h8-pzD"/>
@@ -1671,7 +1686,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-tail" translatesAutoresizingMaskIntoConstraints="NO" id="ODs-Ba-dIy">
-                                <rect key="frame" x="119.5" y="547" width="136" height="120"/>
+                                <rect key="frame" x="119.49999999999999" y="547" width="136.00000000000003" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ODs-Ba-dIy" secondAttribute="height" multiplier="17:15" id="84L-Ch-wp1"/>
                                     <constraint firstAttribute="height" constant="120" id="zqk-43-4dC"/>
