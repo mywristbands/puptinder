@@ -32,7 +32,7 @@ class CreateProfile4: UIViewController,UITableViewDataSource, UITableViewDelegat
         self.personalityTV.allowsMultipleSelection = true
         self.personalityTV.reloadData()
         
-        if fromEditProfile {
+        /*if fromEditProfile {
             createProfileButton.setTitle("Continue", for: .normal)
             backButton.isHidden = true
             for trait in self.pickedPTraits {
@@ -49,6 +49,11 @@ class CreateProfile4: UIViewController,UITableViewDataSource, UITableViewDelegat
                 }
                 //self.personalityTV.selectRow(at: <#T##IndexPath?#>, animated: true, scrollPosition: UITableView.ScrollPosition.middle)
             }
+        }*/
+        
+        if fromEditProfile {
+            createProfileButton.setTitle("Continue", for: .normal)
+            backButton.isHidden = true
         }
     }
     
@@ -65,14 +70,31 @@ class CreateProfile4: UIViewController,UITableViewDataSource, UITableViewDelegat
             }
         }
         
-        let profile1 = Profile(data: ["picture" : self.profImage, "name" : self.name, "gender" : self.gender, "breed" : self.breed, "size" : self.size, "bio" : self.bio, "traits" : self.pickedPTraits, "characteristics" : self.pickedCharacteristics])
-        
-        Api.profiles.uploadProfile(profile: profile1) {
-            error in
-            if error == nil {
-                self.performSegue(withIdentifier: "CP4ToUPSegue", sender: nil)
-            } else {
-                print(error ?? "ERROR")
+        if fromEditProfile {
+            Api.profiles.getProfile() { profile, error in
+                if error == nil {
+                    let profile1 = Profile(data: ["picture" : profile?.picture, "name" : profile?.name, "gender" : profile?.gender, "breed" : profile?.breed, "size" : profile?.size, "bio" : profile?.bio, "traits" : self.pickedPTraits, "characteristics" : profile?.characteristics])
+                    Api.profiles.uploadProfile(profile: profile1) { error in
+                        if error != nil {
+                            print(error ?? "ERROR")
+                            return
+                        } else {
+                            self.performSegue(withIdentifier: "PersonalityToEditSegue", sender: nil)
+                        }
+                    }
+                }
+            }
+            //self.performSegue(withIdentifier: "PersonalityToEditSegue", sender: nil)
+        } else {
+            let profile1 = Profile(data: ["picture" : self.profImage, "name" : self.name, "gender" : self.gender, "breed" : self.breed, "size" : self.size, "bio" : self.bio, "traits" : self.pickedPTraits, "characteristics" : self.pickedCharacteristics])
+            
+            Api.profiles.uploadProfile(profile: profile1) {
+                error in
+                if error == nil {
+                    self.performSegue(withIdentifier: "CP4ToUPSegue", sender: nil)
+                } else {
+                    print(error ?? "ERROR")
+                }
             }
         }
     }
@@ -130,6 +152,10 @@ class CreateProfile4: UIViewController,UITableViewDataSource, UITableViewDelegat
                 destinationVC.bio = self.bio
                 destinationVC.pickedCharacteristics = self.pickedCharacteristics
             }
-        }
+        } /*else if segue.identifier == "PersonalityToEditSegue" {
+            if let destinationVC = segue.destination as? EditProfileViewController {
+                destinationVC.profileTraits = self.pickedPTraits
+            }
+        }*/
     }
 }

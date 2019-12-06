@@ -28,6 +28,8 @@ class EditProfileViewController: UIViewController,UICollectionViewDelegate, UICo
     var size = ""
     var imagePicker = UIImagePickerController()
     var bio: String = ""
+    var fromEditingPT: Bool = false
+    var fromEditingCH: Bool = false
     
     let white = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1).cgColor
     let yellow = UIColor(red: 255.0/255.0, green: 213.0/255.0, blue: 72.0/255.0, alpha: 1)
@@ -65,10 +67,10 @@ class EditProfileViewController: UIViewController,UICollectionViewDelegate, UICo
                     self.genderImage.backgroundColor = self.yellow
                     self.sizeImage.backgroundColor = self.yellow
                 }
-                if self.profileCharacteristics == [] {
+                if self.profileCharacteristics == [] { //&& !self.fromEditingCH{
                     self.profileCharacteristics = profile?.characteristics ?? []
                 }
-                if self.profileTraits == [] {
+                if self.profileTraits == [] { //&& !self.fromEditingPT {
                     self.profileTraits = profile?.traits ?? []
                 }
             self.characteristicsCV.register(CustomCell1.self, forCellWithReuseIdentifier: "cell")
@@ -122,11 +124,6 @@ class EditProfileViewController: UIViewController,UICollectionViewDelegate, UICo
         let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
         
         self.profileImage.image = image
-    }
-    
-    
-    @IBAction func editDescriptionPressed(_ sender: Any) {
-        self.performSegue(withIdentifier: "EditToBioSegue", sender: nil)
     }
     
     @IBAction func editCharacteristicsPressed(_ sender: Any) {
@@ -332,19 +329,14 @@ class EditProfileViewController: UIViewController,UICollectionViewDelegate, UICo
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "EditToBioSegue" {
-            if let destinationVC = segue.destination as? CreateProfile2 {
-                destinationVC.bio = self.bioTextView.text
-                destinationVC.fromEditProfile = true
-            }
-        } else if segue.identifier == "EditToCharacteristicsSegue" {
+        if segue.identifier == "EditToCharacteristicsSegue" {
             if let destinationVC = segue.destination as? CreateProfile3 {
-                destinationVC.characteristics = self.profileCharacteristics
+                //destinationVC.characteristics = self.profileCharacteristics
                 destinationVC.fromEditProfile = true
             }
         } else if segue.identifier == "EditToPersonalitySegue" {
             if let destinationVC = segue.destination as? CreateProfile4 {
-                destinationVC.pickedPTraits = self.profileTraits
+                //destinationVC.pickedPTraits = self.profileTraits
                 destinationVC.fromEditProfile = true
             }
         }

@@ -240,7 +240,6 @@
                         <outlet property="bioContainerView" destination="V0p-i6-eZc" id="Hjm-jo-LEo"/>
                         <outlet property="bioTextView" destination="hC4-74-Ang" id="3J8-uG-Skd"/>
                         <outlet property="skipButton" destination="tV3-K7-bqu" id="xuf-Lm-GRk"/>
-                        <segue destination="ChL-Na-aXF" kind="presentation" identifier="BioToEditSegue" modalPresentationStyle="fullScreen" id="P86-9P-2aS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HPN-ph-Uxo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -399,7 +398,6 @@
                                 </state>
                                 <connections>
                                     <action selector="continueButtonPressed:" destination="AlW-r6-dJ3" eventType="touchUpInside" id="Tag-q0-TAC"/>
-                                    <segue destination="FmV-Ua-Ict" kind="presentation" identifier="CP3ToCP4Segue" modalPresentationStyle="fullScreen" id="iDd-Ip-oy5"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PrP-cL-3mZ">
@@ -434,7 +432,8 @@
                         <outlet property="backButton" destination="9c1-gu-kbS" id="EbZ-lS-tqd"/>
                         <outlet property="characteristicsTV" destination="PrP-cL-3mZ" id="Goa-Oc-5qU"/>
                         <outlet property="skipButton" destination="6mJ-1w-TTI" id="eKJ-Ok-N0r"/>
-                        <segue destination="ChL-Na-aXF" kind="presentation" identifier="CharacteristicsToEditSegue" modalPresentationStyle="fullScreen" id="9H3-45-vLl"/>
+                        <segue destination="ChL-Na-aXF" kind="presentation" identifier="CharacteristicsToEditSegue" modalPresentationStyle="fullScreen" id="2cI-vD-ORT"/>
+                        <segue destination="FmV-Ua-Ict" kind="presentation" identifier="CP3ToCP4Segue" modalPresentationStyle="fullScreen" id="9kO-rH-0pS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AHD-Vd-jFh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1388,19 +1387,6 @@
                                     <action selector="editCharacteristicsPressed:" destination="ChL-Na-aXF" eventType="touchUpInside" id="dg8-s9-FHS"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rQt-UU-YZf">
-                                <rect key="frame" x="321" y="318.5" width="30" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="9OE-pI-yUl"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                                <state key="normal" title="Edit">
-                                    <color key="titleColor" red="0.46741098170000001" green="0.45121735330000001" blue="0.95285743469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="editDescriptionPressed:" destination="ChL-Na-aXF" eventType="touchUpInside" id="ucz-tT-eRM"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="itk-eE-Y8W">
                                 <rect key="frame" x="321" y="7" width="40" height="40"/>
                                 <constraints>
@@ -1610,7 +1596,6 @@
                         <outlet property="personalityCV" destination="IE0-Oi-C2o" id="6oN-XP-nZE"/>
                         <outlet property="profileImage" destination="Xmr-vh-9nT" id="oqH-zx-svW"/>
                         <outlet property="sizeImage" destination="4bA-Ni-9wG" id="5Pf-Yn-sNl"/>
-                        <segue destination="E7U-Jf-76f" kind="presentation" identifier="EditToBioSegue" modalPresentationStyle="fullScreen" id="9Tg-wv-A1r"/>
                         <segue destination="AlW-r6-dJ3" kind="presentation" identifier="EditToCharacteristicsSegue" modalPresentationStyle="fullScreen" id="Fd4-EV-uru"/>
                         <segue destination="FmV-Ua-Ict" kind="presentation" identifier="EditToPersonalitySegue" modalPresentationStyle="fullScreen" id="3jh-Yi-s7S"/>
                     </connections>
@@ -2088,10 +2073,10 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Btk-GA-aCT"/>
-        <segue reference="tYM-PU-7Sj"/>
+        <segue reference="2cI-vD-ORT"/>
         <segue reference="yFx-Yl-Uxi"/>
-        <segue reference="iGg-WX-fob"/>
-        <segue reference="iDd-Ip-oy5"/>
+        <segue reference="Ryy-lF-lTa"/>
+        <segue reference="9kO-rH-0pS"/>
         <segue reference="49r-10-922"/>
         <segue reference="gjH-Bn-cMg"/>
     </inferredMetricsTieBreakers>

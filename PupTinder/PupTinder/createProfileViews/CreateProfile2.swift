@@ -22,25 +22,16 @@ class CreateProfile2: UIViewController, UITextViewDelegate {
     var size: String = ""
     var gender: String = ""
     var bio: String = ""
-    var fromEditProfile: Bool = false
     
     let swiftColor = UIColor(red: 256/256, green: 256/256, blue: 256/256, alpha: 1)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.bioTextView.delegate = self
-        
-        if fromEditProfile {
-            bioTextView.text = self.bio
-            skipButton.isHidden = true
-            backButton.isHidden = true
-        }
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if !fromEditProfile {
-            textView.text = ""
-        }
+        textView.text = ""
     }
     
     @IBAction func dismissKeyboard(_ sender: Any) {
@@ -49,12 +40,8 @@ class CreateProfile2: UIViewController, UITextViewDelegate {
     
     @IBAction func continueButtonPressed(_ sender: Any) {
         self.bio = self.bioTextView.text
-        print(fromEditProfile)
-        print("\n\n\n")
-        if shouldPerformSegue(withIdentifier: "CP2ToCP3Segue", sender: nil) && !fromEditProfile{
+        if shouldPerformSegue(withIdentifier: "CP2ToCP3Segue", sender: nil) {
             self.performSegue(withIdentifier: "CP2ToCP3Segue", sender: nil)
-        } else {
-            self.performSegue(withIdentifier: "BioToEditSegue", sender: nil)
         }
     }
     
@@ -99,10 +86,6 @@ class CreateProfile2: UIViewController, UITextViewDelegate {
                 destinationVC.breed = self.breed
                 destinationVC.size = self.size
                 destinationVC.gender = self.gender
-            }
-        } else if segue.identifier == "BioToEditSegue" && fromEditProfile {
-            if let destinationVC = segue.destination as? EditProfileViewController {
-                destinationVC.bio = self.bio
             }
         }
     }
