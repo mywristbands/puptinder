@@ -17,6 +17,10 @@ class Converstions: UIViewController, UICollectionViewDelegate, UICollectionView
     var profilesArray: [Profile] = []
     var conversationsInfoArray: [ConversationInfo] = []
     var uid = ""
+    override func viewDidAppear(_ animated: Bool) {
+        profilePopUp.isHidden = true
+        self.loadData()
+    }
     override func viewDidLoad() {
         loadingImage.isHidden = false
         loadingImage.loadGif(name: "sending")
@@ -26,41 +30,7 @@ class Converstions: UIViewController, UICollectionViewDelegate, UICollectionView
         self.matchesCollection.dataSource = self
         self.conversationsTV.delegate = self
         self.conversationsTV.dataSource = self
-        
-        let dispatchGroup = DispatchGroup()
-        dispatchGroup.enter()
-        Api.matches.getMatches() { profiles, error in
-            if let error = error {
-                print("getMatches failed: \(error)")
-            } else {
-                guard let profiles = profiles else {
-                    dispatchGroup.leave()
-                    return
-                }
-                self.profilesArray = profiles
-            }
-            dispatchGroup.leave()
-        }
-        
-        dispatchGroup.enter()
-        Api.messages.getConversationsInfo() { conversationsInfo, error in
-            if let error = error {
-                print("getConversationsInfo failed: \(error)")
-            } else {
-                guard let conversationsInfo = conversationsInfo else {
-                    dispatchGroup.leave()
-                    return
-                }
-                self.conversationsInfoArray = conversationsInfo
-            }
-            dispatchGroup.leave()
-        }
-        dispatchGroup.notify(queue: DispatchQueue.main, execute: {
-            self.matchesCollection.reloadData()
-            self.conversationsTV.reloadData()
-            self.loadingImage.isHidden = true
-        })
-        
+        self.loadData()
         
     }
     @IBAction func homeButtonPressed(_ sender: Any) {
@@ -81,6 +51,22 @@ class Converstions: UIViewController, UICollectionViewDelegate, UICollectionView
     }
     
     @IBAction func startTalkingButton(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let messageVC = storyboard.instantiateViewController(withIdentifier: "message") as! MessageView
+        messageVC.modalPresentationStyle = .fullScreen
+        let dispatchGroup = DispatchGroup()
+        dispatchGroup.enter()
+        Api.profiles.getProfileOf(uid: self.uid) { profile, error in
+            guard let profile = profile else {
+                dispatchGroup.leave()
+                return
+            }
+            messageVC.conversationPartnerProfile = profile
+            dispatchGroup.leave()
+        }
+        dispatchGroup.notify(queue: DispatchQueue.main, execute: {
+            self.present(messageVC, animated: false, completion: nil)
+        })
     }
     
     
@@ -139,6 +125,42 @@ class Converstions: UIViewController, UICollectionViewDelegate, UICollectionView
         messageVC.modalPresentationStyle = .fullScreen
         messageVC.conversationPartnerProfile = self.conversationsInfoArray[indexPath.item].partnerProfile
         self.present(messageVC, animated: false, completion: nil)
+    }
+    
+    func loadData() {
+        let dispatchGroup = DispatchGroup()
+        dispatchGroup.enter()
+        Api.matches.getMatches() { profiles, error in
+            if let error = error {
+                print("getMatches failed: \(error)")
+            } else {
+                guard let profiles = profiles else {
+                    dispatchGroup.leave()
+                    return
+                }
+                self.profilesArray = profiles
+            }
+            dispatchGroup.leave()
+        }
+        
+        dispatchGroup.enter()
+        Api.messages.getConversationsInfo() { conversationsInfo, error in
+            if let error = error {
+                print("getConversationsInfo failed: \(error)")
+            } else {
+                guard let conversationsInfo = conversationsInfo else {
+                    dispatchGroup.leave()
+                    return
+                }
+                self.conversationsInfoArray = conversationsInfo
+            }
+            dispatchGroup.leave()
+        }
+        dispatchGroup.notify(queue: DispatchQueue.main, execute: {
+            self.matchesCollection.reloadData()
+            self.conversationsTV.reloadData()
+            self.loadingImage.isHidden = true
+        })
     }
 
 }
