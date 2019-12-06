@@ -13,6 +13,8 @@ class CreateProfile2: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var bioTextView: UITextView!
     @IBOutlet weak var bioContainerView: UIView!
+    @IBOutlet weak var skipButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
     
     var profImage: UIImage = UIImage()
     var name: String = ""
@@ -38,7 +40,7 @@ class CreateProfile2: UIViewController, UITextViewDelegate {
     
     @IBAction func continueButtonPressed(_ sender: Any) {
         self.bio = self.bioTextView.text
-        if(shouldPerformSegue(withIdentifier: "CP2ToCP3Segue", sender: nil)) {
+        if shouldPerformSegue(withIdentifier: "CP2ToCP3Segue", sender: nil) {
             self.performSegue(withIdentifier: "CP2ToCP3Segue", sender: nil)
         }
     }

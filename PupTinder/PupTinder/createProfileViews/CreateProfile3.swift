@@ -11,8 +11,10 @@ import UIKit
 class CreateProfile3: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
      @IBOutlet weak var characteristicsTV: UITableView!
+    @IBOutlet weak var skipButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
     
-    var characteristics:[String] = ["Hypoallergenic", "Sheds a lot", "Kid friendly", "Drool potential", "Barks a lot", "Pudgy", "Hairless", "Fluffy", "Tiny", "Tall"]
+    var characteristics: [String] = ["Hypoallergenic", "Sheds a lot", "Kid friendly", "Drool potential", "Barks a lot", "Pudgy", "Hairless", "Fluffy", "Tiny", "Tall"]
     var profImage: UIImage = UIImage()
     var name: String = ""
     var breed: String = ""
@@ -20,6 +22,7 @@ class CreateProfile3: UIViewController, UITableViewDataSource, UITableViewDelega
     var gender: String = ""
     var bio: String = ""
     var pickedCharacteristics: [String] = []
+    var fromEditProfile = false
 
     override func viewDidLoad() {
         self.characteristicsTV.dataSource = self
@@ -27,6 +30,13 @@ class CreateProfile3: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
         self.characteristicsTV.reloadData()
         self.characteristicsTV.allowsMultipleSelection = true
+        print("in load")
+        print(self.characteristics)
+        
+        if fromEditProfile {
+            self.skipButton.isHidden = true
+            self.backButton.isHidden = true
+        }
     }
     
     @IBAction func continueButtonPressed(_ sender: Any) {
@@ -40,8 +50,41 @@ class CreateProfile3: UIViewController, UITableViewDataSource, UITableViewDelega
                     pickedCharacteristics.append(characteristics[indexPath.row])
                 }
                 
-                self.performSegue(withIdentifier: "CP3ToCP4Segue", sender: nil)
+                if fromEditProfile {
+                    Api.profiles.getProfile() { profile, error in
+                        if error == nil {
+                            let profile1 = Profile(data: ["picture" : profile?.picture, "name" : profile?.name, "gender" : profile?.gender, "breed" : profile?.breed, "size" : profile?.size, "bio" : profile?.bio, "traits" : profile?.traits, "characteristics" : self.pickedCharacteristics])
+                            Api.profiles.uploadProfile(profile: profile1) { error in
+                                if error != nil {
+                                    print(error ?? "ERROR")
+                                    return
+                                } else {
+                                    self.performSegue(withIdentifier: "CharacteristicsToEditSegue", sender: nil)
+                                }
+                            }
+                        }
+                    }
+                    //self.performSegue(withIdentifier: "CharacteristicsToEditSegue", sender: nil)
+                } else {
+                    self.performSegue(withIdentifier: "CP3ToCP4Segue", sender: nil)
+                }
             }
+        }
+        if fromEditProfile {
+            Api.profiles.getProfile() { profile, error in
+                if error == nil {
+                    let profile1 = Profile(data: ["picture" : profile?.picture, "name" : profile?.name, "gender" : profile?.gender, "breed" : profile?.breed, "size" : profile?.size, "bio" : profile?.bio, "traits" : profile?.traits, "characteristics" : self.pickedCharacteristics])
+                    Api.profiles.uploadProfile(profile: profile1) { error in
+                        if error != nil {
+                            print(error ?? "ERROR")
+                            return
+                        } else {
+                            self.performSegue(withIdentifier: "CharacteristicsToEditSegue", sender: nil)
+                        }
+                    }
+                }
+            }
+            //self.performSegue(withIdentifier: "CharacteristicsToEditSegue", sender: nil)
         }
     }
     
@@ -54,7 +97,7 @@ class CreateProfile3: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return characteristics.count
+        return self.characteristics.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -121,7 +164,12 @@ class CreateProfile3: UIViewController, UITableViewDataSource, UITableViewDelega
                 destinationVC.gender = self.gender
                 destinationVC.bio = self.bio
             }
-        }
+        } /*else if segue.identifier == "CharacteristicsToEditSegue" {
+            if let destinationVC = segue.destination as? EditProfileViewController { //if the destination is what we want
+                //destinationVC.profileCharacteristics = self.pickedCharacteristics
+                //print(self.pickedCharacteristics)
+            }
+        }*/
     }
 
 }

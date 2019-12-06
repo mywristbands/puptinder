@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -65,7 +65,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find playdates for your pups!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="35H-YP-kAn">
                                 <rect key="frame" x="40.5" y="147.5" width="294" height="30"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="25"/>
-                                <color key="textColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" systemColor="systemBlueColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -236,8 +236,10 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="dIl-f2-wkX" id="u9f-zY-o0M"/>
                         <outlet property="bioContainerView" destination="V0p-i6-eZc" id="Hjm-jo-LEo"/>
                         <outlet property="bioTextView" destination="hC4-74-Ang" id="3J8-uG-Skd"/>
+                        <outlet property="skipButton" destination="tV3-K7-bqu" id="xuf-Lm-GRk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HPN-ph-Uxo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -327,8 +329,11 @@
                         <viewLayoutGuide key="safeArea" id="ach-QY-HBj"/>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="Y0Z-rb-uR6" id="EMm-jX-5iy"/>
+                        <outlet property="createProfileButton" destination="2Jd-FU-I3I" id="SNa-nL-p9m"/>
                         <outlet property="personalityTV" destination="YsZ-I2-aIX" id="vSL-ke-yFu"/>
                         <segue destination="8f6-N4-xgo" kind="presentation" identifier="CP4ToUPSegue" modalPresentationStyle="fullScreen" id="yFx-Yl-Uxi"/>
+                        <segue destination="ChL-Na-aXF" kind="presentation" identifier="PersonalityToEditSegue" modalPresentationStyle="fullScreen" id="tYM-PU-7Sj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zri-fb-cfd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -393,7 +398,6 @@
                                 </state>
                                 <connections>
                                     <action selector="continueButtonPressed:" destination="AlW-r6-dJ3" eventType="touchUpInside" id="Tag-q0-TAC"/>
-                                    <segue destination="FmV-Ua-Ict" kind="presentation" identifier="CP3ToCP4Segue" modalPresentationStyle="fullScreen" id="iDd-Ip-oy5"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PrP-cL-3mZ">
@@ -425,7 +429,11 @@
                         <viewLayoutGuide key="safeArea" id="c99-8R-DwT"/>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="9c1-gu-kbS" id="EbZ-lS-tqd"/>
                         <outlet property="characteristicsTV" destination="PrP-cL-3mZ" id="Goa-Oc-5qU"/>
+                        <outlet property="skipButton" destination="6mJ-1w-TTI" id="eKJ-Ok-N0r"/>
+                        <segue destination="ChL-Na-aXF" kind="presentation" identifier="CharacteristicsToEditSegue" modalPresentationStyle="fullScreen" id="2cI-vD-ORT"/>
+                        <segue destination="FmV-Ua-Ict" kind="presentation" identifier="CP3ToCP4Segue" modalPresentationStyle="fullScreen" id="9kO-rH-0pS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AHD-Vd-jFh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1194,7 +1202,7 @@
                     <view key="view" contentMode="scaleToFill" id="YRK-D7-aFb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="Gcw-Ls-rWv"/>
                     </view>
                 </viewController>
@@ -1368,7 +1376,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Gn-6X-fm8">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Gn-6X-fm8">
                                 <rect key="frame" x="321" y="557" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="fSb-VM-oxp"/>
@@ -1377,8 +1385,11 @@
                                 <state key="normal" title="Edit">
                                     <color key="titleColor" red="0.46741098170000001" green="0.45121735330000001" blue="0.95285743469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="editPersonalityPressed:" destination="ChL-Na-aXF" eventType="touchUpInside" id="ZTz-mL-jHJ"/>
+                                </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vSF-Lb-sCu">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vSF-Lb-sCu">
                                 <rect key="frame" x="321" y="437" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="GUG-BY-Cpd"/>
@@ -1387,16 +1398,9 @@
                                 <state key="normal" title="Edit">
                                     <color key="titleColor" red="0.46741098170000001" green="0.45121735330000001" blue="0.95285743469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
-                            </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rQt-UU-YZf">
-                                <rect key="frame" x="321" y="318.5" width="30" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="9OE-pI-yUl"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                                <state key="normal" title="Edit">
-                                    <color key="titleColor" red="0.46741098170000001" green="0.45121735330000001" blue="0.95285743469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
+                                <connections>
+                                    <action selector="editCharacteristicsPressed:" destination="ChL-Na-aXF" eventType="touchUpInside" id="dg8-s9-FHS"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="itk-eE-Y8W">
                                 <rect key="frame" x="321" y="7" width="40" height="40"/>
@@ -1459,7 +1463,7 @@
                             <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="yxB-H5-U1y">
                                 <rect key="frame" x="16" y="61" width="335" height="160"/>
                                 <subviews>
-                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap the gender or size icon to change" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R7r-tZ-3fo">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap the gender or size icon to change" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R7r-tZ-3fo">
                                         <rect key="frame" x="154" y="105.5" width="174" height="38"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="174" id="Np8-ms-y9Z"/>
@@ -1507,7 +1511,7 @@
                                             <constraint firstAttribute="bottom" secondItem="Xmr-vh-9nT" secondAttribute="bottom" constant="5" id="ILA-eX-84d"/>
                                         </constraints>
                                     </view>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dw2-w3-KQA">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dw2-w3-KQA">
                                         <rect key="frame" x="19" y="139" width="135" height="18"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="18" id="8De-2j-kTa"/>
@@ -1516,6 +1520,9 @@
                                         <state key="normal" title="Edit">
                                             <color key="titleColor" red="0.47628957030000002" green="0.43033057450000001" blue="0.95299142599999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
+                                        <connections>
+                                            <action selector="editProfilePicture:" destination="ChL-Na-aXF" eventType="touchUpInside" id="1Aa-l2-oLT"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -1599,10 +1606,13 @@
                         <outlet property="editPersonalityButton" destination="3Gn-6X-fm8" id="tZe-mj-Djc"/>
                         <outlet property="editPhotoButton" destination="Dw2-w3-KQA" id="S2S-iD-ct0"/>
                         <outlet property="genderImage" destination="YuI-7R-gxf" id="he8-lM-DvZ"/>
+                        <outlet property="imageContainer" destination="lb0-64-3n1" id="qni-kp-TnW"/>
                         <outlet property="nameTextField" destination="M1v-bH-qOM" id="cD9-Ao-odf"/>
                         <outlet property="personalityCV" destination="IE0-Oi-C2o" id="6oN-XP-nZE"/>
                         <outlet property="profileImage" destination="Xmr-vh-9nT" id="oqH-zx-svW"/>
                         <outlet property="sizeImage" destination="4bA-Ni-9wG" id="5Pf-Yn-sNl"/>
+                        <segue destination="AlW-r6-dJ3" kind="presentation" identifier="EditToCharacteristicsSegue" modalPresentationStyle="fullScreen" id="Fd4-EV-uru"/>
+                        <segue destination="FmV-Ua-Ict" kind="presentation" identifier="EditToPersonalitySegue" modalPresentationStyle="fullScreen" id="3jh-Yi-s7S"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l0D-GT-VCL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1916,7 +1926,7 @@
                                     <constraint firstAttribute="height" constant="20.5" id="w7e-8R-Wmf"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" systemColor="systemPinkColor" red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BCg-pH-10K">
@@ -2078,10 +2088,11 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Btk-GA-aCT"/>
-        <segue reference="fJ7-g4-f6I"/>
-        <segue reference="IZX-wX-kBE"/>
-        <segue reference="YLX-GS-Xx9"/>
-        <segue reference="s5c-px-00h"/>
+        <segue reference="2cI-vD-ORT"/>
+        <segue reference="yFx-Yl-Uxi"/>
+        <segue reference="Ryy-lF-lTa"/>
+        <segue reference="9kO-rH-0pS"/>
+        <segue reference="49r-10-922"/>
         <segue reference="gjH-Bn-cMg"/>
     </inferredMetricsTieBreakers>
 </document>

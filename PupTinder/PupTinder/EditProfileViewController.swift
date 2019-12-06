@@ -8,7 +8,8 @@
 
 import UIKit
 
-class EditProfileViewController: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class EditProfileViewController: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    @IBOutlet weak var imageContainer: UIView!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var breedTextField: UITextField!
@@ -25,6 +26,10 @@ class EditProfileViewController: UIViewController,UICollectionViewDelegate, UICo
     var profileTraits: [String] = []
     var gender = ""
     var size = ""
+    var imagePicker = UIImagePickerController()
+    var bio: String = ""
+    var fromEditingPT: Bool = false
+    var fromEditingCH: Bool = false
     
     let white = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1).cgColor
     let yellow = UIColor(red: 255.0/255.0, green: 213.0/255.0, blue: 72.0/255.0, alpha: 1)
@@ -37,13 +42,19 @@ class EditProfileViewController: UIViewController,UICollectionViewDelegate, UICo
         self.characteristicsCV.dataSource = self
         self.personalityCV.delegate = self
         self.personalityCV.dataSource = self
+        
+        setProfileImageStyle()
 
         Api.profiles.getProfile() { profile, error in
             if error == nil {
                 self.profileImage.image = profile?.picture
                 self.nameTextField.text = profile?.name
                 self.breedTextField.text = profile?.breed
-                self.bioTextView.text = profile?.bio
+                if self.bio == "" {
+                    self.bioTextView.text = profile?.bio
+                } else {
+                    self.bioTextView.text = self.bio
+                }
                 self.sizeImage.image = self.getSizeImage(size: profile?.size ?? "", gender: profile?.gender ?? "")
                 self.size = profile?.size ?? "medium"
                 self.genderImage.image = self.getGenderImage(gender: profile?.gender ?? "")
@@ -56,9 +67,13 @@ class EditProfileViewController: UIViewController,UICollectionViewDelegate, UICo
                     self.genderImage.backgroundColor = self.yellow
                     self.sizeImage.backgroundColor = self.yellow
                 }
-                self.profileCharacteristics = profile?.characteristics ?? []
-                self.profileTraits = profile?.traits ?? []
-                self.characteristicsCV.register(CustomCell1.self, forCellWithReuseIdentifier: "cell")
+                if self.profileCharacteristics == [] { //&& !self.fromEditingCH{
+                    self.profileCharacteristics = profile?.characteristics ?? []
+                }
+                if self.profileTraits == [] { //&& !self.fromEditingPT {
+                    self.profileTraits = profile?.traits ?? []
+                }
+            self.characteristicsCV.register(CustomCell1.self, forCellWithReuseIdentifier: "cell")
             
                 self.personalityCV.register(CustomCell1.self, forCellWithReuseIdentifier: "cell1")
 
@@ -70,8 +85,57 @@ class EditProfileViewController: UIViewController,UICollectionViewDelegate, UICo
         }
     }
     
+    func setProfileImageStyle(){
+        self.profileImage.layer.cornerRadius = self.profileImage.frame.height/2
+        //self.profileImage.clipsToBounds = true
+        
+        self.imageContainer.layer.cornerRadius = self.imageContainer.frame.height/2
+        
+        self.imageContainer.layer.shadowPath =
+              UIBezierPath(roundedRect: self.imageContainer.bounds,
+              cornerRadius: self.imageContainer.layer.cornerRadius).cgPath
+        self.imageContainer.layer.shadowColor = UIColor.black.cgColor
+        self.imageContainer.layer.shadowOffset = CGSize(width: 2, height: 2)
+        self.imageContainer.layer.shadowRadius = 5
+        self.imageContainer.clipsToBounds = false
+        self.imageContainer.layer.shadowOpacity = 0.3
+        
+        self.sizeImage.clipsToBounds = true
+        self.sizeImage.layer.cornerRadius = self.sizeImage.frame.height/2
+        self.genderImage.clipsToBounds = true
+        self.genderImage.layer.cornerRadius = self.genderImage.frame.height/2
+    }
+    
+    @IBAction func editProfilePicture(_ sender: Any) {
+        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
+
+            imagePicker.delegate = self
+            imagePicker.sourceType = .photoLibrary
+            imagePicker.allowsEditing = false
+
+            present(imagePicker, animated: true, completion: nil)
+        }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true, completion: nil)
+
+        let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        
+        self.profileImage.image = image
+    }
+    
+    @IBAction func editCharacteristicsPressed(_ sender: Any) {
+        self.performSegue(withIdentifier: "EditToCharacteristicsSegue", sender: nil)
+    }
+    
+    @IBAction func editPersonalityPressed(_ sender: Any) {
+        self.performSegue(withIdentifier: "EditToPersonalitySegue", sender: nil)
+    }
+    
     @IBAction func savebutton(_ sender: Any) {
-        print("before the Profile call")
+        //print("before the Profile call")
         let profile1 = Profile(data: ["picture" : self.profileImage.image, "name" : self.nameTextField.text, "gender" : self.gender, "breed" : self.breedTextField.text, "size" : self.size, "bio" : self.bioTextView.text, "traits" : self.profileTraits, "characteristics" : self.profileCharacteristics])
         
         Api.profiles.uploadProfile(profile: profile1) { error in
@@ -262,6 +326,20 @@ class EditProfileViewController: UIViewController,UICollectionViewDelegate, UICo
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 70.0, height: 70.0)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "EditToCharacteristicsSegue" {
+            if let destinationVC = segue.destination as? CreateProfile3 {
+                //destinationVC.characteristics = self.profileCharacteristics
+                destinationVC.fromEditProfile = true
+            }
+        } else if segue.identifier == "EditToPersonalitySegue" {
+            if let destinationVC = segue.destination as? CreateProfile4 {
+                //destinationVC.pickedPTraits = self.profileTraits
+                destinationVC.fromEditProfile = true
+            }
+        }
     }
 }
 
