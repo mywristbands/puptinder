@@ -261,12 +261,6 @@
                                 <rect key="frame" x="30" y="146" width="260" height="291"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select personality traits" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L1x-ec-JOE">
-                                <rect key="frame" x="88" y="103" width="145.5" height="23"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <color key="textColor" red="0.49776917700000001" green="0.43509161470000002" blue="0.98790532350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PupTinder" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tfR-S6-lu9">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                                 <color key="backgroundColor" red="0.46741098170000001" green="0.45121735330000001" blue="0.95285743469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -302,20 +296,26 @@
                                     <action selector="createProfileButtonPressed:" destination="FmV-Ua-Ict" eventType="touchUpInside" id="J8g-P6-Nfi"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select personality traits" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="L1x-ec-JOE">
+                                <rect key="frame" x="6" y="103" width="307" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" red="0.49776917700000001" green="0.43509161470000002" blue="0.98790532350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="ach-QY-HBj" firstAttribute="trailing" secondItem="YsZ-I2-aIX" secondAttribute="trailing" constant="30" id="63u-uT-By6"/>
                             <constraint firstItem="tfR-S6-lu9" firstAttribute="trailing" secondItem="ach-QY-HBj" secondAttribute="trailing" id="9i4-XH-LlP"/>
                             <constraint firstItem="L1x-ec-JOE" firstAttribute="top" secondItem="tfR-S6-lu9" secondAttribute="bottom" constant="53" id="ATh-g7-wJu"/>
-                            <constraint firstItem="L1x-ec-JOE" firstAttribute="leading" secondItem="ach-QY-HBj" secondAttribute="leading" constant="88" id="Ar7-sN-5Ql"/>
+                            <constraint firstItem="L1x-ec-JOE" firstAttribute="leading" secondItem="ach-QY-HBj" secondAttribute="leading" constant="6" id="Ar7-sN-5Ql"/>
                             <constraint firstItem="tfR-S6-lu9" firstAttribute="leading" secondItem="ach-QY-HBj" secondAttribute="leading" id="CyY-h3-5Po"/>
                             <constraint firstItem="YsZ-I2-aIX" firstAttribute="top" secondItem="L1x-ec-JOE" secondAttribute="bottom" constant="20" id="HSw-GA-nX1"/>
                             <constraint firstItem="tfR-S6-lu9" firstAttribute="trailing" secondItem="ach-QY-HBj" secondAttribute="trailing" id="HoW-xQ-vJ6"/>
                             <constraint firstItem="2Jd-FU-I3I" firstAttribute="leading" secondItem="jCg-W4-V4l" secondAttribute="leading" constant="30" id="QZA-BU-1ua"/>
                             <constraint firstItem="tfR-S6-lu9" firstAttribute="top" secondItem="ach-QY-HBj" secondAttribute="top" id="T3w-UK-IAj"/>
                             <constraint firstItem="Y0Z-rb-uR6" firstAttribute="top" secondItem="ach-QY-HBj" secondAttribute="top" constant="8" id="W76-4X-axL"/>
-                            <constraint firstItem="ach-QY-HBj" firstAttribute="trailing" secondItem="L1x-ec-JOE" secondAttribute="trailing" constant="86.5" id="ama-19-oRT"/>
+                            <constraint firstItem="ach-QY-HBj" firstAttribute="trailing" secondItem="L1x-ec-JOE" secondAttribute="trailing" constant="7" id="ama-19-oRT"/>
                             <constraint firstItem="YsZ-I2-aIX" firstAttribute="leading" secondItem="ach-QY-HBj" secondAttribute="leading" constant="30" id="i1E-jg-j1z"/>
                             <constraint firstItem="2Jd-FU-I3I" firstAttribute="top" secondItem="YsZ-I2-aIX" secondAttribute="bottom" constant="30" id="iuu-rG-XEm"/>
                             <constraint firstItem="tfR-S6-lu9" firstAttribute="leading" secondItem="ach-QY-HBj" secondAttribute="leading" id="wig-Rd-1TB"/>
@@ -336,7 +336,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zri-fb-cfd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3540" y="310"/>
+            <point key="canvasLocation" x="3540" y="309.50704225352115"/>
         </scene>
         <!--Create Profile3-->
         <scene sceneID="kE1-tv-hYC">
@@ -346,12 +346,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pick your dog's characteristics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZnJ-ye-qJW">
-                                <rect key="frame" x="57" y="101" width="205.5" height="23"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <color key="textColor" red="0.49776917700000001" green="0.43509161470000002" blue="0.98790532350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PupTinder" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l9N-lw-PbF">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                                 <color key="backgroundColor" red="0.99527865650000003" green="0.84270948170000004" blue="0.3096210063" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -402,6 +396,12 @@
                                 <rect key="frame" x="30" y="146" width="260" height="291"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pick your dog's characteristics" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="ZnJ-ye-qJW">
+                                <rect key="frame" x="7" y="101" width="306" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" red="0.49776917700000001" green="0.43509161470000002" blue="0.98790532350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -421,8 +421,8 @@
                             <constraint firstItem="PrP-cL-3mZ" firstAttribute="top" secondItem="ZnJ-ye-qJW" secondAttribute="bottom" constant="22" id="seQ-E8-R28"/>
                             <constraint firstItem="PrP-cL-3mZ" firstAttribute="top" secondItem="ZnJ-ye-qJW" secondAttribute="bottom" constant="22" id="tyF-fk-mbw"/>
                             <constraint firstItem="9c1-gu-kbS" firstAttribute="leading" secondItem="c99-8R-DwT" secondAttribute="leading" constant="6" id="v26-VP-V8o"/>
-                            <constraint firstItem="c99-8R-DwT" firstAttribute="trailing" secondItem="ZnJ-ye-qJW" secondAttribute="trailing" constant="57.5" id="vZ8-TL-HGW"/>
-                            <constraint firstItem="ZnJ-ye-qJW" firstAttribute="leading" secondItem="c99-8R-DwT" secondAttribute="leading" constant="57" id="xjj-ss-ONV"/>
+                            <constraint firstItem="c99-8R-DwT" firstAttribute="trailing" secondItem="ZnJ-ye-qJW" secondAttribute="trailing" constant="7" id="vZ8-TL-HGW"/>
+                            <constraint firstItem="ZnJ-ye-qJW" firstAttribute="leading" secondItem="c99-8R-DwT" secondAttribute="leading" constant="7" id="xjj-ss-ONV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="c99-8R-DwT"/>
                     </view>
@@ -436,7 +436,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AHD-Vd-jFh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2770" y="310"/>
+            <point key="canvasLocation" x="2769.375" y="309.50704225352115"/>
         </scene>
         <!--User Profile-->
         <scene sceneID="ra4-XF-FyX">
@@ -2124,11 +2124,11 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Btk-GA-aCT"/>
-        <segue reference="dus-7s-e3E"/>
-        <segue reference="AfV-Mv-uGP"/>
-        <segue reference="Ryy-lF-lTa"/>
-        <segue reference="3jh-Yi-s7S"/>
-        <segue reference="s5c-px-00h"/>
+        <segue reference="2cI-vD-ORT"/>
+        <segue reference="yFx-Yl-Uxi"/>
+        <segue reference="iGg-WX-fob"/>
+        <segue reference="9kO-rH-0pS"/>
+        <segue reference="49r-10-922"/>
         <segue reference="SY8-1J-e89"/>
     </inferredMetricsTieBreakers>
 </document>
