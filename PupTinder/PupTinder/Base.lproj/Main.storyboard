@@ -453,20 +453,20 @@
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lH0-oE-NO1">
-                                <rect key="frame" x="12" y="118" width="296" height="134.5"/>
+                                <rect key="frame" x="12" y="118" width="296" height="135"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="malePurpleProfile" translatesAutoresizingMaskIntoConstraints="NO" id="QNu-a6-OLX">
-                                        <rect key="frame" x="235.5" y="46.5" width="41.5" height="41.5"/>
+                                        <rect key="frame" x="235.5" y="46.5" width="41.5" height="42"/>
                                         <color key="backgroundColor" red="1" green="0.84820681649999996" blue="0.31337543940000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="QNu-a6-OLX" secondAttribute="height" multiplier="1:1" id="COW-u7-pDw"/>
                                         </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0VL-wL-7ho">
-                                        <rect key="frame" x="84.5" y="8" width="127" height="126.5"/>
+                                        <rect key="frame" x="84.5" y="8" width="127" height="127"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading-doggo-flat" translatesAutoresizingMaskIntoConstraints="NO" id="9PP-eY-vAg">
-                                                <rect key="frame" x="5" y="5" width="117" height="116.5"/>
+                                                <rect key="frame" x="5" y="5" width="117" height="117"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="9PP-eY-vAg" secondAttribute="height" multiplier="1:1" id="Y5d-pn-B2N"/>
                                                 </constraints>
@@ -481,7 +481,7 @@
                                         </constraints>
                                     </view>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sPurpleProfile" translatesAutoresizingMaskIntoConstraints="NO" id="KiL-19-bLu">
-                                        <rect key="frame" x="22" y="48" width="38.5" height="38.5"/>
+                                        <rect key="frame" x="22" y="48" width="38.5" height="39"/>
                                         <color key="backgroundColor" red="1" green="0.84820681649999996" blue="0.31337543940000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="KiL-19-bLu" secondAttribute="height" multiplier="1:1" id="tbo-kQ-9ns"/>
@@ -500,7 +500,7 @@
                                 </constraints>
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="suw-mF-ksA">
-                                <rect key="frame" x="16" y="276.5" width="288" height="83.5"/>
+                                <rect key="frame" x="16" y="277" width="288" height="78"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <string key="text">Mr. Woofer is a very fun-loving and energetic dog. He is looking for someone who can match his energy level and would want to be best friends for the rest of his dog years! </string>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -508,7 +508,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="About Mr. Woofer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5AU-JW-92b">
-                                <rect key="frame" x="16" y="254.5" width="156" height="24"/>
+                                <rect key="frame" x="16" y="255" width="156" height="24"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -541,7 +541,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Personality Traits" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nNd-KR-LQe">
-                                <rect key="frame" x="16" y="462" width="153.5" height="24"/>
+                                <rect key="frame" x="16" y="461" width="153.5" height="24"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -676,13 +676,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Characteristics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gyf-0Z-lrZ">
-                                <rect key="frame" x="16" y="365" width="136" height="24"/>
+                                <rect key="frame" x="16" y="360" width="136" height="24"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="06O-O8-9ZM">
-                                <rect key="frame" x="23" y="385" width="273" height="74"/>
+                                <rect key="frame" x="23" y="384" width="273" height="74"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="74" id="By5-zl-K8H"/>
@@ -753,11 +753,11 @@
                             <constraint firstItem="nNd-KR-LQe" firstAttribute="leading" secondItem="15R-6I-lkm" secondAttribute="leading" constant="16" id="H15-nS-bpN"/>
                             <constraint firstItem="5AU-JW-92b" firstAttribute="top" secondItem="lH0-oE-NO1" secondAttribute="bottom" constant="2" id="IqV-lQ-vfJ"/>
                             <constraint firstItem="Tq5-Kp-yar" firstAttribute="top" secondItem="15R-6I-lkm" secondAttribute="top" id="JPz-wq-QLZ"/>
-                            <constraint firstItem="2vF-He-21z" firstAttribute="top" secondItem="nNd-KR-LQe" secondAttribute="bottom" constant="-1" id="KNf-gt-wCG"/>
+                            <constraint firstItem="2vF-He-21z" firstAttribute="top" secondItem="nNd-KR-LQe" secondAttribute="bottom" id="KNf-gt-wCG"/>
                             <constraint firstItem="15R-6I-lkm" firstAttribute="trailing" secondItem="06O-O8-9ZM" secondAttribute="trailing" constant="24" id="O5B-HI-mLF"/>
                             <constraint firstItem="15R-6I-lkm" firstAttribute="trailing" secondItem="2vF-He-21z" secondAttribute="trailing" constant="24" id="Rhy-Dm-DmH"/>
                             <constraint firstItem="Gyf-0Z-lrZ" firstAttribute="leading" secondItem="15R-6I-lkm" secondAttribute="leading" constant="16" id="RiG-rE-wfz"/>
-                            <constraint firstItem="06O-O8-9ZM" firstAttribute="top" secondItem="Gyf-0Z-lrZ" secondAttribute="bottom" constant="-4" id="Svz-8n-QRO"/>
+                            <constraint firstItem="06O-O8-9ZM" firstAttribute="top" secondItem="Gyf-0Z-lrZ" secondAttribute="bottom" id="Svz-8n-QRO"/>
                             <constraint firstItem="Gyf-0Z-lrZ" firstAttribute="leading" secondItem="15R-6I-lkm" secondAttribute="leading" constant="16" id="TEp-LI-HlC"/>
                             <constraint firstItem="5AU-JW-92b" firstAttribute="leading" secondItem="15R-6I-lkm" secondAttribute="leading" constant="16" id="Tbq-1p-4hn"/>
                             <constraint firstItem="06O-O8-9ZM" firstAttribute="leading" secondItem="15R-6I-lkm" secondAttribute="leading" constant="23" id="Un0-aC-gFu"/>
@@ -1246,10 +1246,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="HDq-Se-Giz">
-                                <rect key="frame" x="16" y="288.5" width="288" height="75.5"/>
+                                <rect key="frame" x="16" y="288.5" width="288" height="65"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="HDq-Se-Giz" secondAttribute="height" multiplier="343:90" id="u3I-84-E81"/>
+                                    <constraint firstAttribute="width" secondItem="HDq-Se-Giz" secondAttribute="height" multiplier="400:90" id="u3I-84-E81"/>
                                 </constraints>
                                 <string key="text">Mr. Woofer is a very fun-loving and energetic dog. He is looking for someone who can match his energy level and would want to be best friends for the rest of his dog years! </string>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1315,7 +1315,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="IE0-Oi-C2o">
-                                <rect key="frame" x="23" y="483" width="273" height="70"/>
+                                <rect key="frame" x="23" y="482.5" width="273" height="70"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="jcO-5x-fBe"/>
@@ -1370,7 +1370,7 @@
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Personality Traits" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="QC8-xd-nsp">
-                                <rect key="frame" x="23" y="459" width="153.5" height="30"/>
+                                <rect key="frame" x="23" y="455.5" width="153.5" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="cJu-5c-66J"/>
                                 </constraints>
@@ -1379,7 +1379,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Gn-6X-fm8">
-                                <rect key="frame" x="266" y="459" width="30" height="30"/>
+                                <rect key="frame" x="266" y="455.5" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="fSb-VM-oxp"/>
                                 </constraints>
@@ -1392,7 +1392,7 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nMQ-zY-YsY">
-                                <rect key="frame" x="23" y="386" width="273" height="71"/>
+                                <rect key="frame" x="23" y="382.5" width="273" height="71"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="71" id="UAa-CE-NhS"/>
@@ -1447,7 +1447,7 @@
                                 </cells>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vSF-Lb-sCu">
-                                <rect key="frame" x="266" y="364" width="30" height="30"/>
+                                <rect key="frame" x="266" y="360.5" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="GUG-BY-Cpd"/>
                                 </constraints>
@@ -1460,7 +1460,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Characteristics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="XCs-pX-681">
-                                <rect key="frame" x="23" y="364" width="136" height="30"/>
+                                <rect key="frame" x="23" y="355.5" width="136" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Iai-77-lOY"/>
                                 </constraints>
@@ -1572,15 +1572,15 @@
                             <constraint firstItem="Fbr-oV-p4T" firstAttribute="bottom" secondItem="IE0-Oi-C2o" secondAttribute="bottom" constant="9" id="LV4-Ii-76e"/>
                             <constraint firstItem="M1v-bH-qOM" firstAttribute="top" secondItem="yxB-H5-U1y" secondAttribute="bottom" constant="8" id="PBa-Bm-noV"/>
                             <constraint firstItem="U7Y-fC-ZMb" firstAttribute="top" secondItem="Zj3-oE-iiI" secondAttribute="bottom" constant="13.5" id="PLP-GY-wDv"/>
-                            <constraint firstItem="nMQ-zY-YsY" firstAttribute="top" secondItem="XCs-pX-681" secondAttribute="bottom" constant="-8" id="Qrl-3Z-Bdm"/>
+                            <constraint firstItem="nMQ-zY-YsY" firstAttribute="top" secondItem="XCs-pX-681" secondAttribute="bottom" constant="-3" id="Qrl-3Z-Bdm"/>
                             <constraint firstItem="U7Y-fC-ZMb" firstAttribute="top" secondItem="u5L-qY-6H1" secondAttribute="bottom" constant="19.5" id="RWe-WW-Nmf"/>
                             <constraint firstItem="Fbr-oV-p4T" firstAttribute="trailing" secondItem="HDq-Se-Giz" secondAttribute="trailing" constant="16" id="WD7-J0-YdE"/>
                             <constraint firstItem="u5L-qY-6H1" firstAttribute="top" secondItem="Mxd-zL-ZoS" secondAttribute="bottom" constant="20" id="WVI-bI-TXw"/>
-                            <constraint firstItem="IE0-Oi-C2o" firstAttribute="top" secondItem="QC8-xd-nsp" secondAttribute="bottom" constant="-6" id="X6P-jR-MnC"/>
+                            <constraint firstItem="IE0-Oi-C2o" firstAttribute="top" secondItem="QC8-xd-nsp" secondAttribute="bottom" constant="-3" id="X6P-jR-MnC"/>
                             <constraint firstItem="XCs-pX-681" firstAttribute="leading" secondItem="Fbr-oV-p4T" secondAttribute="leading" constant="23" id="Zqa-B2-Qvx"/>
                             <constraint firstItem="Fbr-oV-p4T" firstAttribute="trailing" secondItem="M1v-bH-qOM" secondAttribute="trailing" constant="24" id="ait-aC-KkM"/>
                             <constraint firstItem="U7Y-fC-ZMb" firstAttribute="leading" secondItem="Fbr-oV-p4T" secondAttribute="leading" constant="23" id="b7i-27-LFo"/>
-                            <constraint firstItem="XCs-pX-681" firstAttribute="top" secondItem="HDq-Se-Giz" secondAttribute="bottom" id="d76-Io-6fr"/>
+                            <constraint firstItem="XCs-pX-681" firstAttribute="top" secondItem="HDq-Se-Giz" secondAttribute="bottom" constant="2" id="d76-Io-6fr"/>
                             <constraint firstItem="itk-eE-Y8W" firstAttribute="top" secondItem="Fbr-oV-p4T" secondAttribute="top" constant="7" id="dhc-mL-7XQ"/>
                             <constraint firstItem="Fbr-oV-p4T" firstAttribute="trailing" secondItem="IE0-Oi-C2o" secondAttribute="trailing" constant="24" id="eBg-zb-0py"/>
                             <constraint firstItem="Mxd-zL-ZoS" firstAttribute="top" secondItem="yxB-H5-U1y" secondAttribute="bottom" constant="13" id="eLK-x1-fUk"/>
@@ -1597,7 +1597,7 @@
                             <constraint firstItem="Fbr-oV-p4T" firstAttribute="trailing" secondItem="yxB-H5-U1y" secondAttribute="trailing" constant="24" id="rBc-gR-uIA"/>
                             <constraint firstItem="Fbr-oV-p4T" firstAttribute="trailing" secondItem="nMQ-zY-YsY" secondAttribute="trailing" constant="24" id="rlR-WH-o0l"/>
                             <constraint firstItem="HP4-r5-zkW" firstAttribute="top" secondItem="Fbr-oV-p4T" secondAttribute="top" id="t9D-7h-vMn"/>
-                            <constraint firstItem="IE0-Oi-C2o" firstAttribute="top" secondItem="3Gn-6X-fm8" secondAttribute="bottom" constant="-6" id="uhR-sa-ajs"/>
+                            <constraint firstItem="IE0-Oi-C2o" firstAttribute="top" secondItem="3Gn-6X-fm8" secondAttribute="bottom" constant="-3" id="uhR-sa-ajs"/>
                             <constraint firstItem="Fbr-oV-p4T" firstAttribute="trailing" secondItem="3Gn-6X-fm8" secondAttribute="trailing" constant="24" id="v4d-YT-z3k"/>
                             <constraint firstItem="HP4-r5-zkW" firstAttribute="trailing" secondItem="Fbr-oV-p4T" secondAttribute="trailing" id="vPj-sB-vhE"/>
                             <constraint firstItem="HDq-Se-Giz" firstAttribute="top" secondItem="U7Y-fC-ZMb" secondAttribute="bottom" constant="-2" id="w03-z1-QtP"/>
@@ -1634,7 +1634,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="432.80000000000001" y="1076.311844077961"/>
+            <point key="canvasLocation" x="431.25" y="1075.3521126760563"/>
         </scene>
         <!--Sign Up-->
         <scene sceneID="fq8-GV-3kn">
@@ -2108,7 +2108,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="Btk-GA-aCT"/>
         <segue reference="dus-7s-e3E"/>
-        <segue reference="fJ7-g4-f6I"/>
+        <segue reference="AfV-Mv-uGP"/>
         <segue reference="Fd4-EV-uru"/>
         <segue reference="3jh-Yi-s7S"/>
         <segue reference="49r-10-922"/>
