@@ -67,7 +67,7 @@ class MessageView: MessagesViewController, MessagesDataSource, MessagesLayoutDel
     }
     
     func setUpHeader() {
-        self.messagesCollectionView.contentInset = UIEdgeInsets(top: 44, left: 0, bottom: 0, right: 0)
+        self.messagesCollectionView.contentInset = UIEdgeInsets(top: 70, left: 0, bottom: 0, right: 0)
         
         
         let viewWidth = self.view.frame.size.width
