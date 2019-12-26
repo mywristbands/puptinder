@@ -19,8 +19,8 @@ class EditProfileViewController: UIViewController,UICollectionViewDelegate, UICo
     @IBOutlet weak var editPersonalityButton: UIButton!
     @IBOutlet weak var characteristicsCV: UICollectionView!
     @IBOutlet weak var personalityCV: UICollectionView!
-    @IBOutlet weak var sizeImage: UIImageView!
-    @IBOutlet weak var genderImage: UIImageView!
+    @IBOutlet weak var genderButton: UIButton!
+    @IBOutlet weak var sizeButton: UIButton!
     
     var profileCharacteristics: [String] = []
     var profileTraits: [String] = []
@@ -55,17 +55,17 @@ class EditProfileViewController: UIViewController,UICollectionViewDelegate, UICo
                 } else {
                     self.bioTextView.text = self.bio
                 }
-                self.sizeImage.image = self.getSizeImage(size: profile?.size ?? "", gender: profile?.gender ?? "")
+                self.sizeButton.setBackgroundImage(self.getSizeImage(size: profile?.size ?? "", gender: profile?.gender ?? ""), for: UIControl.State.normal)
                 self.size = profile?.size ?? "medium"
-                self.genderImage.image = self.getGenderImage(gender: profile?.gender ?? "")
+                self.genderButton.setBackgroundImage(self.getGenderImage(gender: profile?.gender ?? ""), for: UIControl.State.normal)
                 if profile?.gender == "female" {
                     self.gender = "female"
-                    self.genderImage.backgroundColor = self.purple
-                    self.sizeImage.backgroundColor = self.purple
+                    self.genderButton.backgroundColor = self.purple
+                    self.sizeButton.backgroundColor = self.purple
                 } else {
                     self.gender = "male"
-                    self.genderImage.backgroundColor = self.yellow
-                    self.sizeImage.backgroundColor = self.yellow
+                    self.genderButton.backgroundColor = self.yellow
+                    self.sizeButton.backgroundColor = self.yellow
                 }
                 if self.profileCharacteristics == [] { //&& !self.fromEditingCH{
                     self.profileCharacteristics = profile?.characteristics ?? []
@@ -100,32 +100,32 @@ class EditProfileViewController: UIViewController,UICollectionViewDelegate, UICo
         self.imageContainer.clipsToBounds = false
         self.imageContainer.layer.shadowOpacity = 0.3
         
-        self.sizeImage.clipsToBounds = true
-        self.sizeImage.layer.cornerRadius = self.sizeImage.frame.height/2
-        self.genderImage.clipsToBounds = true
-        self.genderImage.layer.cornerRadius = self.genderImage.frame.height/2
+        self.sizeButton.clipsToBounds = true
+        self.sizeButton.layer.cornerRadius = self.sizeButton.frame.height/2
+        self.genderButton.clipsToBounds = true
+        self.genderButton.layer.cornerRadius = self.genderButton.frame.height/2
     }
     
-    @IBAction func genderButton(_ sender: Any) {
+    @IBAction func pressedGenderButton() {
         if(gender == "female"){
             gender = "male"
-            genderImage.image = UIImage(named: "malePurpleProfile") ?? UIImage()
+            self.genderButton.setBackgroundImage(UIImage(named: "malePurpleProfile") ?? UIImage(), for: UIControl.State.normal)
         } else {
             gender = "female"
-            genderImage.image = UIImage(named: "femalePurpleProfile") ?? UIImage()
+            genderButton.setBackgroundImage(UIImage(named: "femalePurpleProfile") ?? UIImage(), for: UIControl.State.normal)
         }
     }
     
-    @IBAction func sizeButton(_ sender: Any) {
+    @IBAction func pressedSizeButton() {
         if(size == "small"){
             size = "medium"
-            sizeImage.image = UIImage(named: "mPurpleProfile") ?? UIImage()
+            self.sizeButton.setBackgroundImage(UIImage(named: "mPurpleProfile") ?? UIImage(), for: UIControl.State.normal)
         } else if (size == "medium") {
             size = "large"
-            sizeImage.image = UIImage(named: "lPurpleProfile") ?? UIImage()
+            self.sizeButton.setBackgroundImage(UIImage(named: "lPurpleProfile") ?? UIImage(), for: UIControl.State.normal)
         } else { //large
             size = "small"
-            sizeImage.image = UIImage(named: "sPurpleProfile") ?? UIImage()
+            self.sizeButton.setBackgroundImage(UIImage(named: "sPurpleProfile") ?? UIImage(), for: UIControl.State.normal)
         }
     }
     
