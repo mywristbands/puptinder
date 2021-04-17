@@ -1,5 +1,5 @@
 # PupTinder
-This iOS app helps dog owners find “playdates” for their dogs. It operates in a similar way to Tinder, where you make a profile and then work your way through a list of other users' pictures, accepting or rejecting them based on their picture and profile (except in this case, the picture and profile are for the dog!). If someone who you accept also accepts you back, they will show up in your list of matches. Then you will have the option to start a conversation with them via in-app messaging, and plan a time and place to meet up!
+This iOS app helps dog owners find “playdates” for their dogs. It operates in a similar way to Tinder, where you make a profile and then work your way through a list of other users, accepting or rejecting them based on their picture and profile (except in this case, the picture and profile are for the dog!). If a dog who you accept also accepts you back, they will show up in your list of matches. Then you will have the option to start a conversation with them via in-app messaging, and plan a time and place to meet up!
 
 The rest of this README contains word-for-word what we submitted for the original assignment.
 
